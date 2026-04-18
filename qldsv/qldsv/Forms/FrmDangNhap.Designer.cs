@@ -33,10 +33,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnDangnhap = new Guna.UI2.WinForms.Guna2Button();
-            this.btnTailai = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
+            //this.btnDangnhap = new Guna.UI2.WinForms.Guna2Button();
+            //this.btnTailai = new Guna.UI2.WinForms.Guna2Button();
+            //this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            //this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.SuspendLayout();
             // 
             // panel1
