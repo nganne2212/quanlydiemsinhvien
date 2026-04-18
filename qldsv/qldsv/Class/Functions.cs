@@ -1,23 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
+using Dapper;
 
 namespace qldsv.Class
 {
     class Functions
     {
         public static SqlConnection Conn;
-        public static string connString;
+        public static string connString = ConfigurationManager
+            .ConnectionStrings["DefaultConnection"].ConnectionString;
 
         public static void Connect()
         {
-            connString = "Data Source=.\\SQLEXPRESS;Initial Catalog=qldiemsv;Integrated Security=True";
-            Conn = new SqlConnection();
-            Conn.ConnectionString = connString;
+            Conn = new SqlConnection(connString);
             Conn.Open();
+            MessageBox.Show("tc","thong bao",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
         public static void Disconnect()
