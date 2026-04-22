@@ -70,10 +70,10 @@
   <ItemGroup>
     <Compile Include="Class\CurentUser.cs" />
     <Compile Include="Class\Functions.cs" />
-    <Compile Include="Forms\Form1.cs">
+    <Compile Include="Forms\Admin\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form1.Designer.cs">
+    <Compile Include="Forms\Admin\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmDangNhap.cs">
@@ -82,9 +82,21 @@
     <Compile Include="Forms\FrmDangNhap.Designer.cs">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Giangvien\FrmDanhSachLHP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Giangvien\FrmDanhSachLHP.Designer.cs">
+      <DependentUpon>FrmDanhSachLHP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sinhvien\FrmKQhoctap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sinhvien\FrmKQhoctap.Designer.cs">
+      <DependentUpon>FrmKQhoctap.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Form1.resx">
+    <EmbeddedResource Include="Forms\Admin\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmDangNhap.resx">
@@ -113,7 +125,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Image\" />
+    <Folder Include="Model\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Database\taobangqldsv.sql" />
   </ItemGroup>
