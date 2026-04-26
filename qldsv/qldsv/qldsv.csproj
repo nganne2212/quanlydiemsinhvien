@@ -70,11 +70,11 @@
   <ItemGroup>
     <Compile Include="Class\CurentUser.cs" />
     <Compile Include="Class\Functions.cs" />
-    <Compile Include="Forms\Admin\Form1.cs">
+    <Compile Include="Forms\Admin\FrmMainAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Admin\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\Admin\FrmMainAdmin.Designer.cs">
+      <DependentUpon>FrmMainAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmDangNhap.cs">
       <SubType>Form</SubType>
@@ -88,34 +88,48 @@
     <Compile Include="Forms\Giangvien\FrmDanhSachLHP.Designer.cs">
       <DependentUpon>FrmDanhSachLHP.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Giangvien\FrmMainGiangVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Giangvien\FrmMainGiangVien.Designer.cs">
+      <DependentUpon>FrmMainGiangVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Sinhvien\FrmKQhoctap.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Sinhvien\FrmKQhoctap.Designer.cs">
       <DependentUpon>FrmKQhoctap.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Sinhvien\FrmMainSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sinhvien\FrmMainSinhVien.Designer.cs">
+      <DependentUpon>FrmMainSinhVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Admin\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Utils\SecurityHelper.cs" />
+    <EmbeddedResource Include="Forms\Admin\FrmMainAdmin.resx">
+      <DependentUpon>FrmMainAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmDangNhap.resx">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -126,11 +140,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Image\" />
     <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\taobangqldsv.sql" />
+    <None Include="Resources\matdong.png" />
+    <None Include="Resources\matmo.png" />
+    <None Include="Resources\conowldep.png" />
+    <None Include="Resources\lockicon.png" />
+    <None Include="Resources\usericon.png" />
+    <None Include="Resources\anhdangnhap.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

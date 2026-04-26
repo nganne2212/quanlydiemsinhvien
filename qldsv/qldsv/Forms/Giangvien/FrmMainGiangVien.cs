@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace qldsv.Forms
+namespace qldsv.Forms.Giangvien
 {
-    public partial class Form1 : Form
+    public partial class FrmMainGiangVien : Form
     {
-        public Form1()
+        public FrmMainGiangVien()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            Class.Functions.Connect();
         }
     }
 }
