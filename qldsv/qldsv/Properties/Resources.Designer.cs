@@ -73,16 +73,6 @@ namespace qldsv.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap conowldep {
-            get {
-                object obj = ResourceManager.GetObject("conowldep", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap lockicon {
             get {
                 object obj = ResourceManager.GetObject("lockicon", resourceCulture);
