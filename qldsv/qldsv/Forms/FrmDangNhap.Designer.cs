@@ -28,9 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDangNhap));
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.paneline = new System.Windows.Forms.Panel();
+            this.picmainDN = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panellogin = new System.Windows.Forms.Panel();
+            this.btnDangNhap = new Guna.UI2.WinForms.Guna2Button();
+            this.txtmatkhau = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtdangnhap = new Guna.UI2.WinForms.Guna2TextBox();
+            this.picowl = new System.Windows.Forms.PictureBox();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picmainDN)).BeginInit();
+            this.panellogin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picowl)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -158,6 +169,7 @@
             this.picowl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picowl.TabIndex = 0;
             this.picowl.TabStop = false;
+<<<<<<< Updated upstream
 //            this.picowl.Click += new System.EventHandler(this.picowl_Click);
             // 
             // textBox2
@@ -166,15 +178,18 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 26);
             this.textBox2.TabIndex = 2;
+=======
+            //            this.picowl.Click += new System.EventHandler(this.picowl_Click);
+>>>>>>> Stashed changes
             // 
             // FrmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.guna2Button1);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1284, 702);
+            this.Controls.Add(this.panellogin);
+            this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -194,8 +209,15 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox picmainDN;
+        private System.Windows.Forms.Panel panellogin;
+        private System.Windows.Forms.PictureBox picowl;
+        private System.Windows.Forms.Panel paneline;
+        private Guna.UI2.WinForms.Guna2TextBox txtdangnhap;
+        private Guna.UI2.WinForms.Guna2TextBox txtmatkhau;
+        private Guna.UI2.WinForms.Guna2Button btnDangNhap;
     }
 }
+
