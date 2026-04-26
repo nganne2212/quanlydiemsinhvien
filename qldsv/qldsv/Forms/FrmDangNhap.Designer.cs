@@ -158,6 +158,7 @@
             this.picowl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picowl.TabIndex = 0;
             this.picowl.TabStop = false;
+//            this.picowl.Click += new System.EventHandler(this.picowl_Click);
             // 
             // textBox2
             // 
