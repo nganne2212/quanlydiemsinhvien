@@ -169,18 +169,7 @@
             this.picowl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picowl.TabIndex = 0;
             this.picowl.TabStop = false;
-<<<<<<< Updated upstream
-//            this.picowl.Click += new System.EventHandler(this.picowl_Click);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(227, 261);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 26);
-            this.textBox2.TabIndex = 2;
-=======
             //            this.picowl.Click += new System.EventHandler(this.picowl_Click);
->>>>>>> Stashed changes
             // 
             // FrmDangNhap
             // 
@@ -220,4 +209,5 @@
         private Guna.UI2.WinForms.Guna2Button btnDangNhap;
     }
 }
+
 
