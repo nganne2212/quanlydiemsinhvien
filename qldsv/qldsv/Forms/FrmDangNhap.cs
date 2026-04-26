@@ -24,11 +24,9 @@ namespace qldsv.Forms
 
         private void FrmDangNhap_Load(object sender, EventArgs e)
         {
-
             picmainDN.Image = Properties.Resources.anhdangnhap;
             picmainDN.SizeMode = PictureBoxSizeMode.Zoom;
-            picowl.Image = Properties.Resources.conowldep;
-            picowl.SizeMode = PictureBoxSizeMode.Zoom;
+            picowl.Image = Properties.Resources.convat;
             txtdangnhap.IconLeft = Properties.Resources.usericon;
             txtmatkhau.IconLeft = Properties.Resources.lockicon;
             BoGoc(panellogin, 30);

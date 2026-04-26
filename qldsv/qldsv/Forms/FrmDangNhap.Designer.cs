@@ -31,17 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDangNhap));
             this.panel1 = new System.Windows.Forms.Panel();
             this.paneline = new System.Windows.Forms.Panel();
-            this.picmainDN = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panellogin = new System.Windows.Forms.Panel();
             this.btnDangNhap = new Guna.UI2.WinForms.Guna2Button();
-            this.txtmatkhau = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtdangnhap = new Guna.UI2.WinForms.Guna2TextBox();
             this.picowl = new System.Windows.Forms.PictureBox();
+            this.txtmatkhau = new Guna.UI2.WinForms.Guna2TextBox();
+            this.picmainDN = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picmainDN)).BeginInit();
             this.panellogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picowl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picmainDN)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -64,15 +64,6 @@
             this.paneline.Size = new System.Drawing.Size(120, 6);
             this.paneline.TabIndex = 2;
             // 
-            // picmainDN
-            // 
-            this.picmainDN.Location = new System.Drawing.Point(16, 166);
-            this.picmainDN.Name = "picmainDN";
-            this.picmainDN.Size = new System.Drawing.Size(850, 500);
-            this.picmainDN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picmainDN.TabIndex = 1;
-            this.picmainDN.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -88,10 +79,10 @@
             // 
             this.panellogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panellogin.BackColor = System.Drawing.Color.AliceBlue;
+            this.panellogin.Controls.Add(this.picowl);
             this.panellogin.Controls.Add(this.btnDangNhap);
             this.panellogin.Controls.Add(this.txtmatkhau);
             this.panellogin.Controls.Add(this.txtdangnhap);
-            this.panellogin.Controls.Add(this.picowl);
             this.panellogin.Location = new System.Drawing.Point(885, 17);
             this.panellogin.Name = "panellogin";
             this.panellogin.Size = new System.Drawing.Size(375, 663);
@@ -113,6 +104,37 @@
             this.btnDangNhap.TabIndex = 3;
             this.btnDangNhap.Text = "Đăng nhập";
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
+            // 
+            // txtdangnhap
+            // 
+            this.txtdangnhap.BackColor = System.Drawing.Color.White;
+            this.txtdangnhap.BorderRadius = 12;
+            this.txtdangnhap.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtdangnhap.DefaultText = "";
+            this.txtdangnhap.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtdangnhap.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtdangnhap.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtdangnhap.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtdangnhap.FocusedState.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.txtdangnhap.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdangnhap.HoverState.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.txtdangnhap.Location = new System.Drawing.Point(24, 189);
+            this.txtdangnhap.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txtdangnhap.Name = "txtdangnhap";
+            this.txtdangnhap.PlaceholderText = "Tên đăng nhập";
+            this.txtdangnhap.SelectedText = "";
+            this.txtdangnhap.Size = new System.Drawing.Size(330, 69);
+            this.txtdangnhap.TabIndex = 1;
+            // 
+            // picowl
+            // 
+            this.picowl.Image = global::qldsv.Properties.Resources.convat;
+            this.picowl.Location = new System.Drawing.Point(54, 3);
+            this.picowl.Name = "picowl";
+            this.picowl.Size = new System.Drawing.Size(270, 177);
+            this.picowl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picowl.TabIndex = 4;
+            this.picowl.TabStop = false;
             // 
             // txtmatkhau
             // 
@@ -140,36 +162,14 @@
             this.txtmatkhau.UseSystemPasswordChar = true;
             this.txtmatkhau.IconRightClick += new System.EventHandler(this.txtmatkhau_IconRightClick);
             // 
-            // txtdangnhap
+            // picmainDN
             // 
-            this.txtdangnhap.BackColor = System.Drawing.Color.White;
-            this.txtdangnhap.BorderRadius = 12;
-            this.txtdangnhap.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtdangnhap.DefaultText = "";
-            this.txtdangnhap.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtdangnhap.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtdangnhap.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtdangnhap.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtdangnhap.FocusedState.BorderColor = System.Drawing.Color.RoyalBlue;
-            this.txtdangnhap.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdangnhap.HoverState.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.txtdangnhap.Location = new System.Drawing.Point(24, 189);
-            this.txtdangnhap.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.txtdangnhap.Name = "txtdangnhap";
-            this.txtdangnhap.PlaceholderText = "Tên đăng nhập";
-            this.txtdangnhap.SelectedText = "";
-            this.txtdangnhap.Size = new System.Drawing.Size(330, 69);
-            this.txtdangnhap.TabIndex = 1;
-            // 
-            // picowl
-            // 
-            this.picowl.Location = new System.Drawing.Point(142, 34);
-            this.picowl.Name = "picowl";
-            this.picowl.Size = new System.Drawing.Size(100, 100);
-            this.picowl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picowl.TabIndex = 0;
-            this.picowl.TabStop = false;
-            //            this.picowl.Click += new System.EventHandler(this.picowl_Click);
+            this.picmainDN.Location = new System.Drawing.Point(16, 166);
+            this.picmainDN.Name = "picmainDN";
+            this.picmainDN.Size = new System.Drawing.Size(850, 500);
+            this.picmainDN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picmainDN.TabIndex = 1;
+            this.picmainDN.TabStop = false;
             // 
             // FrmDangNhap
             // 
@@ -189,9 +189,9 @@
             this.Load += new System.EventHandler(this.FrmDangNhap_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picmainDN)).EndInit();
             this.panellogin.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picowl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picmainDN)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -202,11 +202,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox picmainDN;
         private System.Windows.Forms.Panel panellogin;
-        private System.Windows.Forms.PictureBox picowl;
         private System.Windows.Forms.Panel paneline;
         private Guna.UI2.WinForms.Guna2TextBox txtdangnhap;
         private Guna.UI2.WinForms.Guna2TextBox txtmatkhau;
         private Guna.UI2.WinForms.Guna2Button btnDangNhap;
+        private System.Windows.Forms.PictureBox picowl;
     }
 }
 
