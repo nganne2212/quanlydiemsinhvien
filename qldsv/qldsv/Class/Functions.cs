@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Security.Cryptography;
+
 using System.Text;
 using System.Windows.Forms;
 using Dapper;
@@ -20,7 +20,7 @@ namespace qldsv.Class
         {
             Conn = new SqlConnection(connString);
             Conn.Open();
-            MessageBox.Show("tc","thong bao",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            //MessageBox.Show("tc","thong bao",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
         public static void Disconnect()
@@ -32,18 +32,30 @@ namespace qldsv.Class
                 Conn = null;
             }
         }
-
-        public static string MaHoaMD5(string matKhau)
+        public static DataTable GetDataToTable(string sql)
         {
-            using (var md5 = MD5.Create())
-            {
-                byte[] inputBytes = Encoding.UTF8.GetBytes(matKhau);
-                byte[] hashBytes = md5.ComputeHash(inputBytes);
-                StringBuilder sb = new StringBuilder();
-                foreach (byte b in hashBytes)
-                    sb.Append(b.ToString("x2"));
-                return sb.ToString();
-            }
+            SqlDataAdapter Mydata = new SqlDataAdapter(sql, Conn);
+            DataTable table = new DataTable();
+            Mydata.Fill(table);
+            return table;
         }
+        public static void RunSql(string sql)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = Conn;
+            cmd.CommandText = sql;
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            cmd.Dispose();
+            cmd = null;
+        }
+
+
     }
 }
