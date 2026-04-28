@@ -55,6 +55,20 @@ namespace qldsv.Class
             cmd.Dispose();
             cmd = null;
         }
+        public static T QuerySingle<T>(string sql, object param = null)
+        {
+            return Conn.QueryFirstOrDefault<T>(sql, param);
+        }
+
+        public static IEnumerable<T> QueryList<T>(string sql, object param = null)
+        {
+            return Conn.Query<T>(sql, param);
+        }
+
+        public static int Execute(string sql, object param = null)
+        {
+            return Conn.Execute(sql, param);
+        }
 
 
     }

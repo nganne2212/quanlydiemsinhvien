@@ -82,51 +82,52 @@ namespace qldsv.Forms
                 return;
             }
             string matkhaumahoa = Utils.SecurityHelper.MaHoaMD5(txtmatkhau.Text.Trim());
-            string sql = "Select * from NguoiDung Where TenDangNhap =N'" + txtdangnhap.Text.Trim() + "' AND MatKhau =N'" + matkhaumahoa + "'";
+            var user = Functions.QuerySingle<dynamic>(
+            "SELECT * FROM NguoiDung WHERE TenDangNhap = @u AND MatKhau = @p",
+            new { u = txtdangnhap.Text.Trim(), p = matkhaumahoa });
 
-            DataTable tblUser = Class.Functions.GetDataToTable(sql);
-            if (tblUser.Rows.Count == 0)
+            if (user == null)
             {
                 soLanSai++;
-                if (soLanSai > 5)
+                if (soLanSai >= 5)
                 {
-                    string sqlKhoa = "Update NguoiDung Set TrangThai = 'BiKhoa' Where TenDangNhap = N'" + txtdangnhap.Text.Trim() + "'";
-                    Class.Functions.RunSql(sqlKhoa);
+                    Functions.Execute(
+                        "UPDATE NguoiDung SET TrangThai = 'BiKhoa' WHERE TenDangNhap = @u",
+                        new { u = txtdangnhap.Text.Trim() });
                     MessageBox.Show("Tài khoản bị khóa do nhập sai quá 5 lần!\nLiên hệ Admin.",
-                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     btnDangNhap.Enabled = false;
                     return;
-
                 }
                 MessageBox.Show("Sai tài khoản hoặc mật khẩu! Còn " + (5 - soLanSai) + " lần thử.",
-                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            // Kiểm tra tài khoản bị khóa
-            if (tblUser.Rows[0]["TrangThai"].ToString() == "BiKhoa")
+
+            if (user.TrangThai == "BiKhoa")
             {
                 MessageBox.Show("Tài khoản đã bị khóa!\nLiên hệ Admin.",
                     "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             soLanSai = 0;
-            Class.CurrentUser.MaNguoiDung = Convert.ToInt32(tblUser.Rows[0]["MaNguoiDung"]);
-            Class.CurrentUser.TenDangNhap = tblUser.Rows[0]["TenDangNhap"].ToString();
-            Class.CurrentUser.VaiTro = tblUser.Rows[0]["VaiTro"].ToString();
-            if(Class.CurrentUser.VaiTro == "SinhVien")
+            CurrentUser.MaNguoiDung = (int)user.MaNguoiDung;
+            CurrentUser.TenDangNhap = (string)user.TenDangNhap;
+            CurrentUser.VaiTro = (string)user.VaiTro;
+
+            // DAPPER #2 — lấy MaDoiTuong
+            if (CurrentUser.VaiTro == "SinhVien")
             {
-                string sqlSV = "Select MaSinhVien FROM SinhVien WHERE MaNguoiDung = "   + Class.CurrentUser.MaNguoiDung;
-                DataTable tblSV = Class.Functions.GetDataToTable(sqlSV);
-                if (tblSV.Rows.Count > 0)
-                    Class.CurrentUser.MaDoiTuong = tblSV.Rows[0]["MaSinhVien"].ToString();
+                CurrentUser.MaDoiTuong = Functions.QuerySingle<string>(
+                    "SELECT MaSinhVien FROM SinhVien WHERE MaNguoiDung = @id",
+                    new { id = CurrentUser.MaNguoiDung });
             }
             else if (CurrentUser.VaiTro == "GiangVien")
             {
-                string sqlGV = "SELECT MaGiangVien FROM GiangVien WHERE MaNguoiDung = "
-                    + CurrentUser.MaNguoiDung;
-                DataTable tblGV = Functions.GetDataToTable(sqlGV);
-                if (tblGV.Rows.Count > 0)
-                    CurrentUser.MaDoiTuong = tblGV.Rows[0]["MaGiangVien"].ToString();
+                CurrentUser.MaDoiTuong = Functions.QuerySingle<string>(
+                    "SELECT MaGiangVien FROM GiangVien WHERE MaNguoiDung = @id",
+                    new { id = CurrentUser.MaNguoiDung });
             }
             this.Hide();
             if (CurrentUser.VaiTro == "Admin")

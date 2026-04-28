@@ -144,6 +144,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\taobangqldsv.sql" />
+    <None Include="Resources\avatar.png" />
     <None Include="Resources\convat.jpg" />
     <None Include="Resources\matdong.png" />
     <None Include="Resources\matmo.png" />
