@@ -115,6 +115,9 @@
     <EmbeddedResource Include="Forms\FrmDangNhap.resx">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Giangvien\FrmMainGiangVien.resx">
+      <DependentUpon>FrmMainGiangVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
