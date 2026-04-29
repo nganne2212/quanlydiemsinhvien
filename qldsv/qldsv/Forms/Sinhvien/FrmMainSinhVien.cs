@@ -16,5 +16,7 @@ namespace qldsv.Forms.Sinhvien
         {
             InitializeComponent();
         }
+
+
     }
 }
