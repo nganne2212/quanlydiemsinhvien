@@ -16,11 +16,5 @@ namespace qldsv.Forms.Sinhvien
         {
             InitializeComponent();
         }
-
-
-        private void gunabtntrangchu_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
