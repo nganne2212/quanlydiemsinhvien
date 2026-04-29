@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"
+          Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+
+  <!-- ======================== -->
+  <!-- Cấu hình project -->
+  <!-- ======================== -->
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -13,6 +19,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
+
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
@@ -23,6 +30,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
@@ -32,30 +40,40 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+
+  <!-- ======================== -->
+  <!-- References -->
+  <!-- ======================== -->
   <ItemGroup>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.1.72\lib\net461\Dapper.dll</HintPath>
     </Reference>
+
     <Reference Include="Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.7\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
+
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.9.0.1\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
+
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.ConfigurationManager, Version=10.0.0.6, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Configuration.ConfigurationManager.10.0.6\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
     </Reference>
+
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
+
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -67,97 +85,162 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
+
+  <!-- ======================== -->
+  <!-- Source files -->
+  <!-- ======================== -->
   <ItemGroup>
+
     <Compile Include="Class\CurentUser.cs" />
     <Compile Include="Class\Functions.cs" />
+    <Compile Include="Utils\SecurityHelper.cs" />
+
+    <!-- ADMIN -->
     <Compile Include="Forms\Admin\FrmMainAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Admin\FrmMainAdmin.Designer.cs">
       <DependentUpon>FrmMainAdmin.cs</DependentUpon>
     </Compile>
+
+    <Compile Include="Forms\Admin\FrmTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmTaiKhoan.Designer.cs">
+      <DependentUpon>FrmTaiKhoan.cs</DependentUpon>
+    </Compile>
+
+    <Compile Include="Forms\Admin\FrmKhoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmKhoa.Designer.cs">
+      <DependentUpon>FrmKhoa.cs</DependentUpon>
+    </Compile>
+
+    <!-- LOGIN -->
     <Compile Include="Forms\FrmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FrmDangNhap.Designer.cs">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
     </Compile>
+
+    <!-- GIANGVIEN -->
     <Compile Include="Forms\Giangvien\FrmDanhSachLHP.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Giangvien\FrmDanhSachLHP.Designer.cs">
       <DependentUpon>FrmDanhSachLHP.cs</DependentUpon>
     </Compile>
+
     <Compile Include="Forms\Giangvien\FrmMainGiangVien.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Giangvien\FrmMainGiangVien.Designer.cs">
       <DependentUpon>FrmMainGiangVien.cs</DependentUpon>
     </Compile>
+
+    <!-- SINHVIEN -->
     <Compile Include="Forms\Sinhvien\FrmKQhoctap.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Sinhvien\FrmKQhoctap.Designer.cs">
       <DependentUpon>FrmKQhoctap.cs</DependentUpon>
     </Compile>
+
     <Compile Include="Forms\Sinhvien\FrmMainSinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Sinhvien\FrmMainSinhVien.Designer.cs">
       <DependentUpon>FrmMainSinhVien.cs</DependentUpon>
     </Compile>
+
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils\SecurityHelper.cs" />
-    <EmbeddedResource Include="Forms\Admin\FrmMainAdmin.resx">
-      <DependentUpon>FrmMainAdmin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmDangNhap.resx">
-      <DependentUpon>FrmDangNhap.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Giangvien\FrmMainGiangVien.resx">
-      <DependentUpon>FrmMainGiangVien.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Sinhvien\FrmMainSinhVien.resx">
-  <DependentUpon>FrmMainSinhVien.cs</DependentUpon>
-</EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
+
+    <!-- Resources.Designer -->
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+
   </ItemGroup>
+
+  <!-- ======================== -->
+  <!-- RESX -->
+  <!-- ======================== -->
   <ItemGroup>
-    <None Include="App.config" />
+
+    <EmbeddedResource Include="Forms\Admin\FrmMainAdmin.resx">
+      <DependentUpon>FrmMainAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+
+    <EmbeddedResource Include="Forms\Admin\FrmTaiKhoan.resx">
+      <DependentUpon>FrmTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+
+    <EmbeddedResource Include="Forms\Admin\FrmKhoa.resx">
+      <DependentUpon>FrmKhoa.cs</DependentUpon>
+    </EmbeddedResource>
+
+    <EmbeddedResource Include="Forms\FrmDangNhap.resx">
+      <DependentUpon>FrmDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+
+    <EmbeddedResource Include="Forms\Giangvien\FrmMainGiangVien.resx">
+      <DependentUpon>FrmMainGiangVien.cs</DependentUpon>
+    </EmbeddedResource>
+   <EmbeddedResource Include="Forms\Sinhvien\FrmMainSinhVien.resx">
+  <DependentUpon>FrmMainSinhVien.cs</DependentUpon>
+</EmbeddedResource>
+
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+
   </ItemGroup>
+
+  <!-- ======================== -->
+  <!-- Other files -->
+  <!-- ======================== -->
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="App.config" />
+
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
   <ItemGroup>
     <Folder Include="Model\" />
   </ItemGroup>
+
   <ItemGroup>
     <Content Include="Database\taobangqldsv.sql" />
+
+    <None Include="Resources\avatar.png" />
     <None Include="Resources\convat.jpg" />
     <None Include="Resources\matdong.png" />
     <None Include="Resources\matmo.png" />
     <None Include="Resources\lockicon.png" />
     <None Include="Resources\usericon.png" />
+
     <None Include="Resources\anhdangnhap.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
 </Project>
