@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace qldsv.Forms.Giangvien
+namespace qldsv.Forms.Admin
 {
-    public partial class FrmMainGiangVien : Form
+    public partial class FrmTaiKhoan : Form
     {
-        public FrmMainGiangVien()
+        public FrmTaiKhoan()
         {
             InitializeComponent();
-        }
-
-        private void picAvatar_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

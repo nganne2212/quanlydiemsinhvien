@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMainAdmin));
             this.pnlcontent = new System.Windows.Forms.Panel();
-            this.picAvatar = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.lblTen = new System.Windows.Forms.Label();
             this.lblRole = new System.Windows.Forms.Label();
             this.pnlSidebar = new Guna.UI2.WinForms.Guna2Panel();
@@ -48,8 +47,9 @@
             this.btnQLTK = new Guna.UI2.WinForms.Guna2Button();
             this.btnDashboard = new Guna.UI2.WinForms.Guna2Button();
             this.lblOnline = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.picAvatar)).BeginInit();
+            this.picAvatar = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.pnlSidebar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picAvatar)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlcontent
@@ -59,20 +59,6 @@
             this.pnlcontent.Name = "pnlcontent";
             this.pnlcontent.Size = new System.Drawing.Size(1004, 705);
             this.pnlcontent.TabIndex = 1;
-            // 
-            // picAvatar
-            // 
-            this.picAvatar.BackColor = System.Drawing.Color.Transparent;
-            this.picAvatar.Image = global::qldsv.Properties.Resources.avatar;
-            this.picAvatar.ImageRotate = 0F;
-            this.picAvatar.Location = new System.Drawing.Point(15, 15);
-            this.picAvatar.Name = "picAvatar";
-            this.picAvatar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.picAvatar.Size = new System.Drawing.Size(60, 60);
-            this.picAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picAvatar.TabIndex = 0;
-            this.picAvatar.TabStop = false;
-            this.picAvatar.UseTransparentBackground = true;
             // 
             // lblTen
             // 
@@ -306,6 +292,7 @@
             this.btnQLK.TabIndex = 9;
             this.btnQLK.Text = "🏢 Quản lý Khoa";
             this.btnQLK.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnQLK.Click += new System.EventHandler(this.btnQLK_Click);
             // 
             // btnQLM
             // 
@@ -398,6 +385,7 @@
             this.btnQLTK.TabIndex = 5;
             this.btnQLTK.Text = "👤 Quản lý tài khoản";
             this.btnQLTK.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnQLTK.Click += new System.EventHandler(this.btnQLTK_Click);
             // 
             // btnDashboard
             // 
@@ -433,6 +421,20 @@
             this.lblOnline.TabIndex = 3;
             this.lblOnline.Text = "● Online";
             // 
+            // picAvatar
+            // 
+            this.picAvatar.BackColor = System.Drawing.Color.Transparent;
+            this.picAvatar.Image = global::qldsv.Properties.Resources.avatar;
+            this.picAvatar.ImageRotate = 0F;
+            this.picAvatar.Location = new System.Drawing.Point(15, 15);
+            this.picAvatar.Name = "picAvatar";
+            this.picAvatar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.picAvatar.Size = new System.Drawing.Size(60, 60);
+            this.picAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picAvatar.TabIndex = 0;
+            this.picAvatar.TabStop = false;
+            this.picAvatar.UseTransparentBackground = true;
+            // 
             // FrmMainAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -449,9 +451,9 @@
             this.Text = "Hệ thống quản lý điểm sinh viên - Admin";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmMainAdmin_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.picAvatar)).EndInit();
             this.pnlSidebar.ResumeLayout(false);
             this.pnlSidebar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picAvatar)).EndInit();
             this.ResumeLayout(false);
 
         }
