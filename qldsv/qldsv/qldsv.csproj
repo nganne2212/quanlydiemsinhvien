@@ -197,7 +197,9 @@
     <EmbeddedResource Include="Forms\Giangvien\FrmMainGiangVien.resx">
       <DependentUpon>FrmMainGiangVien.cs</DependentUpon>
     </EmbeddedResource>
-   
+   <EmbeddedResource Include="Forms\Sinhvien\FrmMainSinhVien.resx">
+  <DependentUpon>FrmMainSinhVien.cs</DependentUpon>
+</EmbeddedResource>
 
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
