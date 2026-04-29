@@ -22,6 +22,16 @@ namespace qldsv.Forms
         {
             lblTen.Text = CurrentUser.TenDangNhap;
         }
+        private void LoadForm(Form form)
+        {
+            pnlcontent.Controls.Clear();
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            pnlcontent.Controls.Add(form);
+            form.Show();
+        }
+
 
         private void btnDangxuat_Click(object sender, EventArgs e)
         {
@@ -33,6 +43,16 @@ namespace qldsv.Forms
                 this.Hide();
                 new FrmDangNhap().Show();
             }
+        }
+
+        private void btnQLK_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Forms.Admin.FrmKhoa());
+        }
+
+        private void btnQLTK_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Forms.Admin.FrmTaiKhoan());
         }
     }
 }
