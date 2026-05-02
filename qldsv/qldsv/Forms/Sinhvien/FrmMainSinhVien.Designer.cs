@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMainSinhVien));
             this.pnlside = new Guna.UI2.WinForms.Guna2Panel();
-            this.picAva = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.lblSvien = new System.Windows.Forms.Label();
-            this.lblSV = new System.Windows.Forms.Label();
-            this.lblStatus = new System.Windows.Forms.Label();
-            this.btnKQHT = new Guna.UI2.WinForms.Guna2Button();
-            this.btnDoimatkhau = new Guna.UI2.WinForms.Guna2Button();
-            this.btnDangxuat = new Guna.UI2.WinForms.Guna2Button();
-            this.btnPhuckhao = new Guna.UI2.WinForms.Guna2Button();
             this.btnLichhoc = new Guna.UI2.WinForms.Guna2Button();
+            this.btnPhuckhao = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDangxuat = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDoimatkhau = new Guna.UI2.WinForms.Guna2Button();
+            this.btnKQHT = new Guna.UI2.WinForms.Guna2Button();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.lblSV = new System.Windows.Forms.Label();
+            this.lblSvien = new System.Windows.Forms.Label();
+            this.picAva = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.pnlndung = new System.Windows.Forms.Panel();
             this.pnlside.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAva)).BeginInit();
@@ -63,120 +63,29 @@
             this.pnlside.Size = new System.Drawing.Size(230, 705);
             this.pnlside.TabIndex = 0;
             // 
-            // picAva
+            // btnLichhoc
             // 
-            this.picAva.BackColor = System.Drawing.Color.Transparent;
-            this.picAva.Image = global::qldsv.Properties.Resources.avatar;
-            this.picAva.ImageRotate = 0F;
-            this.picAva.Location = new System.Drawing.Point(15, 15);
-            this.picAva.Name = "picAva";
-            this.picAva.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.picAva.Size = new System.Drawing.Size(60, 60);
-            this.picAva.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picAva.TabIndex = 0;
-            this.picAva.TabStop = false;
-            this.picAva.UseTransparentBackground = true;
-            // 
-            // lblSvien
-            // 
-            this.lblSvien.AutoSize = true;
-            this.lblSvien.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSvien.ForeColor = System.Drawing.Color.White;
-            this.lblSvien.Location = new System.Drawing.Point(75, 18);
-            this.lblSvien.Name = "lblSvien";
-            this.lblSvien.Size = new System.Drawing.Size(140, 28);
-            this.lblSvien.TabIndex = 1;
-            this.lblSvien.Text = "Ten Sinh Vien";
-            // 
-            // lblSV
-            // 
-            this.lblSV.AutoSize = true;
-            this.lblSV.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblSV.Location = new System.Drawing.Point(75, 42);
-            this.lblSV.Name = "lblSV";
-            this.lblSV.Size = new System.Drawing.Size(85, 25);
-            this.lblSV.TabIndex = 2;
-            this.lblSV.Text = "Sinh Viên";
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.ForeColor = System.Drawing.Color.Lime;
-            this.lblStatus.Location = new System.Drawing.Point(75, 62);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(75, 21);
-            this.lblStatus.TabIndex = 3;
-            this.lblStatus.Text = "● Online";
-            // 
-            // btnKQHT
-            // 
-            this.btnKQHT.Animated = true;
-            this.btnKQHT.BorderRadius = 8;
-            this.btnKQHT.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnKQHT.CheckedState.FillColor = System.Drawing.Color.DarkViolet;
-            this.btnKQHT.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnKQHT.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnKQHT.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnKQHT.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnKQHT.FillColor = System.Drawing.Color.Transparent;
-            this.btnKQHT.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnKQHT.ForeColor = System.Drawing.Color.White;
-            this.btnKQHT.HoverState.FillColor = System.Drawing.Color.BlueViolet;
-            this.btnKQHT.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnKQHT.ImageSize = new System.Drawing.Size(18, 18);
-            this.btnKQHT.Location = new System.Drawing.Point(0, 150);
-            this.btnKQHT.Name = "btnKQHT";
-            this.btnKQHT.Size = new System.Drawing.Size(230, 42);
-            this.btnKQHT.TabIndex = 4;
-            this.btnKQHT.Text = "📊 Kết quả học tập";
-            this.btnKQHT.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // btnDoimatkhau
-            // 
-            this.btnDoimatkhau.Animated = true;
-            this.btnDoimatkhau.BorderRadius = 8;
-            this.btnDoimatkhau.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnDoimatkhau.CheckedState.FillColor = System.Drawing.Color.DarkViolet;
-            this.btnDoimatkhau.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnDoimatkhau.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnDoimatkhau.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnDoimatkhau.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnDoimatkhau.FillColor = System.Drawing.Color.Transparent;
-            this.btnDoimatkhau.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnDoimatkhau.ForeColor = System.Drawing.Color.White;
-            this.btnDoimatkhau.HoverState.FillColor = System.Drawing.Color.BlueViolet;
-            this.btnDoimatkhau.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnDoimatkhau.ImageSize = new System.Drawing.Size(18, 18);
-            this.btnDoimatkhau.Location = new System.Drawing.Point(0, 360);
-            this.btnDoimatkhau.Name = "btnDoimatkhau";
-            this.btnDoimatkhau.Size = new System.Drawing.Size(230, 42);
-            this.btnDoimatkhau.TabIndex = 5;
-            this.btnDoimatkhau.Text = "🔑 Đổi mật khẩu";
-            this.btnDoimatkhau.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // btnDangxuat
-            // 
-            this.btnDangxuat.Animated = true;
-            this.btnDangxuat.BorderRadius = 8;
-            this.btnDangxuat.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnDangxuat.CheckedState.FillColor = System.Drawing.Color.DarkViolet;
-            this.btnDangxuat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnDangxuat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnDangxuat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnDangxuat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnDangxuat.FillColor = System.Drawing.Color.Transparent;
-            this.btnDangxuat.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnDangxuat.ForeColor = System.Drawing.Color.White;
-            this.btnDangxuat.HoverState.FillColor = System.Drawing.Color.BlueViolet;
-            this.btnDangxuat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnDangxuat.ImageSize = new System.Drawing.Size(18, 18);
-            this.btnDangxuat.Location = new System.Drawing.Point(0, 430);
-            this.btnDangxuat.Name = "btnDangxuat";
-            this.btnDangxuat.Size = new System.Drawing.Size(230, 42);
-            this.btnDangxuat.TabIndex = 6;
-            this.btnDangxuat.Text = "🚪 Đăng xuất";
-            this.btnDangxuat.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnLichhoc.Animated = true;
+            this.btnLichhoc.BackColor = System.Drawing.Color.Indigo;
+            this.btnLichhoc.BorderRadius = 8;
+            this.btnLichhoc.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnLichhoc.CheckedState.FillColor = System.Drawing.Color.DarkViolet;
+            this.btnLichhoc.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLichhoc.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLichhoc.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLichhoc.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLichhoc.FillColor = System.Drawing.Color.Transparent;
+            this.btnLichhoc.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnLichhoc.ForeColor = System.Drawing.Color.White;
+            this.btnLichhoc.HoverState.FillColor = System.Drawing.Color.BlueViolet;
+            this.btnLichhoc.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnLichhoc.ImageSize = new System.Drawing.Size(18, 18);
+            this.btnLichhoc.Location = new System.Drawing.Point(0, 220);
+            this.btnLichhoc.Name = "btnLichhoc";
+            this.btnLichhoc.Size = new System.Drawing.Size(230, 42);
+            this.btnLichhoc.TabIndex = 8;
+            this.btnLichhoc.Text = "📖 Lịch học";
+            this.btnLichhoc.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // btnPhuckhao
             // 
@@ -201,29 +110,120 @@
             this.btnPhuckhao.Text = "📋 Phúc khảo";
             this.btnPhuckhao.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
-            // btnLichhoc
+            // btnDangxuat
             // 
-            this.btnLichhoc.Animated = true;
-            this.btnLichhoc.BackColor = System.Drawing.Color.Indigo;
-            this.btnLichhoc.BorderRadius = 8;
-            this.btnLichhoc.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnLichhoc.CheckedState.FillColor = System.Drawing.Color.DarkViolet;
-            this.btnLichhoc.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnLichhoc.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnLichhoc.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnLichhoc.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnLichhoc.FillColor = System.Drawing.Color.Transparent;
-            this.btnLichhoc.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnLichhoc.ForeColor = System.Drawing.Color.White;
-            this.btnLichhoc.HoverState.FillColor = System.Drawing.Color.BlueViolet;
-            this.btnLichhoc.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnLichhoc.ImageSize = new System.Drawing.Size(18, 18);
-            this.btnLichhoc.Location = new System.Drawing.Point(0, 220);
-            this.btnLichhoc.Name = "btnLichhoc";
-            this.btnLichhoc.Size = new System.Drawing.Size(230, 42);
-            this.btnLichhoc.TabIndex = 8;
-            this.btnLichhoc.Text = "📖 Lịch học";
-            this.btnLichhoc.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDangxuat.Animated = true;
+            this.btnDangxuat.BorderRadius = 8;
+            this.btnDangxuat.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnDangxuat.CheckedState.FillColor = System.Drawing.Color.DarkViolet;
+            this.btnDangxuat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDangxuat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDangxuat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDangxuat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDangxuat.FillColor = System.Drawing.Color.Transparent;
+            this.btnDangxuat.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnDangxuat.ForeColor = System.Drawing.Color.White;
+            this.btnDangxuat.HoverState.FillColor = System.Drawing.Color.BlueViolet;
+            this.btnDangxuat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDangxuat.ImageSize = new System.Drawing.Size(18, 18);
+            this.btnDangxuat.Location = new System.Drawing.Point(0, 430);
+            this.btnDangxuat.Name = "btnDangxuat";
+            this.btnDangxuat.Size = new System.Drawing.Size(230, 42);
+            this.btnDangxuat.TabIndex = 6;
+            this.btnDangxuat.Text = "🚪 Đăng xuất";
+            this.btnDangxuat.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // btnDoimatkhau
+            // 
+            this.btnDoimatkhau.Animated = true;
+            this.btnDoimatkhau.BorderRadius = 8;
+            this.btnDoimatkhau.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnDoimatkhau.CheckedState.FillColor = System.Drawing.Color.DarkViolet;
+            this.btnDoimatkhau.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDoimatkhau.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDoimatkhau.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDoimatkhau.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDoimatkhau.FillColor = System.Drawing.Color.Transparent;
+            this.btnDoimatkhau.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnDoimatkhau.ForeColor = System.Drawing.Color.White;
+            this.btnDoimatkhau.HoverState.FillColor = System.Drawing.Color.BlueViolet;
+            this.btnDoimatkhau.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDoimatkhau.ImageSize = new System.Drawing.Size(18, 18);
+            this.btnDoimatkhau.Location = new System.Drawing.Point(0, 360);
+            this.btnDoimatkhau.Name = "btnDoimatkhau";
+            this.btnDoimatkhau.Size = new System.Drawing.Size(230, 42);
+            this.btnDoimatkhau.TabIndex = 5;
+            this.btnDoimatkhau.Text = "🔑 Đổi mật khẩu";
+            this.btnDoimatkhau.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // btnKQHT
+            // 
+            this.btnKQHT.Animated = true;
+            this.btnKQHT.BorderRadius = 8;
+            this.btnKQHT.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnKQHT.CheckedState.FillColor = System.Drawing.Color.DarkViolet;
+            this.btnKQHT.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnKQHT.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnKQHT.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnKQHT.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnKQHT.FillColor = System.Drawing.Color.Transparent;
+            this.btnKQHT.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnKQHT.ForeColor = System.Drawing.Color.White;
+            this.btnKQHT.HoverState.FillColor = System.Drawing.Color.BlueViolet;
+            this.btnKQHT.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnKQHT.ImageSize = new System.Drawing.Size(18, 18);
+            this.btnKQHT.Location = new System.Drawing.Point(0, 150);
+            this.btnKQHT.Name = "btnKQHT";
+            this.btnKQHT.Size = new System.Drawing.Size(230, 42);
+            this.btnKQHT.TabIndex = 4;
+            this.btnKQHT.Text = "📊 Kết quả học tập";
+            this.btnKQHT.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.ForeColor = System.Drawing.Color.Lime;
+            this.lblStatus.Location = new System.Drawing.Point(75, 62);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(75, 21);
+            this.lblStatus.TabIndex = 3;
+            this.lblStatus.Text = "● Online";
+            // 
+            // lblSV
+            // 
+            this.lblSV.AutoSize = true;
+            this.lblSV.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblSV.Location = new System.Drawing.Point(75, 42);
+            this.lblSV.Name = "lblSV";
+            this.lblSV.Size = new System.Drawing.Size(85, 25);
+            this.lblSV.TabIndex = 2;
+            this.lblSV.Text = "Sinh Viên";
+            // 
+            // lblSvien
+            // 
+            this.lblSvien.AutoSize = true;
+            this.lblSvien.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSvien.ForeColor = System.Drawing.Color.White;
+            this.lblSvien.Location = new System.Drawing.Point(75, 18);
+            this.lblSvien.Name = "lblSvien";
+            this.lblSvien.Size = new System.Drawing.Size(140, 28);
+            this.lblSvien.TabIndex = 1;
+            this.lblSvien.Text = "Ten Sinh Vien";
+            // 
+            // picAva
+            // 
+            this.picAva.BackColor = System.Drawing.Color.Transparent;
+            this.picAva.Image = global::qldsv.Properties.Resources.avatar;
+            this.picAva.ImageRotate = 0F;
+            this.picAva.Location = new System.Drawing.Point(15, 15);
+            this.picAva.Name = "picAva";
+            this.picAva.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.picAva.Size = new System.Drawing.Size(60, 60);
+            this.picAva.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picAva.TabIndex = 0;
+            this.picAva.TabStop = false;
+            this.picAva.UseTransparentBackground = true;
             // 
             // pnlndung
             // 
