@@ -46,7 +46,7 @@
             // 
             // pnlMenu
             // 
-            this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(51)))));
+            this.pnlMenu.BackColor = System.Drawing.Color.MidnightBlue;
             this.pnlMenu.Controls.Add(this.btnDangxuat);
             this.pnlMenu.Controls.Add(this.btnDoimatkhau);
             this.pnlMenu.Controls.Add(this.btnCanhbaohocvu);
@@ -68,7 +68,7 @@
             this.btnDangxuat.Animated = true;
             this.btnDangxuat.BorderRadius = 8;
             this.btnDangxuat.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnDangxuat.CheckedState.FillColor = System.Drawing.Color.ForestGreen;
+            this.btnDangxuat.CheckedState.FillColor = System.Drawing.Color.RoyalBlue;
             this.btnDangxuat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnDangxuat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnDangxuat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -76,7 +76,7 @@
             this.btnDangxuat.FillColor = System.Drawing.Color.Transparent;
             this.btnDangxuat.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangxuat.ForeColor = System.Drawing.Color.White;
-            this.btnDangxuat.HoverState.FillColor = System.Drawing.Color.SeaGreen;
+            this.btnDangxuat.HoverState.FillColor = System.Drawing.Color.CornflowerBlue;
             this.btnDangxuat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDangxuat.ImageSize = new System.Drawing.Size(18, 18);
             this.btnDangxuat.Location = new System.Drawing.Point(0, 430);
@@ -92,7 +92,7 @@
             this.btnDoimatkhau.Animated = true;
             this.btnDoimatkhau.BorderRadius = 8;
             this.btnDoimatkhau.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnDoimatkhau.CheckedState.FillColor = System.Drawing.Color.ForestGreen;
+            this.btnDoimatkhau.CheckedState.FillColor = System.Drawing.Color.RoyalBlue;
             this.btnDoimatkhau.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnDoimatkhau.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnDoimatkhau.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -100,7 +100,7 @@
             this.btnDoimatkhau.FillColor = System.Drawing.Color.Transparent;
             this.btnDoimatkhau.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDoimatkhau.ForeColor = System.Drawing.Color.White;
-            this.btnDoimatkhau.HoverState.FillColor = System.Drawing.Color.SeaGreen;
+            this.btnDoimatkhau.HoverState.FillColor = System.Drawing.Color.CornflowerBlue;
             this.btnDoimatkhau.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDoimatkhau.ImageSize = new System.Drawing.Size(18, 18);
             this.btnDoimatkhau.Location = new System.Drawing.Point(0, 370);
@@ -114,7 +114,7 @@
             // btnCanhbaohocvu
             // 
             this.btnCanhbaohocvu.Animated = true;
-            this.btnCanhbaohocvu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(51)))));
+            this.btnCanhbaohocvu.BackColor = System.Drawing.Color.MidnightBlue;
             this.btnCanhbaohocvu.BorderRadius = 8;
             this.btnCanhbaohocvu.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.btnCanhbaohocvu.CheckedState.FillColor = System.Drawing.Color.ForestGreen;
@@ -125,7 +125,7 @@
             this.btnCanhbaohocvu.FillColor = System.Drawing.Color.Transparent;
             this.btnCanhbaohocvu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCanhbaohocvu.ForeColor = System.Drawing.Color.White;
-            this.btnCanhbaohocvu.HoverState.FillColor = System.Drawing.Color.SeaGreen;
+            this.btnCanhbaohocvu.HoverState.FillColor = System.Drawing.Color.CornflowerBlue;
             this.btnCanhbaohocvu.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnCanhbaohocvu.ImageSize = new System.Drawing.Size(18, 18);
             this.btnCanhbaohocvu.Location = new System.Drawing.Point(0, 310);
@@ -141,7 +141,7 @@
             this.btnNhapdiem.Animated = true;
             this.btnNhapdiem.BorderRadius = 8;
             this.btnNhapdiem.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnNhapdiem.CheckedState.FillColor = System.Drawing.Color.ForestGreen;
+            this.btnNhapdiem.CheckedState.FillColor = System.Drawing.Color.RoyalBlue;
             this.btnNhapdiem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnNhapdiem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnNhapdiem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -149,7 +149,7 @@
             this.btnNhapdiem.FillColor = System.Drawing.Color.Transparent;
             this.btnNhapdiem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNhapdiem.ForeColor = System.Drawing.Color.White;
-            this.btnNhapdiem.HoverState.FillColor = System.Drawing.Color.SeaGreen;
+            this.btnNhapdiem.HoverState.FillColor = System.Drawing.Color.CornflowerBlue;
             this.btnNhapdiem.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnNhapdiem.ImageSize = new System.Drawing.Size(18, 18);
             this.btnNhapdiem.Location = new System.Drawing.Point(0, 250);
@@ -165,7 +165,7 @@
             this.btnLophocphan.Animated = true;
             this.btnLophocphan.BorderRadius = 8;
             this.btnLophocphan.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnLophocphan.CheckedState.FillColor = System.Drawing.Color.ForestGreen;
+            this.btnLophocphan.CheckedState.FillColor = System.Drawing.Color.RoyalBlue;
             this.btnLophocphan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnLophocphan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnLophocphan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -173,7 +173,7 @@
             this.btnLophocphan.FillColor = System.Drawing.Color.Transparent;
             this.btnLophocphan.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLophocphan.ForeColor = System.Drawing.Color.White;
-            this.btnLophocphan.HoverState.FillColor = System.Drawing.Color.SeaGreen;
+            this.btnLophocphan.HoverState.FillColor = System.Drawing.Color.CornflowerBlue;
             this.btnLophocphan.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnLophocphan.ImageSize = new System.Drawing.Size(18, 18);
             this.btnLophocphan.Location = new System.Drawing.Point(0, 190);
@@ -201,11 +201,11 @@
             // lblOnline
             // 
             this.lblOnline.AutoSize = true;
-            this.lblOnline.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOnline.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOnline.ForeColor = System.Drawing.Color.Lime;
             this.lblOnline.Location = new System.Drawing.Point(85, 62);
             this.lblOnline.Name = "lblOnline";
-            this.lblOnline.Size = new System.Drawing.Size(70, 21);
+            this.lblOnline.Size = new System.Drawing.Size(75, 21);
             this.lblOnline.TabIndex = 3;
             this.lblOnline.Text = "● Online";
             // 

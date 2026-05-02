@@ -46,7 +46,7 @@
             // 
             // pnlside
             // 
-            this.pnlside.BackColor = System.Drawing.Color.Indigo;
+            this.pnlside.BackColor = System.Drawing.Color.MidnightBlue;
             this.pnlside.Controls.Add(this.btnLichhoc);
             this.pnlside.Controls.Add(this.btnPhuckhao);
             this.pnlside.Controls.Add(this.btnDangxuat);
@@ -66,10 +66,10 @@
             // btnLichhoc
             // 
             this.btnLichhoc.Animated = true;
-            this.btnLichhoc.BackColor = System.Drawing.Color.Indigo;
+            this.btnLichhoc.BackColor = System.Drawing.Color.MidnightBlue;
             this.btnLichhoc.BorderRadius = 8;
             this.btnLichhoc.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnLichhoc.CheckedState.FillColor = System.Drawing.Color.DarkViolet;
+            this.btnLichhoc.CheckedState.FillColor = System.Drawing.Color.RoyalBlue;
             this.btnLichhoc.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnLichhoc.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnLichhoc.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -77,7 +77,7 @@
             this.btnLichhoc.FillColor = System.Drawing.Color.Transparent;
             this.btnLichhoc.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnLichhoc.ForeColor = System.Drawing.Color.White;
-            this.btnLichhoc.HoverState.FillColor = System.Drawing.Color.BlueViolet;
+            this.btnLichhoc.HoverState.FillColor = System.Drawing.Color.CornflowerBlue;
             this.btnLichhoc.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnLichhoc.ImageSize = new System.Drawing.Size(18, 18);
             this.btnLichhoc.Location = new System.Drawing.Point(0, 220);
@@ -92,7 +92,7 @@
             this.btnPhuckhao.Animated = true;
             this.btnPhuckhao.BorderRadius = 8;
             this.btnPhuckhao.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnPhuckhao.CheckedState.FillColor = System.Drawing.Color.DarkViolet;
+            this.btnPhuckhao.CheckedState.FillColor = System.Drawing.Color.RoyalBlue;
             this.btnPhuckhao.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnPhuckhao.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnPhuckhao.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -100,7 +100,7 @@
             this.btnPhuckhao.FillColor = System.Drawing.Color.Transparent;
             this.btnPhuckhao.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnPhuckhao.ForeColor = System.Drawing.Color.White;
-            this.btnPhuckhao.HoverState.FillColor = System.Drawing.Color.BlueViolet;
+            this.btnPhuckhao.HoverState.FillColor = System.Drawing.Color.CornflowerBlue;
             this.btnPhuckhao.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnPhuckhao.ImageSize = new System.Drawing.Size(18, 18);
             this.btnPhuckhao.Location = new System.Drawing.Point(0, 290);
@@ -115,7 +115,7 @@
             this.btnDangxuat.Animated = true;
             this.btnDangxuat.BorderRadius = 8;
             this.btnDangxuat.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnDangxuat.CheckedState.FillColor = System.Drawing.Color.DarkViolet;
+            this.btnDangxuat.CheckedState.FillColor = System.Drawing.Color.RoyalBlue;
             this.btnDangxuat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnDangxuat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnDangxuat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -123,7 +123,7 @@
             this.btnDangxuat.FillColor = System.Drawing.Color.Transparent;
             this.btnDangxuat.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnDangxuat.ForeColor = System.Drawing.Color.White;
-            this.btnDangxuat.HoverState.FillColor = System.Drawing.Color.BlueViolet;
+            this.btnDangxuat.HoverState.FillColor = System.Drawing.Color.CornflowerBlue;
             this.btnDangxuat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDangxuat.ImageSize = new System.Drawing.Size(18, 18);
             this.btnDangxuat.Location = new System.Drawing.Point(0, 430);
@@ -138,7 +138,7 @@
             this.btnDoimatkhau.Animated = true;
             this.btnDoimatkhau.BorderRadius = 8;
             this.btnDoimatkhau.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnDoimatkhau.CheckedState.FillColor = System.Drawing.Color.DarkViolet;
+            this.btnDoimatkhau.CheckedState.FillColor = System.Drawing.Color.RoyalBlue;
             this.btnDoimatkhau.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnDoimatkhau.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnDoimatkhau.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -146,7 +146,7 @@
             this.btnDoimatkhau.FillColor = System.Drawing.Color.Transparent;
             this.btnDoimatkhau.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnDoimatkhau.ForeColor = System.Drawing.Color.White;
-            this.btnDoimatkhau.HoverState.FillColor = System.Drawing.Color.BlueViolet;
+            this.btnDoimatkhau.HoverState.FillColor = System.Drawing.Color.CornflowerBlue;
             this.btnDoimatkhau.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDoimatkhau.ImageSize = new System.Drawing.Size(18, 18);
             this.btnDoimatkhau.Location = new System.Drawing.Point(0, 360);
@@ -161,7 +161,7 @@
             this.btnKQHT.Animated = true;
             this.btnKQHT.BorderRadius = 8;
             this.btnKQHT.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnKQHT.CheckedState.FillColor = System.Drawing.Color.DarkViolet;
+            this.btnKQHT.CheckedState.FillColor = System.Drawing.Color.RoyalBlue;
             this.btnKQHT.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnKQHT.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnKQHT.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -169,7 +169,7 @@
             this.btnKQHT.FillColor = System.Drawing.Color.Transparent;
             this.btnKQHT.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnKQHT.ForeColor = System.Drawing.Color.White;
-            this.btnKQHT.HoverState.FillColor = System.Drawing.Color.BlueViolet;
+            this.btnKQHT.HoverState.FillColor = System.Drawing.Color.CornflowerBlue;
             this.btnKQHT.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnKQHT.ImageSize = new System.Drawing.Size(18, 18);
             this.btnKQHT.Location = new System.Drawing.Point(0, 150);
