@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace qldsv.Forms
+namespace qldsv.Forms.Admin
 {
-    public partial class Form2 : Form
+    public partial class FrmKhoa : Form
     {
-        public Form2()
+        public FrmKhoa()
         {
             InitializeComponent();
         }

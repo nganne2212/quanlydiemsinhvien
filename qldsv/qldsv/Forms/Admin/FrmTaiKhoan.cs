@@ -8,15 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace qldsv.Forms.Sinhvien
+namespace qldsv.Forms.Admin
 {
-    public partial class FrmMainSinhVien : Form
+    public partial class FrmTaiKhoan : Form
     {
-        public FrmMainSinhVien()
+        public FrmTaiKhoan()
         {
             InitializeComponent();
         }
-
-
     }
 }
