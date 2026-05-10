@@ -17,9 +17,6 @@ namespace qldsv.Forms.Giangvien
             InitializeComponent();
         }
 
-        private void picAvatar_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }

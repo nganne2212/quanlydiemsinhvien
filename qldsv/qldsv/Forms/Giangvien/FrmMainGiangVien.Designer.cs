@@ -183,6 +183,7 @@
             this.btnLophocphan.TabIndex = 15;
             this.btnLophocphan.Text = "📚 Lớp học phần";
             this.btnLophocphan.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+//            this.btnLophocphan.Click += new System.EventHandler(this.btnLophocphan_Click);
             // 
             // picAvatar
             // 
