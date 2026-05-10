@@ -1,6 +1,7 @@
 ﻿using qldsv.Class;
 using qldsv.Forms.Giangvien;
 using qldsv.Forms.Sinhvien;
+using qldsv.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,6 +25,7 @@ namespace qldsv.Forms
 
         private void FrmDangNhap_Load(object sender, EventArgs e)
         {
+         
             picmainDN.Image = Properties.Resources.anhdangnhap;
             picmainDN.SizeMode = PictureBoxSizeMode.Zoom;
             picowl.Image = Properties.Resources.convat;
@@ -81,12 +83,17 @@ namespace qldsv.Forms
                 txtmatkhau.Focus();
                 return;
             }
-            string matkhaumahoa = Utils.SecurityHelper.MaHoaMD5(txtmatkhau.Text.Trim());
-            var user = Functions.QuerySingle<dynamic>(
-            "SELECT * FROM NguoiDung WHERE TenDangNhap = @u AND MatKhau = @p",
-            new { u = txtdangnhap.Text.Trim(), p = matkhaumahoa });
 
-            if (user == null)
+            // Chỉ tìm theo username, không đưa mật khẩu vào SQL
+            var user = Functions.QuerySingle<dynamic>(
+                "SELECT * FROM NguoiDung WHERE TenDangNhap = @u",
+                new { u = txtdangnhap.Text.Trim() });
+
+            // Verify mật khẩu trong C# bằng BCrypt
+            bool matKhauDung = user != null &&
+                SecurityHelper.VerifyPassword(txtmatkhau.Text.Trim(), (string)user.MatKhau);
+
+            if (!matKhauDung)
             {
                 soLanSai++;
                 if (soLanSai >= 5)
@@ -116,7 +123,6 @@ namespace qldsv.Forms
             CurrentUser.TenDangNhap = (string)user.TenDangNhap;
             CurrentUser.VaiTro = (string)user.VaiTro;
 
-            // DAPPER #2 — lấy MaDoiTuong
             if (CurrentUser.VaiTro == "SinhVien")
             {
                 CurrentUser.MaDoiTuong = Functions.QuerySingle<string>(
@@ -129,6 +135,7 @@ namespace qldsv.Forms
                     "SELECT MaGiangVien FROM GiangVien WHERE MaNguoiDung = @id",
                     new { id = CurrentUser.MaNguoiDung });
             }
+
             this.Hide();
             if (CurrentUser.VaiTro == "Admin")
                 new FrmMainAdmin().Show();
@@ -136,7 +143,6 @@ namespace qldsv.Forms
                 new FrmMainGiangVien().Show();
             else if (CurrentUser.VaiTro == "SinhVien")
                 new FrmMainSinhVien().Show();
-
         }
 
     }

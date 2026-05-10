@@ -32,11 +32,11 @@ namespace qldsv.Class
                 Conn = null;
             }
         }
-        public static DataTable GetDataToTable(string sql)
+        public static DataTable GetDataToTable(string sql, object param = null)
         {
-            SqlDataAdapter Mydata = new SqlDataAdapter(sql, Conn);
+            var reader = Conn.ExecuteReader(sql, param);
             DataTable table = new DataTable();
-            Mydata.Fill(table);
+            table.Load(reader);
             return table;
         }
         public static void RunSql(string sql)
