@@ -38,12 +38,17 @@ namespace qldsv.Forms.Admin
                 dt.Rows[i]["STT"] = i + 1;
 
             dgvTaikhoan.DataSource = dt;
+            dgvTaikhoan.Columns["TenDangNhap"].HeaderText = "Tên Đăng Nhập";
+            dgvTaikhoan.Columns["VaiTro"].HeaderText = "Vai Trò";
+            dgvTaikhoan.Columns["TrangThai"].HeaderText = "Trạng Thái";
             dgvTaikhoan.Columns["MatKhau"].Visible = false;
             dgvTaikhoan.Columns["MaNguoiDung"].Visible = false;
             dgvTaikhoan.Columns["STT"].DisplayIndex = 0;
             dgvTaikhoan.EditMode = DataGridViewEditMode.EditProgrammatically;
             foreach (DataGridViewColumn col in dgvTaikhoan.Columns)
                 col.SortMode = DataGridViewColumnSortMode.NotSortable;
+            dgvTaikhoan.Columns["STT"].Width = 50;
+            dgvTaikhoan.Columns["STT"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
         }
 
         private void dgvTaikhoan_SelectionChanged(object sender, EventArgs e)
