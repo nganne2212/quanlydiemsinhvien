@@ -90,8 +90,10 @@
   <!-- Source files -->
   <!-- ======================== -->
   <ItemGroup>
+    <Compile Include="BLL\TaiKhoanBLL.cs" />
     <Compile Include="Class\CurentUser.cs" />
     <Compile Include="Class\Functions.cs" />
+    <Compile Include="DAL\TaiKhoanDAL.cs" />
     <Compile Include="Utils\SecurityHelper.cs" />
     <!-- ADMIN -->
     <Compile Include="Forms\Admin\FrmMainAdmin.cs">
@@ -198,9 +200,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Database\taobangqldsv.sql" />
     <None Include="Resources\avatar.png" />
