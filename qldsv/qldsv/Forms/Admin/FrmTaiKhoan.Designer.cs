@@ -96,11 +96,12 @@
             this.dgvTaikhoan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTaikhoan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTaikhoan.Location = new System.Drawing.Point(0, 90);
+            this.dgvTaikhoan.MultiSelect = false;
             this.dgvTaikhoan.Name = "dgvTaikhoan";
+            this.dgvTaikhoan.ReadOnly = true;
             this.dgvTaikhoan.RowHeadersVisible = false;
             this.dgvTaikhoan.RowHeadersWidth = 62;
             this.dgvTaikhoan.RowTemplate.Height = 28;
-            this.dgvTaikhoan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTaikhoan.Size = new System.Drawing.Size(982, 509);
             this.dgvTaikhoan.TabIndex = 6;
             this.dgvTaikhoan.SelectionChanged += new System.EventHandler(this.dgvTaikhoan_SelectionChanged);
