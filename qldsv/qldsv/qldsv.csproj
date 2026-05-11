@@ -94,6 +94,12 @@
     <Compile Include="Class\CurentUser.cs" />
     <Compile Include="Class\Functions.cs" />
     <Compile Include="DAL\TaiKhoanDAL.cs" />
+    <Compile Include="Forms\Admin\FrmQLSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmQLSV.Designer.cs">
+      <DependentUpon>FrmQLSV.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\SecurityHelper.cs" />
     <!-- ADMIN -->
     <Compile Include="Forms\Admin\FrmMainAdmin.cs">
@@ -167,6 +173,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Forms\Admin\FrmMainAdmin.resx">
       <DependentUpon>FrmMainAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\FrmQLSV.resx">
+      <DependentUpon>FrmQLSV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\FrmTaiKhoan.resx">
       <DependentUpon>FrmTaiKhoan.cs</DependentUpon>

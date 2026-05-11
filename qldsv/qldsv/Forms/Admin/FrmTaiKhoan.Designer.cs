@@ -100,6 +100,7 @@
             this.dgvTaikhoan.RowHeadersVisible = false;
             this.dgvTaikhoan.RowHeadersWidth = 62;
             this.dgvTaikhoan.RowTemplate.Height = 28;
+            this.dgvTaikhoan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTaikhoan.Size = new System.Drawing.Size(982, 509);
             this.dgvTaikhoan.TabIndex = 6;
             this.dgvTaikhoan.SelectionChanged += new System.EventHandler(this.dgvTaikhoan_SelectionChanged);
@@ -144,6 +145,8 @@
             this.txtSearch.SelectedText = "";
             this.txtSearch.Size = new System.Drawing.Size(250, 32);
             this.txtSearch.TabIndex = 4;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
             // 
             // cboVaiTro
             // 
@@ -153,6 +156,7 @@
             this.cboVaiTro.Name = "cboVaiTro";
             this.cboVaiTro.Size = new System.Drawing.Size(140, 28);
             this.cboVaiTro.TabIndex = 1;
+            this.cboVaiTro.SelectedIndexChanged += new System.EventHandler(this.cboVaiTro_SelectedIndexChanged);
             // 
             // cboTrangthai
             // 
@@ -161,6 +165,7 @@
             this.cboTrangthai.Name = "cboTrangthai";
             this.cboTrangthai.Size = new System.Drawing.Size(140, 28);
             this.cboTrangthai.TabIndex = 3;
+            this.cboTrangthai.SelectedIndexChanged += new System.EventHandler(this.cboTrangthai_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -199,6 +204,7 @@
             this.btnDoimatkhau.Size = new System.Drawing.Size(145, 32);
             this.btnDoimatkhau.TabIndex = 3;
             this.btnDoimatkhau.Text = "Đổi mật khẩu";
+            this.btnDoimatkhau.Click += new System.EventHandler(this.btnDoimatkhau_Click);
             // 
             // btnMoKhoa
             // 
@@ -215,6 +221,7 @@
             this.btnMoKhoa.Size = new System.Drawing.Size(145, 32);
             this.btnMoKhoa.TabIndex = 2;
             this.btnMoKhoa.Text = "Mở Khóa";
+            this.btnMoKhoa.Click += new System.EventHandler(this.btnMoKhoa_Click);
             // 
             // btnKhoa
             // 
@@ -232,6 +239,7 @@
             this.btnKhoa.Size = new System.Drawing.Size(145, 32);
             this.btnKhoa.TabIndex = 1;
             this.btnKhoa.Text = "Khóa";
+            this.btnKhoa.Click += new System.EventHandler(this.btnKhoa_Click);
             // 
             // pnlcard
             // 

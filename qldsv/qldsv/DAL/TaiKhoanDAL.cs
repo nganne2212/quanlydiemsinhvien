@@ -36,5 +36,11 @@ namespace qldsv.DAL
                 "UPDATE NguoiDung SET MatKhau = @p WHERE TenDangNhap = @u",
                 new { p = matKhauMacDinh, u = tenDangNhap });
         }
+        public static string GetTrangThai(string tenDangNhap)
+        {
+            return Functions.QuerySingle<string>(
+                "SELECT TrangThai FROM NguoiDung WHERE TenDangNhap = @u",
+                new { u = tenDangNhap });
+        }
     }
 }

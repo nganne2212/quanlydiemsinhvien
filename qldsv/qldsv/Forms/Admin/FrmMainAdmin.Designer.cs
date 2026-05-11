@@ -362,6 +362,7 @@
             this.btnQLSV.TabIndex = 6;
             this.btnQLSV.Text = "🎓Quản lý sinh viên";
             this.btnQLSV.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnQLSV.Click += new System.EventHandler(this.btnQLSV_Click);
             // 
             // btnQLTK
             // 
