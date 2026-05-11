@@ -64,6 +64,7 @@
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(982, 50);
             this.pnlHeader.TabIndex = 0;
+            this.pnlHeader.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlHeader_Paint);
             // 
             // label1
             // 
@@ -75,6 +76,7 @@
             this.label1.Size = new System.Drawing.Size(256, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "👤 Quản lý tài khoản";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pnlDS
             // 
@@ -86,6 +88,7 @@
             this.pnlDS.Name = "pnlDS";
             this.pnlDS.Size = new System.Drawing.Size(982, 599);
             this.pnlDS.TabIndex = 1;
+            this.pnlDS.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlDS_Paint);
             // 
             // dgvTaikhoan
             // 
@@ -102,6 +105,7 @@
             this.dgvTaikhoan.RowTemplate.Height = 28;
             this.dgvTaikhoan.Size = new System.Drawing.Size(982, 509);
             this.dgvTaikhoan.TabIndex = 6;
+            //this.dgvTaikhoan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaikhoan_CellContentClick);
             this.dgvTaikhoan.SelectionChanged += new System.EventHandler(this.dgvTaikhoan_SelectionChanged);
             // 
             // pnlFilter
@@ -116,6 +120,7 @@
             this.pnlFilter.Name = "pnlFilter";
             this.pnlFilter.Size = new System.Drawing.Size(982, 90);
             this.pnlFilter.TabIndex = 5;
+            this.pnlFilter.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlFilter_Paint);
             // 
             // label2
             // 
@@ -125,6 +130,7 @@
             this.label2.Size = new System.Drawing.Size(63, 20);
             this.label2.TabIndex = 0;
             this.label2.Text = "Vai trò :";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // txtSearch
             // 
@@ -144,6 +150,7 @@
             this.txtSearch.SelectedText = "";
             this.txtSearch.Size = new System.Drawing.Size(250, 32);
             this.txtSearch.TabIndex = 4;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // cboVaiTro
             // 
@@ -153,6 +160,7 @@
             this.cboVaiTro.Name = "cboVaiTro";
             this.cboVaiTro.Size = new System.Drawing.Size(140, 28);
             this.cboVaiTro.TabIndex = 1;
+            this.cboVaiTro.SelectedIndexChanged += new System.EventHandler(this.cboVaiTro_SelectedIndexChanged);
             // 
             // cboTrangthai
             // 
@@ -161,6 +169,7 @@
             this.cboTrangthai.Name = "cboTrangthai";
             this.cboTrangthai.Size = new System.Drawing.Size(140, 28);
             this.cboTrangthai.TabIndex = 3;
+            this.cboTrangthai.SelectedIndexChanged += new System.EventHandler(this.cboTrangthai_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -170,6 +179,7 @@
             this.label3.Size = new System.Drawing.Size(88, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Trạng thái :";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // pnlThongtin
             // 
@@ -184,6 +194,7 @@
             this.pnlThongtin.Name = "pnlThongtin";
             this.pnlThongtin.Size = new System.Drawing.Size(213, 599);
             this.pnlThongtin.TabIndex = 2;
+            this.pnlThongtin.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlThongtin_Paint);
             // 
             // btnDoimatkhau
             // 
@@ -199,6 +210,7 @@
             this.btnDoimatkhau.Size = new System.Drawing.Size(145, 32);
             this.btnDoimatkhau.TabIndex = 3;
             this.btnDoimatkhau.Text = "Đổi mật khẩu";
+            this.btnDoimatkhau.Click += new System.EventHandler(this.btnDoimatkhau_Click);
             // 
             // btnMoKhoa
             // 
@@ -215,6 +227,7 @@
             this.btnMoKhoa.Size = new System.Drawing.Size(145, 32);
             this.btnMoKhoa.TabIndex = 2;
             this.btnMoKhoa.Text = "Mở Khóa";
+            this.btnMoKhoa.Click += new System.EventHandler(this.btnMoKhoa_Click);
             // 
             // btnKhoa
             // 
@@ -232,6 +245,7 @@
             this.btnKhoa.Size = new System.Drawing.Size(145, 32);
             this.btnKhoa.TabIndex = 1;
             this.btnKhoa.Text = "Khóa";
+            this.btnKhoa.Click += new System.EventHandler(this.btnKhoa_Click);
             // 
             // pnlcard
             // 
@@ -242,6 +256,7 @@
             this.pnlcard.Name = "pnlcard";
             this.pnlcard.Size = new System.Drawing.Size(210, 242);
             this.pnlcard.TabIndex = 0;
+            this.pnlcard.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlcard_Paint);
             // 
             // lblVaitro
             // 
@@ -253,6 +268,7 @@
             this.lblVaitro.Size = new System.Drawing.Size(69, 28);
             this.lblVaitro.TabIndex = 2;
             this.lblVaitro.Text = "Vai trò";
+            this.lblVaitro.Click += new System.EventHandler(this.lblVaitro_Click);
             // 
             // lblTendangnhap
             // 
@@ -263,6 +279,7 @@
             this.lblTendangnhap.TabIndex = 1;
             this.lblTendangnhap.Text = "Tendangnhap";
             this.lblTendangnhap.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTendangnhap.Click += new System.EventHandler(this.lblTendangnhap_Click);
             // 
             // picAvatar
             // 
@@ -277,6 +294,7 @@
             this.picAvatar.TabIndex = 0;
             this.picAvatar.TabStop = false;
             this.picAvatar.UseTransparentBackground = true;
+            this.picAvatar.Click += new System.EventHandler(this.picAvatar_Click);
             // 
             // FrmTaiKhoan
             // 

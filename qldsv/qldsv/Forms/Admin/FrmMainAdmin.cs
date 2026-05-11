@@ -55,5 +55,12 @@ namespace qldsv.Forms
         {
             LoadForm(new Forms.Admin.FrmTaiKhoan());
         }
+
+        private void btnQLM_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Forms.Admin.FrmMonHoc());
+        }
+
+        
     }
 }

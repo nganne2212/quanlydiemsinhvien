@@ -59,6 +59,7 @@
             this.pnlcontent.Name = "pnlcontent";
             this.pnlcontent.Size = new System.Drawing.Size(1004, 705);
             this.pnlcontent.TabIndex = 1;
+            //this.pnlcontent.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlcontent_Paint);
             // 
             // lblTen
             // 
@@ -316,6 +317,7 @@
             this.btnQLM.TabIndex = 8;
             this.btnQLM.Text = "📚 Quản lý môn học";
             this.btnQLM.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnQLM.Click += new System.EventHandler(this.btnQLM_Click);
             // 
             // btnQLGV
             // 

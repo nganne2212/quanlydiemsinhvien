@@ -57,6 +57,93 @@ namespace qldsv.Forms.Admin
             lblTendangnhap.Text = dgvTaikhoan.CurrentRow.Cells["TenDangNhap"].Value.ToString();
             lblVaitro.Text = dgvTaikhoan.CurrentRow.Cells["VaiTro"].Value.ToString();
         }
+
+        
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlDS_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnlHeader_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnlFilter_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboVaiTro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboTrangthai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlThongtin_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnDoimatkhau_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMoKhoa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnKhoa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlcard_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblVaitro_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTendangnhap_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picAvatar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }
