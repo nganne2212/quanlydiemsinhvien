@@ -59,6 +59,10 @@ namespace qldsv.Forms
         private void btnQLSV_Click(object sender, EventArgs e)
         {
             LoadForm(new Forms.Admin.FrmQLSV());
+        private void btnQLHK_Click(object sender, EventArgs e)
+        {
+
+            LoadForm(new Forms.Admin.FrmHocKy());
         }
     }
 }
