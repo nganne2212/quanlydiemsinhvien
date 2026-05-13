@@ -55,5 +55,10 @@ namespace qldsv.Forms
         {
             LoadForm(new Forms.Admin.FrmTaiKhoan());
         }
+
+        private void btnQLPH_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Forms.Admin.FrmPhongHoc());
+        }
     }
 }
