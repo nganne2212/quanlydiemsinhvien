@@ -56,11 +56,24 @@ namespace qldsv.Forms
             LoadForm(new Forms.Admin.FrmTaiKhoan());
         }
 
+        private void btnQLSV_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Forms.Admin.FrmQLSV());
+        }
+        private void btnQLHK_Click(object sender, EventArgs e)
+        {
+
+            LoadForm(new Forms.Admin.FrmHocKy());
+        }
         private void btnQLM_Click(object sender, EventArgs e)
         {
             LoadForm(new Forms.Admin.FrmMonHoc());
         }
 
         
+        private void btnQLPH_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Forms.Admin.FrmPhongHoc());
+        }
     }
 }

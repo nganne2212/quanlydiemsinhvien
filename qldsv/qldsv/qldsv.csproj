@@ -94,11 +94,29 @@
     <Compile Include="Class\CurentUser.cs" />
     <Compile Include="Class\Functions.cs" />
     <Compile Include="DAL\TaiKhoanDAL.cs" />
+    <Compile Include="Forms\Admin\FrmQLSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmQLSV.Designer.cs">
+      <DependentUpon>FrmQLSV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmHocKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmHocKy.Designer.cs">
+      <DependentUpon>FrmHocKy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Admin\FrmMonHoc.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Admin\FrmMonHoc.Designer.cs">
       <DependentUpon>FrmMonHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmPhongHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmPhongHoc.Designer.cs">
+      <DependentUpon>FrmPhongHoc.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\SecurityHelper.cs" />
     <!-- ADMIN -->
@@ -171,11 +189,20 @@
   <!-- RESX -->
   <!-- ======================== -->
   <ItemGroup>
+    <EmbeddedResource Include="Forms\Admin\FrmHocKy.resx">
+      <DependentUpon>FrmHocKy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\FrmMainAdmin.resx">
       <DependentUpon>FrmMainAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\FrmQLSV.resx">
+      <DependentUpon>FrmQLSV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\FrmMonHoc.resx">
       <DependentUpon>FrmMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\FrmPhongHoc.resx">
+      <DependentUpon>FrmPhongHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\FrmTaiKhoan.resx">
       <DependentUpon>FrmTaiKhoan.cs</DependentUpon>
