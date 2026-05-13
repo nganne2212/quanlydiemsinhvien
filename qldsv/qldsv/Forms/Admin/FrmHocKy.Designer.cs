@@ -274,7 +274,7 @@
             this.colTenhocky,
             this.colNamhoc,
             this.colTrangthai});
-            //this.dgvQuanlyhocky.Location = new System.Drawing.Point(-7, 143);
+            this.dgvQuanlyhocky.Location = new System.Drawing.Point(0, 138);
             this.dgvQuanlyhocky.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvQuanlyhocky.Name = "dgvQuanlyhocky";
             this.dgvQuanlyhocky.RowHeadersVisible = false;
@@ -333,7 +333,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmHocKy";
             this.Text = "FrmHocKy";
-            //this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnlQuanlyhocky.ResumeLayout(false);
             this.pnlQuanlyhocky.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuanlyhocky)).EndInit();
