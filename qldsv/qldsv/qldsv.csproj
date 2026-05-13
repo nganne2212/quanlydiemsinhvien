@@ -111,6 +111,7 @@
     </Compile>
     <Compile Include="Forms\Admin\FrmMonHoc.Designer.cs">
       <DependentUpon>FrmMonHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Admin\FrmPhongHoc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +200,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\FrmMonHoc.resx">
       <DependentUpon>FrmMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\FrmPhongHoc.resx">
       <DependentUpon>FrmPhongHoc.cs</DependentUpon>
     </EmbeddedResource>

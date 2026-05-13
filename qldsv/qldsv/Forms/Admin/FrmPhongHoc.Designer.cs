@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -54,7 +54,7 @@
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Margin = new System.Windows.Forms.Padding(4);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1234, 62);
+            this.pnlHeader.Size = new System.Drawing.Size(982, 50);
             this.pnlHeader.TabIndex = 1;
             // 
             // label1
@@ -62,10 +62,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(13, 9);
+            this.label1.Location = new System.Drawing.Point(20, 14);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(349, 45);
+            this.label1.Size = new System.Drawing.Size(265, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "⊟  Quản lý phòng học";
             // 
@@ -77,7 +77,7 @@
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(231, 122);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(137, 39);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(101, 30);
             this.guna2HtmlLabel1.TabIndex = 2;
             this.guna2HtmlLabel1.Text = "Tên phòng:";
             // 
@@ -99,11 +99,11 @@
             this.TxtTenphong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(137)))), ((int)(((byte)(100)))));
             this.TxtTenphong.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TxtTenphong.Location = new System.Drawing.Point(377, 122);
-            this.TxtTenphong.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.TxtTenphong.Margin = new System.Windows.Forms.Padding(6);
             this.TxtTenphong.Name = "TxtTenphong";
             this.TxtTenphong.PlaceholderText = "VD: D6.206";
             this.TxtTenphong.SelectedText = "";
-            this.TxtTenphong.Size = new System.Drawing.Size(449, 51);
+            this.TxtTenphong.Size = new System.Drawing.Size(197, 51);
             this.TxtTenphong.TabIndex = 3;
             // 
             // dgvPhonghoc
@@ -116,14 +116,14 @@
             this.dgvPhonghoc.BackgroundColor = System.Drawing.SystemColors.HighlightText;
             this.dgvPhonghoc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvPhonghoc.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPhonghoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPhonghoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPhonghoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPhonghoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSTT,
@@ -138,7 +138,7 @@
             this.dgvPhonghoc.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvPhonghoc.RowTemplate.Height = 30;
             this.dgvPhonghoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPhonghoc.Size = new System.Drawing.Size(1260, 356);
+            this.dgvPhonghoc.Size = new System.Drawing.Size(1004, 300);
             this.dgvPhonghoc.TabIndex = 4;
             // 
             // colSTT
@@ -169,7 +169,7 @@
             // 
             // BtnThem
             // 
-            this.BtnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnThem.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.BtnThem.BorderRadius = 8;
             this.BtnThem.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.BtnThem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -178,15 +178,15 @@
             this.BtnThem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.BtnThem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnThem.ForeColor = System.Drawing.Color.White;
-            this.BtnThem.Location = new System.Drawing.Point(97, 626);
+            this.BtnThem.Location = new System.Drawing.Point(19, 582);
             this.BtnThem.Name = "BtnThem";
-            this.BtnThem.Size = new System.Drawing.Size(194, 49);
+            this.BtnThem.Size = new System.Drawing.Size(121, 35);
             this.BtnThem.TabIndex = 10;
             this.BtnThem.Text = "+ Thêm";
             // 
             // BtnSua
             // 
-            this.BtnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnSua.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.BtnSua.BorderRadius = 8;
             this.BtnSua.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.BtnSua.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -196,15 +196,15 @@
             this.BtnSua.FillColor = System.Drawing.Color.Goldenrod;
             this.BtnSua.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSua.ForeColor = System.Drawing.Color.White;
-            this.BtnSua.Location = new System.Drawing.Point(321, 626);
+            this.BtnSua.Location = new System.Drawing.Point(208, 582);
             this.BtnSua.Name = "BtnSua";
-            this.BtnSua.Size = new System.Drawing.Size(206, 49);
+            this.BtnSua.Size = new System.Drawing.Size(121, 35);
             this.BtnSua.TabIndex = 11;
             this.BtnSua.Text = "✏ Sửa";
             // 
             // BtnLuu
             // 
-            this.BtnLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnLuu.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.BtnLuu.BorderRadius = 8;
             this.BtnLuu.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.BtnLuu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -214,15 +214,15 @@
             this.BtnLuu.FillColor = System.Drawing.Color.SeaGreen;
             this.BtnLuu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnLuu.ForeColor = System.Drawing.Color.White;
-            this.BtnLuu.Location = new System.Drawing.Point(545, 626);
+            this.BtnLuu.Location = new System.Drawing.Point(414, 582);
             this.BtnLuu.Name = "BtnLuu";
-            this.BtnLuu.Size = new System.Drawing.Size(208, 49);
+            this.BtnLuu.Size = new System.Drawing.Size(121, 35);
             this.BtnLuu.TabIndex = 12;
             this.BtnLuu.Text = "💾 Lưu";
             // 
             // BtnXoa
             // 
-            this.BtnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnXoa.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.BtnXoa.BorderRadius = 8;
             this.BtnXoa.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.BtnXoa.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -232,16 +232,16 @@
             this.BtnXoa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.BtnXoa.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnXoa.ForeColor = System.Drawing.Color.White;
-            this.BtnXoa.Location = new System.Drawing.Point(775, 626);
+            this.BtnXoa.Location = new System.Drawing.Point(618, 582);
             this.BtnXoa.Name = "BtnXoa";
-            this.BtnXoa.Size = new System.Drawing.Size(194, 49);
+            this.BtnXoa.Size = new System.Drawing.Size(121, 35);
             this.BtnXoa.TabIndex = 13;
             this.BtnXoa.Text = "🗑 Xóa";
             this.BtnXoa.Click += new System.EventHandler(this.BtnXoa_Click);
             // 
             // BtnBoqua
             // 
-            this.BtnBoqua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnBoqua.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.BtnBoqua.BorderRadius = 8;
             this.BtnBoqua.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.BtnBoqua.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -251,9 +251,9 @@
             this.BtnBoqua.FillColor = System.Drawing.SystemColors.AppWorkspace;
             this.BtnBoqua.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnBoqua.ForeColor = System.Drawing.Color.White;
-            this.BtnBoqua.Location = new System.Drawing.Point(993, 626);
+            this.BtnBoqua.Location = new System.Drawing.Point(810, 582);
             this.BtnBoqua.Name = "BtnBoqua";
-            this.BtnBoqua.Size = new System.Drawing.Size(196, 49);
+            this.BtnBoqua.Size = new System.Drawing.Size(121, 35);
             this.BtnBoqua.TabIndex = 14;
             this.BtnBoqua.Text = "✕ Bỏ qua";
             // 
@@ -261,7 +261,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1234, 705);
+            this.ClientSize = new System.Drawing.Size(982, 649);
             this.Controls.Add(this.BtnBoqua);
             this.Controls.Add(this.BtnXoa);
             this.Controls.Add(this.BtnLuu);
