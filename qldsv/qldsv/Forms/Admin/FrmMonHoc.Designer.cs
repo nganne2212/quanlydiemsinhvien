@@ -41,7 +41,6 @@
             this.txtKT2 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.DgridMonhoc = new System.Windows.Forms.DataGridView();
             this.txtKT1 = new System.Windows.Forms.TextBox();
             this.txtChuyencan = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -54,11 +53,16 @@
             this.pnlDS = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.dgvQuanlyhocky = new System.Windows.Forms.DataGridView();
+            this.colSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTenhocky = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNamhoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTrangthai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaikhoan)).BeginInit();
             this.pnlFilter.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgridMonhoc)).BeginInit();
             this.pnlDS.SuspendLayout();
             this.pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvQuanlyhocky)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -88,6 +92,7 @@
             // 
             // pnlFilter
             // 
+            this.pnlFilter.Controls.Add(this.dgvQuanlyhocky);
             this.pnlFilter.Controls.Add(this.btnThem);
             this.pnlFilter.Controls.Add(this.btnSua);
             this.pnlFilter.Controls.Add(this.btnLuu);
@@ -98,7 +103,6 @@
             this.pnlFilter.Controls.Add(this.txtKT2);
             this.pnlFilter.Controls.Add(this.label9);
             this.pnlFilter.Controls.Add(this.label7);
-            this.pnlFilter.Controls.Add(this.DgridMonhoc);
             this.pnlFilter.Controls.Add(this.txtKT1);
             this.pnlFilter.Controls.Add(this.txtChuyencan);
             this.pnlFilter.Controls.Add(this.label6);
@@ -216,17 +220,6 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "Kiểm tra 1:";
             // 
-            // DgridMonhoc
-            // 
-            this.DgridMonhoc.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DgridMonhoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgridMonhoc.Location = new System.Drawing.Point(111, 197);
-            this.DgridMonhoc.Name = "DgridMonhoc";
-            this.DgridMonhoc.RowHeadersWidth = 62;
-            this.DgridMonhoc.RowTemplate.Height = 28;
-            this.DgridMonhoc.Size = new System.Drawing.Size(1110, 407);
-            this.DgridMonhoc.TabIndex = 7;
-            // 
             // txtKT1
             // 
             this.txtKT1.Location = new System.Drawing.Point(636, 122);
@@ -330,6 +323,59 @@
             this.pnlHeader.Size = new System.Drawing.Size(1374, 50);
             this.pnlHeader.TabIndex = 3;
             // 
+            // dgvQuanlyhocky
+            // 
+            this.dgvQuanlyhocky.AllowUserToAddRows = false;
+            this.dgvQuanlyhocky.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvQuanlyhocky.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvQuanlyhocky.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvQuanlyhocky.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvQuanlyhocky.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvQuanlyhocky.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colSTT,
+            this.colTenhocky,
+            this.colNamhoc,
+            this.colTrangthai});
+            this.dgvQuanlyhocky.Location = new System.Drawing.Point(0, 189);
+            this.dgvQuanlyhocky.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgvQuanlyhocky.Name = "dgvQuanlyhocky";
+            this.dgvQuanlyhocky.RowHeadersVisible = false;
+            this.dgvQuanlyhocky.RowHeadersWidth = 51;
+            this.dgvQuanlyhocky.RowTemplate.Height = 24;
+            this.dgvQuanlyhocky.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvQuanlyhocky.Size = new System.Drawing.Size(1374, 412);
+            this.dgvQuanlyhocky.TabIndex = 19;
+            // 
+            // colSTT
+            // 
+            this.colSTT.FillWeight = 20F;
+            this.colSTT.HeaderText = "STT";
+            this.colSTT.MinimumWidth = 6;
+            this.colSTT.Name = "colSTT";
+            // 
+            // colTenhocky
+            // 
+            this.colTenhocky.FillWeight = 120F;
+            this.colTenhocky.HeaderText = "Tên học kỳ";
+            this.colTenhocky.MinimumWidth = 6;
+            this.colTenhocky.Name = "colTenhocky";
+            // 
+            // colNamhoc
+            // 
+            this.colNamhoc.FillWeight = 80F;
+            this.colNamhoc.HeaderText = "Năm học";
+            this.colNamhoc.MinimumWidth = 6;
+            this.colNamhoc.Name = "colNamhoc";
+            // 
+            // colTrangthai
+            // 
+            this.colTrangthai.FillWeight = 80F;
+            this.colTrangthai.HeaderText = "Trạng thái";
+            this.colTrangthai.MinimumWidth = 6;
+            this.colTrangthai.Name = "colTrangthai";
+            // 
             // FrmMonHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -343,10 +389,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaikhoan)).EndInit();
             this.pnlFilter.ResumeLayout(false);
             this.pnlFilter.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgridMonhoc)).EndInit();
             this.pnlDS.ResumeLayout(false);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvQuanlyhocky)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -377,6 +423,10 @@
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThem;
-        private System.Windows.Forms.DataGridView DgridMonhoc;
+        private System.Windows.Forms.DataGridView dgvQuanlyhocky;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSTT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTenhocky;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNamhoc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTrangthai;
     }
 }
