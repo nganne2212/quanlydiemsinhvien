@@ -65,5 +65,11 @@ namespace qldsv.Forms
 
             LoadForm(new Forms.Admin.FrmHocKy());
         }
+        private void btnQLM_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Forms.Admin.FrmMonHoc());
+        }
+
+        
     }
 }
