@@ -17,9 +17,6 @@ namespace qldsv.Forms.Admin
             InitializeComponent();
         }
 
-        private void FrmHocKy_Load(object sender, EventArgs e)
-        {
 
-        }
     }
 }

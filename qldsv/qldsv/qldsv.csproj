@@ -99,6 +99,7 @@
     </Compile>
     <Compile Include="Forms\Admin\FrmQLSV.Designer.cs">
       <DependentUpon>FrmQLSV.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Admin\FrmHocKy.cs">
       <SubType>Form</SubType>
     </Compile>
