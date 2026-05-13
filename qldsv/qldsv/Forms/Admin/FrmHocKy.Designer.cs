@@ -255,7 +255,7 @@
             this.btnDonghocky.Location = new System.Drawing.Point(502, 581);
             this.btnDonghocky.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDonghocky.Name = "btnDonghocky";
-            this.btnDonghocky.Size = new System.Drawing.Size(178, 40);
+            this.btnDonghocky.Size = new System.Drawing.Size(203, 40);
             this.btnDonghocky.TabIndex = 12;
             this.btnDonghocky.Text = "🔒 Đóng học kỳ";
             // 
