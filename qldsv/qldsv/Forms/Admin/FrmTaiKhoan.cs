@@ -174,9 +174,9 @@ namespace qldsv.Forms.Admin
             !char.IsControl(e.KeyChar) &&
             e.KeyChar != ' ')
             {
-                e.Handled = true; 
+                e.Handled = true;
             }
         }
     }
-    
+
 }
