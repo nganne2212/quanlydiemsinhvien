@@ -225,6 +225,7 @@
             this.btnQLPH.TabIndex = 12;
             this.btnQLPH.Text = "🏢 Quản lý phòng học";
             this.btnQLPH.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnQLPH.Click += new System.EventHandler(this.btnQLPH_Click);
             // 
             // btnQLHK
             // 

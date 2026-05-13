@@ -71,5 +71,9 @@ namespace qldsv.Forms
         }
 
         
+        private void btnQLPH_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Forms.Admin.FrmPhongHoc());
+        }
     }
 }

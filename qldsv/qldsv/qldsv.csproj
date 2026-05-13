@@ -111,6 +111,11 @@
     </Compile>
     <Compile Include="Forms\Admin\FrmMonHoc.Designer.cs">
       <DependentUpon>FrmMonHoc.cs</DependentUpon>
+    <Compile Include="Forms\Admin\FrmPhongHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmPhongHoc.Designer.cs">
+      <DependentUpon>FrmPhongHoc.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\SecurityHelper.cs" />
     <!-- ADMIN -->
@@ -194,6 +199,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\FrmMonHoc.resx">
       <DependentUpon>FrmMonHoc.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Admin\FrmPhongHoc.resx">
+      <DependentUpon>FrmPhongHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\FrmTaiKhoan.resx">
       <DependentUpon>FrmTaiKhoan.cs</DependentUpon>
