@@ -2,78 +2,282 @@
 {
     partial class FrmHocKy
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
-            {
                 components.Dispose();
-            }
             base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            this.lblTenHocKy = new System.Windows.Forms.Label();
-            this.lblNamhoc = new System.Windows.Forms.Label();
-            this.txtTenhocky = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.pnlQuanlyhocky = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnThem = new Guna.UI2.WinForms.Guna2Button();
-            this.btnSua = new Guna.UI2.WinForms.Guna2Button();
-            this.btnLuu = new Guna.UI2.WinForms.Guna2Button();
-            this.btnXoa = new Guna.UI2.WinForms.Guna2Button();
-            this.btnBoqua = new Guna.UI2.WinForms.Guna2Button();
-            this.btnMohocky = new Guna.UI2.WinForms.Guna2Button();
-            this.btnDonghocky = new Guna.UI2.WinForms.Guna2Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.pnlHeader = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.pnlMain = new System.Windows.Forms.Panel();
+            this.pnlRight = new System.Windows.Forms.Panel();
             this.dgvQuanlyhocky = new System.Windows.Forms.DataGridView();
             this.colSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMahocky = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTenhocky = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNamhoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTrangthai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnlQuanlyhocky.SuspendLayout();
+            this.pnlSearch = new System.Windows.Forms.Panel();
+            this.TxtSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.pnlLeft = new System.Windows.Forms.Panel();
+            this.lblSectionInfo = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblMaHocKy = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.TxtMahocky = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblTenHocKy = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.txtTenhocky = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblNamHoc = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.txtNamhoc = new Guna.UI2.WinForms.Guna2TextBox();
+            this.pnlButtons = new System.Windows.Forms.Panel();
+            this.btnThem = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSua = new Guna.UI2.WinForms.Guna2Button();
+            this.btnLuu = new Guna.UI2.WinForms.Guna2Button();
+            this.btnBoqua = new Guna.UI2.WinForms.Guna2Button();
+            this.btnXoa = new Guna.UI2.WinForms.Guna2Button();
+            this.lblDivider = new System.Windows.Forms.Label();
+            this.btnMohocky = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDonghocky = new Guna.UI2.WinForms.Guna2Button();
+            this.pnlHeader.SuspendLayout();
+            this.pnlMain.SuspendLayout();
+            this.pnlRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuanlyhocky)).BeginInit();
+            this.pnlSearch.SuspendLayout();
+            this.pnlLeft.SuspendLayout();
+            this.pnlButtons.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // pnlHeader
+            // 
+            this.pnlHeader.BackColor = System.Drawing.Color.MidnightBlue;
+            this.pnlHeader.Controls.Add(this.lblTitle);
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnlHeader.Name = "pnlHeader";
+            this.pnlHeader.Size = new System.Drawing.Size(1100, 56);
+            this.pnlHeader.TabIndex = 0;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTitle.Location = new System.Drawing.Point(20, 14);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(247, 36);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "🗓  Quản lý học kỳ";
+            // 
+            // pnlMain
+            // 
+            this.pnlMain.Controls.Add(this.pnlRight);
+            this.pnlMain.Controls.Add(this.pnlLeft);
+            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMain.Location = new System.Drawing.Point(0, 56);
+            this.pnlMain.Name = "pnlMain";
+            this.pnlMain.Size = new System.Drawing.Size(1100, 644);
+            this.pnlMain.TabIndex = 1;
+            // 
+            // pnlRight
+            // 
+            this.pnlRight.Controls.Add(this.dgvQuanlyhocky);
+            this.pnlRight.Controls.Add(this.pnlSearch);
+            this.pnlRight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlRight.Location = new System.Drawing.Point(327, 0);
+            this.pnlRight.Name = "pnlRight";
+            this.pnlRight.Padding = new System.Windows.Forms.Padding(20, 16, 20, 16);
+            this.pnlRight.Size = new System.Drawing.Size(773, 644);
+            this.pnlRight.TabIndex = 1;
+            // 
+            // dgvQuanlyhocky
+            // 
+            this.dgvQuanlyhocky.AllowUserToAddRows = false;
+            this.dgvQuanlyhocky.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvQuanlyhocky.BackgroundColor = System.Drawing.Color.White;
+            this.dgvQuanlyhocky.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(73)))), ((int)(((byte)(171)))));
+            this.dgvQuanlyhocky.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvQuanlyhocky.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvQuanlyhocky.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colSTT,
+            this.colMahocky,
+            this.colTenhocky,
+            this.colNamhoc,
+            this.colTrangthai});
+            this.dgvQuanlyhocky.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvQuanlyhocky.EnableHeadersVisualStyles = false;
+            this.dgvQuanlyhocky.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.dgvQuanlyhocky.Location = new System.Drawing.Point(20, 76);
+            this.dgvQuanlyhocky.Name = "dgvQuanlyhocky";
+            this.dgvQuanlyhocky.ReadOnly = true;
+            this.dgvQuanlyhocky.RowHeadersVisible = false;
+            this.dgvQuanlyhocky.RowHeadersWidth = 62;
+            this.dgvQuanlyhocky.RowTemplate.Height = 34;
+            this.dgvQuanlyhocky.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvQuanlyhocky.Size = new System.Drawing.Size(733, 552);
+            this.dgvQuanlyhocky.TabIndex = 1;
+            // 
+            // colSTT
+            // 
+            this.colSTT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colSTT.HeaderText = "STT";
+            this.colSTT.MinimumWidth = 8;
+            this.colSTT.Name = "colSTT";
+            this.colSTT.ReadOnly = true;
+            this.colSTT.Width = 55;
+            // 
+            // colMahocky
+            // 
+            this.colMahocky.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colMahocky.HeaderText = "Mã HK";
+            this.colMahocky.MinimumWidth = 8;
+            this.colMahocky.Name = "colMahocky";
+            this.colMahocky.ReadOnly = true;
+            this.colMahocky.Width = 80;
+            // 
+            // colTenhocky
+            // 
+            this.colTenhocky.HeaderText = "Tên học kỳ";
+            this.colTenhocky.MinimumWidth = 8;
+            this.colTenhocky.Name = "colTenhocky";
+            this.colTenhocky.ReadOnly = true;
+            // 
+            // colNamhoc
+            // 
+            this.colNamhoc.HeaderText = "Năm học";
+            this.colNamhoc.MinimumWidth = 8;
+            this.colNamhoc.Name = "colNamhoc";
+            this.colNamhoc.ReadOnly = true;
+            // 
+            // colTrangthai
+            // 
+            this.colTrangthai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colTrangthai.HeaderText = "Trạng thái";
+            this.colTrangthai.MinimumWidth = 8;
+            this.colTrangthai.Name = "colTrangthai";
+            this.colTrangthai.ReadOnly = true;
+            this.colTrangthai.Width = 110;
+            // 
+            // pnlSearch
+            // 
+            this.pnlSearch.Controls.Add(this.TxtSearch);
+            this.pnlSearch.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSearch.Location = new System.Drawing.Point(20, 16);
+            this.pnlSearch.Name = "pnlSearch";
+            this.pnlSearch.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.pnlSearch.Size = new System.Drawing.Size(733, 60);
+            this.pnlSearch.TabIndex = 0;
+            // 
+            // TxtSearch
+            // 
+            this.TxtSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.TxtSearch.BorderRadius = 8;
+            this.TxtSearch.BorderThickness = 2;
+            this.TxtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TxtSearch.DefaultText = "";
+            this.TxtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.TxtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.TxtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TxtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtSearch.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.TxtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
+            this.TxtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtSearch.Location = new System.Drawing.Point(0, 0);
+            this.TxtSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TxtSearch.Name = "TxtSearch";
+            this.TxtSearch.PlaceholderText = "🔍  Tìm theo tên học kỳ, năm học...";
+            this.TxtSearch.SelectedText = "";
+            this.TxtSearch.Size = new System.Drawing.Size(420, 46);
+            this.TxtSearch.TabIndex = 0;
+            // 
+            // pnlLeft
+            // 
+            this.pnlLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.pnlLeft.Controls.Add(this.lblSectionInfo);
+            this.pnlLeft.Controls.Add(this.lblMaHocKy);
+            this.pnlLeft.Controls.Add(this.TxtMahocky);
+            this.pnlLeft.Controls.Add(this.lblTenHocKy);
+            this.pnlLeft.Controls.Add(this.txtTenhocky);
+            this.pnlLeft.Controls.Add(this.lblNamHoc);
+            this.pnlLeft.Controls.Add(this.txtNamhoc);
+            this.pnlLeft.Controls.Add(this.pnlButtons);
+            this.pnlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlLeft.Location = new System.Drawing.Point(0, 0);
+            this.pnlLeft.Name = "pnlLeft";
+            this.pnlLeft.Padding = new System.Windows.Forms.Padding(20, 24, 20, 16);
+            this.pnlLeft.Size = new System.Drawing.Size(327, 644);
+            this.pnlLeft.TabIndex = 0;
+            // 
+            // lblSectionInfo
+            // 
+            this.lblSectionInfo.BackColor = System.Drawing.Color.Transparent;
+            this.lblSectionInfo.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.lblSectionInfo.ForeColor = System.Drawing.Color.SlateBlue;
+            this.lblSectionInfo.Location = new System.Drawing.Point(20, 24);
+            this.lblSectionInfo.Name = "lblSectionInfo";
+            this.lblSectionInfo.Size = new System.Drawing.Size(153, 23);
+            this.lblSectionInfo.TabIndex = 0;
+            this.lblSectionInfo.Text = "THÔNG TIN HỌC KỲ";
+            // 
+            // lblMaHocKy
+            // 
+            this.lblMaHocKy.BackColor = System.Drawing.Color.Transparent;
+            this.lblMaHocKy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblMaHocKy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
+            this.lblMaHocKy.Location = new System.Drawing.Point(20, 56);
+            this.lblMaHocKy.Name = "lblMaHocKy";
+            this.lblMaHocKy.Size = new System.Drawing.Size(91, 27);
+            this.lblMaHocKy.TabIndex = 1;
+            this.lblMaHocKy.Text = "Mã học kỳ";
+            // 
+            // TxtMahocky
+            // 
+            this.TxtMahocky.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.TxtMahocky.BorderRadius = 8;
+            this.TxtMahocky.BorderThickness = 2;
+            this.TxtMahocky.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TxtMahocky.DefaultText = "";
+            this.TxtMahocky.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.TxtMahocky.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            this.TxtMahocky.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(120)))));
+            this.TxtMahocky.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(170)))));
+            this.TxtMahocky.Enabled = false;
+            this.TxtMahocky.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.TxtMahocky.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(120)))));
+            this.TxtMahocky.Location = new System.Drawing.Point(20, 76);
+            this.TxtMahocky.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TxtMahocky.Name = "TxtMahocky";
+            this.TxtMahocky.PlaceholderText = "Tự động";
+            this.TxtMahocky.SelectedText = "";
+            this.TxtMahocky.Size = new System.Drawing.Size(250, 46);
+            this.TxtMahocky.TabIndex = 2;
+            this.TxtMahocky.TabStop = false;
             // 
             // lblTenHocKy
             // 
-            this.lblTenHocKy.AutoSize = true;
-            this.lblTenHocKy.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTenHocKy.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenHocKy.Location = new System.Drawing.Point(136, 95);
+            this.lblTenHocKy.BackColor = System.Drawing.Color.Transparent;
+            this.lblTenHocKy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblTenHocKy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
+            this.lblTenHocKy.Location = new System.Drawing.Point(20, 136);
             this.lblTenHocKy.Name = "lblTenHocKy";
-            this.lblTenHocKy.Size = new System.Drawing.Size(121, 30);
-            this.lblTenHocKy.TabIndex = 0;
-            this.lblTenHocKy.Text = "Tên học kỳ:";
-            // 
-            // lblNamhoc
-            // 
-            this.lblNamhoc.AutoSize = true;
-            this.lblNamhoc.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNamhoc.Location = new System.Drawing.Point(566, 95);
-            this.lblNamhoc.Name = "lblNamhoc";
-            this.lblNamhoc.Size = new System.Drawing.Size(105, 30);
-            this.lblNamhoc.TabIndex = 1;
-            this.lblNamhoc.Text = "Năm học:";
+            this.lblTenHocKy.Size = new System.Drawing.Size(109, 27);
+            this.lblTenHocKy.TabIndex = 3;
+            this.lblTenHocKy.Text = "Tên học kỳ *";
             // 
             // txtTenhocky
             // 
+            this.txtTenhocky.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(73)))), ((int)(((byte)(171)))));
             this.txtTenhocky.BorderRadius = 8;
+            this.txtTenhocky.BorderThickness = 2;
             this.txtTenhocky.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTenhocky.DefaultText = "";
             this.txtTenhocky.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -81,285 +285,212 @@
             this.txtTenhocky.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtTenhocky.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtTenhocky.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTenhocky.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtTenhocky.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.txtTenhocky.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.txtTenhocky.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTenhocky.Location = new System.Drawing.Point(254, 95);
-            this.txtTenhocky.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtTenhocky.Location = new System.Drawing.Point(20, 158);
+            this.txtTenhocky.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTenhocky.Name = "txtTenhocky";
-            this.txtTenhocky.PlaceholderText = "";
+            this.txtTenhocky.PlaceholderText = "VD: Học kỳ 1";
             this.txtTenhocky.SelectedText = "";
-            this.txtTenhocky.Size = new System.Drawing.Size(169, 34);
-            this.txtTenhocky.TabIndex = 2;
+            this.txtTenhocky.Size = new System.Drawing.Size(250, 46);
+            this.txtTenhocky.TabIndex = 4;
             // 
-            // guna2TextBox1
+            // lblNamHoc
             // 
-            this.guna2TextBox1.BorderRadius = 8;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(668, 91);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(169, 34);
-            this.guna2TextBox1.TabIndex = 3;
+            this.lblNamHoc.BackColor = System.Drawing.Color.Transparent;
+            this.lblNamHoc.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblNamHoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
+            this.lblNamHoc.Location = new System.Drawing.Point(20, 218);
+            this.lblNamHoc.Name = "lblNamHoc";
+            this.lblNamHoc.Size = new System.Drawing.Size(92, 27);
+            this.lblNamHoc.TabIndex = 5;
+            this.lblNamHoc.Text = "Năm học *";
             // 
-            // pnlQuanlyhocky
+            // txtNamhoc
             // 
-            this.pnlQuanlyhocky.BackColor = System.Drawing.Color.MidnightBlue;
-            this.pnlQuanlyhocky.Controls.Add(this.label1);
-            this.pnlQuanlyhocky.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlQuanlyhocky.Location = new System.Drawing.Point(0, 0);
-            this.pnlQuanlyhocky.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pnlQuanlyhocky.Name = "pnlQuanlyhocky";
-            this.pnlQuanlyhocky.Size = new System.Drawing.Size(982, 50);
-            this.pnlQuanlyhocky.TabIndex = 5;
+            this.txtNamhoc.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(73)))), ((int)(((byte)(171)))));
+            this.txtNamhoc.BorderRadius = 8;
+            this.txtNamhoc.BorderThickness = 2;
+            this.txtNamhoc.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNamhoc.DefaultText = "";
+            this.txtNamhoc.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtNamhoc.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtNamhoc.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNamhoc.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNamhoc.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNamhoc.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.txtNamhoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.txtNamhoc.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNamhoc.Location = new System.Drawing.Point(20, 240);
+            this.txtNamhoc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNamhoc.Name = "txtNamhoc";
+            this.txtNamhoc.PlaceholderText = "VD: 2024-2025";
+            this.txtNamhoc.SelectedText = "";
+            this.txtNamhoc.Size = new System.Drawing.Size(250, 46);
+            this.txtNamhoc.TabIndex = 6;
             // 
-            // label1
+            // pnlButtons
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.MidnightBlue;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(20, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(224, 32);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "🗓️ Quản lý học kỳ";
+            this.pnlButtons.Controls.Add(this.btnThem);
+            this.pnlButtons.Controls.Add(this.btnSua);
+            this.pnlButtons.Controls.Add(this.btnLuu);
+            this.pnlButtons.Controls.Add(this.btnBoqua);
+            this.pnlButtons.Controls.Add(this.btnXoa);
+            this.pnlButtons.Controls.Add(this.lblDivider);
+            this.pnlButtons.Controls.Add(this.btnMohocky);
+            this.pnlButtons.Controls.Add(this.btnDonghocky);
+            this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlButtons.Location = new System.Drawing.Point(20, 362);
+            this.pnlButtons.Name = "pnlButtons";
+            this.pnlButtons.Padding = new System.Windows.Forms.Padding(20, 12, 20, 16);
+            this.pnlButtons.Size = new System.Drawing.Size(287, 266);
+            this.pnlButtons.TabIndex = 7;
             // 
             // btnThem
             // 
-            this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnThem.BorderRadius = 8;
-            this.btnThem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnThem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnThem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnThem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnThem.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnThem.ForeColor = System.Drawing.Color.White;
-            this.btnThem.Location = new System.Drawing.Point(111, 469);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnThem.Location = new System.Drawing.Point(20, 12);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(108, 40);
-            this.btnThem.TabIndex = 6;
+            this.btnThem.Size = new System.Drawing.Size(115, 36);
+            this.btnThem.TabIndex = 0;
             this.btnThem.Text = "+ Thêm";
             // 
             // btnSua
             // 
-            this.btnSua.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnSua.BorderRadius = 8;
-            this.btnSua.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSua.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSua.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSua.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSua.FillColor = System.Drawing.Color.Goldenrod;
-            this.btnSua.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSua.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(265, 469);
-            this.btnSua.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSua.Location = new System.Drawing.Point(155, 12);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(108, 40);
-            this.btnSua.TabIndex = 7;
+            this.btnSua.Size = new System.Drawing.Size(115, 36);
+            this.btnSua.TabIndex = 1;
             this.btnSua.Text = "✏ Sửa";
             // 
             // btnLuu
             // 
-            this.btnLuu.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnLuu.BorderRadius = 8;
-            this.btnLuu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnLuu.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnLuu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnLuu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnLuu.FillColor = System.Drawing.Color.SeaGreen;
-            this.btnLuu.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.Location = new System.Drawing.Point(430, 469);
-            this.btnLuu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnLuu.Location = new System.Drawing.Point(20, 58);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(108, 40);
-            this.btnLuu.TabIndex = 8;
+            this.btnLuu.Size = new System.Drawing.Size(115, 36);
+            this.btnLuu.TabIndex = 2;
             this.btnLuu.Text = "💾 Lưu";
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnXoa.BorderRadius = 8;
-            this.btnXoa.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnXoa.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnXoa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnXoa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnXoa.FillColor = System.Drawing.Color.Firebrick;
-            this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Location = new System.Drawing.Point(597, 469);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(108, 40);
-            this.btnXoa.TabIndex = 9;
-            this.btnXoa.Text = "🗑 Xóa";
             // 
             // btnBoqua
             // 
-            this.btnBoqua.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnBoqua.BorderRadius = 8;
-            this.btnBoqua.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnBoqua.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnBoqua.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnBoqua.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnBoqua.FillColor = System.Drawing.Color.DarkGray;
-            this.btnBoqua.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBoqua.FillColor = System.Drawing.Color.SlateGray;
+            this.btnBoqua.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnBoqua.ForeColor = System.Drawing.Color.White;
-            this.btnBoqua.Location = new System.Drawing.Point(765, 469);
-            this.btnBoqua.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnBoqua.Location = new System.Drawing.Point(78, 111);
             this.btnBoqua.Name = "btnBoqua";
-            this.btnBoqua.Size = new System.Drawing.Size(127, 40);
-            this.btnBoqua.TabIndex = 10;
-            this.btnBoqua.Text = "✖ Bỏ qua";
+            this.btnBoqua.Size = new System.Drawing.Size(115, 36);
+            this.btnBoqua.TabIndex = 3;
+            this.btnBoqua.Text = "✕ Bỏ qua";
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.BorderRadius = 8;
+            this.btnXoa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnXoa.ForeColor = System.Drawing.Color.White;
+            this.btnXoa.Location = new System.Drawing.Point(155, 58);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(115, 36);
+            this.btnXoa.TabIndex = 4;
+            this.btnXoa.Text = "🗑 Xóa";
+            // 
+            // lblDivider
+            // 
+            this.lblDivider.Font = new System.Drawing.Font("Segoe UI", 7.5F, System.Drawing.FontStyle.Bold);
+            this.lblDivider.ForeColor = System.Drawing.Color.DarkGray;
+            this.lblDivider.Location = new System.Drawing.Point(20, 150);
+            this.lblDivider.Name = "lblDivider";
+            this.lblDivider.Size = new System.Drawing.Size(250, 16);
+            this.lblDivider.TabIndex = 5;
+            this.lblDivider.Text = "TRẠNG THÁI HỌC KỲ";
             // 
             // btnMohocky
             // 
-            this.btnMohocky.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnMohocky.BorderRadius = 8;
-            this.btnMohocky.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnMohocky.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnMohocky.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnMohocky.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnMohocky.FillColor = System.Drawing.Color.ForestGreen;
-            this.btnMohocky.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMohocky.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
+            this.btnMohocky.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnMohocky.ForeColor = System.Drawing.Color.White;
-            this.btnMohocky.Location = new System.Drawing.Point(245, 581);
-            this.btnMohocky.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnMohocky.Location = new System.Drawing.Point(20, 172);
             this.btnMohocky.Name = "btnMohocky";
-            this.btnMohocky.Size = new System.Drawing.Size(178, 40);
-            this.btnMohocky.TabIndex = 11;
+            this.btnMohocky.Size = new System.Drawing.Size(244, 36);
+            this.btnMohocky.TabIndex = 6;
             this.btnMohocky.Text = "🔓 Mở học kỳ";
             // 
             // btnDonghocky
             // 
-            this.btnDonghocky.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnDonghocky.BorderRadius = 8;
-            this.btnDonghocky.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnDonghocky.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnDonghocky.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnDonghocky.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnDonghocky.FillColor = System.Drawing.Color.Maroon;
-            this.btnDonghocky.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDonghocky.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(31)))), ((int)(((byte)(162)))));
+            this.btnDonghocky.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnDonghocky.ForeColor = System.Drawing.Color.White;
-            this.btnDonghocky.Location = new System.Drawing.Point(502, 581);
-            this.btnDonghocky.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDonghocky.Location = new System.Drawing.Point(20, 214);
             this.btnDonghocky.Name = "btnDonghocky";
-            this.btnDonghocky.Size = new System.Drawing.Size(203, 40);
-            this.btnDonghocky.TabIndex = 12;
+            this.btnDonghocky.Size = new System.Drawing.Size(244, 36);
+            this.btnDonghocky.TabIndex = 7;
             this.btnDonghocky.Text = "🔒 Đóng học kỳ";
-            // 
-            // dgvQuanlyhocky
-            // 
-            this.dgvQuanlyhocky.AllowUserToAddRows = false;
-            this.dgvQuanlyhocky.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvQuanlyhocky.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvQuanlyhocky.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvQuanlyhocky.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvQuanlyhocky.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvQuanlyhocky.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colSTT,
-            this.colTenhocky,
-            this.colNamhoc,
-            this.colTrangthai});
-            this.dgvQuanlyhocky.Location = new System.Drawing.Point(0, 138);
-            this.dgvQuanlyhocky.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dgvQuanlyhocky.Name = "dgvQuanlyhocky";
-            this.dgvQuanlyhocky.RowHeadersVisible = false;
-            this.dgvQuanlyhocky.RowHeadersWidth = 51;
-            this.dgvQuanlyhocky.RowTemplate.Height = 24;
-            this.dgvQuanlyhocky.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvQuanlyhocky.Size = new System.Drawing.Size(1004, 300);
-            this.dgvQuanlyhocky.TabIndex = 13;
-            // 
-            // colSTT
-            // 
-            this.colSTT.FillWeight = 20F;
-            this.colSTT.HeaderText = "STT";
-            this.colSTT.MinimumWidth = 6;
-            this.colSTT.Name = "colSTT";
-            // 
-            // colTenhocky
-            // 
-            this.colTenhocky.FillWeight = 120F;
-            this.colTenhocky.HeaderText = "Tên học kỳ";
-            this.colTenhocky.MinimumWidth = 6;
-            this.colTenhocky.Name = "colTenhocky";
-            // 
-            // colNamhoc
-            // 
-            this.colNamhoc.FillWeight = 80F;
-            this.colNamhoc.HeaderText = "Năm học";
-            this.colNamhoc.MinimumWidth = 6;
-            this.colNamhoc.Name = "colNamhoc";
-            // 
-            // colTrangthai
-            // 
-            this.colTrangthai.FillWeight = 80F;
-            this.colTrangthai.HeaderText = "Trạng thái";
-            this.colTrangthai.MinimumWidth = 6;
-            this.colTrangthai.Name = "colTrangthai";
             // 
             // FrmHocKy
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(982, 649);
-            this.Controls.Add(this.dgvQuanlyhocky);
-            this.Controls.Add(this.btnDonghocky);
-            this.Controls.Add(this.btnMohocky);
-            this.Controls.Add(this.btnBoqua);
-            this.Controls.Add(this.btnXoa);
-            this.Controls.Add(this.btnLuu);
-            this.Controls.Add(this.btnSua);
-            this.Controls.Add(this.btnThem);
-            this.Controls.Add(this.pnlQuanlyhocky);
-            this.Controls.Add(this.guna2TextBox1);
-            this.Controls.Add(this.txtTenhocky);
-            this.Controls.Add(this.lblNamhoc);
-            this.Controls.Add(this.lblTenHocKy);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ClientSize = new System.Drawing.Size(1100, 700);
+            this.Controls.Add(this.pnlMain);
+            this.Controls.Add(this.pnlHeader);
             this.Name = "FrmHocKy";
-            this.Text = "FrmHocKy";
+            this.Text = "Quản lý học kỳ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.pnlQuanlyhocky.ResumeLayout(false);
-            this.pnlQuanlyhocky.PerformLayout();
+            this.pnlHeader.ResumeLayout(false);
+            this.pnlHeader.PerformLayout();
+            this.pnlMain.ResumeLayout(false);
+            this.pnlRight.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuanlyhocky)).EndInit();
+            this.pnlSearch.ResumeLayout(false);
+            this.pnlLeft.ResumeLayout(false);
+            this.pnlLeft.PerformLayout();
+            this.pnlButtons.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label lblTenHocKy;
-        private System.Windows.Forms.Label lblNamhoc;
+        private System.Windows.Forms.Panel pnlHeader;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Panel pnlMain;
+        private System.Windows.Forms.Panel pnlLeft;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblSectionInfo;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblMaHocKy;
+        private Guna.UI2.WinForms.Guna2TextBox TxtMahocky;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblTenHocKy;
         private Guna.UI2.WinForms.Guna2TextBox txtTenhocky;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private System.Windows.Forms.Panel pnlQuanlyhocky;
-        private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2Button btnThem;
-        private Guna.UI2.WinForms.Guna2Button btnSua;
-        private Guna.UI2.WinForms.Guna2Button btnLuu;
-        private Guna.UI2.WinForms.Guna2Button btnXoa;
-        private Guna.UI2.WinForms.Guna2Button btnBoqua;
-        private Guna.UI2.WinForms.Guna2Button btnMohocky;
-        private Guna.UI2.WinForms.Guna2Button btnDonghocky;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblNamHoc;
+        private Guna.UI2.WinForms.Guna2TextBox txtNamhoc;
+        private System.Windows.Forms.Panel pnlButtons;
+        public Guna.UI2.WinForms.Guna2Button btnThem;
+        public Guna.UI2.WinForms.Guna2Button btnSua;
+        public Guna.UI2.WinForms.Guna2Button btnLuu;
+        public Guna.UI2.WinForms.Guna2Button btnBoqua;
+        public Guna.UI2.WinForms.Guna2Button btnXoa;
+        private System.Windows.Forms.Label lblDivider;
+        public Guna.UI2.WinForms.Guna2Button btnMohocky;
+        public Guna.UI2.WinForms.Guna2Button btnDonghocky;
+        private System.Windows.Forms.Panel pnlRight;
+        private System.Windows.Forms.Panel pnlSearch;
+        private Guna.UI2.WinForms.Guna2TextBox TxtSearch;
         private System.Windows.Forms.DataGridView dgvQuanlyhocky;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSTT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMahocky;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTenhocky;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNamhoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTrangthai;
