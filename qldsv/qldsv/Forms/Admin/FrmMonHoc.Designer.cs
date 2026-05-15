@@ -137,7 +137,7 @@
             this.btnBoqua.Location = new System.Drawing.Point(942, 638);
             this.btnBoqua.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnBoqua.Name = "btnBoqua";
-            this.btnBoqua.Size = new System.Drawing.Size(127, 40);
+            this.btnBoqua.Size = new System.Drawing.Size(135, 40);
             this.btnBoqua.TabIndex = 31;
             this.btnBoqua.Text = "✖ Bỏ qua";
             // 
@@ -155,7 +155,7 @@
             this.btnXoa.Location = new System.Drawing.Point(774, 638);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(108, 40);
+            this.btnXoa.Size = new System.Drawing.Size(116, 40);
             this.btnXoa.TabIndex = 30;
             this.btnXoa.Text = "🗑 Xóa";
             // 
@@ -173,7 +173,7 @@
             this.btnLuu.Location = new System.Drawing.Point(607, 638);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(108, 40);
+            this.btnLuu.Size = new System.Drawing.Size(116, 40);
             this.btnLuu.TabIndex = 29;
             this.btnLuu.Text = "💾 Lưu";
             // 
@@ -191,7 +191,7 @@
             this.btnSua.Location = new System.Drawing.Point(442, 638);
             this.btnSua.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(108, 40);
+            this.btnSua.Size = new System.Drawing.Size(116, 40);
             this.btnSua.TabIndex = 28;
             this.btnSua.Text = "✏ Sửa";
             // 
@@ -208,7 +208,7 @@
             this.btnThem.Location = new System.Drawing.Point(288, 638);
             this.btnThem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(108, 40);
+            this.btnThem.Size = new System.Drawing.Size(116, 40);
             this.btnThem.TabIndex = 27;
             this.btnThem.Text = "+ Thêm";
             // 
