@@ -75,5 +75,25 @@ namespace qldsv.Forms
         {
             LoadForm(new Forms.Admin.FrmPhongHoc());
         }
+
+        private void QLLH_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Forms.Admin.FrmQLLichHoc());
+        }
+
+        private void btnPK_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Forms.Admin.FrmPhucKhao());
+        }
+
+        private void QLLHP_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Forms.Admin.FrmLopHocPhan());
+        }
+
+        private void btnQLGV_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Forms.Admin.FrmQLGV());
+        }
     }
 }
