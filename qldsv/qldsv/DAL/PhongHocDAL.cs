@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
+﻿using System.Data;
 using qldsv.Class;
 
 namespace qldsv.DAL
@@ -18,23 +13,34 @@ namespace qldsv.DAL
                   FROM PhongHoc");
         }
 
+        public static DataTable Search(string keyword)
+        {
+            return Functions.GetDataToTable(
+                @"SELECT ROW_NUMBER() OVER (ORDER BY MaPhong) AS STT,
+                         MaPhong, TenPhong
+                  FROM PhongHoc
+                  WHERE TenPhong LIKE @kw",
+                new { kw = "%" + keyword + "%" });
+        }
+
         public static bool TenPhongExists(string tenPhong, int? excludeId = null)
         {
             if (excludeId.HasValue)
             {
-                int count = Functions.QuerySingle<int>(
+                int c = Functions.QuerySingle<int>(
                     "SELECT COUNT(*) FROM PhongHoc WHERE TenPhong = @ten AND MaPhong <> @id",
                     new { ten = tenPhong, id = excludeId.Value });
-                return count > 0;
+                return c > 0;
             }
-            int c = Functions.QuerySingle<int>(
+            int count = Functions.QuerySingle<int>(
                 "SELECT COUNT(*) FROM PhongHoc WHERE TenPhong = @ten",
                 new { ten = tenPhong });
-            return c > 0;
+            return count > 0;
         }
 
         public static bool IsInUse(int maPhong)
         {
+            // Chưa có bảng LichHoc thì đổi thành: return false;
             int count = Functions.QuerySingle<int>(
                 "SELECT COUNT(*) FROM LichHoc WHERE MaPhong = @ma",
                 new { ma = maPhong });

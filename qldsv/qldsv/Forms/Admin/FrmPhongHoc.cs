@@ -15,29 +15,84 @@ namespace qldsv.Forms.Admin
         {
             InitializeComponent();
 
-            // Tắt tự sinh cột — dùng cột đã định nghĩa trong designer
+            // Gắn cột với tên cột DataTable
             dgvPhonghoc.AutoGenerateColumns = false;
-
-            // Gắn cột với tên cột trong DataTable trả về từ DB
             colSTT.DataPropertyName = "STT";
             colMaphong.DataPropertyName = "MaPhong";
             colTenphong.DataPropertyName = "TenPhong";
 
-            // Đăng ký sự kiện cho các nút
+            // Đăng ký sự kiện
             BtnThem.Click += BtnThem_Click;
             BtnSua.Click += BtnSua_Click;
             BtnLuu.Click += BtnLuu_Click;
             BtnBoqua.Click += BtnBoqua_Click;
             dgvPhonghoc.CellClick += dgvPhonghoc_CellClick;
+            TxtTenphong.KeyPress += TxtTenphong_KeyPress;
+            TxtSearch.TextChanged += TxtSearch_TextChanged;
+            TxtSearch.KeyDown += TxtSearch_KeyDown;
 
             LoadData();
             SetMode(Mode.NoSelection);
         }
 
-        // ── Load dữ liệu lên DataGridView ───────────────────────────────
+        // ── Load dữ liệu ────────────────────────────────────────────────
         private void LoadData()
         {
-            dgvPhonghoc.DataSource = PhongHocBLL.GetAll();
+            dgvPhonghoc.DataSource = PhongHocBLL.Search(TxtSearch.Text.Trim());
+        }
+
+        // ── Tìm kiếm nâng cao real-time ─────────────────────────────────
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string keyword = TxtSearch.Text.Trim();
+            var dt = PhongHocBLL.Search(keyword);
+            dgvPhonghoc.DataSource = dt;
+            SetMode(Mode.NoSelection);
+        }
+
+        private void TxtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Enter) return;
+
+            string keyword = TxtSearch.Text.Trim();
+            var dt = PhongHocBLL.Search(keyword);
+
+            if (!string.IsNullOrEmpty(keyword) && dt.Rows.Count == 0)
+            {
+                MessageBox.Show(
+                    $"Không tìm thấy phòng học nào có tên chứa \"{keyword}\".",
+                    "Không có kết quả",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                TxtSearch.Focus();
+            }
+        }
+        // ── Validate ký tự lạ ngay khi gõ ───────────────────────────────
+        private void TxtTenphong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Back) return;
+
+            bool hopLe = char.IsLetterOrDigit(e.KeyChar)
+                      || e.KeyChar == ' '
+                      || e.KeyChar == '.'
+                      || e.KeyChar == '-'
+                      || (int)e.KeyChar > 127; // Unicode tiếng Việt
+
+            if (!hopLe)
+            {
+                e.Handled = true;
+                MessageBox.Show(
+                    $"Ký tự '{e.KeyChar}' không được phép nhập!\n\n" +
+                    "Tên phòng chỉ chấp nhận:\n" +
+                    "   • Chữ cái (kể cả tiếng Việt)\n" +
+                    "   • Chữ số (0 - 9)\n" +
+                    "   • Khoảng trắng\n" +
+                    "   • Dấu chấm ( . )\n" +
+                    "   • Dấu gạch ngang ( - )",
+                    "Ký tự không hợp lệ",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
         }
 
         // ── Quản lý trạng thái 5 nút ────────────────────────────────────
@@ -47,7 +102,8 @@ namespace qldsv.Forms.Admin
             switch (mode)
             {
                 case Mode.NoSelection:
-                    TxtTenphong.Clear();
+                    TxtMaphong.Text = "";
+                    TxtTenphong.Text = "";
                     TxtTenphong.Enabled = false;
                     BtnThem.Enabled = true;
                     BtnSua.Enabled = false;
@@ -67,7 +123,8 @@ namespace qldsv.Forms.Admin
                     break;
 
                 case Mode.Add:
-                    TxtTenphong.Clear();
+                    TxtMaphong.Text = "";
+                    TxtTenphong.Text = "";
                     TxtTenphong.Enabled = true;
                     TxtTenphong.Focus();
                     BtnThem.Enabled = false;
@@ -91,16 +148,16 @@ namespace qldsv.Forms.Admin
         }
 
         // ── Click dòng trong DataGridView ────────────────────────────────
-        // → Điền Textbox + chỉnh nút
         private void dgvPhonghoc_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0) return;  // click vào header
-            if (_mode == Mode.Add) return;  // đang nhập mới, không can thiệp
+            if (e.RowIndex < 0) return;
+            if (_mode == Mode.Add) return;
 
             var row = dgvPhonghoc.Rows[e.RowIndex].DataBoundItem as DataRowView;
             if (row == null) return;
 
             _maPhongDang = Convert.ToInt32(row["MaPhong"]);
+            TxtMaphong.Text = _maPhongDang.ToString();
             TxtTenphong.Text = row["TenPhong"].ToString();
 
             if (_mode != Mode.Edit)
@@ -135,7 +192,7 @@ namespace qldsv.Forms.Admin
 
             if (!string.IsNullOrEmpty(err))
             {
-                MessageBox.Show(err, "Lỗi nhập liệu",
+                MessageBox.Show(err, "Lỗi dữ liệu",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 TxtTenphong.Focus();
                 return;
@@ -162,7 +219,7 @@ namespace qldsv.Forms.Admin
             }
 
             var confirm = MessageBox.Show(
-                $"Xác nhận xóa phòng [{TxtTenphong.Text}]?",
+                $"Xác nhận xóa phòng [{TxtTenphong.Text}]?\nThao tác này không thể hoàn tác.",
                 "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (confirm != DialogResult.Yes) return;
 
@@ -184,9 +241,8 @@ namespace qldsv.Forms.Admin
         // ── Nút Bỏ qua ──────────────────────────────────────────────────
         private void BtnBoqua_Click(object sender, EventArgs e)
         {
+            LoadData();
             SetMode(Mode.NoSelection);
         }
-
-
     }
 }
