@@ -60,7 +60,6 @@
             this.pnlcontent.Name = "pnlcontent";
             this.pnlcontent.Size = new System.Drawing.Size(1004, 705);
             this.pnlcontent.TabIndex = 1;
-            //this.pnlcontent.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlcontent_Paint);
             // 
             // lblTen
             // 
@@ -69,7 +68,7 @@
             this.lblTen.ForeColor = System.Drawing.Color.White;
             this.lblTen.Location = new System.Drawing.Point(85, 18);
             this.lblTen.Name = "lblTen";
-            this.lblTen.Size = new System.Drawing.Size(71, 25);
+            this.lblTen.Size = new System.Drawing.Size(81, 30);
             this.lblTen.TabIndex = 1;
             this.lblTen.Text = "Admin";
             // 
@@ -80,7 +79,7 @@
             this.lblRole.ForeColor = System.Drawing.Color.Gainsboro;
             this.lblRole.Location = new System.Drawing.Point(85, 42);
             this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(120, 19);
+            this.lblRole.Size = new System.Drawing.Size(133, 21);
             this.lblRole.TabIndex = 2;
             this.lblRole.Text = "Quản trị hệ thống";
             // 
@@ -156,6 +155,7 @@
             this.btnPK.TabIndex = 15;
             this.btnPK.Text = "📝 Phúc khảo";
             this.btnPK.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnPK.Click += new System.EventHandler(this.btnPK_Click);
             // 
             // QLLH
             // 
@@ -179,6 +179,7 @@
             this.QLLH.TabIndex = 14;
             this.QLLH.Text = "📅 Quản lý lịch học";
             this.QLLH.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.QLLH.Click += new System.EventHandler(this.QLLH_Click);
             // 
             // QLLHP
             // 
@@ -202,6 +203,7 @@
             this.QLLHP.TabIndex = 13;
             this.QLLHP.Text = "📚 Quản lý LHP";
             this.QLLHP.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.QLLHP.Click += new System.EventHandler(this.QLLHP_Click);
             // 
             // btnQLPH
             // 
@@ -344,6 +346,7 @@
             this.btnQLGV.TabIndex = 7;
             this.btnQLGV.Text = "👨‍🏫 Quản lý giảng viên";
             this.btnQLGV.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnQLGV.Click += new System.EventHandler(this.btnQLGV_Click);
             // 
             // btnQLSV
             // 
@@ -423,7 +426,7 @@
             this.lblOnline.ForeColor = System.Drawing.Color.Lime;
             this.lblOnline.Location = new System.Drawing.Point(85, 62);
             this.lblOnline.Name = "lblOnline";
-            this.lblOnline.Size = new System.Drawing.Size(64, 19);
+            this.lblOnline.Size = new System.Drawing.Size(75, 21);
             this.lblOnline.TabIndex = 3;
             this.lblOnline.Text = "● Online";
             // 
@@ -443,7 +446,7 @@
             // 
             // FrmMainAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1234, 705);

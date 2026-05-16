@@ -94,6 +94,42 @@
     <Compile Include="Class\CurentUser.cs" />
     <Compile Include="Class\Functions.cs" />
     <Compile Include="DAL\TaiKhoanDAL.cs" />
+    <Compile Include="Forms\Admin\FrmChonSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmChonSinhVien.Designer.cs">
+      <DependentUpon>FrmChonSinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmLopHocPhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmLopHocPhan.Designer.cs">
+      <DependentUpon>FrmLopHocPhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmPhucKhao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmPhucKhao.Designer.cs">
+      <DependentUpon>FrmPhucKhao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmQLGV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmQLGV.Designer.cs">
+      <DependentUpon>FrmQLGV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmQLLichHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmQLLichHoc.Designer.cs">
+      <DependentUpon>FrmQLLichHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmQLLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmQLLop.Designer.cs">
+      <DependentUpon>FrmQLLop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Admin\FrmQLSV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,11 +225,29 @@
   <!-- RESX -->
   <!-- ======================== -->
   <ItemGroup>
+    <EmbeddedResource Include="Forms\Admin\FrmChonSinhVien.resx">
+      <DependentUpon>FrmChonSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\FrmHocKy.resx">
       <DependentUpon>FrmHocKy.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\FrmLopHocPhan.resx">
+      <DependentUpon>FrmLopHocPhan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\FrmMainAdmin.resx">
       <DependentUpon>FrmMainAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\FrmPhucKhao.resx">
+      <DependentUpon>FrmPhucKhao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\FrmQLGV.resx">
+      <DependentUpon>FrmQLGV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\FrmQLLichHoc.resx">
+      <DependentUpon>FrmQLLichHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\FrmQLLop.resx">
+      <DependentUpon>FrmQLLop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\FrmQLSV.resx">
       <DependentUpon>FrmQLSV.cs</DependentUpon>
