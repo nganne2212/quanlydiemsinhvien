@@ -31,7 +31,7 @@
             this.pnlLeft = new System.Windows.Forms.Panel();
             this.lblSectionInfo = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lblMaHocKy = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.TxtMahocky = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtMahocky = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblTenHocKy = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtTenhocky = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblNamHoc = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -71,7 +71,7 @@
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(20, 14);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(231, 32);
+            this.lblTitle.Size = new System.Drawing.Size(193, 28);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "🗓  Quản lý học kỳ";
             // 
@@ -204,7 +204,7 @@
             this.pnlLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.pnlLeft.Controls.Add(this.lblSectionInfo);
             this.pnlLeft.Controls.Add(this.lblMaHocKy);
-            this.pnlLeft.Controls.Add(this.TxtMahocky);
+            this.pnlLeft.Controls.Add(this.txtMahocky);
             this.pnlLeft.Controls.Add(this.lblTenHocKy);
             this.pnlLeft.Controls.Add(this.txtTenhocky);
             this.pnlLeft.Controls.Add(this.lblNamHoc);
@@ -224,7 +224,7 @@
             this.lblSectionInfo.ForeColor = System.Drawing.Color.SlateBlue;
             this.lblSectionInfo.Location = new System.Drawing.Point(20, 24);
             this.lblSectionInfo.Name = "lblSectionInfo";
-            this.lblSectionInfo.Size = new System.Drawing.Size(153, 23);
+            this.lblSectionInfo.Size = new System.Drawing.Size(128, 19);
             this.lblSectionInfo.TabIndex = 0;
             this.lblSectionInfo.Text = "THÔNG TIN HỌC KỲ";
             // 
@@ -235,32 +235,32 @@
             this.lblMaHocKy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.lblMaHocKy.Location = new System.Drawing.Point(20, 56);
             this.lblMaHocKy.Name = "lblMaHocKy";
-            this.lblMaHocKy.Size = new System.Drawing.Size(91, 27);
+            this.lblMaHocKy.Size = new System.Drawing.Size(74, 22);
             this.lblMaHocKy.TabIndex = 1;
             this.lblMaHocKy.Text = "Mã học kỳ";
             // 
-            // TxtMahocky
+            // txtMahocky
             // 
-            this.TxtMahocky.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.TxtMahocky.BorderRadius = 8;
-            this.TxtMahocky.BorderThickness = 2;
-            this.TxtMahocky.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TxtMahocky.DefaultText = "";
-            this.TxtMahocky.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.TxtMahocky.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
-            this.TxtMahocky.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(120)))));
-            this.TxtMahocky.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(170)))));
-            this.TxtMahocky.Enabled = false;
-            this.TxtMahocky.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.TxtMahocky.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(120)))));
-            this.TxtMahocky.Location = new System.Drawing.Point(20, 76);
-            this.TxtMahocky.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.TxtMahocky.Name = "TxtMahocky";
-            this.TxtMahocky.PlaceholderText = "Tự động";
-            this.TxtMahocky.SelectedText = "";
-            this.TxtMahocky.Size = new System.Drawing.Size(250, 46);
-            this.TxtMahocky.TabIndex = 2;
-            this.TxtMahocky.TabStop = false;
+            this.txtMahocky.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtMahocky.BorderRadius = 8;
+            this.txtMahocky.BorderThickness = 2;
+            this.txtMahocky.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtMahocky.DefaultText = "";
+            this.txtMahocky.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtMahocky.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            this.txtMahocky.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(120)))));
+            this.txtMahocky.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(170)))));
+            this.txtMahocky.Enabled = false;
+            this.txtMahocky.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.txtMahocky.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(120)))));
+            this.txtMahocky.Location = new System.Drawing.Point(20, 76);
+            this.txtMahocky.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtMahocky.Name = "txtMahocky";
+            this.txtMahocky.PlaceholderText = "Tự động";
+            this.txtMahocky.SelectedText = "";
+            this.txtMahocky.Size = new System.Drawing.Size(250, 46);
+            this.txtMahocky.TabIndex = 2;
+            this.txtMahocky.TabStop = false;
             // 
             // lblTenHocKy
             // 
@@ -269,7 +269,7 @@
             this.lblTenHocKy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.lblTenHocKy.Location = new System.Drawing.Point(20, 136);
             this.lblTenHocKy.Name = "lblTenHocKy";
-            this.lblTenHocKy.Size = new System.Drawing.Size(109, 27);
+            this.lblTenHocKy.Size = new System.Drawing.Size(89, 22);
             this.lblTenHocKy.TabIndex = 3;
             this.lblTenHocKy.Text = "Tên học kỳ *";
             // 
@@ -303,7 +303,7 @@
             this.lblNamHoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.lblNamHoc.Location = new System.Drawing.Point(20, 218);
             this.lblNamHoc.Name = "lblNamHoc";
-            this.lblNamHoc.Size = new System.Drawing.Size(92, 27);
+            this.lblNamHoc.Size = new System.Drawing.Size(77, 22);
             this.lblNamHoc.TabIndex = 5;
             this.lblNamHoc.Text = "Năm học *";
             // 
@@ -471,7 +471,7 @@
         private System.Windows.Forms.Panel pnlLeft;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblSectionInfo;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblMaHocKy;
-        private Guna.UI2.WinForms.Guna2TextBox TxtMahocky;
+        private Guna.UI2.WinForms.Guna2TextBox txtMahocky;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblTenHocKy;
         private Guna.UI2.WinForms.Guna2TextBox txtTenhocky;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblNamHoc;
