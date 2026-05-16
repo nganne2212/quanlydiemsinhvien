@@ -15,7 +15,7 @@
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
@@ -61,17 +61,17 @@
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1100, 56);
+            this.pnlHeader.Size = new System.Drawing.Size(1100, 50);
             this.pnlHeader.TabIndex = 0;
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(20, 14);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(247, 36);
+            this.lblTitle.Size = new System.Drawing.Size(231, 32);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "🗓  Quản lý học kỳ";
             // 
@@ -80,9 +80,9 @@
             this.pnlMain.Controls.Add(this.pnlRight);
             this.pnlMain.Controls.Add(this.pnlLeft);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMain.Location = new System.Drawing.Point(0, 56);
+            this.pnlMain.Location = new System.Drawing.Point(0, 50);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(1100, 644);
+            this.pnlMain.Size = new System.Drawing.Size(1100, 650);
             this.pnlMain.TabIndex = 1;
             // 
             // pnlRight
@@ -93,7 +93,7 @@
             this.pnlRight.Location = new System.Drawing.Point(327, 0);
             this.pnlRight.Name = "pnlRight";
             this.pnlRight.Padding = new System.Windows.Forms.Padding(20, 16, 20, 16);
-            this.pnlRight.Size = new System.Drawing.Size(773, 644);
+            this.pnlRight.Size = new System.Drawing.Size(773, 650);
             this.pnlRight.TabIndex = 1;
             // 
             // dgvQuanlyhocky
@@ -102,10 +102,10 @@
             this.dgvQuanlyhocky.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvQuanlyhocky.BackgroundColor = System.Drawing.Color.White;
             this.dgvQuanlyhocky.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(73)))), ((int)(((byte)(171)))));
-            this.dgvQuanlyhocky.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(73)))), ((int)(((byte)(171)))));
+            this.dgvQuanlyhocky.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvQuanlyhocky.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvQuanlyhocky.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSTT,
@@ -123,7 +123,7 @@
             this.dgvQuanlyhocky.RowHeadersWidth = 62;
             this.dgvQuanlyhocky.RowTemplate.Height = 34;
             this.dgvQuanlyhocky.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvQuanlyhocky.Size = new System.Drawing.Size(733, 552);
+            this.dgvQuanlyhocky.Size = new System.Drawing.Size(733, 558);
             this.dgvQuanlyhocky.TabIndex = 1;
             // 
             // colSTT
@@ -214,7 +214,7 @@
             this.pnlLeft.Location = new System.Drawing.Point(0, 0);
             this.pnlLeft.Name = "pnlLeft";
             this.pnlLeft.Padding = new System.Windows.Forms.Padding(20, 24, 20, 16);
-            this.pnlLeft.Size = new System.Drawing.Size(327, 644);
+            this.pnlLeft.Size = new System.Drawing.Size(327, 650);
             this.pnlLeft.TabIndex = 0;
             // 
             // lblSectionInfo
@@ -341,7 +341,7 @@
             this.pnlButtons.Controls.Add(this.btnMohocky);
             this.pnlButtons.Controls.Add(this.btnDonghocky);
             this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlButtons.Location = new System.Drawing.Point(20, 362);
+            this.pnlButtons.Location = new System.Drawing.Point(20, 368);
             this.pnlButtons.Name = "pnlButtons";
             this.pnlButtons.Padding = new System.Windows.Forms.Padding(20, 12, 20, 16);
             this.pnlButtons.Size = new System.Drawing.Size(287, 266);

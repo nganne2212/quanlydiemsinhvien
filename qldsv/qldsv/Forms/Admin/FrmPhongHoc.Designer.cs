@@ -15,7 +15,7 @@
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
@@ -54,17 +54,17 @@
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1100, 56);
+            this.pnlHeader.Size = new System.Drawing.Size(1100, 50);
             this.pnlHeader.TabIndex = 0;
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(20, 14);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(283, 36);
+            this.lblTitle.Size = new System.Drawing.Size(265, 32);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "⊟  Quản lý phòng học";
             // 
@@ -73,9 +73,9 @@
             this.pnlMain.Controls.Add(this.pnlRight);
             this.pnlMain.Controls.Add(this.pnlLeft);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMain.Location = new System.Drawing.Point(0, 56);
+            this.pnlMain.Location = new System.Drawing.Point(0, 50);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(1100, 644);
+            this.pnlMain.Size = new System.Drawing.Size(1100, 650);
             this.pnlMain.TabIndex = 1;
             // 
             // pnlRight
@@ -86,7 +86,7 @@
             this.pnlRight.Location = new System.Drawing.Point(331, 0);
             this.pnlRight.Name = "pnlRight";
             this.pnlRight.Padding = new System.Windows.Forms.Padding(20, 16, 20, 16);
-            this.pnlRight.Size = new System.Drawing.Size(769, 644);
+            this.pnlRight.Size = new System.Drawing.Size(769, 650);
             this.pnlRight.TabIndex = 1;
             // 
             // dgvPhonghoc
@@ -95,10 +95,10 @@
             this.dgvPhonghoc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPhonghoc.BackgroundColor = System.Drawing.Color.White;
             this.dgvPhonghoc.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(73)))), ((int)(((byte)(171)))));
-            this.dgvPhonghoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(73)))), ((int)(((byte)(171)))));
+            this.dgvPhonghoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPhonghoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPhonghoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSTT,
@@ -114,7 +114,7 @@
             this.dgvPhonghoc.RowHeadersWidth = 62;
             this.dgvPhonghoc.RowTemplate.Height = 34;
             this.dgvPhonghoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPhonghoc.Size = new System.Drawing.Size(729, 552);
+            this.dgvPhonghoc.Size = new System.Drawing.Size(729, 558);
             this.dgvPhonghoc.TabIndex = 1;
             // 
             // colSTT
@@ -187,7 +187,7 @@
             this.pnlLeft.Location = new System.Drawing.Point(0, 0);
             this.pnlLeft.Name = "pnlLeft";
             this.pnlLeft.Padding = new System.Windows.Forms.Padding(20, 24, 20, 16);
-            this.pnlLeft.Size = new System.Drawing.Size(331, 644);
+            this.pnlLeft.Size = new System.Drawing.Size(331, 650);
             this.pnlLeft.TabIndex = 0;
             // 
             // lblSectionInfo
@@ -277,7 +277,7 @@
             this.pnlButtons.Controls.Add(this.BtnBoqua);
             this.pnlButtons.Controls.Add(this.BtnXoa);
             this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlButtons.Location = new System.Drawing.Point(20, 468);
+            this.pnlButtons.Location = new System.Drawing.Point(20, 474);
             this.pnlButtons.Name = "pnlButtons";
             this.pnlButtons.Padding = new System.Windows.Forms.Padding(20, 12, 20, 16);
             this.pnlButtons.Size = new System.Drawing.Size(291, 160);
