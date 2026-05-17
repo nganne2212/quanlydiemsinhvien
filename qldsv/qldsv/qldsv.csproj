@@ -231,6 +231,9 @@
     <EmbeddedResource Include="Forms\Admin\FrmHocKy.resx">
       <DependentUpon>FrmHocKy.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\FrmKhoa.resx">
+      <DependentUpon>FrmKhoa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\FrmLopHocPhan.resx">
       <DependentUpon>FrmLopHocPhan.cs</DependentUpon>
     </EmbeddedResource>
@@ -260,9 +263,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\FrmTaiKhoan.resx">
       <DependentUpon>FrmTaiKhoan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Admin\FrmKhoa.resx">
-      <DependentUpon>FrmKhoa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmDangNhap.resx">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
