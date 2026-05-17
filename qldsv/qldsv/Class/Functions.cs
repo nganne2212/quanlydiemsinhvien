@@ -69,7 +69,11 @@ namespace qldsv.Class
         {
             return Conn.Execute(sql, param);
         }
-
+        public static string GetFieldValues(string sql, object param = null)
+        {
+            var result = Conn.ExecuteScalar(sql, param);
+            return result?.ToString() ?? "";
+        }
 
     }
 }

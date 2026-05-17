@@ -91,10 +91,12 @@
   <!-- ======================== -->
   <ItemGroup>
     <Compile Include="BLL\PhongHocBLL.cs" />
+    <Compile Include="BLL\QLGiangvienBLL.cs" />
     <Compile Include="BLL\TaiKhoanBLL.cs" />
     <Compile Include="Class\CurentUser.cs" />
     <Compile Include="Class\Functions.cs" />
     <Compile Include="DAL\PhongHocDAL.cs" />
+    <Compile Include="DAL\QLGiangvienDAL.cs" />
     <Compile Include="DAL\TaiKhoanDAL.cs" />
     <Compile Include="Forms\Admin\FrmChonSinhVien.cs">
       <SubType>Form</SubType>
@@ -155,6 +157,12 @@
     </Compile>
     <Compile Include="Forms\Admin\FrmPhongHoc.Designer.cs">
       <DependentUpon>FrmPhongHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Giangvien\FrmNhapDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Giangvien\FrmNhapDiem.Designer.cs">
+      <DependentUpon>FrmNhapDiem.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\SecurityHelper.cs" />
     <!-- ADMIN -->
