@@ -7,101 +7,67 @@ namespace qldsv.Forms.Admin
 {
     public partial class FrmPhongHoc : Form
     {
-        private DataTable tblPH;
+        private enum Mode { NoSelection, View, Add, Edit }
+        private Mode _mode = Mode.NoSelection;
+        private int _maPhongDang = 0;
 
         public FrmPhongHoc()
         {
             InitializeComponent();
 
+            // Gắn cột với tên cột DataTable
             dgvPhonghoc.AutoGenerateColumns = false;
             colSTT.DataPropertyName = "STT";
             colMaphong.DataPropertyName = "MaPhong";
             colTenphong.DataPropertyName = "TenPhong";
 
+            // Đăng ký sự kiện
             BtnThem.Click += BtnThem_Click;
             BtnSua.Click += BtnSua_Click;
             BtnLuu.Click += BtnLuu_Click;
-            BtnXoa.Click += BtnXoa_Click;
             BtnBoqua.Click += BtnBoqua_Click;
             dgvPhonghoc.CellClick += dgvPhonghoc_CellClick;
             TxtTenphong.KeyPress += TxtTenphong_KeyPress;
-            TxtTenphong.KeyUp += TxtTenphong_KeyUp;
             TxtSearch.TextChanged += TxtSearch_TextChanged;
+            TxtSearch.KeyDown += TxtSearch_KeyDown;
 
-            FrmPhongHoc_Load();
+            LoadData();
+            SetMode(Mode.NoSelection);
         }
 
-        // ── Load: Thêm/Sửa/Xóa bật, Lưu/Bỏ qua tắt ────────────────────
-        private void FrmPhongHoc_Load()
+        // ── Load dữ liệu ────────────────────────────────────────────────
+        private void LoadData()
         {
-            TxtTenphong.Enabled = false;
-            BtnLuu.Enabled = false;
-            BtnBoqua.Enabled = false;
-            Load_DataGridView();
+            dgvPhonghoc.DataSource = PhongHocBLL.Search(TxtSearch.Text.Trim());
         }
 
-        private void Load_DataGridView()
-        {
-            tblPH = PhongHocBLL.GetAll();
-            dgvPhonghoc.DataSource = tblPH;
-        }
-
-        private void ResetValues()
-        {
-            TxtMaphong.Text = "";
-            TxtTenphong.Text = "";
-        }
-
-        // ── Tìm kiếm real-time ───────────────────────────────────────────
+        // ── Tìm kiếm nâng cao real-time ─────────────────────────────────
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
             string keyword = TxtSearch.Text.Trim();
-            tblPH = PhongHocBLL.Search(keyword);
-            dgvPhonghoc.DataSource = tblPH;
+            var dt = PhongHocBLL.Search(keyword);
+            dgvPhonghoc.DataSource = dt;
+            SetMode(Mode.NoSelection);
+        }
 
-            if (!string.IsNullOrEmpty(keyword) && tblPH.Rows.Count == 0)
+        private void TxtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Enter) return;
+
+            string keyword = TxtSearch.Text.Trim();
+            var dt = PhongHocBLL.Search(keyword);
+
+            if (!string.IsNullOrEmpty(keyword) && dt.Rows.Count == 0)
             {
                 MessageBox.Show(
                     $"Không tìm thấy phòng học nào có tên chứa \"{keyword}\".",
                     "Không có kết quả",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
                 TxtSearch.Focus();
             }
         }
-
-        // ── Click dòng DataGridView ──────────────────────────────────────
-        private void dgvPhonghoc_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Đang ở chế độ thêm mới
-            if (BtnThem.Enabled == false)
-            {
-                MessageBox.Show(
-                    "Đang ở chế độ thêm mới!\nVui lòng nhập tên phòng hoặc bấm Bỏ qua.",
-                    "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                TxtTenphong.Focus();
-                return;
-            }
-
-            // Không có dữ liệu
-            if (tblPH == null || tblPH.Rows.Count == 0)
-            {
-                MessageBox.Show("Không có dữ liệu!",
-                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            if (e.RowIndex < 0) return;
-            var row = dgvPhonghoc.Rows[e.RowIndex].DataBoundItem as DataRowView;
-            if (row == null) return;
-
-            TxtMaphong.Text = row["MaPhong"].ToString();
-            TxtTenphong.Text = row["TenPhong"].ToString();
-            TxtTenphong.Enabled = true;
-            BtnBoqua.Enabled = true;
-        }
-
-        // ── Validate ký tự lạ khi gõ ────────────────────────────────────
+        // ── Validate ký tự lạ ngay khi gõ ───────────────────────────────
         private void TxtTenphong_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Back) return;
@@ -110,7 +76,7 @@ namespace qldsv.Forms.Admin
                       || e.KeyChar == ' '
                       || e.KeyChar == '.'
                       || e.KeyChar == '-'
-                      || (int)e.KeyChar > 127;
+                      || (int)e.KeyChar > 127; // Unicode tiếng Việt
 
             if (!hopLe)
             {
@@ -120,144 +86,144 @@ namespace qldsv.Forms.Admin
                     "Tên phòng chỉ chấp nhận:\n" +
                     "   • Chữ cái (kể cả tiếng Việt)\n" +
                     "   • Chữ số (0 - 9)\n" +
+                    "   • Khoảng trắng\n" +
                     "   • Dấu chấm ( . )\n" +
-                    "   • Dấu gạch ngang ( - )\n\n" +
-                    "Ví dụ hợp lệ: D6.207, A1.101, B2.301",
+                    "   • Dấu gạch ngang ( - )",
                     "Ký tự không hợp lệ",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
             }
         }
 
-        // ── Enter thay Tab ───────────────────────────────────────────────
-        private void TxtTenphong_KeyUp(object sender, KeyEventArgs e)
+        // ── Quản lý trạng thái 5 nút ────────────────────────────────────
+        private void SetMode(Mode mode)
         {
-            if (e.KeyCode == Keys.Enter)
-                SendKeys.Send("{TAB}");
+            _mode = mode;
+            switch (mode)
+            {
+                case Mode.NoSelection:
+                    TxtMaphong.Text = "";
+                    TxtTenphong.Text = "";
+                    TxtTenphong.Enabled = false;
+                    BtnThem.Enabled = true;
+                    BtnSua.Enabled = false;
+                    BtnLuu.Enabled = false;
+                    BtnXoa.Enabled = false;
+                    BtnBoqua.Enabled = false;
+                    _maPhongDang = 0;
+                    break;
+
+                case Mode.View:
+                    TxtTenphong.Enabled = false;
+                    BtnThem.Enabled = true;
+                    BtnSua.Enabled = true;
+                    BtnLuu.Enabled = false;
+                    BtnXoa.Enabled = true;
+                    BtnBoqua.Enabled = false;
+                    break;
+
+                case Mode.Add:
+                    TxtMaphong.Text = "";
+                    TxtTenphong.Text = "";
+                    TxtTenphong.Enabled = true;
+                    TxtTenphong.Focus();
+                    BtnThem.Enabled = false;
+                    BtnSua.Enabled = false;
+                    BtnLuu.Enabled = true;
+                    BtnXoa.Enabled = false;
+                    BtnBoqua.Enabled = true;
+                    _maPhongDang = 0;
+                    break;
+
+                case Mode.Edit:
+                    TxtTenphong.Enabled = true;
+                    TxtTenphong.Focus();
+                    BtnThem.Enabled = false;
+                    BtnSua.Enabled = false;
+                    BtnLuu.Enabled = true;
+                    BtnXoa.Enabled = false;
+                    BtnBoqua.Enabled = true;
+                    break;
+            }
+        }
+
+        // ── Click dòng trong DataGridView ────────────────────────────────
+        private void dgvPhonghoc_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            if (_mode == Mode.Add) return;
+
+            var row = dgvPhonghoc.Rows[e.RowIndex].DataBoundItem as DataRowView;
+            if (row == null) return;
+
+            _maPhongDang = Convert.ToInt32(row["MaPhong"]);
+            TxtMaphong.Text = _maPhongDang.ToString();
+            TxtTenphong.Text = row["TenPhong"].ToString();
+
+            if (_mode != Mode.Edit)
+                SetMode(Mode.View);
         }
 
         // ── Nút Thêm ────────────────────────────────────────────────────
         private void BtnThem_Click(object sender, EventArgs e)
         {
-            BtnSua.Enabled = false;
-            BtnXoa.Enabled = false;
-            BtnLuu.Enabled = true;
-            BtnBoqua.Enabled = true;
-            BtnThem.Enabled = false;
-
-            ResetValues();
-            TxtTenphong.Enabled = true;
-            TxtTenphong.Focus();
             dgvPhonghoc.ClearSelection();
+            SetMode(Mode.Add);
         }
 
-        // ── Nút Sửa: chỉ mở chế độ chỉnh sửa, CHƯA lưu ─────────────────
+        // ── Nút Sửa ─────────────────────────────────────────────────────
         private void BtnSua_Click(object sender, EventArgs e)
         {
-            // Không còn dữ liệu
-            if (tblPH == null || tblPH.Rows.Count == 0)
+            if (_maPhongDang <= 0)
             {
-                MessageBox.Show("Không còn dữ liệu!",
-                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Vui lòng chọn phòng cần sửa.",
+                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            // Chưa chọn bản ghi
-            if (string.IsNullOrWhiteSpace(TxtMaphong.Text))
-            {
-                MessageBox.Show("Bạn chưa chọn bản ghi nào!",
-                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            // Mở chế độ sửa — giống Thêm nhưng giữ nguyên dữ liệu đang chọn
-            BtnThem.Enabled = false;
-            BtnSua.Enabled = false;
-            BtnXoa.Enabled = false;
-            BtnLuu.Enabled = true;
-            BtnBoqua.Enabled = true;
-            TxtTenphong.Enabled = true;
-            TxtTenphong.Focus();
+            SetMode(Mode.Edit);
         }
 
-        // ── Nút Lưu: INSERT nếu đang Thêm, UPDATE nếu đang Sửa ──────────
+        // ── Nút Lưu ─────────────────────────────────────────────────────
         private void BtnLuu_Click(object sender, EventArgs e)
         {
-            // Tên phòng không được rỗng
-            if (TxtTenphong.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn phải nhập tên phòng!",
-                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TxtTenphong.Focus();
-                return;
-            }
-
-            string err;
-            string thongBao;
-
-            // TxtMaphong rỗng → đang Thêm mới (INSERT)
-            // TxtMaphong có giá trị → đang Sửa (UPDATE)
-            if (string.IsNullOrWhiteSpace(TxtMaphong.Text))
-            {
-                err = PhongHocBLL.Add(TxtTenphong.Text);
-                thongBao = "Thêm phòng học thành công!";
-            }
-            else
-            {
-                int maPhong = Convert.ToInt32(TxtMaphong.Text);
-                err = PhongHocBLL.Update(maPhong, TxtTenphong.Text);
-                thongBao = "Cập nhật phòng học thành công!";
-            }
+            string err = _mode == Mode.Add
+                ? PhongHocBLL.Add(TxtTenphong.Text)
+                : PhongHocBLL.Update(_maPhongDang, TxtTenphong.Text);
 
             if (!string.IsNullOrEmpty(err))
             {
-                MessageBox.Show(err, "Dữ liệu không hợp lệ",
+                MessageBox.Show(err, "Lỗi dữ liệu",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 TxtTenphong.Focus();
                 return;
             }
 
-            MessageBox.Show(thongBao, "Thành công",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(
+                _mode == Mode.Add
+                    ? "Thêm phòng học thành công!"
+                    : "Cập nhật phòng học thành công!",
+                "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            Load_DataGridView();
-            ResetValues();
-
-            // Trả về trạng thái ban đầu
-            BtnThem.Enabled = true;
-            BtnSua.Enabled = true;
-            BtnXoa.Enabled = true;
-            BtnLuu.Enabled = false;
-            BtnBoqua.Enabled = false;
-            TxtTenphong.Enabled = false;
+            LoadData();
+            SetMode(Mode.NoSelection);
         }
 
-        // ── Nút Xóa (DELETE) ────────────────────────────────────────────
+        // ── Nút Xóa ─────────────────────────────────────────────────────
         private void BtnXoa_Click(object sender, EventArgs e)
         {
-            // Không còn dữ liệu
-            if (tblPH == null || tblPH.Rows.Count == 0)
+            if (_maPhongDang <= 0)
             {
-                MessageBox.Show("Không còn dữ liệu!",
-                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Vui lòng chọn phòng cần xóa.",
+                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Chưa chọn bản ghi
-            if (string.IsNullOrWhiteSpace(TxtMaphong.Text))
-            {
-                MessageBox.Show("Bạn chưa chọn bản ghi nào!",
-                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
+            var confirm = MessageBox.Show(
+                $"Xác nhận xóa phòng [{TxtTenphong.Text}]?\nThao tác này không thể hoàn tác.",
+                "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirm != DialogResult.Yes) return;
 
-            if (MessageBox.Show(
-                    $"Bạn có muốn xóa phòng [{TxtTenphong.Text}] không?",
-                    "Xác nhận xóa",
-                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
-                return;
-
-            int maPhong = Convert.ToInt32(TxtMaphong.Text);
-            string err = PhongHocBLL.Delete(maPhong);
+            string err = PhongHocBLL.Delete(_maPhongDang);
             if (!string.IsNullOrEmpty(err))
             {
                 MessageBox.Show(err, "Không thể xóa",
@@ -268,22 +234,15 @@ namespace qldsv.Forms.Admin
             MessageBox.Show("Xóa phòng học thành công!",
                 "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            Load_DataGridView();
-            ResetValues();
-            TxtTenphong.Enabled = false;
-            BtnBoqua.Enabled = false;
+            LoadData();
+            SetMode(Mode.NoSelection);
         }
 
         // ── Nút Bỏ qua ──────────────────────────────────────────────────
         private void BtnBoqua_Click(object sender, EventArgs e)
         {
-            ResetValues();
-            BtnBoqua.Enabled = false;
-            BtnThem.Enabled = true;
-            BtnXoa.Enabled = true;
-            BtnSua.Enabled = true;
-            BtnLuu.Enabled = false;
-            TxtTenphong.Enabled = false;
+            LoadData();
+            SetMode(Mode.NoSelection);
         }
     }
 }

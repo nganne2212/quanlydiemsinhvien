@@ -6,6 +6,7 @@ namespace qldsv.BLL
 {
     internal class PhongHocBLL
     {
+        // Chỉ cho: chữ cái (kể cả tiếng Việt), số, khoảng trắng, dấu chấm, dấu gạch ngang
         private static readonly Regex _regexHopLe =
             new Regex(@"^[\p{L}0-9\s.\-]+$", RegexOptions.Compiled);
 
