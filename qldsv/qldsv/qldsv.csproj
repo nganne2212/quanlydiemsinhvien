@@ -280,6 +280,9 @@
     <EmbeddedResource Include="Forms\Giangvien\FrmMainGiangVien.resx">
       <DependentUpon>FrmMainGiangVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Giangvien\FrmNhapDiem.resx">
+      <DependentUpon>FrmNhapDiem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Sinhvien\FrmMainSinhVien.resx">
       <DependentUpon>FrmMainSinhVien.cs</DependentUpon>
     </EmbeddedResource>
