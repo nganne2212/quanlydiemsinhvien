@@ -95,5 +95,10 @@ namespace qldsv.Forms
         {
             LoadForm(new Forms.Admin.FrmQLGV());
         }
+
+        private void btnQLL_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Forms.Admin.FrmQLLop());
+        }
     }
 }
