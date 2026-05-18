@@ -90,9 +90,11 @@
   <!-- Source files -->
   <!-- ======================== -->
   <ItemGroup>
+    <Compile Include="BLL\MonHocBLL.cs" />
     <Compile Include="BLL\TaiKhoanBLL.cs" />
     <Compile Include="Class\CurentUser.cs" />
     <Compile Include="Class\Functions.cs" />
+    <Compile Include="DAL\MonHocDAL.cs" />
     <Compile Include="DAL\TaiKhoanDAL.cs" />
     <Compile Include="Forms\Admin\FrmChonSinhVien.cs">
       <SubType>Form</SubType>
