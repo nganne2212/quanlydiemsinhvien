@@ -91,10 +91,12 @@
   <!-- ======================== -->
   <ItemGroup>
     <Compile Include="BLL\PhongHocBLL.cs" />
+    <Compile Include="BLL\QLLopBBL.cs" />
     <Compile Include="BLL\TaiKhoanBLL.cs" />
     <Compile Include="Class\CurentUser.cs" />
     <Compile Include="Class\Functions.cs" />
     <Compile Include="DAL\PhongHocDAL.cs" />
+    <Compile Include="DAL\QLLopDAL.cs" />
     <Compile Include="DAL\TaiKhoanDAL.cs" />
     <Compile Include="Forms\Admin\FrmChonSinhVien.cs">
       <SubType>Form</SubType>

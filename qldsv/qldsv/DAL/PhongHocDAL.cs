@@ -40,7 +40,6 @@ namespace qldsv.DAL
 
         public static bool IsInUse(int maPhong)
         {
-            // Chưa có bảng LichHoc thì đổi thành: return false;
             int count = Functions.QuerySingle<int>(
                 "SELECT COUNT(*) FROM LichHoc WHERE MaPhong = @ma",
                 new { ma = maPhong });
