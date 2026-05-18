@@ -62,7 +62,7 @@
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(20, 14);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(205, 32);
+            this.lblTitle.Size = new System.Drawing.Size(138, 21);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "🏢 Quản lý khoa";
             // 
@@ -104,6 +104,7 @@
             this.btnThem.Size = new System.Drawing.Size(130, 40);
             this.btnThem.TabIndex = 0;
             this.btnThem.Text = "+ Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click_1);
             // 
             // btnSua
             // 
@@ -172,7 +173,7 @@
             this.lblTenKhoa.BackColor = System.Drawing.Color.Transparent;
             this.lblTenKhoa.Location = new System.Drawing.Point(20, 155);
             this.lblTenKhoa.Name = "lblTenKhoa";
-            this.lblTenKhoa.Size = new System.Drawing.Size(69, 22);
+            this.lblTenKhoa.Size = new System.Drawing.Size(49, 15);
             this.lblTenKhoa.TabIndex = 2;
             this.lblTenKhoa.Text = "Tên khoa";
             // 
@@ -195,7 +196,7 @@
             this.lblMaKhoa.BackColor = System.Drawing.Color.Transparent;
             this.lblMaKhoa.Location = new System.Drawing.Point(20, 70);
             this.lblMaKhoa.Name = "lblMaKhoa";
-            this.lblMaKhoa.Size = new System.Drawing.Size(64, 22);
+            this.lblMaKhoa.Size = new System.Drawing.Size(45, 15);
             this.lblMaKhoa.TabIndex = 4;
             this.lblMaKhoa.Text = "Mã khoa";
             // 
@@ -206,7 +207,7 @@
             this.lblSection.ForeColor = System.Drawing.Color.SlateBlue;
             this.lblSection.Location = new System.Drawing.Point(20, 20);
             this.lblSection.Name = "lblSection";
-            this.lblSection.Size = new System.Drawing.Size(178, 30);
+            this.lblSection.Size = new System.Drawing.Size(117, 19);
             this.lblSection.TabIndex = 5;
             this.lblSection.Text = "THÔNG TIN KHOA";
             // 
@@ -293,6 +294,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý khoa";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmKhoa_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlLeft.ResumeLayout(false);
