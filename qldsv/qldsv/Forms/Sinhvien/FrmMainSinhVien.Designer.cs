@@ -132,6 +132,7 @@
             this.btnDangxuat.TabIndex = 6;
             this.btnDangxuat.Text = "🚪 Đăng xuất";
             this.btnDangxuat.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDangxuat.Click += new System.EventHandler(this.btnDangxuat_Click);
             // 
             // btnDoimatkhau
             // 
@@ -178,6 +179,7 @@
             this.btnKQHT.TabIndex = 4;
             this.btnKQHT.Text = "📊 Kết quả học tập";
             this.btnKQHT.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnKQHT.Click += new System.EventHandler(this.btnKQHT_Click);
             // 
             // lblStatus
             // 
@@ -248,6 +250,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMainSInhVien";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmMainSinhVien_Load);
             this.pnlside.ResumeLayout(false);
             this.pnlside.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAva)).EndInit();
