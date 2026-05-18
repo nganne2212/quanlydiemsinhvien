@@ -54,6 +54,7 @@
             // 
             // pnlcontent
             // 
+            this.pnlcontent.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pnlcontent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlcontent.Location = new System.Drawing.Point(230, 0);
             this.pnlcontent.Name = "pnlcontent";
@@ -154,6 +155,7 @@
             this.btnPK.TabIndex = 15;
             this.btnPK.Text = "📝 Phúc khảo";
             this.btnPK.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnPK.Click += new System.EventHandler(this.btnPK_Click);
             // 
             // QLLH
             // 
@@ -177,6 +179,7 @@
             this.QLLH.TabIndex = 14;
             this.QLLH.Text = "📅 Quản lý lịch học";
             this.QLLH.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.QLLH.Click += new System.EventHandler(this.QLLH_Click);
             // 
             // QLLHP
             // 
@@ -200,6 +203,7 @@
             this.QLLHP.TabIndex = 13;
             this.QLLHP.Text = "📚 Quản lý LHP";
             this.QLLHP.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.QLLHP.Click += new System.EventHandler(this.QLLHP_Click);
             // 
             // btnQLPH
             // 
@@ -223,6 +227,7 @@
             this.btnQLPH.TabIndex = 12;
             this.btnQLPH.Text = "🏢 Quản lý phòng học";
             this.btnQLPH.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnQLPH.Click += new System.EventHandler(this.btnQLPH_Click);
             // 
             // btnQLHK
             // 
@@ -246,6 +251,7 @@
             this.btnQLHK.TabIndex = 11;
             this.btnQLHK.Text = "🗓️ Quản lý học kỳ";
             this.btnQLHK.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnQLHK.Click += new System.EventHandler(this.btnQLHK_Click);
             // 
             // btnQLL
             // 
@@ -316,6 +322,7 @@
             this.btnQLM.TabIndex = 8;
             this.btnQLM.Text = "📚 Quản lý môn học";
             this.btnQLM.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnQLM.Click += new System.EventHandler(this.btnQLM_Click);
             // 
             // btnQLGV
             // 
@@ -339,6 +346,7 @@
             this.btnQLGV.TabIndex = 7;
             this.btnQLGV.Text = "👨‍🏫 Quản lý giảng viên";
             this.btnQLGV.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnQLGV.Click += new System.EventHandler(this.btnQLGV_Click);
             // 
             // btnQLSV
             // 
@@ -362,6 +370,7 @@
             this.btnQLSV.TabIndex = 6;
             this.btnQLSV.Text = "🎓Quản lý sinh viên";
             this.btnQLSV.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnQLSV.Click += new System.EventHandler(this.btnQLSV_Click);
             // 
             // btnQLTK
             // 

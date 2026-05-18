@@ -39,6 +39,9 @@
   <!-- References -->
   <!-- ======================== -->
   <ItemGroup>
+    <Reference Include="BCrypt.Net-Next, Version=4.1.0.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.Net-Next.4.1.0\lib\net472\BCrypt.Net-Next.dll</HintPath>
+    </Reference>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.1.72\lib\net461\Dapper.dll</HintPath>
     </Reference>
@@ -49,6 +52,9 @@
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.9.0.1\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.ConfigurationManager, Version=10.0.0.6, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Configuration.ConfigurationManager.10.0.6\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
@@ -56,8 +62,15 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="System.Memory, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.6.3\lib\net462\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.6.1\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
@@ -77,13 +90,69 @@
   <!-- Source files -->
   <!-- ======================== -->
   <ItemGroup>
+    <Compile Include="BLL\TaiKhoanBLL.cs" />
     <Compile Include="Class\CurentUser.cs" />
     <Compile Include="Class\Functions.cs" />
-    <Compile Include="Forms\Admin\FrmKhoa.cs">
+    <Compile Include="DAL\TaiKhoanDAL.cs" />
+    <Compile Include="Forms\Admin\FrmChonSinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Admin\FrmKhoa.Designer.cs">
-      <DependentUpon>FrmKhoa.cs</DependentUpon>
+    <Compile Include="Forms\Admin\FrmChonSinhVien.Designer.cs">
+      <DependentUpon>FrmChonSinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmLopHocPhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmLopHocPhan.Designer.cs">
+      <DependentUpon>FrmLopHocPhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmPhucKhao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmPhucKhao.Designer.cs">
+      <DependentUpon>FrmPhucKhao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmQLGV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmQLGV.Designer.cs">
+      <DependentUpon>FrmQLGV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmQLLichHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmQLLichHoc.Designer.cs">
+      <DependentUpon>FrmQLLichHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmQLLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmQLLop.Designer.cs">
+      <DependentUpon>FrmQLLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmQLSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmQLSV.Designer.cs">
+      <DependentUpon>FrmQLSV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmHocKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmHocKy.Designer.cs">
+      <DependentUpon>FrmHocKy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmMonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmMonHoc.Designer.cs">
+      <DependentUpon>FrmMonHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmPhongHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmPhongHoc.Designer.cs">
+      <DependentUpon>FrmPhongHoc.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\SecurityHelper.cs" />
     <!-- ADMIN -->
@@ -98,6 +167,12 @@
     </Compile>
     <Compile Include="Forms\Admin\FrmTaiKhoan.Designer.cs">
       <DependentUpon>FrmTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmKhoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmKhoa.Designer.cs">
+      <DependentUpon>FrmKhoa.cs</DependentUpon>
     </Compile>
     <!-- LOGIN -->
     <Compile Include="Forms\FrmDangNhap.cs">
@@ -150,14 +225,44 @@
   <!-- RESX -->
   <!-- ======================== -->
   <ItemGroup>
-    <EmbeddedResource Include="Forms\Admin\FrmKhoa.resx">
-      <DependentUpon>FrmKhoa.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Admin\FrmChonSinhVien.resx">
+      <DependentUpon>FrmChonSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\FrmHocKy.resx">
+      <DependentUpon>FrmHocKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\FrmLopHocPhan.resx">
+      <DependentUpon>FrmLopHocPhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\FrmMainAdmin.resx">
       <DependentUpon>FrmMainAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\FrmPhucKhao.resx">
+      <DependentUpon>FrmPhucKhao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\FrmQLGV.resx">
+      <DependentUpon>FrmQLGV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\FrmQLLichHoc.resx">
+      <DependentUpon>FrmQLLichHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\FrmQLLop.resx">
+      <DependentUpon>FrmQLLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\FrmQLSV.resx">
+      <DependentUpon>FrmQLSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\FrmMonHoc.resx">
+      <DependentUpon>FrmMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\FrmPhongHoc.resx">
+      <DependentUpon>FrmPhongHoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\FrmTaiKhoan.resx">
       <DependentUpon>FrmTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\FrmKhoa.resx">
+      <DependentUpon>FrmKhoa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmDangNhap.resx">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
@@ -185,9 +290,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Database\taobangqldsv.sql" />
     <None Include="Resources\avatar.png" />

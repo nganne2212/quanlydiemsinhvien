@@ -1,4 +1,5 @@
 ﻿using qldsv.Class;
+using qldsv.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -53,6 +54,46 @@ namespace qldsv.Forms
         private void btnQLTK_Click(object sender, EventArgs e)
         {
             LoadForm(new Forms.Admin.FrmTaiKhoan());
+        }
+
+        private void btnQLSV_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Forms.Admin.FrmQLSV());
+        }
+        private void btnQLHK_Click(object sender, EventArgs e)
+        {
+
+            LoadForm(new Forms.Admin.FrmHocKy());
+        }
+        private void btnQLM_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Forms.Admin.FrmMonHoc());
+        }
+
+        
+        private void btnQLPH_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Forms.Admin.FrmPhongHoc());
+        }
+
+        private void QLLH_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Forms.Admin.FrmQLLichHoc());
+        }
+
+        private void btnPK_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Forms.Admin.FrmPhucKhao());
+        }
+
+        private void QLLHP_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Forms.Admin.FrmLopHocPhan());
+        }
+
+        private void btnQLGV_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Forms.Admin.FrmQLGV());
         }
     }
 }

@@ -1,27 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Security.Cryptography;
-
+using BC = BCrypt.Net.BCrypt;
 
 namespace qldsv.Utils
 {
     class SecurityHelper
     {
-        public static string MaHoaMD5(string matKhau)
+        public static string HashPassword(string plainText)
         {
-            using (var md5 = MD5.Create())
-            {
-                byte[] inputBytes = Encoding.UTF8.GetBytes(matKhau);
-                byte[] hashBytes = md5.ComputeHash(inputBytes);
-                StringBuilder sb = new StringBuilder();
-                foreach (byte b in hashBytes)
-                    sb.Append(b.ToString("x2"));
-                return sb.ToString();
-            }
+            return BC.HashPassword(plainText, BC.GenerateSalt(12));
         }
 
+        public static bool VerifyPassword(string plainText, string hash)
+        {
+            return BC.Verify(plainText, hash);
+        }
     }
 }
