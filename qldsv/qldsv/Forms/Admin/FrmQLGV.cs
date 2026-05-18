@@ -87,8 +87,10 @@ namespace qldsv.Forms.Admin
             txtEmail.Text = dgvGiangVien.CurrentRow.Cells["colEmailGV"].Value?.ToString();
 
             string maKhoa = dgvGiangVien.CurrentRow.Cells["colKhoa"].Value.ToString();
-            cboKhoa.Text = Functions.GetFieldValues(
-                "SELECT TenKhoa FROM Khoa WHERE MaKhoa = '" + maKhoa + "'");
+            
+            cboKhoa.Text = Functions.QuerySingle<string>(
+                "SELECT TenKhoa FROM Khoa WHERE MaKhoa = @ma",
+                new { ma = maKhoa });
 
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
@@ -217,12 +219,10 @@ namespace qldsv.Forms.Admin
         {
             if (tblGV == null) return;
 
-            string keyword = txtTimKiem.Text.Trim().ToLower();
+            string keyword = txtTimKiem.Text.Trim().Replace("'", "''"); 
 
             DataView dv = tblGV.DefaultView;
-            string filter = "(MaGiangVien LIKE '%" + keyword + "%' OR HoTen LIKE '%" + keyword + "%' OR MaKhoa LIKE '%" + keyword + "%')";
-
-            dv.RowFilter = filter;
+            dv.RowFilter = $"(MaGiangVien LIKE '%{keyword}%' OR HoTen LIKE '%{keyword}%' OR MaKhoa LIKE '%{keyword}%')";
 
             DataTable dtFilter = dv.ToTable();
 

@@ -54,13 +54,17 @@ namespace qldsv.DAL
                 try
                 {
                     string matKhau = SecurityHelper.HashPassword("hvnh1961");
-                    Functions.Conn.Execute(@"
-                        INSERT INTO NguoiDung (TenDangNhap, MatKhau, VaiTro, TrangThai)
-                        VALUES (@u, @p, 'GiangVien', 'Active')",
+
+                    // Gộp INSERT + lấy ID vào 1 câu
+                    int maNguoiDung = Functions.Conn.QueryFirstOrDefault<int>(@"
+                INSERT INTO NguoiDung (TenDangNhap, MatKhau, VaiTro, TrangThai)
+                VALUES (@u, @p, 'GiangVien', 'Active');
+                SELECT CAST(SCOPE_IDENTITY() AS INT)",
                         new { u = maGV, p = matKhau }, tran);
 
-                    int maNguoiDung = Functions.Conn.QueryFirstOrDefault<int>(@"
-                        SELECT CAST(SCOPE_IDENTITY() AS INT)", null, tran);
+                    // Kiểm tra lấy được ID chưa
+                    if (maNguoiDung == 0)
+                        throw new Exception("Khong the tao tai khoan");
 
                     Functions.Conn.Execute(@"
                         INSERT INTO GiangVien (MaGiangVien, HoTen, Email, MaKhoa, MaNguoiDung)
