@@ -38,7 +38,12 @@ namespace qldsv.Forms.Admin
             for (int i = 0; i < dt.Rows.Count; i++)
                 dt.Rows[i]["STT"] = i + 1;
 
+            // Tắt AutoGenerateColumns để không sinh cột tự động trùng với Designer
+            dgvQuanlyhocky.AutoGenerateColumns = true;
+            dgvQuanlyhocky.DataSource = null;
+            dgvQuanlyhocky.Columns.Clear();
             dgvQuanlyhocky.DataSource = dt;
+
             dgvQuanlyhocky.Columns["MaHocKy"].Visible = false;
             dgvQuanlyhocky.Columns["STT"].DisplayIndex = 0;
             dgvQuanlyhocky.Columns["STT"].Width = 50;
@@ -137,6 +142,9 @@ namespace qldsv.Forms.Admin
             for (int i = 0; i < dtFilter.Rows.Count; i++)
                 dtFilter.Rows[i]["STT"] = i + 1;
 
+            dgvQuanlyhocky.AutoGenerateColumns = true;
+            dgvQuanlyhocky.DataSource = null;
+            dgvQuanlyhocky.Columns.Clear();
             dgvQuanlyhocky.DataSource = dtFilter;
             dgvQuanlyhocky.Columns["MaHocKy"].Visible = false;
             dgvQuanlyhocky.Columns["STT"].DisplayIndex = 0;
