@@ -97,6 +97,10 @@
     <Compile Include="Class\Functions.cs" />
     <Compile Include="DAL\PhongHocDAL.cs" />
     <Compile Include="DAL\QLGiangvienDAL.cs" />
+    <Compile Include="BLL\MonHocBLL.cs" />
+    
+
+    <Compile Include="DAL\MonHocDAL.cs" />
     <Compile Include="DAL\TaiKhoanDAL.cs" />
     <Compile Include="Forms\Admin\FrmChonSinhVien.cs">
       <SubType>Form</SubType>

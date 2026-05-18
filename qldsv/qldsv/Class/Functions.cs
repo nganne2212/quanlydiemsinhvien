@@ -73,6 +73,33 @@ namespace qldsv.Class
         {
             var result = Conn.ExecuteScalar(sql, param);
             return result?.ToString() ?? "";
+        public static bool CheckKey(string sql)
+        {
+            SqlDataAdapter Mydata = new SqlDataAdapter(sql, Class.Functions.Conn);
+            DataTable table = new DataTable();
+            Mydata.Fill(table);
+            if (table.Rows.Count > 0)
+                return true;
+            else
+                return false;
+        }
+        
+        public static void RunSqldel(string sql)
+        {
+            SqlCommand cmd;
+            cmd = new SqlCommand();
+            cmd.Connection = Class.Functions.Conn;
+            cmd.CommandText = sql;
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("Du lieu dang dc dung, ko the xoa", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            cmd.Dispose();
+            cmd = null;
         }
 
     }
