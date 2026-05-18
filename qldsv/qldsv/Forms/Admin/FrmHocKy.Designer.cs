@@ -15,7 +15,7 @@
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
@@ -102,10 +102,10 @@
             this.dgvQuanlyhocky.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvQuanlyhocky.BackgroundColor = System.Drawing.Color.White;
             this.dgvQuanlyhocky.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(73)))), ((int)(((byte)(171)))));
-            this.dgvQuanlyhocky.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(73)))), ((int)(((byte)(171)))));
+            this.dgvQuanlyhocky.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvQuanlyhocky.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvQuanlyhocky.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSTT,
@@ -357,6 +357,7 @@
             this.btnThem.Size = new System.Drawing.Size(115, 36);
             this.btnThem.TabIndex = 0;
             this.btnThem.Text = "+ Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnSua
             // 
@@ -369,6 +370,7 @@
             this.btnSua.Size = new System.Drawing.Size(115, 36);
             this.btnSua.TabIndex = 1;
             this.btnSua.Text = "✏ Sửa";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnLuu
             // 
@@ -381,6 +383,7 @@
             this.btnLuu.Size = new System.Drawing.Size(115, 36);
             this.btnLuu.TabIndex = 2;
             this.btnLuu.Text = "💾 Lưu";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnBoqua
             // 
@@ -393,6 +396,7 @@
             this.btnBoqua.Size = new System.Drawing.Size(115, 36);
             this.btnBoqua.TabIndex = 3;
             this.btnBoqua.Text = "✕ Bỏ qua";
+            this.btnBoqua.Click += new System.EventHandler(this.btnBoqua_Click);
             // 
             // btnXoa
             // 
@@ -405,6 +409,7 @@
             this.btnXoa.Size = new System.Drawing.Size(115, 36);
             this.btnXoa.TabIndex = 4;
             this.btnXoa.Text = "🗑 Xóa";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // lblDivider
             // 
@@ -427,6 +432,7 @@
             this.btnMohocky.Size = new System.Drawing.Size(244, 36);
             this.btnMohocky.TabIndex = 6;
             this.btnMohocky.Text = "🔓 Mở học kỳ";
+            this.btnMohocky.Click += new System.EventHandler(this.btnMoHocKy_Click);
             // 
             // btnDonghocky
             // 
@@ -439,6 +445,7 @@
             this.btnDonghocky.Size = new System.Drawing.Size(244, 36);
             this.btnDonghocky.TabIndex = 7;
             this.btnDonghocky.Text = "🔒 Đóng học kỳ";
+            this.btnDonghocky.Click += new System.EventHandler(this.btnDongHocKy_Click);
             // 
             // FrmHocKy
             // 
