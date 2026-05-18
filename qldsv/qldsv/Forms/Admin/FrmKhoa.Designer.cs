@@ -1,4 +1,4 @@
-﻿namespace qldsv.Forms.Admin
+namespace qldsv.Forms.Admin
 {
     partial class FrmKhoa
     {
@@ -61,6 +61,7 @@
             this.lblTitle.Location = new System.Drawing.Point(15, 10);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(300, 40);
+            this.lblTitle.Size = new System.Drawing.Size(138, 21);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "🏛  Quản lý Khoa";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -102,6 +103,77 @@
             this.lblNote2.Size = new System.Drawing.Size(12, 15);
             this.lblNote2.TabIndex = 2;
             this.lblNote2.Text = "*";
+            this.btnThem.BorderRadius = 8;
+            this.btnThem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnThem.ForeColor = System.Drawing.Color.White;
+            this.btnThem.Location = new System.Drawing.Point(0, 0);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(130, 40);
+            this.btnThem.TabIndex = 0;
+            this.btnThem.Text = "+ Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click_1);
+            // 
+            // btnSua
+            // 
+            this.btnSua.BorderRadius = 8;
+            this.btnSua.FillColor = System.Drawing.Color.Goldenrod;
+            this.btnSua.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnSua.ForeColor = System.Drawing.Color.White;
+            this.btnSua.Location = new System.Drawing.Point(150, 0);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(130, 40);
+            this.btnSua.TabIndex = 1;
+            this.btnSua.Text = "✏ Sửa";
+            // 
+            // btnLuu
+            // 
+            this.btnLuu.BorderRadius = 8;
+            this.btnLuu.FillColor = System.Drawing.Color.SeaGreen;
+            this.btnLuu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnLuu.ForeColor = System.Drawing.Color.White;
+            this.btnLuu.Location = new System.Drawing.Point(0, 52);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(130, 40);
+            this.btnLuu.TabIndex = 2;
+            this.btnLuu.Text = "💾 Lưu";
+            // 
+            // btnBoQua
+            // 
+            this.btnBoQua.BorderRadius = 8;
+            this.btnBoQua.FillColor = System.Drawing.Color.SlateGray;
+            this.btnBoQua.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnBoQua.ForeColor = System.Drawing.Color.White;
+            this.btnBoQua.Location = new System.Drawing.Point(150, 52);
+            this.btnBoQua.Name = "btnBoQua";
+            this.btnBoQua.Size = new System.Drawing.Size(130, 40);
+            this.btnBoQua.TabIndex = 3;
+            this.btnBoQua.Text = "✖ Bỏ qua";
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.BorderRadius = 8;
+            this.btnXoa.FillColor = System.Drawing.Color.Firebrick;
+            this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnXoa.ForeColor = System.Drawing.Color.White;
+            this.btnXoa.Location = new System.Drawing.Point(0, 110);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(280, 40);
+            this.btnXoa.TabIndex = 4;
+            this.btnXoa.Text = "🗑 Xóa khoa";
+            // 
+            // txtTenKhoa
+            // 
+            this.txtTenKhoa.BorderRadius = 8;
+            this.txtTenKhoa.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTenKhoa.DefaultText = "";
+            this.txtTenKhoa.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtTenKhoa.Location = new System.Drawing.Point(20, 175);
+            this.txtTenKhoa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtTenKhoa.Name = "txtTenKhoa";
+            this.txtTenKhoa.PlaceholderText = "Nhập tên khoa";
+            this.txtTenKhoa.SelectedText = "";
+            this.txtTenKhoa.Size = new System.Drawing.Size(280, 42);
+            this.txtTenKhoa.TabIndex = 1;
             // 
             // lblTenKhoa
             // 
@@ -112,6 +184,8 @@
             this.lblTenKhoa.Name = "lblTenKhoa";
             this.lblTenKhoa.Size = new System.Drawing.Size(67, 16);
             this.lblTenKhoa.TabIndex = 0;
+            this.lblTenKhoa.Size = new System.Drawing.Size(49, 15);
+            this.lblTenKhoa.TabIndex = 2;
             this.lblTenKhoa.Text = "Tên khoa";
             // 
             // lblMaKhoa
@@ -123,6 +197,8 @@
             this.lblMaKhoa.Name = "lblMaKhoa";
             this.lblMaKhoa.Size = new System.Drawing.Size(61, 16);
             this.lblMaKhoa.TabIndex = 0;
+            this.lblMaKhoa.Size = new System.Drawing.Size(45, 15);
+            this.lblMaKhoa.TabIndex = 4;
             this.lblMaKhoa.Text = "Mã khoa";
             // 
             // txtTenKhoa
@@ -134,6 +210,14 @@
             this.txtTenKhoa.Name = "txtTenKhoa";
             this.txtTenKhoa.Size = new System.Drawing.Size(380, 23);
             this.txtTenKhoa.TabIndex = 3;
+            this.lblSection.BackColor = System.Drawing.Color.Transparent;
+            this.lblSection.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblSection.ForeColor = System.Drawing.Color.SlateBlue;
+            this.lblSection.Location = new System.Drawing.Point(20, 20);
+            this.lblSection.Name = "lblSection";
+            this.lblSection.Size = new System.Drawing.Size(117, 19);
+            this.lblSection.TabIndex = 5;
+            this.lblSection.Text = "THÔNG TIN KHOA";
             // 
             // txtMaKhoa
             // 
@@ -282,6 +366,10 @@
             this.Name = "FrmKhoa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Quản lý Khoa";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Quản lý khoa";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmKhoa_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlInput.ResumeLayout(false);
             this.pnlInput.PerformLayout();
