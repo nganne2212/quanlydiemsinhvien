@@ -101,6 +101,10 @@
     <Compile Include="BLL\MonHocBLL.cs" />
     <Compile Include="DAL\MonHocDAL.cs" />
     <Compile Include="DAL\QLLopDAL.cs" />
+    <Compile Include="BLL\HocKyBLL.cs" />
+
+
+    <Compile Include="DAL\HocKyDAL.cs.cs" />
     <Compile Include="DAL\TaiKhoanDAL.cs" />
     <Compile Include="Forms\Admin\FrmChonSinhVien.cs">
       <SubType>Form</SubType>
