@@ -166,6 +166,12 @@
     <Compile Include="Forms\Admin\FrmPhongHoc.Designer.cs">
       <DependentUpon>FrmPhongHoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Giangvien\FrmCBHV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Giangvien\FrmCBHV.Designer.cs">
+      <DependentUpon>FrmCBHV.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Giangvien\FrmNhapDiem.cs">
       <SubType>Form</SubType>
     </Compile>
