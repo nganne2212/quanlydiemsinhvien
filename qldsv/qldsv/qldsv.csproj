@@ -93,12 +93,20 @@
     <Compile Include="BLL\PhongHocBLL.cs" />
     <Compile Include="BLL\QLGiangvienBLL.cs" />
     <Compile Include="BLL\SinhVienBLL.cs" />
+    <Compile Include="BLL\QLLopBBL.cs" />
     <Compile Include="BLL\TaiKhoanBLL.cs" />
     <Compile Include="Class\CurentUser.cs" />
     <Compile Include="Class\Functions.cs" />
     <Compile Include="DAL\PhongHocDAL.cs" />
     <Compile Include="DAL\QLGiangvienDAL.cs" />
     <Compile Include="DAL\SinhVienDAL.cs" />
+    <Compile Include="BLL\MonHocBLL.cs" />
+    <Compile Include="DAL\MonHocDAL.cs" />
+    <Compile Include="DAL\QLLopDAL.cs" />
+    <Compile Include="BLL\HocKyBLL.cs" />
+
+
+    <Compile Include="DAL\HocKyDAL.cs.cs" />
     <Compile Include="DAL\TaiKhoanDAL.cs" />
     <Compile Include="Forms\Admin\FrmChonSinhVien.cs">
       <SubType>Form</SubType>

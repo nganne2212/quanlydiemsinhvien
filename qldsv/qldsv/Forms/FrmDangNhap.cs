@@ -25,7 +25,7 @@ namespace qldsv.Forms
 
         private void FrmDangNhap_Load(object sender, EventArgs e)
         {
-         
+            
             picmainDN.Image = Properties.Resources.anhdangnhap;
             picmainDN.SizeMode = PictureBoxSizeMode.Zoom;
             picowl.Image = Properties.Resources.convat;
