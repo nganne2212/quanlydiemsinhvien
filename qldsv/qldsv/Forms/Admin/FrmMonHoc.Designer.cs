@@ -29,18 +29,8 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlHeader = new System.Windows.Forms.Panel();
-            this.dgvMonHoc = new System.Windows.Forms.DataGridView();
-            this.colMaKhoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTenKhoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtCK = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -78,7 +68,6 @@
             this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
             this.pnlRight = new System.Windows.Forms.Panel();
             this.pnlHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMonHoc)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -107,84 +96,6 @@
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(1366, 60);
             this.pnlHeader.TabIndex = 5;
-            // 
-            // dgvMonHoc
-            // 
-            this.dgvMonHoc.AllowUserToAddRows = false;
-            this.dgvMonHoc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvMonHoc.BackgroundColor = System.Drawing.Color.White;
-            this.dgvMonHoc.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.dgvMonHoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvMonHoc.ColumnHeadersHeight = 34;
-            this.dgvMonHoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colMaKhoa,
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.colTenKhoa});
-            this.dgvMonHoc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvMonHoc.EnableHeadersVisualStyles = false;
-            this.dgvMonHoc.Location = new System.Drawing.Point(20, 0);
-            this.dgvMonHoc.Name = "dgvMonHoc";
-            this.dgvMonHoc.RowHeadersVisible = false;
-            this.dgvMonHoc.RowHeadersWidth = 62;
-            this.dgvMonHoc.RowTemplate.Height = 32;
-            this.dgvMonHoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMonHoc.Size = new System.Drawing.Size(1326, 688);
-            this.dgvMonHoc.TabIndex = 0;
-            // 
-            // colMaKhoa
-            // 
-            this.colMaKhoa.HeaderText = "STT";
-            this.colMaKhoa.MinimumWidth = 8;
-            this.colMaKhoa.Name = "colMaKhoa";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Mã môn";
-            this.Column1.MinimumWidth = 8;
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Tên môn";
-            this.Column2.MinimumWidth = 8;
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Số tín chỉ";
-            this.Column3.MinimumWidth = 8;
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Chuyên cần ";
-            this.Column4.MinimumWidth = 8;
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Kiểm tra 1";
-            this.Column5.MinimumWidth = 8;
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Kiểm tra 2";
-            this.Column6.MinimumWidth = 8;
-            this.Column6.Name = "Column6";
-            // 
-            // colTenKhoa
-            // 
-            this.colTenKhoa.HeaderText = "Cuối kỳ";
-            this.colTenKhoa.MinimumWidth = 8;
-            this.colTenKhoa.Name = "colTenKhoa";
             // 
             // panel4
             // 
@@ -487,9 +398,9 @@
             this.dgvMH.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMH.BackgroundColor = System.Drawing.Color.White;
             this.dgvMH.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.dgvMH.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.dgvMH.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvMH.ColumnHeadersHeight = 34;
             this.dgvMH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -590,7 +501,6 @@
             // 
             this.pnlRight.Controls.Add(this.panel1);
             this.pnlRight.Controls.Add(this.panel4);
-            this.pnlRight.Controls.Add(this.dgvMonHoc);
             this.pnlRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlRight.Location = new System.Drawing.Point(0, 60);
             this.pnlRight.Name = "pnlRight";
@@ -611,7 +521,6 @@
             this.Text = "FrmMonHoc";
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMonHoc)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -626,15 +535,6 @@
         #endregion
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel pnlHeader;
-        private System.Windows.Forms.DataGridView dgvMonHoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMaKhoa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTenKhoa;
         private System.Windows.Forms.Panel panel4;
         private Guna.UI2.WinForms.Guna2TextBox txtCK;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
