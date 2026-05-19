@@ -275,6 +275,7 @@
             this.btnQLL.TabIndex = 10;
             this.btnQLL.Text = "📋 Quản lý lớp học";
             this.btnQLL.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnQLL.Click += new System.EventHandler(this.btnQLL_Click);
             // 
             // btnQLK
             // 

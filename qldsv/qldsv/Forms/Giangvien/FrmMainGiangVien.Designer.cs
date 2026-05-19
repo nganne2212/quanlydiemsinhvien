@@ -86,6 +86,7 @@
             this.btnDangxuat.TabIndex = 19;
             this.btnDangxuat.Text = "🚪 Đăng xuất";
             this.btnDangxuat.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDangxuat.Click += new System.EventHandler(this.btnDangxuat_Click);
             // 
             // btnDoimatkhau
             // 
@@ -117,7 +118,7 @@
             this.btnCanhbaohocvu.BackColor = System.Drawing.Color.MidnightBlue;
             this.btnCanhbaohocvu.BorderRadius = 8;
             this.btnCanhbaohocvu.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnCanhbaohocvu.CheckedState.FillColor = System.Drawing.Color.ForestGreen;
+            this.btnCanhbaohocvu.CheckedState.FillColor = System.Drawing.Color.RoyalBlue;
             this.btnCanhbaohocvu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnCanhbaohocvu.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnCanhbaohocvu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -159,6 +160,7 @@
             this.btnNhapdiem.TabIndex = 16;
             this.btnNhapdiem.Text = "📝 Nhập điểm";
             this.btnNhapdiem.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnNhapdiem.Click += new System.EventHandler(this.btnNhapdiem_Click);
             // 
             // btnLophocphan
             // 
@@ -183,7 +185,7 @@
             this.btnLophocphan.TabIndex = 15;
             this.btnLophocphan.Text = "📚 Lớp học phần";
             this.btnLophocphan.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-//            this.btnLophocphan.Click += new System.EventHandler(this.btnLophocphan_Click);
+            this.btnLophocphan.Click += new System.EventHandler(this.btnLophocphan_Click);
             // 
             // picAvatar
             // 
@@ -260,6 +262,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hệ thống quản lý điểm - Giảng viên";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmMainGiangVien_Load);
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAvatar)).EndInit();

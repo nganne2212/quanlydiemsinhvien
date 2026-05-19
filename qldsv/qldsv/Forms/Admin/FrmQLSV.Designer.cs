@@ -28,14 +28,14 @@
             this.btnXoa = new Guna.UI2.WinForms.Guna2Button();
             this.cboTrangThai = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lblTrangThai = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.txtSDT = new Guna.UI2.WinForms.Guna2TextBox();
+            this.mskSDT = new System.Windows.Forms.MaskedTextBox();
             this.lblSDT = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblEmail = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.cboLop = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lblLop = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.chkNu = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.chkNam = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.rdoNu = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.rdoNam = new Guna.UI2.WinForms.Guna2RadioButton();
             this.lblGioiTinh = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.dtpNgaySinh = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.lblNgaySinh = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -93,14 +93,14 @@
             this.pnlLeft.Controls.Add(this.pnlButtons);
             this.pnlLeft.Controls.Add(this.cboTrangThai);
             this.pnlLeft.Controls.Add(this.lblTrangThai);
-            this.pnlLeft.Controls.Add(this.txtSDT);
+            this.pnlLeft.Controls.Add(this.mskSDT);
             this.pnlLeft.Controls.Add(this.lblSDT);
             this.pnlLeft.Controls.Add(this.txtEmail);
             this.pnlLeft.Controls.Add(this.lblEmail);
             this.pnlLeft.Controls.Add(this.cboLop);
             this.pnlLeft.Controls.Add(this.lblLop);
-            this.pnlLeft.Controls.Add(this.chkNu);
-            this.pnlLeft.Controls.Add(this.chkNam);
+            this.pnlLeft.Controls.Add(this.rdoNu);
+            this.pnlLeft.Controls.Add(this.rdoNam);
             this.pnlLeft.Controls.Add(this.lblGioiTinh);
             this.pnlLeft.Controls.Add(this.dtpNgaySinh);
             this.pnlLeft.Controls.Add(this.lblNgaySinh);
@@ -211,19 +211,15 @@
             this.lblTrangThai.TabIndex = 2;
             this.lblTrangThai.Text = "Trạng thái";
             // 
-            // txtSDT
+            // mskSDT
             // 
-            this.txtSDT.BorderRadius = 8;
-            this.txtSDT.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSDT.DefaultText = "";
-            this.txtSDT.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtSDT.Location = new System.Drawing.Point(20, 515);
-            this.txtSDT.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtSDT.Name = "txtSDT";
-            this.txtSDT.PlaceholderText = "Nhập số điện thoại";
-            this.txtSDT.SelectedText = "";
-            this.txtSDT.Size = new System.Drawing.Size(280, 40);
-            this.txtSDT.TabIndex = 3;
+            this.mskSDT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mskSDT.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.mskSDT.Location = new System.Drawing.Point(20, 515);
+            this.mskSDT.Mask = "(999) 000-0000";
+            this.mskSDT.Name = "mskSDT";
+            this.mskSDT.Size = new System.Drawing.Size(280, 34);
+            this.mskSDT.TabIndex = 3;
             // 
             // lblSDT
             // 
@@ -281,37 +277,37 @@
             this.lblLop.TabIndex = 8;
             this.lblLop.Text = "Lớp";
             // 
-            // chkNu
+            // rdoNu
             // 
-            this.chkNu.AutoSize = true;
-            this.chkNu.CheckedState.BorderRadius = 0;
-            this.chkNu.CheckedState.BorderThickness = 0;
-            this.chkNu.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.chkNu.Location = new System.Drawing.Point(120, 310);
-            this.chkNu.Name = "chkNu";
-            this.chkNu.Size = new System.Drawing.Size(62, 29);
-            this.chkNu.TabIndex = 9;
-            this.chkNu.Text = "Nữ";
-            this.chkNu.UncheckedState.BorderRadius = 0;
-            this.chkNu.UncheckedState.BorderThickness = 0;
+            this.rdoNu.AutoSize = true;
+            this.rdoNu.CheckedState.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.rdoNu.CheckedState.BorderThickness = 0;
+            this.rdoNu.CheckedState.FillColor = System.Drawing.Color.MidnightBlue;
+            this.rdoNu.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rdoNu.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.rdoNu.Location = new System.Drawing.Point(120, 310);
+            this.rdoNu.Name = "rdoNu";
+            this.rdoNu.Size = new System.Drawing.Size(61, 29);
+            this.rdoNu.TabIndex = 10;
+            this.rdoNu.Text = "Nữ";
+            this.rdoNu.UncheckedState.BorderThickness = 0;
             // 
-            // chkNam
+            // rdoNam
             // 
-            this.chkNam.AutoSize = true;
-            this.chkNam.Checked = true;
-            this.chkNam.CheckedState.BorderColor = System.Drawing.Color.MidnightBlue;
-            this.chkNam.CheckedState.BorderRadius = 0;
-            this.chkNam.CheckedState.BorderThickness = 0;
-            this.chkNam.CheckedState.FillColor = System.Drawing.Color.MidnightBlue;
-            this.chkNam.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkNam.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.chkNam.Location = new System.Drawing.Point(25, 310);
-            this.chkNam.Name = "chkNam";
-            this.chkNam.Size = new System.Drawing.Size(76, 29);
-            this.chkNam.TabIndex = 10;
-            this.chkNam.Text = "Nam";
-            this.chkNam.UncheckedState.BorderRadius = 0;
-            this.chkNam.UncheckedState.BorderThickness = 0;
+            this.rdoNam.AutoSize = true;
+            this.rdoNam.Checked = true;
+            this.rdoNam.CheckedState.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.rdoNam.CheckedState.BorderThickness = 0;
+            this.rdoNam.CheckedState.FillColor = System.Drawing.Color.MidnightBlue;
+            this.rdoNam.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rdoNam.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.rdoNam.Location = new System.Drawing.Point(25, 310);
+            this.rdoNam.Name = "rdoNam";
+            this.rdoNam.Size = new System.Drawing.Size(75, 29);
+            this.rdoNam.TabIndex = 9;
+            this.rdoNam.TabStop = true;
+            this.rdoNam.Text = "Nam";
+            this.rdoNam.UncheckedState.BorderThickness = 0;
             // 
             // lblGioiTinh
             // 
@@ -575,8 +571,8 @@
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpNgaySinh;
 
         private Guna.UI2.WinForms.Guna2HtmlLabel lblGioiTinh;
-        private Guna.UI2.WinForms.Guna2CheckBox chkNam;
-        private Guna.UI2.WinForms.Guna2CheckBox chkNu;
+        private Guna.UI2.WinForms.Guna2RadioButton rdoNam;
+        private Guna.UI2.WinForms.Guna2RadioButton rdoNu;
 
         private Guna.UI2.WinForms.Guna2HtmlLabel lblLop;
         private Guna.UI2.WinForms.Guna2ComboBox cboLop;
@@ -585,7 +581,7 @@
         private Guna.UI2.WinForms.Guna2TextBox txtEmail;
 
         private Guna.UI2.WinForms.Guna2HtmlLabel lblSDT;
-        private Guna.UI2.WinForms.Guna2TextBox txtSDT;
+        private System.Windows.Forms.MaskedTextBox mskSDT;
 
         private Guna.UI2.WinForms.Guna2HtmlLabel lblTrangThai;
         private Guna.UI2.WinForms.Guna2ComboBox cboTrangThai;

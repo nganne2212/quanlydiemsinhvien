@@ -96,6 +96,10 @@ namespace qldsv.Class
             }
             cmd.Dispose();
             cmd = null;
+        public static string GetFieldValues(string sql, object param = null)
+        {
+            var result = Conn.ExecuteScalar(sql, param);
+            return result?.ToString() ?? "";
         }
 
     }
