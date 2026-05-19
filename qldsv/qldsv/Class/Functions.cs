@@ -73,6 +73,7 @@ namespace qldsv.Class
         {
             var result = Conn.ExecuteScalar(sql, param);
             return result?.ToString() ?? "";
+        }
         public static bool CheckKey(string sql)
         {
             SqlDataAdapter Mydata = new SqlDataAdapter(sql, Class.Functions.Conn);
