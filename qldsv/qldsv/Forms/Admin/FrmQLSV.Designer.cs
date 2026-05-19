@@ -16,7 +16,7 @@
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlLeft = new System.Windows.Forms.Panel();
@@ -137,6 +137,7 @@
             this.btnThem.Size = new System.Drawing.Size(130, 40);
             this.btnThem.TabIndex = 0;
             this.btnThem.Text = "+ Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnSua
             // 
@@ -149,6 +150,7 @@
             this.btnSua.Size = new System.Drawing.Size(130, 40);
             this.btnSua.TabIndex = 1;
             this.btnSua.Text = "✏ Sửa";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnLuu
             // 
@@ -161,6 +163,7 @@
             this.btnLuu.Size = new System.Drawing.Size(130, 40);
             this.btnLuu.TabIndex = 2;
             this.btnLuu.Text = "💾 Lưu";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnBoQua
             // 
@@ -173,6 +176,7 @@
             this.btnBoQua.Size = new System.Drawing.Size(130, 40);
             this.btnBoQua.TabIndex = 3;
             this.btnBoQua.Text = "✖ Bỏ qua";
+            this.btnBoQua.Click += new System.EventHandler(this.btnBoQua_Click);
             // 
             // btnXoa
             // 
@@ -185,6 +189,7 @@
             this.btnXoa.Size = new System.Drawing.Size(280, 40);
             this.btnXoa.TabIndex = 4;
             this.btnXoa.Text = "🗑 Xóa sinh viên";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // cboTrangThai
             // 
@@ -414,9 +419,9 @@
             this.dgvSinhVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSinhVien.BackgroundColor = System.Drawing.Color.White;
             this.dgvSinhVien.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.dgvSinhVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.dgvSinhVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvSinhVien.ColumnHeadersHeight = 34;
             this.dgvSinhVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colMSV,
@@ -437,6 +442,7 @@
             this.dgvSinhVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSinhVien.Size = new System.Drawing.Size(1020, 765);
             this.dgvSinhVien.TabIndex = 0;
+            this.dgvSinhVien.Click += new System.EventHandler(this.dgvSinhVien_Click);
             // 
             // colMSV
             // 
@@ -509,6 +515,7 @@
             this.txtTimKiem.SelectedText = "";
             this.txtTimKiem.Size = new System.Drawing.Size(400, 42);
             this.txtTimKiem.TabIndex = 0;
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
             // FrmQLSV
             // 
@@ -522,6 +529,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý sinh viên";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmQLSV_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlLeft.ResumeLayout(false);

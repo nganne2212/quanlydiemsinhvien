@@ -20,14 +20,18 @@ namespace qldsv.Forms.Admin
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlRight = new System.Windows.Forms.Panel();
             this.pnlSVGrid = new System.Windows.Forms.Panel();
             this.dgvSinhVien = new System.Windows.Forms.DataGridView();
+            this.colMSSV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlSVButtons = new System.Windows.Forms.Panel();
             this.btnThemSV = new Guna.UI2.WinForms.Guna2Button();
             this.btnImportExcel = new Guna.UI2.WinForms.Guna2Button();
@@ -38,6 +42,11 @@ namespace qldsv.Forms.Admin
             this.lblSV = new System.Windows.Forms.Label();
             this.pnlLHPGrid = new System.Windows.Forms.Panel();
             this.dgvLopHocPhan = new System.Windows.Forms.DataGridView();
+            this.colMaLHP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGiangVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHocKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSoSV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlSearchLHP = new System.Windows.Forms.Panel();
             this.txtSearchLHP = new Guna.UI2.WinForms.Guna2TextBox();
             this.pnlLeft = new System.Windows.Forms.Panel();
@@ -60,15 +69,6 @@ namespace qldsv.Forms.Admin
             this.btnLuu = new Guna.UI2.WinForms.Guna2Button();
             this.btnBoQua = new Guna.UI2.WinForms.Guna2Button();
             this.btnXoa = new Guna.UI2.WinForms.Guna2Button();
-            this.colMaLHP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGiangVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colHocKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSoSV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMSSV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colHoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlHeader.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.pnlRight.SuspendLayout();
@@ -97,7 +97,7 @@ namespace qldsv.Forms.Admin
             // lblTitle
             // 
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(0, 0);
             this.lblTitle.Name = "lblTitle";
@@ -146,9 +146,9 @@ namespace qldsv.Forms.Admin
             this.dgvSinhVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSinhVien.BackgroundColor = System.Drawing.Color.White;
             this.dgvSinhVien.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.dgvSinhVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.dgvSinhVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvSinhVien.ColumnHeadersHeight = 34;
             this.dgvSinhVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colMSSV,
@@ -166,6 +166,30 @@ namespace qldsv.Forms.Admin
             this.dgvSinhVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSinhVien.Size = new System.Drawing.Size(880, 314);
             this.dgvSinhVien.TabIndex = 0;
+            // 
+            // colMSSV
+            // 
+            this.colMSSV.HeaderText = "MSSV";
+            this.colMSSV.MinimumWidth = 8;
+            this.colMSSV.Name = "colMSSV";
+            // 
+            // colHoTen
+            // 
+            this.colHoTen.HeaderText = "Họ tên";
+            this.colHoTen.MinimumWidth = 8;
+            this.colHoTen.Name = "colHoTen";
+            // 
+            // colLop
+            // 
+            this.colLop.HeaderText = "Lớp";
+            this.colLop.MinimumWidth = 8;
+            this.colLop.Name = "colLop";
+            // 
+            // colEmail
+            // 
+            this.colEmail.HeaderText = "Email";
+            this.colEmail.MinimumWidth = 8;
+            this.colEmail.Name = "colEmail";
             // 
             // pnlSVButtons
             // 
@@ -277,9 +301,9 @@ namespace qldsv.Forms.Admin
             this.dgvLopHocPhan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLopHocPhan.BackgroundColor = System.Drawing.Color.White;
             this.dgvLopHocPhan.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.dgvLopHocPhan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.dgvLopHocPhan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvLopHocPhan.ColumnHeadersHeight = 34;
             this.dgvLopHocPhan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colMaLHP,
@@ -298,6 +322,36 @@ namespace qldsv.Forms.Admin
             this.dgvLopHocPhan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLopHocPhan.Size = new System.Drawing.Size(880, 200);
             this.dgvLopHocPhan.TabIndex = 0;
+            // 
+            // colMaLHP
+            // 
+            this.colMaLHP.HeaderText = "Mã LHP";
+            this.colMaLHP.MinimumWidth = 8;
+            this.colMaLHP.Name = "colMaLHP";
+            // 
+            // colMonHoc
+            // 
+            this.colMonHoc.HeaderText = "Môn hoc";
+            this.colMonHoc.MinimumWidth = 8;
+            this.colMonHoc.Name = "colMonHoc";
+            // 
+            // colGiangVien
+            // 
+            this.colGiangVien.HeaderText = "Giảng viên";
+            this.colGiangVien.MinimumWidth = 8;
+            this.colGiangVien.Name = "colGiangVien";
+            // 
+            // colHocKy
+            // 
+            this.colHocKy.HeaderText = "Học kỳ";
+            this.colHocKy.MinimumWidth = 8;
+            this.colHocKy.Name = "colHocKy";
+            // 
+            // colSoSV
+            // 
+            this.colSoSV.HeaderText = "Số SV";
+            this.colSoSV.MinimumWidth = 8;
+            this.colSoSV.Name = "colSoSV";
             // 
             // pnlSearchLHP
             // 
@@ -356,9 +410,9 @@ namespace qldsv.Forms.Admin
             this.lblSection.ForeColor = System.Drawing.Color.SlateBlue;
             this.lblSection.Location = new System.Drawing.Point(16, 12);
             this.lblSection.Name = "lblSection";
-            this.lblSection.Size = new System.Drawing.Size(256, 27);
+            this.lblSection.Size = new System.Drawing.Size(257, 27);
             this.lblSection.TabIndex = 0;
-            this.lblSection.Text = "THONG TIN LOP HOC PHAN";
+            this.lblSection.Text = "THÔNG TIN LỚP HỌC PHẦN";
             // 
             // lblMaLHP
             // 
@@ -571,60 +625,6 @@ namespace qldsv.Forms.Admin
             this.btnXoa.Size = new System.Drawing.Size(255, 40);
             this.btnXoa.TabIndex = 4;
             this.btnXoa.Text = "Xóa lớp học phần";
-            // 
-            // colMaLHP
-            // 
-            this.colMaLHP.HeaderText = "Mã LHP";
-            this.colMaLHP.MinimumWidth = 8;
-            this.colMaLHP.Name = "colMaLHP";
-            // 
-            // colMonHoc
-            // 
-            this.colMonHoc.HeaderText = "Môn hoc";
-            this.colMonHoc.MinimumWidth = 8;
-            this.colMonHoc.Name = "colMonHoc";
-            // 
-            // colGiangVien
-            // 
-            this.colGiangVien.HeaderText = "Giảng viên";
-            this.colGiangVien.MinimumWidth = 8;
-            this.colGiangVien.Name = "colGiangVien";
-            // 
-            // colHocKy
-            // 
-            this.colHocKy.HeaderText = "Học kỳ";
-            this.colHocKy.MinimumWidth = 8;
-            this.colHocKy.Name = "colHocKy";
-            // 
-            // colSoSV
-            // 
-            this.colSoSV.HeaderText = "Số SV";
-            this.colSoSV.MinimumWidth = 8;
-            this.colSoSV.Name = "colSoSV";
-            // 
-            // colMSSV
-            // 
-            this.colMSSV.HeaderText = "MSSV";
-            this.colMSSV.MinimumWidth = 8;
-            this.colMSSV.Name = "colMSSV";
-            // 
-            // colHoTen
-            // 
-            this.colHoTen.HeaderText = "Họ tên";
-            this.colHoTen.MinimumWidth = 8;
-            this.colHoTen.Name = "colHoTen";
-            // 
-            // colLop
-            // 
-            this.colLop.HeaderText = "Lớp";
-            this.colLop.MinimumWidth = 8;
-            this.colLop.Name = "colLop";
-            // 
-            // colEmail
-            // 
-            this.colEmail.HeaderText = "Email";
-            this.colEmail.MinimumWidth = 8;
-            this.colEmail.Name = "colEmail";
             // 
             // FrmLopHocPhan
             // 

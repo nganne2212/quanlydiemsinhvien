@@ -14,43 +14,106 @@ namespace qldsv.BLL
 
         public static string Them(string maGV, string hoTen, string email, string maKhoa)
         {
-            if (string.IsNullOrWhiteSpace(maGV)) return "Vui long nhap ma giang vien";
-            if (string.IsNullOrWhiteSpace(hoTen)) return "Vui long nhap ho ten";
-            if (string.IsNullOrWhiteSpace(email)) return "Vui long nhap email";
-            if (string.IsNullOrWhiteSpace(maKhoa)) return "Vui long chon khoa";
-            if (DAL.QLGiangvienDAL.KiemTraTrung(maGV.Trim()))
-                return "Ma giang vien da ton tai";
-            if (!Regex.IsMatch(email.Trim(), @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
-                return "Email khong hop le";
+            // Kiểm tra rỗng
+            if (string.IsNullOrWhiteSpace(maGV))
+                return "Vui lòng nhập mã giảng viên";
 
-            DAL.QLGiangvienDAL.Them(maGV.Trim(), hoTen.Trim(), email.Trim(), maKhoa);
+            if (string.IsNullOrWhiteSpace(hoTen))
+                return "Vui lòng nhập họ tên giảng viên";
+
+            if (string.IsNullOrWhiteSpace(email))
+                return "Vui lòng nhập email";
+
+            if (string.IsNullOrWhiteSpace(maKhoa))
+                return "Vui lòng chọn khoa";
+
+            // Kiểm tra độ dài
+            if (maGV.Trim().Length > 20)
+                return "Mã giảng viên không được vượt quá 20 ký tự";
+
+            if (hoTen.Trim().Length > 100)
+                return "Họ tên không được vượt quá 100 ký tự";
+
+            if (email.Trim().Length > 100)
+                return "Email không được vượt quá 100 ký tự";
+
+            // Kiểm tra mã
+            if (!Regex.IsMatch(maGV.Trim(), @"^[a-zA-Z0-9]+$"))
+                return "Mã giảng viên chỉ được chứa chữ cái và chữ số, không chứa ký tự đặc biệt";
+
+            // Kiểm tra họ tên
+            if (!Regex.IsMatch(hoTen.Trim(), @"^[\p{L}\s]+$"))
+                return "Họ tên không hợp lệ, không được chứa số hoặc ký tự đặc biệt";
+
+            // Kiểm tra email
+            if (!Regex.IsMatch(email.Trim(), @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+                return "Email không đúng định dạng";
+
+            // Kiểm tra trùng mã
+            if (DAL.QLGiangvienDAL.KiemTraTrung(maGV.Trim()))
+                return "Mã giảng viên đã tồn tại";
+
+            DAL.QLGiangvienDAL.Them(
+                maGV.Trim(),
+                hoTen.Trim(),
+                email.Trim(),
+                maKhoa);
+
             return "";
         }
 
         public static string Sua(string maGV, string hoTen, string email, string maKhoa)
         {
-            if (string.IsNullOrWhiteSpace(hoTen)) return "Vui long nhap ho ten";
-            if (string.IsNullOrWhiteSpace(email)) return "Vui long nhap email";
-            if (string.IsNullOrWhiteSpace(maKhoa)) return "Vui long chon khoa";
-            if (!Regex.IsMatch(email.Trim(), @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
-                return "Email khong hop le";
+            // Kiểm tra rỗng
+            if (string.IsNullOrWhiteSpace(hoTen))
+                return "Vui lòng nhập họ tên giảng viên";
 
-            DAL.QLGiangvienDAL.Sua(maGV.Trim(), hoTen.Trim(), email.Trim(), maKhoa);
+            if (string.IsNullOrWhiteSpace(email))
+                return "Vui lòng nhập email";
+
+            if (string.IsNullOrWhiteSpace(maKhoa))
+                return "Vui lòng chọn khoa";
+
+            // Kiểm tra độ dài
+            if (hoTen.Trim().Length > 100)
+                return "Họ tên không được vượt quá 100 ký tự";
+
+            if (email.Trim().Length > 100)
+                return "Email không được vượt quá 100 ký tự";
+
+            // Kiểm tra họ tên
+            if (!Regex.IsMatch(hoTen.Trim(), @"^[\p{L}\s]+$"))
+                return "Họ tên không hợp lệ, không được chứa số hoặc ký tự đặc biệt";
+
+            // Kiểm tra email
+            if (!Regex.IsMatch(email.Trim(), @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+                return "Email không đúng định dạng";
+
+            DAL.QLGiangvienDAL.Sua(
+                maGV.Trim(),
+                hoTen.Trim(),
+                email.Trim(),
+                maKhoa);
+
             return "";
         }
 
         public static string Xoa(string maGV)
         {
             if (string.IsNullOrWhiteSpace(maGV))
-                return "Vui long chon giang vien can xoa";
+                return "Vui lòng chọn giảng viên cần xóa";
+
             if (DAL.QLGiangvienDAL.DangChuNhiemLop(maGV))
-                return "Giang vien dang la chu nhiem lop, khong the xoa!";
+                return "Giảng viên đang là cố vấn học tập của lớp nên không thể xóa";
+
             if (DAL.QLGiangvienDAL.DangDayHocPhan(maGV))
-                return "Giang vien dang day hoc phan, khong the xoa!";
+                return "Giảng viên đang phụ trách học phần nên không thể xóa";
+
             if (DAL.QLGiangvienDAL.DangXuLyPhucKhao(maGV))
-                return "Giang vien co ket qua phuc khao, khong the xoa!";
+                return "Giảng viên đang xử lý phúc khảo nên không thể xóa";
 
             DAL.QLGiangvienDAL.Xoa(maGV);
+
             return "";
         }
     }
