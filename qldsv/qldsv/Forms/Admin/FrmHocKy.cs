@@ -79,8 +79,8 @@ namespace qldsv.Forms.Admin
         // ════════════════════════════════════════════════════════
         private void SetTrangThaiForm(bool enable)
         {
-            txtTenhocky.Enabled = enable;
-            txtNamhoc.Enabled = enable;
+            txtTenhocky.Enabled = !enable;
+            txtNamhoc.Enabled = !enable;
             btnLuu.Enabled = enable;
             btnBoqua.Enabled = enable;
 

@@ -20,23 +20,12 @@ namespace qldsv.Forms.Admin
 
         DataTable tblMonHoc;
 
-        private void FrmMonHoc_Load(object sender, EventArgs e)
-        {
-            txtMonHoc.Enabled = false;
-            gbtnLuu.Enabled = false;
-            gbtnBoqua.Enabled = false;
-            LoadGrid();
 
-            txtCC.KeyPress += HeSo_KeyPress;
-            txtKT1.KeyPress += HeSo_KeyPress;
-            txtKT2.KeyPress += HeSo_KeyPress;
-            txtCK.KeyPress += HeSo_KeyPress;
-            txtSotinchi.KeyPress += SoNguyen_KeyPress;
-        }
 
         private void LoadGrid()
         {
             tblMonHoc = MonHocBLL.GetAll();
+            dgvMH.AutoGenerateColumns = false;
             dgvMH.DataSource = tblMonHoc;
 
             if (dgvMH.Columns.Count >= 8)
@@ -241,6 +230,20 @@ namespace qldsv.Forms.Admin
             gbtnLuu.Enabled = false;
             txtMonHoc.Enabled = false;
             ResetInputs();
+        }
+
+        private void FrmMonHoc_Load_1(object sender, EventArgs e)
+        {
+            txtMonHoc.Enabled = false;
+            gbtnLuu.Enabled = false;
+            gbtnBoqua.Enabled = false;
+            LoadGrid();
+
+            txtCC.KeyPress += HeSo_KeyPress;
+            txtKT1.KeyPress += HeSo_KeyPress;
+            txtKT2.KeyPress += HeSo_KeyPress;
+            txtCK.KeyPress += HeSo_KeyPress;
+            txtSotinchi.KeyPress += SoNguyen_KeyPress;
         }
     }
 }
