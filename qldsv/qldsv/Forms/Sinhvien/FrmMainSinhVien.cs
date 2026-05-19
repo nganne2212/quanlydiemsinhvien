@@ -48,5 +48,20 @@ namespace qldsv.Forms.Sinhvien
         {
             LoadForm(new Forms.Sinhvien.FrmKQhoctap());
         }
+
+        private void btnLichhoc_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Forms.Sinhvien.FrmLichHoc());
+        }
+
+        private void btnPhuckhao_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Forms.Sinhvien.FrmPhucKhaoSV());
+        }
+
+        private void btnDoimatkhau_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Forms.Sinhvien.FrmDoiMatKhauSV());
+        }
     }
 }

@@ -38,8 +38,8 @@
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblSV = new System.Windows.Forms.Label();
             this.lblSvien = new System.Windows.Forms.Label();
-            this.picAva = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.pnlndung = new System.Windows.Forms.Panel();
+            this.picAva = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.pnlside.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAva)).BeginInit();
             this.SuspendLayout();
@@ -86,6 +86,7 @@
             this.btnLichhoc.TabIndex = 8;
             this.btnLichhoc.Text = "📖 Lịch học";
             this.btnLichhoc.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnLichhoc.Click += new System.EventHandler(this.btnLichhoc_Click);
             // 
             // btnPhuckhao
             // 
@@ -109,6 +110,7 @@
             this.btnPhuckhao.TabIndex = 7;
             this.btnPhuckhao.Text = "📋 Phúc khảo";
             this.btnPhuckhao.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnPhuckhao.Click += new System.EventHandler(this.btnPhuckhao_Click);
             // 
             // btnDangxuat
             // 
@@ -156,6 +158,7 @@
             this.btnDoimatkhau.TabIndex = 5;
             this.btnDoimatkhau.Text = "🔑 Đổi mật khẩu";
             this.btnDoimatkhau.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDoimatkhau.Click += new System.EventHandler(this.btnDoimatkhau_Click);
             // 
             // btnKQHT
             // 
@@ -213,6 +216,14 @@
             this.lblSvien.TabIndex = 1;
             this.lblSvien.Text = "Ten Sinh Vien";
             // 
+            // pnlndung
+            // 
+            this.pnlndung.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlndung.Location = new System.Drawing.Point(230, 0);
+            this.pnlndung.Name = "pnlndung";
+            this.pnlndung.Size = new System.Drawing.Size(1004, 705);
+            this.pnlndung.TabIndex = 1;
+            // 
             // picAva
             // 
             this.picAva.BackColor = System.Drawing.Color.Transparent;
@@ -226,14 +237,6 @@
             this.picAva.TabIndex = 0;
             this.picAva.TabStop = false;
             this.picAva.UseTransparentBackground = true;
-            // 
-            // pnlndung
-            // 
-            this.pnlndung.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlndung.Location = new System.Drawing.Point(230, 0);
-            this.pnlndung.Name = "pnlndung";
-            this.pnlndung.Size = new System.Drawing.Size(1004, 705);
-            this.pnlndung.TabIndex = 1;
             // 
             // FrmMainSinhVien
             // 

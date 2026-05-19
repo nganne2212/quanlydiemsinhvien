@@ -79,7 +79,7 @@
             this.btnDangxuat.HoverState.FillColor = System.Drawing.Color.CornflowerBlue;
             this.btnDangxuat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDangxuat.ImageSize = new System.Drawing.Size(18, 18);
-            this.btnDangxuat.Location = new System.Drawing.Point(0, 430);
+            this.btnDangxuat.Location = new System.Drawing.Point(0, 470);
             this.btnDangxuat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDangxuat.Name = "btnDangxuat";
             this.btnDangxuat.Size = new System.Drawing.Size(230, 56);
@@ -104,7 +104,7 @@
             this.btnDoimatkhau.HoverState.FillColor = System.Drawing.Color.CornflowerBlue;
             this.btnDoimatkhau.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDoimatkhau.ImageSize = new System.Drawing.Size(18, 18);
-            this.btnDoimatkhau.Location = new System.Drawing.Point(0, 370);
+            this.btnDoimatkhau.Location = new System.Drawing.Point(0, 400);
             this.btnDoimatkhau.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDoimatkhau.Name = "btnDoimatkhau";
             this.btnDoimatkhau.Size = new System.Drawing.Size(230, 56);
@@ -129,7 +129,7 @@
             this.btnCanhbaohocvu.HoverState.FillColor = System.Drawing.Color.CornflowerBlue;
             this.btnCanhbaohocvu.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnCanhbaohocvu.ImageSize = new System.Drawing.Size(18, 18);
-            this.btnCanhbaohocvu.Location = new System.Drawing.Point(0, 310);
+            this.btnCanhbaohocvu.Location = new System.Drawing.Point(0, 330);
             this.btnCanhbaohocvu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCanhbaohocvu.Name = "btnCanhbaohocvu";
             this.btnCanhbaohocvu.Size = new System.Drawing.Size(230, 56);
@@ -153,7 +153,7 @@
             this.btnNhapdiem.HoverState.FillColor = System.Drawing.Color.CornflowerBlue;
             this.btnNhapdiem.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnNhapdiem.ImageSize = new System.Drawing.Size(18, 18);
-            this.btnNhapdiem.Location = new System.Drawing.Point(0, 250);
+            this.btnNhapdiem.Location = new System.Drawing.Point(0, 260);
             this.btnNhapdiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNhapdiem.Name = "btnNhapdiem";
             this.btnNhapdiem.Size = new System.Drawing.Size(230, 56);
