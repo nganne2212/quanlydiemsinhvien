@@ -37,22 +37,22 @@ namespace qldsv.Forms.Admin
         private void LoadGrid()
         {
             tblMonHoc = MonHocBLL.GetAll();
-            dgvMH.DataSource = tblMonHoc;
+            dgvMH.AutoGenerateColumns = false;
 
             if (dgvMH.Columns.Count >= 8)
             {
-                dgvMH.Columns[0].HeaderText = "STT";
-                dgvMH.Columns[1].HeaderText = "Mã môn";
-                dgvMH.Columns[2].HeaderText = "Tên môn";
-                dgvMH.Columns[3].HeaderText = "Số tín chỉ";
-                dgvMH.Columns[4].HeaderText = "Chuyên cần";
-                dgvMH.Columns[5].HeaderText = "Kiểm tra 1";
-                dgvMH.Columns[6].HeaderText = "Kiểm tra 2";
-                dgvMH.Columns[7].HeaderText = "Cuối kỳ";
+                dgvMH.Columns[0].DataPropertyName = "STT";
+                dgvMH.Columns[1].DataPropertyName = "MaMonHoc";
+                dgvMH.Columns[2].DataPropertyName = "TenMon";
+                dgvMH.Columns[3].DataPropertyName = "SoTinChi";
+                dgvMH.Columns[4].DataPropertyName = "HeSoChuyenCan";
+                dgvMH.Columns[5].DataPropertyName = "HeSoKT1";
+                dgvMH.Columns[6].DataPropertyName = "HeSoKT2";
+                dgvMH.Columns[7].DataPropertyName = "HeSoCuoiKy";
             }
 
+            dgvMH.DataSource = tblMonHoc; // Gán sau
             dgvMH.AllowUserToAddRows = false;
-            dgvMH.AutoGenerateColumns = false;
             dgvMH.EditMode = DataGridViewEditMode.EditProgrammatically;
         }
 
@@ -96,15 +96,16 @@ namespace qldsv.Forms.Admin
                 return;
             }
             if (tblMonHoc == null || tblMonHoc.Rows.Count == 0) return;
-            if (e.RowIndex < 0) return;
+            if (e.RowIndex < 0 || e.RowIndex >= tblMonHoc.Rows.Count) return;
 
-            txtMonHoc.Text = dgvMH.CurrentRow.Cells["MaMonHoc"].Value?.ToString() ?? "";
-            txtTenHoc.Text = dgvMH.CurrentRow.Cells["TenMon"].Value?.ToString() ?? "";
-            txtSotinchi.Text = dgvMH.CurrentRow.Cells["SoTinChi"].Value?.ToString() ?? "";
-            txtCC.Text = dgvMH.CurrentRow.Cells["HeSoChuyenCan"].Value?.ToString() ?? "";
-            txtKT1.Text = dgvMH.CurrentRow.Cells["HeSoKT1"].Value?.ToString() ?? "";
-            txtKT2.Text = dgvMH.CurrentRow.Cells["HeSoKT2"].Value?.ToString() ?? "";
-            txtCK.Text = dgvMH.CurrentRow.Cells["HeSoCuoiKy"].Value?.ToString() ?? "";
+            DataRow row = tblMonHoc.Rows[e.RowIndex];
+            txtMonHoc.Text = row["MaMonHoc"]?.ToString() ?? "";
+            txtTenHoc.Text = row["TenMon"]?.ToString() ?? "";
+            txtSotinchi.Text = row["SoTinChi"]?.ToString() ?? "";
+            txtCC.Text = row["HeSoChuyenCan"]?.ToString() ?? "";
+            txtKT1.Text = row["HeSoKT1"]?.ToString() ?? "";
+            txtKT2.Text = row["HeSoKT2"]?.ToString() ?? "";
+            txtCK.Text = row["HeSoCuoiKy"]?.ToString() ?? "";
 
             gbtnSua.Enabled = true;
             gbtnXoa.Enabled = true;
