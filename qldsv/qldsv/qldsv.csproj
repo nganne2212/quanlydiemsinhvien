@@ -104,8 +104,6 @@
     <Compile Include="DAL\MonHocDAL.cs" />
     <Compile Include="DAL\QLLopDAL.cs" />
     <Compile Include="BLL\HocKyBLL.cs" />
-
-
     <Compile Include="DAL\HocKyDAL.cs.cs" />
     <Compile Include="DAL\TaiKhoanDAL.cs" />
     <Compile Include="Forms\Admin\FrmChonSinhVien.cs">
@@ -167,6 +165,18 @@
     </Compile>
     <Compile Include="Forms\Admin\FrmPhongHoc.Designer.cs">
       <DependentUpon>FrmPhongHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Giangvien\FrmCanhBaoHocVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Giangvien\FrmCanhBaoHocVu.Designer.cs">
+      <DependentUpon>FrmCanhBaoHocVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Giangvien\FrmDoiMatKhauGV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Giangvien\FrmDoiMatKhauGV.Designer.cs">
+      <DependentUpon>FrmDoiMatKhauGV.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Giangvien\FrmNhapDiem.cs">
       <SubType>Form</SubType>
@@ -305,8 +315,14 @@
     <EmbeddedResource Include="Forms\FrmDangNhap.resx">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Giangvien\FrmCanhBaoHocVu.resx">
+      <DependentUpon>FrmCanhBaoHocVu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Giangvien\FrmDanhSachLHP.resx">
       <DependentUpon>FrmDanhSachLHP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Giangvien\FrmDoiMatKhauGV.resx">
+      <DependentUpon>FrmDoiMatKhauGV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Giangvien\FrmMainGiangVien.resx">
       <DependentUpon>FrmMainGiangVien.cs</DependentUpon>
@@ -314,8 +330,14 @@
     <EmbeddedResource Include="Forms\Giangvien\FrmNhapDiem.resx">
       <DependentUpon>FrmNhapDiem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sinhvien\FrmDoiMatKhauSV.resx">
+      <DependentUpon>FrmDoiMatKhauSV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Sinhvien\FrmKQhoctap.resx">
       <DependentUpon>FrmKQhoctap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sinhvien\FrmLichHoc.resx">
+      <DependentUpon>FrmLichHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Sinhvien\FrmMainSinhVien.resx">
       <DependentUpon>FrmMainSinhVien.cs</DependentUpon>

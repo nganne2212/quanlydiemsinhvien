@@ -1,6 +1,6 @@
-﻿namespace qldsv.Forms.Sinhvien
+﻿namespace qldsv.Forms.Giangvien
 {
-    partial class FrmDoiMatKhauSV
+    partial class FrmDoiMatKhauGV
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -208,7 +208,7 @@
             this.btnHuy.TabIndex = 5;
             this.btnHuy.Text = "✖ Hủy";
             // 
-            // FrmDoiMatKhauSV
+            // FrmDoiMatKhauGV
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
@@ -216,9 +216,9 @@
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmDoiMatKhauSV";
+            this.Name = "FrmDoiMatKhauGV";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Đổi mật khẩu";
+            this.Text = "Đổi mật khẩu giảng viên";
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlMain.ResumeLayout(false);

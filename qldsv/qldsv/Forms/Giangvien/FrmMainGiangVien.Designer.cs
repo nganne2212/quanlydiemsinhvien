@@ -111,6 +111,7 @@
             this.btnDoimatkhau.TabIndex = 18;
             this.btnDoimatkhau.Text = "🔑 Đổi mật khẩu";
             this.btnDoimatkhau.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDoimatkhau.Click += new System.EventHandler(this.btnDoimatkhau_Click);
             // 
             // btnCanhbaohocvu
             // 
@@ -136,6 +137,7 @@
             this.btnCanhbaohocvu.TabIndex = 17;
             this.btnCanhbaohocvu.Text = "⚠️ Cảnh báo học vụ ";
             this.btnCanhbaohocvu.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnCanhbaohocvu.Click += new System.EventHandler(this.btnCanhbaohocvu_Click);
             // 
             // btnNhapdiem
             // 

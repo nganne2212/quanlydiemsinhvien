@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using qldsv.Forms.Sinhvien;
 
 
 
@@ -21,7 +22,7 @@ namespace qldsv.Forms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmDangNhap());
+            Application.Run(new FrmMainSinhVien());
         }
     }
 }

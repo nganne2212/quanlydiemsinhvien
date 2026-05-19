@@ -53,5 +53,15 @@ namespace qldsv.Forms.Giangvien
         {
             LoadForm(new Forms.Giangvien.FrmNhapDiem());
         }
+
+        private void btnCanhbaohocvu_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Forms.Giangvien.FrmCanhBaoHocVu());
+        }
+
+        private void btnDoimatkhau_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Forms.Giangvien.FrmDoiMatKhauGV());
+        }
     }
 }
