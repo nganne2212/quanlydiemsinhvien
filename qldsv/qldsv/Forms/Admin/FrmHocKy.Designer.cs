@@ -15,7 +15,7 @@
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
@@ -71,7 +71,7 @@
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(20, 14);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(193, 28);
+            this.lblTitle.Size = new System.Drawing.Size(231, 32);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "🗓  Quản lý học kỳ";
             // 
@@ -102,10 +102,10 @@
             this.dgvQuanlyhocky.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvQuanlyhocky.BackgroundColor = System.Drawing.Color.White;
             this.dgvQuanlyhocky.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(73)))), ((int)(((byte)(171)))));
-            this.dgvQuanlyhocky.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(73)))), ((int)(((byte)(171)))));
+            this.dgvQuanlyhocky.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvQuanlyhocky.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvQuanlyhocky.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSTT,
@@ -224,7 +224,7 @@
             this.lblSectionInfo.ForeColor = System.Drawing.Color.SlateBlue;
             this.lblSectionInfo.Location = new System.Drawing.Point(20, 24);
             this.lblSectionInfo.Name = "lblSectionInfo";
-            this.lblSectionInfo.Size = new System.Drawing.Size(128, 19);
+            this.lblSectionInfo.Size = new System.Drawing.Size(153, 23);
             this.lblSectionInfo.TabIndex = 0;
             this.lblSectionInfo.Text = "THÔNG TIN HỌC KỲ";
             // 
@@ -235,7 +235,7 @@
             this.lblMaHocKy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.lblMaHocKy.Location = new System.Drawing.Point(20, 56);
             this.lblMaHocKy.Name = "lblMaHocKy";
-            this.lblMaHocKy.Size = new System.Drawing.Size(74, 22);
+            this.lblMaHocKy.Size = new System.Drawing.Size(91, 27);
             this.lblMaHocKy.TabIndex = 1;
             this.lblMaHocKy.Text = "Mã học kỳ";
             // 
@@ -269,7 +269,7 @@
             this.lblTenHocKy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.lblTenHocKy.Location = new System.Drawing.Point(20, 136);
             this.lblTenHocKy.Name = "lblTenHocKy";
-            this.lblTenHocKy.Size = new System.Drawing.Size(89, 22);
+            this.lblTenHocKy.Size = new System.Drawing.Size(109, 27);
             this.lblTenHocKy.TabIndex = 3;
             this.lblTenHocKy.Text = "Tên học kỳ *";
             // 
@@ -303,7 +303,7 @@
             this.lblNamHoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
             this.lblNamHoc.Location = new System.Drawing.Point(20, 218);
             this.lblNamHoc.Name = "lblNamHoc";
-            this.lblNamHoc.Size = new System.Drawing.Size(77, 22);
+            this.lblNamHoc.Size = new System.Drawing.Size(92, 27);
             this.lblNamHoc.TabIndex = 5;
             this.lblNamHoc.Text = "Năm học *";
             // 
@@ -457,6 +457,7 @@
             this.Name = "FrmHocKy";
             this.Text = "Quản lý học kỳ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmHocKy_Load_1);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlMain.ResumeLayout(false);

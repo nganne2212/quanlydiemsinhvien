@@ -24,11 +24,7 @@ namespace qldsv.Forms.Admin
         // ════════════════════════════════════════════════════════
         //  LOAD
         // ════════════════════════════════════════════════════════
-        private void FrmHocKy_Load(object sender, EventArgs e)
-        {
-            LoadData();
-            SetTrangThaiForm(false);
-        }
+
 
         private void LoadData()
         {
@@ -402,6 +398,12 @@ namespace qldsv.Forms.Admin
                 _flashTimer.Dispose();
             };
             _flashTimer.Start();
+        }
+
+        private void FrmHocKy_Load_1(object sender, EventArgs e)
+        {
+            LoadData();
+            SetTrangThaiForm(false);
         }
     }
 }
