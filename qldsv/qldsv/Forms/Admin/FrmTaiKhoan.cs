@@ -76,7 +76,6 @@ namespace qldsv.Forms.Admin
             MessageBox.Show("Đã khóa tài khoản " + ten);
             LoadDanhSach();
         }
-
         private void btnMoKhoa_Click(object sender, EventArgs e)
         {
             if (dgvTaikhoan.CurrentRow == null)

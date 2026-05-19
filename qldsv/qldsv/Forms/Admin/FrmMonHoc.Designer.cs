@@ -316,10 +316,13 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(290, 160);
             this.panel3.TabIndex = 0;
+            //this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // gbtnThem
             // 
             this.gbtnThem.BorderRadius = 8;
+            this.gbtnThem.DisabledState.FillColor = System.Drawing.Color.Gray;
+            this.gbtnThem.DisabledState.ForeColor = System.Drawing.Color.LightGray;
             this.gbtnThem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.gbtnThem.ForeColor = System.Drawing.Color.White;
             this.gbtnThem.Location = new System.Drawing.Point(0, 0);
@@ -332,6 +335,8 @@
             // gbtnSua
             // 
             this.gbtnSua.BorderRadius = 8;
+            this.gbtnSua.DisabledState.FillColor = System.Drawing.Color.Gray;
+            this.gbtnSua.DisabledState.ForeColor = System.Drawing.Color.LightGray;
             this.gbtnSua.FillColor = System.Drawing.Color.Goldenrod;
             this.gbtnSua.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.gbtnSua.ForeColor = System.Drawing.Color.White;
@@ -345,6 +350,8 @@
             // gbtnLuu
             // 
             this.gbtnLuu.BorderRadius = 8;
+            this.gbtnLuu.DisabledState.FillColor = System.Drawing.Color.Gray;
+            this.gbtnLuu.DisabledState.ForeColor = System.Drawing.Color.LightGray;
             this.gbtnLuu.FillColor = System.Drawing.Color.SeaGreen;
             this.gbtnLuu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.gbtnLuu.ForeColor = System.Drawing.Color.White;
@@ -358,6 +365,8 @@
             // gbtnBoqua
             // 
             this.gbtnBoqua.BorderRadius = 8;
+            this.gbtnBoqua.DisabledState.FillColor = System.Drawing.Color.Gray;
+            this.gbtnBoqua.DisabledState.ForeColor = System.Drawing.Color.LightGray;
             this.gbtnBoqua.FillColor = System.Drawing.Color.SlateGray;
             this.gbtnBoqua.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.gbtnBoqua.ForeColor = System.Drawing.Color.White;
@@ -371,6 +380,8 @@
             // gbtnXoa
             // 
             this.gbtnXoa.BorderRadius = 8;
+            this.gbtnXoa.DisabledState.FillColor = System.Drawing.Color.Gray;
+            this.gbtnXoa.DisabledState.ForeColor = System.Drawing.Color.LightGray;
             this.gbtnXoa.FillColor = System.Drawing.Color.Firebrick;
             this.gbtnXoa.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.gbtnXoa.ForeColor = System.Drawing.Color.White;
@@ -425,48 +436,56 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "STT";
             this.dataGridViewTextBoxColumn1.HeaderText = "STT";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "MaMonHoc";
             this.dataGridViewTextBoxColumn2.HeaderText = "Mã môn";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // dataGridViewTextBoxColumn3
             // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "TenMon";
             this.dataGridViewTextBoxColumn3.HeaderText = "Tên môn";
             this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // dataGridViewTextBoxColumn4
             // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "SoTinChi";
             this.dataGridViewTextBoxColumn4.HeaderText = "Số tín chỉ";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // dataGridViewTextBoxColumn5
             // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Chuyên cần ";
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "HeSoChuyenCan";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Chuyên cần";
             this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
             // dataGridViewTextBoxColumn6
             // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "HeSoKT1";
             this.dataGridViewTextBoxColumn6.HeaderText = "Kiểm tra 1";
             this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
             // dataGridViewTextBoxColumn7
             // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "HeSoKT2";
             this.dataGridViewTextBoxColumn7.HeaderText = "Kiểm tra 2";
             this.dataGridViewTextBoxColumn7.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
             // dataGridViewTextBoxColumn8
             // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "HeSoCuoiKy";
             this.dataGridViewTextBoxColumn8.HeaderText = "Cuối kỳ";
             this.dataGridViewTextBoxColumn8.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
@@ -519,6 +538,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmMonHoc";
             this.Text = "FrmMonHoc";
+            this.Load += new System.EventHandler(this.FrmMonHoc_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -533,6 +553,7 @@
         }
 
         #endregion
+
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.Panel panel4;
