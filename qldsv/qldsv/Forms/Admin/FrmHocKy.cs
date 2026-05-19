@@ -19,6 +19,9 @@ namespace qldsv.Forms.Admin
         public FrmHocKy()
         {
             InitializeComponent();
+            // Đảm bảo trạng thái ban đầu đúng dù Load có được wire hay không
+            btnLuu.Enabled = false;
+            btnBoqua.Enabled = false;
         }
 
         // ════════════════════════════════════════════════════════
@@ -83,6 +86,8 @@ namespace qldsv.Forms.Admin
         // ════════════════════════════════════════════════════════
         private void SetTrangThaiForm(bool enable)
         {
+            // enable=true: đang nhập liệu → bật Lưu/Bỏqua, tắt các nút khác
+            // enable=false: chế độ xem → tắt Lưu/Bỏqua, bật các nút khác
             txtTenhocky.Enabled = enable;
             txtNamhoc.Enabled = enable;
             btnLuu.Enabled = enable;
