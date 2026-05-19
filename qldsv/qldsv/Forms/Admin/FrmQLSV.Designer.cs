@@ -56,7 +56,6 @@
             this.colTrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlSearch = new System.Windows.Forms.Panel();
             this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
-            this.cboLocLop = new Guna.UI2.WinForms.Guna2ComboBox();
             this.pnlHeader.SuspendLayout();
             this.pnlLeft.SuspendLayout();
             this.pnlButtons.SuspendLayout();
@@ -490,7 +489,6 @@
             // pnlSearch
             // 
             this.pnlSearch.Controls.Add(this.txtTimKiem);
-            this.pnlSearch.Controls.Add(this.cboLocLop);
             this.pnlSearch.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSearch.Location = new System.Drawing.Point(20, 0);
             this.pnlSearch.Name = "pnlSearch";
@@ -511,22 +509,6 @@
             this.txtTimKiem.SelectedText = "";
             this.txtTimKiem.Size = new System.Drawing.Size(400, 42);
             this.txtTimKiem.TabIndex = 0;
-            // 
-            // cboLocLop
-            // 
-            this.cboLocLop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboLocLop.BackColor = System.Drawing.Color.Transparent;
-            this.cboLocLop.BorderRadius = 8;
-            this.cboLocLop.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboLocLop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboLocLop.FocusedColor = System.Drawing.Color.Empty;
-            this.cboLocLop.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cboLocLop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cboLocLop.ItemHeight = 30;
-            this.cboLocLop.Location = new System.Drawing.Point(1520, 14);
-            this.cboLocLop.Name = "cboLocLop";
-            this.cboLocLop.Size = new System.Drawing.Size(220, 36);
-            this.cboLocLop.TabIndex = 1;
             // 
             // FrmQLSV
             // 
@@ -599,7 +581,6 @@
         private System.Windows.Forms.Panel pnlSearch;
 
         private Guna.UI2.WinForms.Guna2TextBox txtTimKiem;
-        private Guna.UI2.WinForms.Guna2ComboBox cboLocLop;
 
         private System.Windows.Forms.DataGridView dgvSinhVien;
 
