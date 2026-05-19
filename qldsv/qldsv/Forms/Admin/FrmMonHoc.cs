@@ -52,6 +52,7 @@ namespace qldsv.Forms.Admin
             }
 
             dgvMH.AllowUserToAddRows = false;
+            dgvMH.AutoGenerateColumns = false;
             dgvMH.EditMode = DataGridViewEditMode.EditProgrammatically;
         }
 
