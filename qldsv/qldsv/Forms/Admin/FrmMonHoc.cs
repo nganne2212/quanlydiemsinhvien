@@ -26,20 +26,17 @@ namespace qldsv.Forms.Admin
         {
             tblMonHoc = MonHocBLL.GetAll();
             dgvMH.AutoGenerateColumns = false;
+
+            dataGridViewTextBoxColumn1.DataPropertyName = "STT";
+            dataGridViewTextBoxColumn2.DataPropertyName = "MaMonHoc";
+            dataGridViewTextBoxColumn3.DataPropertyName = "TenMon";
+            dataGridViewTextBoxColumn4.DataPropertyName = "SoTinChi";
+            dataGridViewTextBoxColumn5.DataPropertyName = "HeSoChuyenCan";
+            dataGridViewTextBoxColumn6.DataPropertyName = "HeSoKT1";
+            dataGridViewTextBoxColumn7.DataPropertyName = "HeSoKT2";
+            dataGridViewTextBoxColumn8.DataPropertyName = "HeSoCuoiKy";
+
             dgvMH.DataSource = tblMonHoc;
-
-            if (dgvMH.Columns.Count >= 8)
-            {
-                dgvMH.Columns[0].HeaderText = "STT";
-                dgvMH.Columns[1].HeaderText = "Mã môn";
-                dgvMH.Columns[2].HeaderText = "Tên môn";
-                dgvMH.Columns[3].HeaderText = "Số tín chỉ";
-                dgvMH.Columns[4].HeaderText = "Chuyên cần";
-                dgvMH.Columns[5].HeaderText = "Kiểm tra 1";
-                dgvMH.Columns[6].HeaderText = "Kiểm tra 2";
-                dgvMH.Columns[7].HeaderText = "Cuối kỳ";
-            }
-
             dgvMH.AllowUserToAddRows = false;
             dgvMH.EditMode = DataGridViewEditMode.EditProgrammatically;
         }
@@ -86,13 +83,13 @@ namespace qldsv.Forms.Admin
             if (tblMonHoc == null || tblMonHoc.Rows.Count == 0) return;
             if (e.RowIndex < 0) return;
 
-            txtMonHoc.Text = dgvMH.CurrentRow.Cells["MaMonHoc"].Value?.ToString() ?? "";
-            txtTenHoc.Text = dgvMH.CurrentRow.Cells["TenMon"].Value?.ToString() ?? "";
-            txtSotinchi.Text = dgvMH.CurrentRow.Cells["SoTinChi"].Value?.ToString() ?? "";
-            txtCC.Text = dgvMH.CurrentRow.Cells["HeSoChuyenCan"].Value?.ToString() ?? "";
-            txtKT1.Text = dgvMH.CurrentRow.Cells["HeSoKT1"].Value?.ToString() ?? "";
-            txtKT2.Text = dgvMH.CurrentRow.Cells["HeSoKT2"].Value?.ToString() ?? "";
-            txtCK.Text = dgvMH.CurrentRow.Cells["HeSoCuoiKy"].Value?.ToString() ?? "";
+            txtMonHoc.Text = dgvMH.CurrentRow.Cells[1].Value?.ToString() ?? "";
+            txtTenHoc.Text = dgvMH.CurrentRow.Cells[2].Value?.ToString() ?? "";
+            txtSotinchi.Text = dgvMH.CurrentRow.Cells[3].Value?.ToString() ?? "";
+            txtCC.Text = dgvMH.CurrentRow.Cells[4].Value?.ToString() ?? "";
+            txtKT1.Text = dgvMH.CurrentRow.Cells[5].Value?.ToString() ?? "";
+            txtKT2.Text = dgvMH.CurrentRow.Cells[6].Value?.ToString() ?? "";
+            txtCK.Text = dgvMH.CurrentRow.Cells[7].Value?.ToString() ?? "";
 
             gbtnSua.Enabled = true;
             gbtnXoa.Enabled = true;
@@ -101,11 +98,12 @@ namespace qldsv.Forms.Admin
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
-            string kw = txtTimKiem.Text.Trim();
-            tblMonHoc = string.IsNullOrWhiteSpace(kw)
-                ? MonHocBLL.GetAll()
-                : MonHocBLL.Search(kw);
-            dgvMH.DataSource = tblMonHoc;
+            if (tblMonHoc == null) return;
+            string kw = txtTimKiem.Text.Trim().Replace("'", "''");
+            DataView dv = tblMonHoc.DefaultView;
+            dv.RowFilter = string.IsNullOrEmpty(kw) ? "" :
+                $"MaMonHoc LIKE '%{kw}%' OR TenMon LIKE '%{kw}%'";
+            dgvMH.DataSource = dv.ToTable();
         }
 
         private void gbtnThem_Click(object sender, EventArgs e)

@@ -115,6 +115,7 @@
   <!-- Source files -->
   <!-- ======================== -->
   <ItemGroup>
+    <Compile Include="BLL\CanhBaoHocVuBLL.cs" />
     <Compile Include="BLL\LopHocPhanBLL.cs" />
     <Compile Include="BLL\PhongHocBLL.cs" />
     <Compile Include="BLL\QLGiangvienBLL.cs" />
@@ -124,6 +125,7 @@
     <Compile Include="BLL\TaiKhoanBLL.cs" />
     <Compile Include="Class\CurentUser.cs" />
     <Compile Include="Class\Functions.cs" />
+    <Compile Include="DAL\CanhBaoHocVuDAL.cs" />
     <Compile Include="DAL\LopHocPhanDAL.cs" />
     <Compile Include="DAL\PhongHocDAL.cs" />
     <Compile Include="DAL\QLGiangvienDAL.cs" />
