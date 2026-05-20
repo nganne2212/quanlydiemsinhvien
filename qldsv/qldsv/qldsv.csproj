@@ -151,6 +151,12 @@
     <Compile Include="Forms\Admin\FrmPhucKhao.Designer.cs">
       <DependentUpon>FrmPhucKhao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Admin\FrmPreviewImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmPreviewImport.Designer.cs">
+      <DependentUpon>FrmPreviewImport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Admin\FrmQLGV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -316,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\FrmPhucKhao.resx">
       <DependentUpon>FrmPhucKhao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\FrmPreviewImport.resx">
+      <DependentUpon>FrmPreviewImport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\FrmQLGV.resx">
       <DependentUpon>FrmQLGV.cs</DependentUpon>
