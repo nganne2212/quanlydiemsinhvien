@@ -193,10 +193,8 @@ namespace qldsv.Forms.Admin
             cboCVHT.DataSource = null;
         }
 
-        // ── Click dòng DataGridView ──────────────────────────────────────
         private void dgvLop_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Đang ở chế độ thêm mới
             if (btnThem.Enabled == false)
             {
                 MessageBox.Show(
@@ -217,21 +215,24 @@ namespace qldsv.Forms.Admin
             if (e.RowIndex < 0) return;
             var row = dgvLop.Rows[e.RowIndex].DataBoundItem as DataRowView;
             if (row == null) return;
+
             // Điền thông tin lên form
             txtMaLop.Text = row["MaLop"].ToString();
             txtTenLop.Text = row["TenLop"].ToString();
             txtTenLop.Enabled = true;
 
-            // Chọn Khoa trong cboKhoa → tự động load cboCVHT
             SelectCombo(cboKhoa, "TenKhoa", row["TenKhoa"].ToString());
-
-            // Sau khi cboKhoa load xong → chọn CVHT
             SelectCombo(cboCVHT, "HoTen", row["CoVanHocTap"].ToString());
 
+            // Bật Lưu/Bỏ qua, tắt Sửa/Xóa luôn khi chọn dòng
+            btnThem.Enabled = false;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
+            btnLuu.Enabled = true;
             btnBoQua.Enabled = true;
         }
 
-        // ── Helper: chọn item trong ComboBox theo DisplayMember ──────────
+       
         private void SelectCombo(Guna.UI2.WinForms.Guna2ComboBox cbo,
                                   string displayMember, string displayValue)
         {
@@ -264,7 +265,7 @@ namespace qldsv.Forms.Admin
             dgvLop.ClearSelection();
         }
 
-        // ── Nút Sửa: lưu thông tin đã chỉnh sửa (UPDATE) ───────────────
+        // ── Nút Sửa: chỉ mở chế độ chỉnh sửa, CHƯA lưu ─────────────────
         private void btnSua_Click(object sender, EventArgs e)
         {
             if (tblLop == null || tblLop.Rows.Count == 0)
@@ -281,45 +282,19 @@ namespace qldsv.Forms.Admin
                 return;
             }
 
-            if (txtTenLop.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn phải nhập tên lớp!",
-                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtTenLop.Focus();
-                return;
-            }
-
-            string maKhoa = cboKhoa.SelectedValue?.ToString();
-            string maGV = cboCVHT.SelectedValue?.ToString();
-            string err = LopBLL.Update(txtMaLop.Text, txtTenLop.Text, maKhoa, maGV);
-            if (!string.IsNullOrEmpty(err))
-            {
-                MessageBox.Show(err, "Dữ liệu không hợp lệ",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            MessageBox.Show("Cập nhật lớp thành công!",
-                "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            Load_DataGridView();
-            ResetValues();
-            txtMaLop.Enabled = false;
-            txtTenLop.Enabled = false;
-            btnBoQua.Enabled = false;
+            // Mở chế độ sửa — giữ nguyên dữ liệu đang chọn
+            btnThem.Enabled = false;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
+            btnLuu.Enabled = true;
+            btnBoQua.Enabled = true;
+            txtTenLop.Enabled = true;
+            txtTenLop.Focus();
         }
 
-        // ── Nút Lưu: kiểm tra và thêm mới (INSERT) ──────────────────────
+        // ── Nút Lưu: INSERT nếu đang Thêm, UPDATE nếu đang Sửa ──────────
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if (txtMaLop.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn phải nhập mã lớp!",
-                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtMaLop.Focus();
-                return;
-            }
-
             if (txtTenLop.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Bạn phải nhập tên lớp!",
@@ -328,36 +303,49 @@ namespace qldsv.Forms.Admin
                 return;
             }
 
-            if (cboKhoa.SelectedIndex < 0)
-            {
-                MessageBox.Show("Bạn phải chọn Khoa!",
-                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                cboKhoa.Focus();
-                return;
-            }
-
-            if (cboCVHT.SelectedIndex < 0)
-            {
-                MessageBox.Show("Bạn phải chọn Cố vấn học tập!",
-                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                cboCVHT.Focus();
-                return;
-            }
-
             string maKhoa = cboKhoa.SelectedValue?.ToString();
             string maGV = cboCVHT.SelectedValue?.ToString();
+            string err;
+            string thongBao;
 
-            string err = LopBLL.Add(txtMaLop.Text, txtTenLop.Text, maKhoa, maGV);
+            // txtMaLop rỗng → đang Thêm mới (INSERT)
+            // txtMaLop có giá trị → đang Sửa (UPDATE)
+            if (string.IsNullOrWhiteSpace(txtMaLop.Text))
+            {
+                // Validate thêm cho INSERT
+                if (cboKhoa.SelectedIndex < 0)
+                {
+                    MessageBox.Show("Bạn phải chọn Khoa!",
+                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cboKhoa.Focus();
+                    return;
+                }
+                if (cboCVHT.SelectedIndex < 0)
+                {
+                    MessageBox.Show("Bạn phải chọn Cố vấn học tập!",
+                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cboCVHT.Focus();
+                    return;
+                }
+
+                err = LopBLL.Add(txtMaLop.Text, txtTenLop.Text, maKhoa, maGV);
+                thongBao = "Thêm lớp thành công!";
+            }
+            else
+            {
+                err = LopBLL.Update(txtMaLop.Text, txtTenLop.Text, maKhoa, maGV);
+                thongBao = "Cập nhật lớp thành công!";
+            }
+
             if (!string.IsNullOrEmpty(err))
             {
                 MessageBox.Show(err, "Dữ liệu không hợp lệ",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtMaLop.Focus();
                 return;
             }
 
-            MessageBox.Show("Thêm lớp thành công!",
-                "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(thongBao, "Thành công",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             Load_DataGridView();
             ResetValues();

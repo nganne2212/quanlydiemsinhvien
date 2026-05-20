@@ -117,6 +117,7 @@
   <ItemGroup>
     <Compile Include="BLL\PhongHocBLL.cs" />
     <Compile Include="BLL\QLGiangvienBLL.cs" />
+    <Compile Include="BLL\QLLichHocBLL.cs" />
     <Compile Include="BLL\SinhVienBLL.cs" />
     <Compile Include="BLL\QLLopBBL.cs" />
     <Compile Include="BLL\TaiKhoanBLL.cs" />
@@ -124,6 +125,7 @@
     <Compile Include="Class\Functions.cs" />
     <Compile Include="DAL\PhongHocDAL.cs" />
     <Compile Include="DAL\QLGiangvienDAL.cs" />
+    <Compile Include="DAL\QLLichHocDAL.cs" />
     <Compile Include="DAL\SinhVienDAL.cs" />
     <Compile Include="BLL\MonHocBLL.cs" />
     <Compile Include="DAL\MonHocDAL.cs" />
