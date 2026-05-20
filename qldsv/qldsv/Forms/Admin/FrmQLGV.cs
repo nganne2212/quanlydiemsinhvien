@@ -117,7 +117,7 @@ namespace qldsv.Forms.Admin
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (dgvGiangVien.CurrentRow == null)
+            if (txtMaGV.Text == "")
             {
                 MessageBox.Show("Vui lòng chọn giảng viên cần sửa!", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -181,7 +181,7 @@ namespace qldsv.Forms.Admin
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (dgvGiangVien.CurrentRow == null)
+            if (txtMaGV.Text == "")
             {
                 MessageBox.Show("Vui lòng chọn giảng viên cần xóa!", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -207,8 +207,6 @@ namespace qldsv.Forms.Admin
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             Load_DataGridView();
             ResetValues();
-            btnSua.Enabled = true;
-            btnXoa.Enabled = true;
         }
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
@@ -226,11 +224,16 @@ namespace qldsv.Forms.Admin
 
             DataTable dtFilter = dv.ToTable();
 
-            if (dtFilter.Rows.Count == 0)
-                MessageBox.Show("Không tìm thấy giảng viên nào!", "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
 
-            dgvGiangVien.DataSource = dtFilter;
+        private void txtTimKiem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (dgvGiangVien.Rows.Count == 0 && !string.IsNullOrEmpty(txtTimKiem.Text.Trim()))
+                    MessageBox.Show("Không tìm thấy giảng viên nào!", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

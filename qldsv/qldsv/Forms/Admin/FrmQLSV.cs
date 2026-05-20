@@ -145,7 +145,7 @@ namespace qldsv.Forms.Admin
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (dgvSinhVien.CurrentRow == null)
+            if (txtMSV.Text == "")
             {
                 MessageBox.Show("Vui lòng chọn sinh viên cần sửa!", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -190,7 +190,7 @@ namespace qldsv.Forms.Admin
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (dgvSinhVien.CurrentRow == null)
+            if (txtMSV.Text == "")
             {
                 MessageBox.Show("Vui lòng chọn sinh viên cần xóa!", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -275,6 +275,16 @@ namespace qldsv.Forms.Admin
             btnLuu.Enabled = false;
             btnBoQua.Enabled = false;
             txtMSV.Enabled = false;
+        }
+
+        private void txtTimKiem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (dgvSinhVien.Rows.Count == 0 && !string.IsNullOrEmpty(txtTimKiem.Text.Trim()))
+                    MessageBox.Show("Không tìm thấy sinh viên nào!", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

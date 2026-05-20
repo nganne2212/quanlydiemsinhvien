@@ -125,6 +125,7 @@
             this.dgvQuanlyhocky.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvQuanlyhocky.Size = new System.Drawing.Size(733, 558);
             this.dgvQuanlyhocky.TabIndex = 1;
+            this.dgvQuanlyhocky.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvQuanlyhocky_CellClick);
             // 
             // colSTT
             // 
