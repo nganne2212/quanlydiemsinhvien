@@ -115,6 +115,7 @@
   <!-- Source files -->
   <!-- ======================== -->
   <ItemGroup>
+    <Compile Include="BLL\LopHocPhanBLL.cs" />
     <Compile Include="BLL\PhongHocBLL.cs" />
     <Compile Include="BLL\QLGiangvienBLL.cs" />
     <Compile Include="BLL\SinhVienBLL.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="BLL\TaiKhoanBLL.cs" />
     <Compile Include="Class\CurentUser.cs" />
     <Compile Include="Class\Functions.cs" />
+    <Compile Include="DAL\LopHocPhanDAL.cs" />
     <Compile Include="DAL\PhongHocDAL.cs" />
     <Compile Include="DAL\QLGiangvienDAL.cs" />
     <Compile Include="DAL\SinhVienDAL.cs" />
@@ -228,6 +230,7 @@
       <DependentUpon>FrmPhucKhaoSV.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\CanhBaoService.cs" />
+    <Compile Include="Utils\ImportResult.cs" />
     <Compile Include="Utils\SecurityHelper.cs" />
     <!-- ADMIN -->
     <Compile Include="Forms\Admin\FrmMainAdmin.cs">
