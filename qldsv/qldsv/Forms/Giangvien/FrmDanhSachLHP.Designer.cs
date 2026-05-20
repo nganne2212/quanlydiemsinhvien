@@ -296,6 +296,7 @@
             this.Name = "FrmDanhSachLHP";
             this.Text = "Danh sách lớp học phần";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmDanhSachLHP_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlMain.ResumeLayout(false);
