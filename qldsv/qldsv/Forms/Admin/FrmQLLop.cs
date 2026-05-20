@@ -148,7 +148,7 @@ namespace qldsv.Forms.Admin
                 e.Handled = true;
                 MessageBox.Show(
                     $"Ký tự '{e.KeyChar}' không hợp lệ!\n\n" +
-"Mã lớp chỉ chấp nhận chữ cái và chữ số,\n" +
+                    "Mã lớp chỉ chấp nhận chữ cái và chữ số,\n" +
                     "không có khoảng trắng hoặc ký tự đặc biệt.",
                     "Ký tự không hợp lệ",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -217,6 +217,7 @@ namespace qldsv.Forms.Admin
             if (e.RowIndex < 0) return;
             var row = dgvLop.Rows[e.RowIndex].DataBoundItem as DataRowView;
             if (row == null) return;
+
             // Điền thông tin lên form
             txtMaLop.Text = row["MaLop"].ToString();
             txtTenLop.Text = row["TenLop"].ToString();
@@ -291,6 +292,7 @@ namespace qldsv.Forms.Admin
 
             string maKhoa = cboKhoa.SelectedValue?.ToString();
             string maGV = cboCVHT.SelectedValue?.ToString();
+
             string err = LopBLL.Update(txtMaLop.Text, txtTenLop.Text, maKhoa, maGV);
             if (!string.IsNullOrEmpty(err))
             {
