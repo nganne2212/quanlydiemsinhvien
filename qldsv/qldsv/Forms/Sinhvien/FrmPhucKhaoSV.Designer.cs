@@ -25,8 +25,6 @@
             this.pnlMain = new System.Windows.Forms.Panel();
             this.lblMonHoc = new System.Windows.Forms.Label();
             this.cboMonHoc = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.lblLoaiDiem = new System.Windows.Forms.Label();
-            this.cboLoaiDiem = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lblDiemHienTai = new System.Windows.Forms.Label();
             this.txtDiemHienTai = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblLyDo = new System.Windows.Forms.Label();
@@ -35,7 +33,6 @@
             this.btnLamMoi = new Guna.UI2.WinForms.Guna2Button();
             this.dgvPhucKhao = new System.Windows.Forms.DataGridView();
             this.colMonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLoaiDiem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDiemCu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNgayGui = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -108,8 +105,6 @@
             this.pnlMain.BackColor = System.Drawing.Color.White;
             this.pnlMain.Controls.Add(this.lblMonHoc);
             this.pnlMain.Controls.Add(this.cboMonHoc);
-            this.pnlMain.Controls.Add(this.lblLoaiDiem);
-            this.pnlMain.Controls.Add(this.cboLoaiDiem);
             this.pnlMain.Controls.Add(this.lblDiemHienTai);
             this.pnlMain.Controls.Add(this.txtDiemHienTai);
             this.pnlMain.Controls.Add(this.lblLyDo);
@@ -148,38 +143,12 @@
             this.cboMonHoc.Size = new System.Drawing.Size(420, 36);
             this.cboMonHoc.TabIndex = 1;
             // 
-            // lblLoaiDiem
-            // 
-            this.lblLoaiDiem.AutoSize = true;
-            this.lblLoaiDiem.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold);
-            this.lblLoaiDiem.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblLoaiDiem.Location = new System.Drawing.Point(35, 95);
-            this.lblLoaiDiem.Name = "lblLoaiDiem";
-            this.lblLoaiDiem.Size = new System.Drawing.Size(109, 30);
-            this.lblLoaiDiem.TabIndex = 2;
-            this.lblLoaiDiem.Text = "Loại điểm";
-            // 
-            // cboLoaiDiem
-            // 
-            this.cboLoaiDiem.BackColor = System.Drawing.Color.Transparent;
-            this.cboLoaiDiem.BorderRadius = 8;
-            this.cboLoaiDiem.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboLoaiDiem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboLoaiDiem.FocusedColor = System.Drawing.Color.Empty;
-            this.cboLoaiDiem.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cboLoaiDiem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cboLoaiDiem.ItemHeight = 30;
-            this.cboLoaiDiem.Location = new System.Drawing.Point(180, 90);
-            this.cboLoaiDiem.Name = "cboLoaiDiem";
-            this.cboLoaiDiem.Size = new System.Drawing.Size(240, 36);
-            this.cboLoaiDiem.TabIndex = 3;
-            // 
             // lblDiemHienTai
             // 
             this.lblDiemHienTai.AutoSize = true;
             this.lblDiemHienTai.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold);
             this.lblDiemHienTai.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblDiemHienTai.Location = new System.Drawing.Point(470, 95);
+            this.lblDiemHienTai.Location = new System.Drawing.Point(35, 98);
             this.lblDiemHienTai.Name = "lblDiemHienTai";
             this.lblDiemHienTai.Size = new System.Drawing.Size(144, 30);
             this.lblDiemHienTai.TabIndex = 4;
@@ -192,7 +161,7 @@
             this.txtDiemHienTai.DefaultText = "";
             this.txtDiemHienTai.Enabled = false;
             this.txtDiemHienTai.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtDiemHienTai.Location = new System.Drawing.Point(640, 88);
+            this.txtDiemHienTai.Location = new System.Drawing.Point(186, 88);
             this.txtDiemHienTai.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtDiemHienTai.Name = "txtDiemHienTai";
             this.txtDiemHienTai.PlaceholderText = "";
@@ -263,7 +232,6 @@
             this.dgvPhucKhao.ColumnHeadersHeight = 40;
             this.dgvPhucKhao.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colMonHoc,
-            this.colLoaiDiem,
             this.colDiemCu,
             this.colNgayGui,
             this.colTrangThai});
@@ -283,12 +251,6 @@
             this.colMonHoc.HeaderText = "Môn học";
             this.colMonHoc.MinimumWidth = 8;
             this.colMonHoc.Name = "colMonHoc";
-            // 
-            // colLoaiDiem
-            // 
-            this.colLoaiDiem.HeaderText = "Loại điểm";
-            this.colLoaiDiem.MinimumWidth = 8;
-            this.colLoaiDiem.Name = "colLoaiDiem";
             // 
             // colDiemCu
             // 
@@ -346,9 +308,6 @@
         private System.Windows.Forms.Label lblMonHoc;
         private Guna.UI2.WinForms.Guna2ComboBox cboMonHoc;
 
-        private System.Windows.Forms.Label lblLoaiDiem;
-        private Guna.UI2.WinForms.Guna2ComboBox cboLoaiDiem;
-
         private System.Windows.Forms.Label lblDiemHienTai;
         private Guna.UI2.WinForms.Guna2TextBox txtDiemHienTai;
 
@@ -359,9 +318,7 @@
         private Guna.UI2.WinForms.Guna2Button btnLamMoi;
 
         private System.Windows.Forms.DataGridView dgvPhucKhao;
-
         private System.Windows.Forms.DataGridViewTextBoxColumn colMonHoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colLoaiDiem;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDiemCu;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNgayGui;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTrangThai;
