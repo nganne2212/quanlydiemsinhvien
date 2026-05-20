@@ -34,7 +34,7 @@ namespace qldsv.Forms.Admin
         // ── Load: Thêm/Sửa/Xóa bật, Lưu/Bỏ qua tắt ────────────────────
         private void FrmPhongHoc_Load()
         {
-          
+            TxtTenphong.Enabled = false;
             BtnLuu.Enabled = false;
             BtnBoqua.Enabled = false;
             Load_DataGridView();
