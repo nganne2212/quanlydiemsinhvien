@@ -76,8 +76,9 @@ namespace qldsv.BLL
             LopDAL.Add(maLop.Trim(), tenLop.Trim(), maKhoa, maGV);
             return "";
         }
+
         public static string Update(string maLop, string tenLop,
-                                            string maKhoa, string maGV)
+                                    string maKhoa, string maGV)
         {
             if (string.IsNullOrWhiteSpace(maLop))
                 return "Vui lòng chọn lớp cần sửa.";

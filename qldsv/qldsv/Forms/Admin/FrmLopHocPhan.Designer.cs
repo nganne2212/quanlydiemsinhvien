@@ -20,8 +20,8 @@ namespace qldsv.Forms.Admin
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
@@ -146,9 +146,9 @@ namespace qldsv.Forms.Admin
             this.dgvSinhVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSinhVien.BackgroundColor = System.Drawing.Color.White;
             this.dgvSinhVien.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.dgvSinhVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.dgvSinhVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.dgvSinhVien.ColumnHeadersHeight = 34;
             this.dgvSinhVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colMSSV,
@@ -226,6 +226,7 @@ namespace qldsv.Forms.Admin
             this.btnImportExcel.Size = new System.Drawing.Size(145, 40);
             this.btnImportExcel.TabIndex = 1;
             this.btnImportExcel.Text = "Import Excel";
+            this.btnImportExcel.Click += new System.EventHandler(this.btnImportExcel_Click);
             // 
             // btnXoaSV
             // 
@@ -238,6 +239,7 @@ namespace qldsv.Forms.Admin
             this.btnXoaSV.Size = new System.Drawing.Size(120, 40);
             this.btnXoaSV.TabIndex = 2;
             this.btnXoaSV.Text = "Xóa SV";
+            this.btnXoaSV.Click += new System.EventHandler(this.btnXoaSV_Click);
             // 
             // pnlSVTop
             // 
@@ -274,6 +276,8 @@ namespace qldsv.Forms.Admin
             this.txtSearchSV.SelectedText = "";
             this.txtSearchSV.Size = new System.Drawing.Size(320, 38);
             this.txtSearchSV.TabIndex = 0;
+            this.txtSearchSV.TextChanged += new System.EventHandler(this.txtSearchSV_TextChanged);
+            this.txtSearchSV.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearchSV_KeyDown);
             // 
             // lblSV
             // 
@@ -301,9 +305,9 @@ namespace qldsv.Forms.Admin
             this.dgvLopHocPhan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLopHocPhan.BackgroundColor = System.Drawing.Color.White;
             this.dgvLopHocPhan.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.dgvLopHocPhan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.dgvLopHocPhan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.dgvLopHocPhan.ColumnHeadersHeight = 34;
             this.dgvLopHocPhan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colMaLHP,
@@ -322,6 +326,7 @@ namespace qldsv.Forms.Admin
             this.dgvLopHocPhan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLopHocPhan.Size = new System.Drawing.Size(880, 200);
             this.dgvLopHocPhan.TabIndex = 0;
+            this.dgvLopHocPhan.Click += new System.EventHandler(this.dgvLopHocPhan_Click);
             // 
             // colMaLHP
             // 
@@ -377,6 +382,8 @@ namespace qldsv.Forms.Admin
             this.txtSearchLHP.SelectedText = "";
             this.txtSearchLHP.Size = new System.Drawing.Size(880, 36);
             this.txtSearchLHP.TabIndex = 0;
+            this.txtSearchLHP.TextChanged += new System.EventHandler(this.txtSearchLHP_TextChanged);
+            this.txtSearchLHP.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearchLHP_KeyDown);
             // 
             // pnlLeft
             // 
@@ -577,6 +584,7 @@ namespace qldsv.Forms.Admin
             this.btnThem.Size = new System.Drawing.Size(120, 40);
             this.btnThem.TabIndex = 0;
             this.btnThem.Text = "+ Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnSua
             // 
@@ -589,6 +597,7 @@ namespace qldsv.Forms.Admin
             this.btnSua.Size = new System.Drawing.Size(120, 40);
             this.btnSua.TabIndex = 1;
             this.btnSua.Text = "Sửa";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnLuu
             // 
@@ -601,6 +610,7 @@ namespace qldsv.Forms.Admin
             this.btnLuu.Size = new System.Drawing.Size(120, 40);
             this.btnLuu.TabIndex = 2;
             this.btnLuu.Text = "Lưu";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnBoQua
             // 
@@ -613,6 +623,7 @@ namespace qldsv.Forms.Admin
             this.btnBoQua.Size = new System.Drawing.Size(120, 40);
             this.btnBoQua.TabIndex = 3;
             this.btnBoQua.Text = "Bỏ qua";
+            this.btnBoQua.Click += new System.EventHandler(this.btnBoQua_Click);
             // 
             // btnXoa
             // 
@@ -625,6 +636,7 @@ namespace qldsv.Forms.Admin
             this.btnXoa.Size = new System.Drawing.Size(255, 40);
             this.btnXoa.TabIndex = 4;
             this.btnXoa.Text = "Xóa lớp học phần";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // FrmLopHocPhan
             // 
@@ -636,6 +648,7 @@ namespace qldsv.Forms.Admin
             this.Name = "FrmLopHocPhan";
             this.Text = "Quan ly lop hoc phan";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmLopHocPhan_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlMain.ResumeLayout(false);
             this.pnlRight.ResumeLayout(false);
