@@ -10,10 +10,7 @@ namespace qldsv.DAL
 {
     internal class DSLHocPhanDAL
     {
-        /// <summary>
-        /// Lấy danh sách lớp học phần mà giảng viên đang phụ trách.
-        /// Trả về: MaLHP, TenMonHoc, SoTinChi, ThuHoc, PhongHoc, SiSo, MaHocKy
-        /// </summary>
+       
         public static DataTable GetByGiangVien(string maGV)
         {
             return Functions.GetDataToTable(@"
@@ -34,9 +31,7 @@ namespace qldsv.DAL
         new { maGV });
         }
 
-        /// <summary>
-        /// Lấy danh sách học kỳ mà giảng viên có lớp (để đổ vào ComboBox).
-        /// </summary>
+        
         public static DataTable GetHocKyByGiangVien(string maGV)
         {
             return Functions.GetDataToTable(@"
