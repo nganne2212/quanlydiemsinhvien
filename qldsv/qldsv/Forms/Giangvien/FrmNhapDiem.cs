@@ -39,9 +39,9 @@ namespace qldsv.Forms.Giangvien
                 ORDER BY hk.MaHocKy DESC",
                 new { maGV = CurrentUser.MaDoiTuong });
 
-            cboHocKy.DataSource = dt;
-            cboHocKy.DisplayMember = "TenHK";
-            cboHocKy.ValueMember = "MaHocKy";
+            cboHocKy.DisplayMember = "TenHK";   // ← TRƯỚC
+            cboHocKy.ValueMember = "MaHocKy";   // ← TRƯỚC
+            cboHocKy.DataSource = dt;            // ← SAU
             cboHocKy.SelectedIndex = -1;
         }
 
@@ -65,9 +65,9 @@ namespace qldsv.Forms.Giangvien
                 ORDER BY lhp.MaLHP",
                 new { maGV = CurrentUser.MaDoiTuong, maHK });
 
-            cboLopHP.DataSource = dt;
-            cboLopHP.DisplayMember = "TenLHP";
-            cboLopHP.ValueMember = "MaLHP";
+            cboLopHP.DisplayMember = "TenLHP";  // ← TRƯỚC
+            cboLopHP.ValueMember = "MaLHP";     // ← TRƯỚC
+            cboLopHP.DataSource = dt;            // ← SAU
             cboLopHP.SelectedIndex = -1;
         }
 
