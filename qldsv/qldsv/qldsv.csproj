@@ -135,6 +135,9 @@
     <Compile Include="DAL\HocKyDAL.cs.cs" />
     <Compile Include="DAL\QLLichHocDAL.cs" />
     <Compile Include="DAL\QLLopDAL.cs" />
+    <Compile Include="BLL\KhoaBLL.cs" />
+
+    <Compile Include="DAL\KhoaDAL.cs" />
     <Compile Include="DAL\TaiKhoanDAL.cs" />
     <Compile Include="Forms\Admin\FrmChonSinhVien.cs">
       <SubType>Form</SubType>
