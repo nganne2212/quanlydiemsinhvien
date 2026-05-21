@@ -71,7 +71,7 @@
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Location = new System.Drawing.Point(0, 60);
             this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(1400, 80);
+            this.pnlTop.Size = new System.Drawing.Size(1400, 74);
             this.pnlTop.TabIndex = 1;
             // 
             // lblHocKy
@@ -99,6 +99,7 @@
             this.cboHocKy.Name = "cboHocKy";
             this.cboHocKy.Size = new System.Drawing.Size(260, 36);
             this.cboHocKy.TabIndex = 1;
+            this.cboHocKy.SelectedIndexChanged += new System.EventHandler(this.cboHocKy_SelectedIndexChanged);
             // 
             // pnlMain
             // 
@@ -112,9 +113,9 @@
             this.pnlMain.Controls.Add(this.btnGui);
             this.pnlMain.Controls.Add(this.btnLamMoi);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlMain.Location = new System.Drawing.Point(0, 140);
+            this.pnlMain.Location = new System.Drawing.Point(0, 134);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(1400, 290);
+            this.pnlMain.Size = new System.Drawing.Size(1400, 270);
             this.pnlMain.TabIndex = 2;
             // 
             // lblMonHoc
@@ -122,7 +123,7 @@
             this.lblMonHoc.AutoSize = true;
             this.lblMonHoc.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold);
             this.lblMonHoc.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblMonHoc.Location = new System.Drawing.Point(35, 28);
+            this.lblMonHoc.Location = new System.Drawing.Point(35, 16);
             this.lblMonHoc.Name = "lblMonHoc";
             this.lblMonHoc.Size = new System.Drawing.Size(101, 30);
             this.lblMonHoc.TabIndex = 0;
@@ -138,17 +139,18 @@
             this.cboMonHoc.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboMonHoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboMonHoc.ItemHeight = 30;
-            this.cboMonHoc.Location = new System.Drawing.Point(180, 22);
+            this.cboMonHoc.Location = new System.Drawing.Point(180, 10);
             this.cboMonHoc.Name = "cboMonHoc";
             this.cboMonHoc.Size = new System.Drawing.Size(420, 36);
             this.cboMonHoc.TabIndex = 1;
+            this.cboMonHoc.SelectedIndexChanged += new System.EventHandler(this.cboMonHoc_SelectedIndexChanged);
             // 
             // lblDiemHienTai
             // 
             this.lblDiemHienTai.AutoSize = true;
             this.lblDiemHienTai.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold);
             this.lblDiemHienTai.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblDiemHienTai.Location = new System.Drawing.Point(35, 98);
+            this.lblDiemHienTai.Location = new System.Drawing.Point(35, 74);
             this.lblDiemHienTai.Name = "lblDiemHienTai";
             this.lblDiemHienTai.Size = new System.Drawing.Size(144, 30);
             this.lblDiemHienTai.TabIndex = 4;
@@ -161,7 +163,7 @@
             this.txtDiemHienTai.DefaultText = "";
             this.txtDiemHienTai.Enabled = false;
             this.txtDiemHienTai.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtDiemHienTai.Location = new System.Drawing.Point(186, 88);
+            this.txtDiemHienTai.Location = new System.Drawing.Point(186, 64);
             this.txtDiemHienTai.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtDiemHienTai.Name = "txtDiemHienTai";
             this.txtDiemHienTai.PlaceholderText = "";
@@ -174,7 +176,7 @@
             this.lblLyDo.AutoSize = true;
             this.lblLyDo.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold);
             this.lblLyDo.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblLyDo.Location = new System.Drawing.Point(35, 155);
+            this.lblLyDo.Location = new System.Drawing.Point(35, 131);
             this.lblLyDo.Name = "lblLyDo";
             this.lblLyDo.Size = new System.Drawing.Size(176, 30);
             this.lblLyDo.TabIndex = 6;
@@ -186,13 +188,13 @@
             this.txtLyDo.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtLyDo.DefaultText = "";
             this.txtLyDo.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtLyDo.Location = new System.Drawing.Point(40, 195);
+            this.txtLyDo.Location = new System.Drawing.Point(40, 167);
             this.txtLyDo.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtLyDo.Multiline = true;
             this.txtLyDo.Name = "txtLyDo";
             this.txtLyDo.PlaceholderText = "Nhập lý do muốn phúc khảo...";
             this.txtLyDo.SelectedText = "";
-            this.txtLyDo.Size = new System.Drawing.Size(760, 75);
+            this.txtLyDo.Size = new System.Drawing.Size(560, 75);
             this.txtLyDo.TabIndex = 7;
             // 
             // btnGui
@@ -201,11 +203,12 @@
             this.btnGui.FillColor = System.Drawing.Color.RoyalBlue;
             this.btnGui.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnGui.ForeColor = System.Drawing.Color.White;
-            this.btnGui.Location = new System.Drawing.Point(840, 195);
+            this.btnGui.Location = new System.Drawing.Point(636, 195);
             this.btnGui.Name = "btnGui";
             this.btnGui.Size = new System.Drawing.Size(180, 45);
             this.btnGui.TabIndex = 8;
             this.btnGui.Text = "📤 Gửi đơn";
+            this.btnGui.Click += new System.EventHandler(this.btnGui_Click);
             // 
             // btnLamMoi
             // 
@@ -213,11 +216,12 @@
             this.btnLamMoi.FillColor = System.Drawing.Color.Gray;
             this.btnLamMoi.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnLamMoi.ForeColor = System.Drawing.Color.White;
-            this.btnLamMoi.Location = new System.Drawing.Point(1040, 195);
+            this.btnLamMoi.Location = new System.Drawing.Point(836, 195);
             this.btnLamMoi.Name = "btnLamMoi";
             this.btnLamMoi.Size = new System.Drawing.Size(170, 45);
             this.btnLamMoi.TabIndex = 9;
             this.btnLamMoi.Text = "↻ Làm mới";
+            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
             // dgvPhucKhao
             // 
@@ -237,13 +241,13 @@
             this.colTrangThai});
             this.dgvPhucKhao.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPhucKhao.EnableHeadersVisualStyles = false;
-            this.dgvPhucKhao.Location = new System.Drawing.Point(0, 430);
+            this.dgvPhucKhao.Location = new System.Drawing.Point(0, 404);
             this.dgvPhucKhao.Name = "dgvPhucKhao";
             this.dgvPhucKhao.RowHeadersVisible = false;
             this.dgvPhucKhao.RowHeadersWidth = 62;
             this.dgvPhucKhao.RowTemplate.Height = 35;
             this.dgvPhucKhao.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPhucKhao.Size = new System.Drawing.Size(1400, 370);
+            this.dgvPhucKhao.Size = new System.Drawing.Size(1400, 396);
             this.dgvPhucKhao.TabIndex = 3;
             // 
             // colMonHoc
