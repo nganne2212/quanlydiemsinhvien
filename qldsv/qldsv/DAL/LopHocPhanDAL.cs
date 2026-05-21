@@ -241,12 +241,29 @@ namespace qldsv.DAL
                         item.HopLe = false;
                         item.LyDoLoi = "Sinh viên đã có trong lớp học phần";
                     }
+                    else if (GetDiemCaoNhatMonHoc(maSV, maLHP) >= 8.5)
+                    {
+                        item.HopLe = false;
+                        item.LyDoLoi = "Sinh viên đã đạt 8.5+ không cần cải thiện";
+                    }
 
                     ketQua.Add(item);
                 }
             }
 
             return ketQua;
+        }
+        public static double GetDiemCaoNhatMonHoc(string maSV, string maLHP)
+        {
+            return Functions.QuerySingle<double>(@"
+        SELECT ISNULL(MAX(d.TongKet), 0)
+        FROM DangKyHP dk
+        JOIN LopHocPhan lhp ON dk.MaLHP = lhp.MaLHP
+        JOIN Diem d ON dk.MaDangKy = d.MaDangKy
+        WHERE dk.MaSinhVien = @sv
+        AND lhp.MaMonHoc = (SELECT MaMonHoc FROM LopHocPhan WHERE MaLHP = @lhp)
+        AND d.TrangThai = N'DaXacNhan'",
+                new { sv = maSV, lhp = maLHP });
         }
 
         public static void ThemNhieuSVVaoLHP(List<string> dsMaSV, string maLHP)

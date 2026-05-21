@@ -52,19 +52,24 @@ namespace qldsv.BLL
 
 
 
-            public static string ThemSVVaoLHP(string maSV, string maLHP)
-            {
-                if (string.IsNullOrWhiteSpace(maSV))
-                    return "Vui lòng chọn sinh viên";
+        public static string ThemSVVaoLHP(string maSV, string maLHP)
+        {
+            if (string.IsNullOrWhiteSpace(maSV))
+                return "Vui lòng chọn sinh viên";
 
-                if (DAL.LopHocPhanDAL.DaSVTrongLHP(maSV, maLHP))
-                    return "Sinh viên đã có trong lớp học phần này";
+            if (DAL.LopHocPhanDAL.DaSVTrongLHP(maSV, maLHP))
+                return "Sinh viên đã có trong lớp học phần này";
 
-                DAL.LopHocPhanDAL.ThemSVVaoLHP(maSV, maLHP);
-                return "";
-            }
+            // Kiểm tra điểm cao nhất môn này
+            double diemCao = DAL.LopHocPhanDAL.GetDiemCaoNhatMonHoc(maSV, maLHP);
+            if (diemCao >= 8.5)
+                return $"Sinh viên đã đạt {diemCao} điểm, không cần cải thiện!";
 
-            public static string XoaSVKhoiLHP(string maSV, string maLHP)
+            DAL.LopHocPhanDAL.ThemSVVaoLHP(maSV, maLHP);
+            return "";
+        }
+
+        public static string XoaSVKhoiLHP(string maSV, string maLHP)
             {
                 if (string.IsNullOrWhiteSpace(maSV))
                     return "Vui lòng chọn sinh viên cần xóa";

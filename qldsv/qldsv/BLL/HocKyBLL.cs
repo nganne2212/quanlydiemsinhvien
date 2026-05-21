@@ -101,6 +101,10 @@ namespace qldsv.BLL
             if (trangThai == "DaKetThuc")
                 return "Không thể mở lại học kỳ đã kết thúc!";
 
+            // THÊM DÒNG NÀY
+            if (HocKyDAL.DangCoDangDienRa())
+                return "Vui lòng đóng học kỳ đang diễn ra trước khi mở học kỳ mới!";
+
             HocKyDAL.MoHocKy(maHocKy);
             return "";
         }

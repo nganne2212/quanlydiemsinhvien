@@ -27,7 +27,6 @@
             this.lblMuc = new System.Windows.Forms.Label();
             this.cboMuc = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnExport = new Guna.UI2.WinForms.Guna2Button();
             this.dgvCanhBao = new System.Windows.Forms.DataGridView();
             this.colSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMSSV = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,7 +79,6 @@
             this.pnlFilter.Controls.Add(this.lblMuc);
             this.pnlFilter.Controls.Add(this.cboMuc);
             this.pnlFilter.Controls.Add(this.txtSearch);
-            this.pnlFilter.Controls.Add(this.btnExport);
             this.pnlFilter.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlFilter.Location = new System.Drawing.Point(0, 55);
             this.pnlFilter.Name = "pnlFilter";
@@ -112,6 +110,7 @@
             this.cboHocKy.Name = "cboHocKy";
             this.cboHocKy.Size = new System.Drawing.Size(220, 36);
             this.cboHocKy.TabIndex = 1;
+            this.cboHocKy.SelectedIndexChanged += new System.EventHandler(this.cboHocKy_SelectedIndexChanged);
             // 
             // lblLop
             // 
@@ -138,6 +137,7 @@
             this.cboLop.Name = "cboLop";
             this.cboLop.Size = new System.Drawing.Size(220, 36);
             this.cboLop.TabIndex = 3;
+            this.cboLop.SelectedIndexChanged += new System.EventHandler(this.cboLop_SelectedIndexChanged);
             // 
             // lblMuc
             // 
@@ -164,6 +164,7 @@
             this.cboMuc.Name = "cboMuc";
             this.cboMuc.Size = new System.Drawing.Size(220, 36);
             this.cboMuc.TabIndex = 5;
+            this.cboMuc.SelectedIndexChanged += new System.EventHandler(this.cboMuc_SelectedIndexChanged);
             // 
             // txtSearch
             // 
@@ -178,18 +179,8 @@
             this.txtSearch.SelectedText = "";
             this.txtSearch.Size = new System.Drawing.Size(260, 36);
             this.txtSearch.TabIndex = 6;
-            // 
-            // btnExport
-            // 
-            this.btnExport.BorderRadius = 6;
-            this.btnExport.FillColor = System.Drawing.Color.MidnightBlue;
-            this.btnExport.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnExport.ForeColor = System.Drawing.Color.White;
-            this.btnExport.Location = new System.Drawing.Point(1020, 35);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(139, 36);
-            this.btnExport.TabIndex = 7;
-            this.btnExport.Text = "Xuất Excel";
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
             // dgvCanhBao
             // 
@@ -332,6 +323,7 @@
             this.Name = "FrmCanhBaoHocVu";
             this.Text = "Cảnh báo học vụ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmCanhBaoHocVu_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlFilter.ResumeLayout(false);
@@ -360,7 +352,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox cboMuc;
 
         private Guna.UI2.WinForms.Guna2TextBox txtSearch;
-        private Guna.UI2.WinForms.Guna2Button btnExport;
 
         private System.Windows.Forms.DataGridView dgvCanhBao;
 

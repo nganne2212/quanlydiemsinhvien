@@ -16,7 +16,7 @@
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlLeft = new System.Windows.Forms.Panel();
@@ -55,6 +55,10 @@
             this.colSDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlSearch = new System.Windows.Forms.Panel();
+            this.lblLocTrangThai = new System.Windows.Forms.Label();
+            this.cboLocTrangThai = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.lblLocLop = new System.Windows.Forms.Label();
+            this.cboLocLop = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
             this.pnlHeader.SuspendLayout();
             this.pnlLeft.SuspendLayout();
@@ -419,9 +423,9 @@
             this.dgvSinhVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSinhVien.BackgroundColor = System.Drawing.Color.White;
             this.dgvSinhVien.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.dgvSinhVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.dgvSinhVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvSinhVien.ColumnHeadersHeight = 34;
             this.dgvSinhVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colMSV,
@@ -434,13 +438,13 @@
             this.colTrangThai});
             this.dgvSinhVien.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSinhVien.EnableHeadersVisualStyles = false;
-            this.dgvSinhVien.Location = new System.Drawing.Point(20, 65);
+            this.dgvSinhVien.Location = new System.Drawing.Point(20, 80);
             this.dgvSinhVien.Name = "dgvSinhVien";
             this.dgvSinhVien.RowHeadersVisible = false;
             this.dgvSinhVien.RowHeadersWidth = 62;
             this.dgvSinhVien.RowTemplate.Height = 32;
             this.dgvSinhVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSinhVien.Size = new System.Drawing.Size(1020, 765);
+            this.dgvSinhVien.Size = new System.Drawing.Size(1020, 750);
             this.dgvSinhVien.TabIndex = 0;
             this.dgvSinhVien.Click += new System.EventHandler(this.dgvSinhVien_Click);
             // 
@@ -494,13 +498,69 @@
             // 
             // pnlSearch
             // 
+            this.pnlSearch.Controls.Add(this.lblLocTrangThai);
+            this.pnlSearch.Controls.Add(this.cboLocTrangThai);
+            this.pnlSearch.Controls.Add(this.lblLocLop);
+            this.pnlSearch.Controls.Add(this.cboLocLop);
             this.pnlSearch.Controls.Add(this.txtTimKiem);
             this.pnlSearch.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSearch.Location = new System.Drawing.Point(20, 0);
             this.pnlSearch.Name = "pnlSearch";
             this.pnlSearch.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.pnlSearch.Size = new System.Drawing.Size(1020, 65);
+            this.pnlSearch.Size = new System.Drawing.Size(1020, 80);
             this.pnlSearch.TabIndex = 1;
+            // 
+            // lblLocTrangThai
+            // 
+            this.lblLocTrangThai.AutoSize = true;
+            this.lblLocTrangThai.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblLocTrangThai.Location = new System.Drawing.Point(504, 5);
+            this.lblLocTrangThai.Name = "lblLocTrangThai";
+            this.lblLocTrangThai.Size = new System.Drawing.Size(99, 25);
+            this.lblLocTrangThai.TabIndex = 3;
+            this.lblLocTrangThai.Text = "Trạng thái";
+            // 
+            // cboLocTrangThai
+            // 
+            this.cboLocTrangThai.BackColor = System.Drawing.Color.Transparent;
+            this.cboLocTrangThai.BorderRadius = 8;
+            this.cboLocTrangThai.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboLocTrangThai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboLocTrangThai.FocusedColor = System.Drawing.Color.Empty;
+            this.cboLocTrangThai.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cboLocTrangThai.ForeColor = System.Drawing.Color.Black;
+            this.cboLocTrangThai.ItemHeight = 30;
+            this.cboLocTrangThai.Location = new System.Drawing.Point(509, 28);
+            this.cboLocTrangThai.Name = "cboLocTrangThai";
+            this.cboLocTrangThai.Size = new System.Drawing.Size(153, 36);
+            this.cboLocTrangThai.TabIndex = 4;
+            this.cboLocTrangThai.SelectedIndexChanged += new System.EventHandler(this.cboLocTrangThai_SelectedIndexChanged);
+            // 
+            // lblLocLop
+            // 
+            this.lblLocLop.AutoSize = true;
+            this.lblLocLop.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblLocLop.Location = new System.Drawing.Point(305, 5);
+            this.lblLocLop.Name = "lblLocLop";
+            this.lblLocLop.Size = new System.Drawing.Size(43, 25);
+            this.lblLocLop.TabIndex = 1;
+            this.lblLocLop.Text = "Lớp";
+            // 
+            // cboLocLop
+            // 
+            this.cboLocLop.BackColor = System.Drawing.Color.Transparent;
+            this.cboLocLop.BorderRadius = 8;
+            this.cboLocLop.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboLocLop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboLocLop.FocusedColor = System.Drawing.Color.Empty;
+            this.cboLocLop.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cboLocLop.ForeColor = System.Drawing.Color.Black;
+            this.cboLocLop.ItemHeight = 30;
+            this.cboLocLop.Location = new System.Drawing.Point(310, 28);
+            this.cboLocLop.Name = "cboLocLop";
+            this.cboLocLop.Size = new System.Drawing.Size(163, 36);
+            this.cboLocLop.TabIndex = 2;
+            this.cboLocLop.SelectedIndexChanged += new System.EventHandler(this.cboLocLop_SelectedIndexChanged);
             // 
             // txtTimKiem
             // 
@@ -508,15 +568,15 @@
             this.txtTimKiem.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTimKiem.DefaultText = "";
             this.txtTimKiem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtTimKiem.Location = new System.Drawing.Point(0, 10);
+            this.txtTimKiem.Location = new System.Drawing.Point(0, 28);
             this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.PlaceholderText = "🔍 Tìm MSSV / họ tên sinh viên";
             this.txtTimKiem.SelectedText = "";
-            this.txtTimKiem.Size = new System.Drawing.Size(400, 42);
+            this.txtTimKiem.Size = new System.Drawing.Size(275, 42);
             this.txtTimKiem.TabIndex = 0;
-            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
-            this.txtTimKiem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTimKiem_KeyDown);
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged_1);
+            this.txtTimKiem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTimKiem_KeyDown_1);
             // 
             // FrmQLSV
             // 
@@ -539,6 +599,7 @@
             this.pnlRight.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSinhVien)).EndInit();
             this.pnlSearch.ResumeLayout(false);
+            this.pnlSearch.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -601,5 +662,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTrangThai;
+        private System.Windows.Forms.Label lblLocLop;
+        private System.Windows.Forms.Label lblLocTrangThai;
+
+        private Guna.UI2.WinForms.Guna2ComboBox cboLocLop;
+        private Guna.UI2.WinForms.Guna2ComboBox cboLocTrangThai;
     }
 }

@@ -16,7 +16,7 @@
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
@@ -93,10 +93,10 @@
             this.dgvNhapDiem.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvNhapDiem.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvNhapDiem.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.dgvNhapDiem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.dgvNhapDiem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvNhapDiem.ColumnHeadersHeight = 42;
             this.dgvNhapDiem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colMaDangKy,
@@ -120,6 +120,7 @@
             this.dgvNhapDiem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNhapDiem.Size = new System.Drawing.Size(1364, 514);
             this.dgvNhapDiem.TabIndex = 1;
+            this.dgvNhapDiem.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhapDiem_CellEndEdit);
             // 
             // colMaDangKy
             // 
@@ -268,6 +269,7 @@
             this.cboHocKy.Name = "cboHocKy";
             this.cboHocKy.Size = new System.Drawing.Size(240, 36);
             this.cboHocKy.TabIndex = 2;
+            this.cboHocKy.SelectedIndexChanged += new System.EventHandler(this.cboHocKy_SelectedIndexChanged);
             // 
             // cboLopHP
             // 
@@ -283,6 +285,7 @@
             this.cboLopHP.Name = "cboLopHP";
             this.cboLopHP.Size = new System.Drawing.Size(280, 36);
             this.cboLopHP.TabIndex = 3;
+            this.cboLopHP.SelectedIndexChanged += new System.EventHandler(this.cboLopHP_SelectedIndexChanged);
             // 
             // txtSearch
             // 
@@ -298,6 +301,8 @@
             this.txtSearch.SelectedText = "";
             this.txtSearch.Size = new System.Drawing.Size(320, 36);
             this.txtSearch.TabIndex = 4;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
             // btnLuuTam
             // 
@@ -310,6 +315,7 @@
             this.btnLuuTam.Size = new System.Drawing.Size(150, 38);
             this.btnLuuTam.TabIndex = 5;
             this.btnLuuTam.Text = "💾 Lưu tạm";
+            this.btnLuuTam.Click += new System.EventHandler(this.btnLuuTam_Click);
             // 
             // btnXacNhan
             // 
@@ -322,6 +328,7 @@
             this.btnXacNhan.Size = new System.Drawing.Size(180, 38);
             this.btnXacNhan.TabIndex = 6;
             this.btnXacNhan.Text = "✔ Xác nhận điểm";
+            this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
             // btnImport
             // 
@@ -336,6 +343,7 @@
             this.btnImport.Size = new System.Drawing.Size(150, 38);
             this.btnImport.TabIndex = 7;
             this.btnImport.Text = "📥 Import Excel";
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // btnExport
             // 
@@ -350,6 +358,7 @@
             this.btnExport.Size = new System.Drawing.Size(150, 38);
             this.btnExport.TabIndex = 8;
             this.btnExport.Text = "📤 Export Excel";
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // btnTaiMau
             // 
@@ -364,6 +373,7 @@
             this.btnTaiMau.Size = new System.Drawing.Size(160, 38);
             this.btnTaiMau.TabIndex = 9;
             this.btnTaiMau.Text = "📄 Tải mẫu Excel";
+            this.btnTaiMau.Click += new System.EventHandler(this.btnTaiMau_Click);
             // 
             // FrmNhapDiem
             // 
@@ -375,6 +385,7 @@
             this.Name = "FrmNhapDiem";
             this.Text = "Nhập điểm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmNhapDiem_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlMain.ResumeLayout(false);
