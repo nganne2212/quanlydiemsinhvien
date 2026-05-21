@@ -287,6 +287,7 @@
             this.Name = "FrmPhucKhaoSV";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phúc khảo";
+            this.Load += new System.EventHandler(this.FrmPhucKhaoSV_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlTop.ResumeLayout(false);

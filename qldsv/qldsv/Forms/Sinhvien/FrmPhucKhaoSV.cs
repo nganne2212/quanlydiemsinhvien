@@ -41,7 +41,7 @@ namespace qldsv.Forms.Sinhvien
         {
             dgvPhucKhao.AutoGenerateColumns = false;
             colMonHoc.DataPropertyName = "MonHoc";
-            colDiemCu.DataPropertyName = "DiemCuoiKy";
+            colDiemCu.DataPropertyName = "CuoiKy";
             colNgayGui.DataPropertyName = "NgayGui";
             colTrangThai.DataPropertyName = "TrangThai";
 
@@ -54,8 +54,8 @@ namespace qldsv.Forms.Sinhvien
 
         private void ResetValues()
         {
+            cboHocKy.SelectedIndex = -1;
             cboMonHoc.DataSource = null;
-            cboMonHoc.SelectedIndex = -1;
             txtDiemHienTai.Text = "";
             txtLyDo.Text = "";
         }
@@ -64,15 +64,30 @@ namespace qldsv.Forms.Sinhvien
 
         private void cboHocKy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ResetValues();
-            if (cboHocKy.SelectedIndex < 0 || cboHocKy.SelectedValue == null) return;
-            if (!int.TryParse(cboHocKy.SelectedValue.ToString(), out int maHocKy)) return;
+            cboMonHoc.SelectedIndexChanged -= cboMonHoc_SelectedIndexChanged;
+
+            cboMonHoc.DataSource = null;
+            txtDiemHienTai.Text = "";
+
+            if (cboHocKy.SelectedIndex < 0 || cboHocKy.SelectedValue == null)
+            {
+                cboMonHoc.SelectedIndexChanged += cboMonHoc_SelectedIndexChanged;
+                return;
+            }
+
+            if (!int.TryParse(cboHocKy.SelectedValue.ToString(), out int maHocKy))
+            {
+                cboMonHoc.SelectedIndexChanged += cboMonHoc_SelectedIndexChanged;
+                return;
+            }
 
             tblMonHoc = PhucKhaoSvBLL.GetMonHocCoThePKhao(CurrentUser.MaDoiTuong, maHocKy);
-            cboMonHoc.DataSource = tblMonHoc;
             cboMonHoc.DisplayMember = "TenMonHoc";
             cboMonHoc.ValueMember = "MaDangKy";
+            cboMonHoc.DataSource = tblMonHoc;
             cboMonHoc.SelectedIndex = -1;
+
+            cboMonHoc.SelectedIndexChanged += cboMonHoc_SelectedIndexChanged;
         }
 
         private void cboMonHoc_SelectedIndexChanged(object sender, EventArgs e)

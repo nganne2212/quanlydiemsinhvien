@@ -58,7 +58,7 @@ namespace qldsv.DAL
         {
             return Functions.GetDataToTable(@"
                 SELECT mh.TenMon          AS MonHoc,
-                       d.CuoiKy           AS DiemCuoiKy,
+                       d.CuoiKy,         
                        pk.NgayGui,
                        pk.TrangThai
                 FROM PhucKhao  pk
@@ -77,11 +77,8 @@ namespace qldsv.DAL
         public static void GuiPhucKhao(int maDangKy, string lyDo)
         {
             Functions.Execute(@"
-        INSERT INTO PhucKhao (MaPhucKhao, MaDangKy, LyDo, NgayGui, TrangThai)
-        VALUES (
-            (SELECT ISNULL(MAX(MaPhucKhao), 0) + 1 FROM PhucKhao),
-            @maDangKy, @lyDo, CAST(GETDATE() AS date), N'ChuaXuLy'
-        )",
+        INSERT INTO PhucKhao (MaDangKy, LyDo, NgayGui, TrangThai)
+        VALUES (@maDangKy, @lyDo, CAST(GETDATE() AS date), N'ChuaXuLy')",
                 new { maDangKy, lyDo });
         }
     }

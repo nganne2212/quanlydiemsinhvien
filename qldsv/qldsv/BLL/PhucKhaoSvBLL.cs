@@ -19,6 +19,7 @@ namespace qldsv.BLL
         public static DataTable GetDanhSachPhucKhao(string maSV)
             => DAL.PhucKhaoSvDAL.GetDanhSachPhucKhao(maSV);
 
+
         public static string GuiPhucKhao(int maDangKy, string lyDo)
         {
             if (string.IsNullOrWhiteSpace(lyDo))
@@ -26,19 +27,12 @@ namespace qldsv.BLL
 
             try
             {
-                Functions.Execute(@"
-            INSERT INTO PhucKhao (MaPhucKhao, MaDangKy, LyDo, NgayGui, TrangThai)
-            VALUES (
-                (SELECT ISNULL(MAX(MaPhucKhao), 0) + 1 FROM PhucKhao),
-                @maDangKy, @lyDo, CAST(GETDATE() AS date), N'ChuaXuLy'
-            )",
-                    new { maDangKy, lyDo });
-
-                return ""; // thành công
+                DAL.PhucKhaoSvDAL.GuiPhucKhao(maDangKy, lyDo.Trim()); // ✅ gọi DAL
+                return "";
             }
             catch (Exception ex)
             {
-                return ex.Message; // lỗi
+                return ex.Message;
             }
         }
     }
