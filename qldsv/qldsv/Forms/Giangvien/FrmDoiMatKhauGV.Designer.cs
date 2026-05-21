@@ -52,7 +52,7 @@
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(20, 10);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(243, 38);
+            this.lblTitle.Size = new System.Drawing.Size(324, 51);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "🔑 Đổi mật khẩu";
             // 
@@ -82,7 +82,7 @@
             this.lblSection.ForeColor = System.Drawing.Color.MidnightBlue;
             this.lblSection.Location = new System.Drawing.Point(45, 35);
             this.lblSection.Name = "lblSection";
-            this.lblSection.Size = new System.Drawing.Size(306, 36);
+            this.lblSection.Size = new System.Drawing.Size(418, 47);
             this.lblSection.TabIndex = 0;
             this.lblSection.Text = "THÔNG TIN MẬT KHẨU";
             // 
@@ -92,7 +92,7 @@
             this.lblMatKhauCu.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.lblMatKhauCu.Location = new System.Drawing.Point(50, 110);
             this.lblMatKhauCu.Name = "lblMatKhauCu";
-            this.lblMatKhauCu.Size = new System.Drawing.Size(131, 30);
+            this.lblMatKhauCu.Size = new System.Drawing.Size(181, 41);
             this.lblMatKhauCu.TabIndex = 1;
             this.lblMatKhauCu.Text = "Mật khẩu cũ";
             // 
@@ -110,6 +110,7 @@
             this.txtMatKhauCu.SelectedText = "";
             this.txtMatKhauCu.Size = new System.Drawing.Size(520, 45);
             this.txtMatKhauCu.TabIndex = 1;
+            this.txtMatKhauCu.TextChanged += new System.EventHandler(this.txtMatKhauCu_TextChanged);
             // 
             // lblMatKhauMoi
             // 
@@ -117,7 +118,7 @@
             this.lblMatKhauMoi.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.lblMatKhauMoi.Location = new System.Drawing.Point(50, 235);
             this.lblMatKhauMoi.Name = "lblMatKhauMoi";
-            this.lblMatKhauMoi.Size = new System.Drawing.Size(146, 30);
+            this.lblMatKhauMoi.Size = new System.Drawing.Size(201, 41);
             this.lblMatKhauMoi.TabIndex = 2;
             this.lblMatKhauMoi.Text = "Mật khẩu mới";
             // 
@@ -135,6 +136,7 @@
             this.txtMatKhauMoi.SelectedText = "";
             this.txtMatKhauMoi.Size = new System.Drawing.Size(520, 45);
             this.txtMatKhauMoi.TabIndex = 2;
+            this.txtMatKhauMoi.TextChanged += new System.EventHandler(this.txtMatKhauMoi_TextChanged);
             // 
             // lblNhapLai
             // 
@@ -142,7 +144,7 @@
             this.lblNhapLai.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.lblNhapLai.Location = new System.Drawing.Point(50, 360);
             this.lblNhapLai.Name = "lblNhapLai";
-            this.lblNhapLai.Size = new System.Drawing.Size(187, 30);
+            this.lblNhapLai.Size = new System.Drawing.Size(258, 41);
             this.lblNhapLai.TabIndex = 3;
             this.lblNhapLai.Text = "Nhập lại mật khẩu";
             // 
@@ -160,6 +162,7 @@
             this.txtNhapLai.SelectedText = "";
             this.txtNhapLai.Size = new System.Drawing.Size(520, 45);
             this.txtNhapLai.TabIndex = 3;
+            this.txtNhapLai.TextChanged += new System.EventHandler(this.txtNhapLai_TextChanged);
             // 
             // chkHienThi
             // 
@@ -169,11 +172,12 @@
             this.chkHienThi.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.chkHienThi.Location = new System.Drawing.Point(55, 470);
             this.chkHienThi.Name = "chkHienThi";
-            this.chkHienThi.Size = new System.Drawing.Size(164, 32);
+            this.chkHienThi.Size = new System.Drawing.Size(221, 41);
             this.chkHienThi.TabIndex = 4;
             this.chkHienThi.Text = "Hiện mật khẩu";
             this.chkHienThi.UncheckedState.BorderRadius = 0;
             this.chkHienThi.UncheckedState.BorderThickness = 0;
+            this.chkHienThi.CheckedChanged += new System.EventHandler(this.chkHienThi_CheckedChanged);
             // 
             // pnlButton
             // 
@@ -195,6 +199,7 @@
             this.btnDoiMatKhau.Size = new System.Drawing.Size(310, 42);
             this.btnDoiMatKhau.TabIndex = 6;
             this.btnDoiMatKhau.Text = "🔄 Đổi mật khẩu";
+            this.btnDoiMatKhau.Click += new System.EventHandler(this.BtnDoiMatKhau_Click);
             // 
             // btnHuy
             // 
@@ -207,6 +212,7 @@
             this.btnHuy.Size = new System.Drawing.Size(170, 42);
             this.btnHuy.TabIndex = 5;
             this.btnHuy.Text = "✖ Hủy";
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // FrmDoiMatKhauGV
             // 
