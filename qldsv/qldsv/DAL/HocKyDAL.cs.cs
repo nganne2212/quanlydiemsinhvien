@@ -60,14 +60,17 @@ namespace qldsv.DAL
                 "DELETE FROM HocKy WHERE MaHocKy = @MaHocKy",
                 new { MaHocKy = maHocKy });
         }
-
+        public static bool DangCoDangDienRa()
+        {
+            int count = Functions.QuerySingle<int>(
+                "SELECT COUNT(*) FROM HocKy WHERE TrangThai = 'DangDienRa'");
+            return count > 0;
+        }
         public static void MoHocKy(int maHocKy)
         {
             Functions.Execute(
-                "UPDATE HocKy SET TrangThai = 'ChuaMo' WHERE TrangThai = 'DangDienRa'");
-            Functions.Execute(
-                "UPDATE HocKy SET TrangThai = 'DangDienRa' WHERE MaHocKy = @MaHocKy",
-                new { MaHocKy = maHocKy });
+        "UPDATE HocKy SET TrangThai = 'DangDienRa' WHERE MaHocKy = @MaHocKy",
+        new { MaHocKy = maHocKy });
         }
 
         public static void DongHocKy(int maHocKy)
