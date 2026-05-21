@@ -16,7 +16,7 @@
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlFilter = new System.Windows.Forms.Panel();
@@ -27,7 +27,6 @@
             this.lblMuc = new System.Windows.Forms.Label();
             this.cboMuc = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnExport = new Guna.UI2.WinForms.Guna2Button();
             this.dgvCanhBao = new System.Windows.Forms.DataGridView();
             this.colSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMSSV = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,7 +79,6 @@
             this.pnlFilter.Controls.Add(this.lblMuc);
             this.pnlFilter.Controls.Add(this.cboMuc);
             this.pnlFilter.Controls.Add(this.txtSearch);
-            this.pnlFilter.Controls.Add(this.btnExport);
             this.pnlFilter.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlFilter.Location = new System.Drawing.Point(0, 55);
             this.pnlFilter.Name = "pnlFilter";
@@ -184,18 +182,6 @@
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
-            // btnExport
-            // 
-            this.btnExport.BorderRadius = 6;
-            this.btnExport.FillColor = System.Drawing.Color.MidnightBlue;
-            this.btnExport.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnExport.ForeColor = System.Drawing.Color.White;
-            this.btnExport.Location = new System.Drawing.Point(1020, 35);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(139, 36);
-            this.btnExport.TabIndex = 7;
-            this.btnExport.Text = "Xuất Excel";
-            // 
             // dgvCanhBao
             // 
             this.dgvCanhBao.AllowUserToAddRows = false;
@@ -203,10 +189,10 @@
             this.dgvCanhBao.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCanhBao.BackgroundColor = System.Drawing.Color.White;
             this.dgvCanhBao.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.dgvCanhBao.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.dgvCanhBao.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCanhBao.ColumnHeadersHeight = 38;
             this.dgvCanhBao.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSTT,
@@ -366,7 +352,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox cboMuc;
 
         private Guna.UI2.WinForms.Guna2TextBox txtSearch;
-        private Guna.UI2.WinForms.Guna2Button btnExport;
 
         private System.Windows.Forms.DataGridView dgvCanhBao;
 
