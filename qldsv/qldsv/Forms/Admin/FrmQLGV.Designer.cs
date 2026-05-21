@@ -43,7 +43,6 @@
             this.colKhoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlSearch = new System.Windows.Forms.Panel();
             this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
-            this.cboLocKhoa = new Guna.UI2.WinForms.Guna2ComboBox();
             this.pnlHeader.SuspendLayout();
             this.pnlLeft.SuspendLayout();
             this.pnlButtons.SuspendLayout();
@@ -115,6 +114,7 @@
             this.btnThem.Size = new System.Drawing.Size(130, 40);
             this.btnThem.TabIndex = 0;
             this.btnThem.Text = "+ Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnSua
             // 
@@ -127,6 +127,7 @@
             this.btnSua.Size = new System.Drawing.Size(130, 40);
             this.btnSua.TabIndex = 1;
             this.btnSua.Text = "✏ Sửa";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnLuu
             // 
@@ -139,6 +140,7 @@
             this.btnLuu.Size = new System.Drawing.Size(130, 40);
             this.btnLuu.TabIndex = 2;
             this.btnLuu.Text = "💾 Lưu";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnBoQua
             // 
@@ -151,6 +153,7 @@
             this.btnBoQua.Size = new System.Drawing.Size(130, 40);
             this.btnBoQua.TabIndex = 3;
             this.btnBoQua.Text = "✖ Bỏ qua";
+            this.btnBoQua.Click += new System.EventHandler(this.btnBoQua_Click);
             // 
             // btnXoa
             // 
@@ -163,6 +166,7 @@
             this.btnXoa.Size = new System.Drawing.Size(280, 40);
             this.btnXoa.TabIndex = 4;
             this.btnXoa.Text = "🗑 Xóa giảng viên";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // cboKhoa
             // 
@@ -304,6 +308,7 @@
             this.dgvGiangVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvGiangVien.Size = new System.Drawing.Size(1020, 765);
             this.dgvGiangVien.TabIndex = 0;
+            this.dgvGiangVien.Click += new System.EventHandler(this.dgvGiangVien_Click);
             // 
             // colMaGV
             // 
@@ -332,7 +337,6 @@
             // pnlSearch
             // 
             this.pnlSearch.Controls.Add(this.txtTimKiem);
-            this.pnlSearch.Controls.Add(this.cboLocKhoa);
             this.pnlSearch.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSearch.Location = new System.Drawing.Point(20, 0);
             this.pnlSearch.Name = "pnlSearch";
@@ -348,26 +352,12 @@
             this.txtTimKiem.Location = new System.Drawing.Point(0, 12);
             this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.PlaceholderText = "🔍 Tìm mã GV / họ tên";
+            this.txtTimKiem.PlaceholderText = "🔍 Tìm mã GV / họ tên/Khoa";
             this.txtTimKiem.SelectedText = "";
             this.txtTimKiem.Size = new System.Drawing.Size(400, 42);
             this.txtTimKiem.TabIndex = 0;
-            // 
-            // cboLocKhoa
-            // 
-            this.cboLocKhoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboLocKhoa.BackColor = System.Drawing.Color.Transparent;
-            this.cboLocKhoa.BorderRadius = 8;
-            this.cboLocKhoa.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboLocKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboLocKhoa.FocusedColor = System.Drawing.Color.Empty;
-            this.cboLocKhoa.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cboLocKhoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cboLocKhoa.ItemHeight = 30;
-            this.cboLocKhoa.Location = new System.Drawing.Point(1520, 14);
-            this.cboLocKhoa.Name = "cboLocKhoa";
-            this.cboLocKhoa.Size = new System.Drawing.Size(220, 36);
-            this.cboLocKhoa.TabIndex = 1;
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
+            this.txtTimKiem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTimKiem_KeyDown);
             // 
             // FrmQLGV
             // 
@@ -381,6 +371,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý giảng viên";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmQLGV_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlLeft.ResumeLayout(false);
@@ -427,7 +418,6 @@
         private System.Windows.Forms.Panel pnlSearch;
 
         private Guna.UI2.WinForms.Guna2TextBox txtTimKiem;
-        private Guna.UI2.WinForms.Guna2ComboBox cboLocKhoa;
 
         private System.Windows.Forms.DataGridView dgvGiangVien;
 

@@ -42,14 +42,38 @@
     <Reference Include="BCrypt.Net-Next, Version=4.1.0.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
       <HintPath>..\packages\BCrypt.Net-Next.4.1.0\lib\net472\BCrypt.Net-Next.dll</HintPath>
     </Reference>
+    <Reference Include="ClosedXML, Version=0.105.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.105.0\lib\netstandard2.0\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML.Parser, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1d5f7376574c51ec, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.Parser.2.0.0\lib\netstandard2.0\ClosedXML.Parser.dll</HintPath>
+    </Reference>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.1.72\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=3.1.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.3.1.1\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml.Framework, Version=3.1.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.Framework.3.1.1\lib\net46\DocumentFormat.OpenXml.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.1.0\lib\net20\ExcelNumberFormat.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.7\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.9.0.1\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="RBush, Version=4.0.0.0, Culture=neutral, PublicKeyToken=c77e27b81f4d0187, processorArchitecture=MSIL">
+      <HintPath>..\packages\RBush.Signed.4.0.0\lib\net47\RBush.dll</HintPath>
+    </Reference>
+    <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>..\packages\SixLabors.Fonts.1.0.0\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -85,16 +109,34 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <!-- ======================== -->
   <!-- Source files -->
   <!-- ======================== -->
   <ItemGroup>
-    <Compile Include="BLL\HocKyBLL.cs" />
+    <Compile Include="BLL\CanhBaoHocVuBLL.cs" />
+    <Compile Include="BLL\LopHocPhanBLL.cs" />
+    <Compile Include="BLL\PhongHocBLL.cs" />
+    <Compile Include="BLL\QLGiangvienBLL.cs" />
+    <Compile Include="BLL\SinhVienBLL.cs" />
+    <Compile Include="BLL\QLLichHocBLL.cs" />
+    <Compile Include="BLL\QLLopBBL.cs" />
     <Compile Include="BLL\TaiKhoanBLL.cs" />
     <Compile Include="Class\CurentUser.cs" />
     <Compile Include="Class\Functions.cs" />
+    <Compile Include="DAL\CanhBaoHocVuDAL.cs" />
+    <Compile Include="DAL\LopHocPhanDAL.cs" />
+    <Compile Include="DAL\PhongHocDAL.cs" />
+    <Compile Include="DAL\QLGiangvienDAL.cs" />
+    <Compile Include="DAL\SinhVienDAL.cs" />
+    <Compile Include="BLL\MonHocBLL.cs" />
+    <Compile Include="DAL\MonHocDAL.cs" />
+    <Compile Include="DAL\QLLopDAL.cs" />
+    <Compile Include="BLL\HocKyBLL.cs" />
     <Compile Include="DAL\HocKyDAL.cs.cs" />
+    <Compile Include="DAL\QLLichHocDAL.cs" />
+    <Compile Include="DAL\QLLopDAL.cs" />
     <Compile Include="DAL\TaiKhoanDAL.cs" />
     <Compile Include="Forms\Admin\FrmChonSinhVien.cs">
       <SubType>Form</SubType>
@@ -113,6 +155,12 @@
     </Compile>
     <Compile Include="Forms\Admin\FrmPhucKhao.Designer.cs">
       <DependentUpon>FrmPhucKhao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmPreviewImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmPreviewImport.Designer.cs">
+      <DependentUpon>FrmPreviewImport.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Admin\FrmQLGV.cs">
       <SubType>Form</SubType>
@@ -156,6 +204,44 @@
     <Compile Include="Forms\Admin\FrmPhongHoc.Designer.cs">
       <DependentUpon>FrmPhongHoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Giangvien\FrmCanhBaoHocVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Giangvien\FrmCanhBaoHocVu.Designer.cs">
+      <DependentUpon>FrmCanhBaoHocVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Giangvien\FrmDoiMatKhauGV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Giangvien\FrmDoiMatKhauGV.Designer.cs">
+      <DependentUpon>FrmDoiMatKhauGV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Giangvien\FrmNhapDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Giangvien\FrmNhapDiem.Designer.cs">
+      <DependentUpon>FrmNhapDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sinhvien\FrmDoiMatKhauSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sinhvien\FrmDoiMatKhauSV.Designer.cs">
+      <DependentUpon>FrmDoiMatKhauSV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sinhvien\FrmLichHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sinhvien\FrmLichHoc.Designer.cs">
+      <DependentUpon>FrmLichHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sinhvien\FrmPhucKhaoSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sinhvien\FrmPhucKhaoSV.Designer.cs">
+      <DependentUpon>FrmPhucKhaoSV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\CanhBaoService.cs" />
+    <Compile Include="Utils\ImportResult.cs" />
     <Compile Include="Utils\SecurityHelper.cs" />
     <!-- ADMIN -->
     <Compile Include="Forms\Admin\FrmMainAdmin.cs">
@@ -242,6 +328,9 @@
     <EmbeddedResource Include="Forms\Admin\FrmPhucKhao.resx">
       <DependentUpon>FrmPhucKhao.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\FrmPreviewImport.resx">
+      <DependentUpon>FrmPreviewImport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\FrmQLGV.resx">
       <DependentUpon>FrmQLGV.cs</DependentUpon>
     </EmbeddedResource>
@@ -269,11 +358,35 @@
     <EmbeddedResource Include="Forms\FrmDangNhap.resx">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Giangvien\FrmCanhBaoHocVu.resx">
+      <DependentUpon>FrmCanhBaoHocVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Giangvien\FrmDanhSachLHP.resx">
+      <DependentUpon>FrmDanhSachLHP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Giangvien\FrmDoiMatKhauGV.resx">
+      <DependentUpon>FrmDoiMatKhauGV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Giangvien\FrmMainGiangVien.resx">
       <DependentUpon>FrmMainGiangVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Giangvien\FrmNhapDiem.resx">
+      <DependentUpon>FrmNhapDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sinhvien\FrmDoiMatKhauSV.resx">
+      <DependentUpon>FrmDoiMatKhauSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sinhvien\FrmKQhoctap.resx">
+      <DependentUpon>FrmKQhoctap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sinhvien\FrmLichHoc.resx">
+      <DependentUpon>FrmLichHoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Sinhvien\FrmMainSinhVien.resx">
       <DependentUpon>FrmMainSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sinhvien\FrmPhucKhaoSV.resx">
+      <DependentUpon>FrmPhucKhaoSV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -31,7 +31,7 @@ namespace qldsv.DAL
 
         public static void ResetMatKhau(string tenDangNhap)
         {
-            string matKhauMacDinh = Utils.SecurityHelper.HashPassword(tenDangNhap);
+            string matKhauMacDinh = Utils.SecurityHelper.HashPassword("hvnh1961");
             Functions.Execute(
                 "UPDATE NguoiDung SET MatKhau = @p WHERE TenDangNhap = @u",
                 new { p = matKhauMacDinh, u = tenDangNhap });

@@ -89,7 +89,7 @@
             this.pnlButtons.Controls.Add(this.btnLuu);
             this.pnlButtons.Controls.Add(this.btnBoQua);
             this.pnlButtons.Controls.Add(this.btnXoa);
-            this.pnlButtons.Location = new System.Drawing.Point(20, 260);
+            this.pnlButtons.Location = new System.Drawing.Point(20, 259);
             this.pnlButtons.Name = "pnlButtons";
             this.pnlButtons.Size = new System.Drawing.Size(290, 160);
             this.pnlButtons.TabIndex = 0;

@@ -9,12 +9,13 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using qldsv.BLL;
+using qldsv.Utils;
 
 namespace qldsv.Forms.Admin
 {
     public partial class FrmHocKy : Form
     {
-        private bool dangSua = false;
+        
 
         public FrmHocKy()
         {
@@ -23,29 +24,23 @@ namespace qldsv.Forms.Admin
             btnLuu.Enabled = false;
             btnBoqua.Enabled = false;
         }
+        DataTable tblHocKy;
+        bool dangSua = false;
 
-        // ════════════════════════════════════════════════════════
-        //  LOAD
-        // ════════════════════════════════════════════════════════
-        private void FrmHocKy_Load(object sender, EventArgs e)
-        {
-            LoadData();
-            SetTrangThaiForm(false);
-        }
+
 
         private void LoadData()
         {
-            DataTable dt = HocKyBLL.GetAll();
+            tblHocKy = HocKyBLL.GetAll();
 
-            dt.Columns.Add("STT", typeof(int));
-            for (int i = 0; i < dt.Rows.Count; i++)
-                dt.Rows[i]["STT"] = i + 1;
+            tblHocKy.Columns.Add("STT", typeof(int));
+            for (int i = 0; i < tblHocKy.Rows.Count; i++)
+                tblHocKy.Rows[i]["STT"] = i + 1;
 
-            // Tắt AutoGenerateColumns để không sinh cột tự động trùng với Designer
             dgvQuanlyhocky.AutoGenerateColumns = true;
             dgvQuanlyhocky.DataSource = null;
             dgvQuanlyhocky.Columns.Clear();
-            dgvQuanlyhocky.DataSource = dt;
+            dgvQuanlyhocky.DataSource = tblHocKy;
 
             dgvQuanlyhocky.Columns["MaHocKy"].Visible = false;
             dgvQuanlyhocky.Columns["STT"].DisplayIndex = 0;
@@ -54,10 +49,18 @@ namespace qldsv.Forms.Admin
             dgvQuanlyhocky.Columns["TenHocKy"].HeaderText = "Tên học kỳ";
             dgvQuanlyhocky.Columns["NamHoc"].HeaderText = "Năm học";
             dgvQuanlyhocky.Columns["TrangThai"].HeaderText = "Trạng thái";
+            dgvQuanlyhocky.AllowUserToAddRows = false;
             dgvQuanlyhocky.EditMode = DataGridViewEditMode.EditProgrammatically;
+
             foreach (DataGridViewColumn col in dgvQuanlyhocky.Columns)
                 col.SortMode = DataGridViewColumnSortMode.NotSortable;
 
+            ToCauDong();
+            lblSectionInfo.Text = $"Tổng: {tblHocKy.Rows.Count} học kỳ";
+        }
+
+        private void ToCauDong()
+        {
             foreach (DataGridViewRow row in dgvQuanlyhocky.Rows)
             {
                 string tt = row.Cells["TrangThai"]?.Value?.ToString();
@@ -77,92 +80,24 @@ namespace qldsv.Forms.Admin
                         break;
                 }
             }
-
-            lblSectionInfo.Text = $"Tổng: {dt.Rows.Count} học kỳ";
         }
 
-        // ════════════════════════════════════════════════════════
-        //  SetTrangThaiForm — bật/tắt controls theo trạng thái
-        // ════════════════════════════════════════════════════════
-        private void SetTrangThaiForm(bool enable)
+        
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-            // enable=true: đang nhập liệu → bật Lưu/Bỏqua, tắt các nút khác
-            // enable=false: chế độ xem → tắt Lưu/Bỏqua, bật các nút khác
-            txtTenhocky.Enabled = enable;
-            txtNamhoc.Enabled = enable;
-            btnLuu.Enabled = enable;
-            btnBoqua.Enabled = enable;
-
-            btnThem.Enabled = !enable;
-            btnSua.Enabled = !enable;
-            btnXoa.Enabled = !enable;
-            btnMohocky.Enabled = !enable;
-            btnDonghocky.Enabled = !enable;
-            dgvQuanlyhocky.Enabled = !enable;
-            TxtSearch.Enabled = !enable;
+            if (tblHocKy == null) return;
+            string kw = TxtSearch.Text.Trim().Replace("'", "''");
+            DataView dv = tblHocKy.DefaultView;
+            dv.RowFilter = string.IsNullOrEmpty(kw) ? "" :
+                $"TenHocKy LIKE '%{kw}%' OR NamHoc LIKE '%{kw}%' OR TrangThai LIKE '%{kw}%'";
+            dgvQuanlyhocky.DataSource = dv.ToTable();
+            ToCauDong();
         }
 
-        private void ClearForm()
+        private void ResetValues()
         {
             txtTenhocky.Text = "";
             txtNamhoc.Text = "";
-            txtTenhocky.BackColor = Color.White;
-            txtNamhoc.BackColor = Color.White;
-        }
-
-        private void FillForm(DataGridViewRow row)
-        {
-            if (row == null) return;
-            txtTenhocky.Text = row.Cells["TenHocKy"]?.Value?.ToString() ?? "";
-            txtNamhoc.Text = row.Cells["NamHoc"]?.Value?.ToString() ?? "";
-        }
-
-        // ════════════════════════════════════════════════════════
-        //  dgv SelectionChanged → FillForm
-        // ════════════════════════════════════════════════════════
-        private void dgvHocKy_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-                FillForm(dgvQuanlyhocky.Rows[e.RowIndex]);
-        }
-
-        // ════════════════════════════════════════════════════════
-        //  TÌM KIẾM — realtime
-        // ════════════════════════════════════════════════════════
-        private void TxtSearch_TextChanged(object sender, EventArgs e)
-        {
-            string keyword = TxtSearch.Text.Trim().ToLower();
-            DataTable dt = HocKyBLL.GetAll();
-            DataView dv = dt.DefaultView;
-
-            string filter = $"TenHocKy LIKE '%{keyword}%'"
-                          + $" OR NamHoc LIKE '%{keyword}%'"
-                          + $" OR TrangThai LIKE '%{keyword}%'"
-                          + $" OR CONVERT(MaHocKy, 'System.String') LIKE '%{keyword}%'";
-
-            dv.RowFilter = keyword == "" ? "" : filter;
-
-            DataTable dtFilter = dv.ToTable();
-            dtFilter.Columns.Add("STT", typeof(int));
-            for (int i = 0; i < dtFilter.Rows.Count; i++)
-                dtFilter.Rows[i]["STT"] = i + 1;
-
-            dgvQuanlyhocky.AutoGenerateColumns = true;
-            dgvQuanlyhocky.DataSource = null;
-            dgvQuanlyhocky.Columns.Clear();
-            dgvQuanlyhocky.DataSource = dtFilter;
-            dgvQuanlyhocky.Columns["MaHocKy"].Visible = false;
-            dgvQuanlyhocky.Columns["STT"].DisplayIndex = 0;
-            dgvQuanlyhocky.Columns["STT"].Width = 50;
-            dgvQuanlyhocky.Columns["STT"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dgvQuanlyhocky.Columns["TenHocKy"].HeaderText = "Tên học kỳ";
-            dgvQuanlyhocky.Columns["NamHoc"].HeaderText = "Năm học";
-            dgvQuanlyhocky.Columns["TrangThai"].HeaderText = "Trạng thái";
-            dgvQuanlyhocky.EditMode = DataGridViewEditMode.EditProgrammatically;
-            foreach (DataGridViewColumn col in dgvQuanlyhocky.Columns)
-                col.SortMode = DataGridViewColumnSortMode.NotSortable;
-
-            lblSectionInfo.Text = $"Tổng: {dtFilter.Rows.Count} học kỳ";
         }
 
         private void TxtSearch_KeyPress(object sender, KeyPressEventArgs e)
@@ -175,9 +110,7 @@ namespace qldsv.Forms.Admin
             }
         }
 
-        // ════════════════════════════════════════════════════════
-        //  VALIDATE KÝ TỰ REALTIME KHI GÕ
-        // ════════════════════════════════════════════════════════
+
         private void txtTenhocky_KeyPress(object sender, KeyPressEventArgs e)
         {
             char c = e.KeyChar;
@@ -224,49 +157,63 @@ namespace qldsv.Forms.Admin
         private void txtTenhocky_TextChanged(object sender, EventArgs e) { txtTenhocky.BackColor = Color.White; }
         private void txtNamhoc_TextChanged(object sender, EventArgs e) { txtNamhoc.BackColor = Color.White; }
 
-        // ════════════════════════════════════════════════════════
-        //  btnThem → ClearForm + SetTrangThaiForm(true) + dangSua=false
-        // ════════════════════════════════════════════════════════
+
         private void btnThem_Click(object sender, EventArgs e)
         {
             dangSua = false;
-            ClearForm();
-            SetTrangThaiForm(true);
+            btnThem.Enabled = false;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
+            btnMohocky.Enabled = false;
+            btnDonghocky.Enabled = false;
+            btnLuu.Enabled = true;
+            btnBoqua.Enabled = true;
+            ResetValues();
             txtTenhocky.Focus();
         }
 
-        // ════════════════════════════════════════════════════════
-        //  btnSua → FillForm + SetTrangThaiForm(true) + dangSua=true
-        // ════════════════════════════════════════════════════════
+
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (dgvQuanlyhocky.CurrentRow == null)
+            if (tblHocKy.Rows.Count == 0)
             {
-                MessageBox.Show("Vui lòng chọn học kỳ!", "Thông báo",
+                MessageBox.Show("Không có dữ liệu trong CSDL", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (dgvQuanlyhocky.CurrentRow == null || txtTenhocky.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn học kỳ cần sửa!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             dangSua = true;
-            FillForm(dgvQuanlyhocky.CurrentRow);
-            SetTrangThaiForm(true);
+            btnThem.Enabled = false;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
+            btnMohocky.Enabled = false;
+            btnDonghocky.Enabled = false;
+            btnLuu.Enabled = true;
+            btnBoqua.Enabled = true;
             txtTenhocky.Focus();
         }
 
-        // ════════════════════════════════════════════════════════
-        //  btnLuu → BLL.Them/Sua() → LoadData + SetTrangThaiForm(false)
-        // ════════════════════════════════════════════════════════
+
         private void btnLuu_Click(object sender, EventArgs e)
         {
             string loi;
 
             if (!dangSua)
-            {
                 loi = HocKyBLL.Them(txtTenhocky.Text, txtNamhoc.Text);
-            }
             else
             {
-                if (dgvQuanlyhocky.CurrentRow == null) return;
+                if (dgvQuanlyhocky.CurrentRow == null)
+                {
+                    MessageBox.Show("Vui lòng chọn lại học kỳ cần sửa!", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 int maHocKy = Convert.ToInt32(dgvQuanlyhocky.CurrentRow.Cells["MaHocKy"].Value);
                 loi = HocKyBLL.Sua(maHocKy, txtTenhocky.Text, txtNamhoc.Text);
             }
@@ -277,32 +224,43 @@ namespace qldsv.Forms.Admin
                 return;
             }
 
-            MessageBox.Show(dangSua ? "Sửa thành công!" : "Thêm thành công!");
+            MessageBox.Show("Lưu thành công!", "Thông báo",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             LoadData();
-            ClearForm();
-            SetTrangThaiForm(false);
+            ResetValues();
+            btnThem.Enabled = true;
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
+            btnMohocky.Enabled = true;
+            btnDonghocky.Enabled = true;
+            btnLuu.Enabled = false;
+            btnBoqua.Enabled = false;
         }
 
-        // ════════════════════════════════════════════════════════
-        //  btnXoa → Confirm → BLL.Xoa() → LoadData + ClearForm
-        // ════════════════════════════════════════════════════════
+        
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (dgvQuanlyhocky.CurrentRow == null)
+            if (tblHocKy.Rows.Count == 0)
             {
-                MessageBox.Show("Vui lòng chọn học kỳ!", "Thông báo",
+                MessageBox.Show("Không có dữ liệu trong CSDL", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (dgvQuanlyhocky.CurrentRow == null || txtTenhocky.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn học kỳ cần xóa!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             int maHocKy = Convert.ToInt32(dgvQuanlyhocky.CurrentRow.Cells["MaHocKy"].Value);
+            string tenHK = txtTenhocky.Text.Trim();
 
-            DialogResult rs = MessageBox.Show(
-                "Bạn có chắc muốn xóa?",
-                "Thông báo",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-            if (rs != DialogResult.Yes) return;
+            DialogResult confirm = MessageBox.Show(
+                "Xác nhận xóa học kỳ [" + tenHK + "]?",
+                "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (confirm != DialogResult.Yes) return;
 
             string loi = HocKyBLL.Xoa(maHocKy);
             if (loi != "")
@@ -311,38 +269,38 @@ namespace qldsv.Forms.Admin
                 return;
             }
 
-            MessageBox.Show("Xóa thành công!");
+            MessageBox.Show("Xóa học kỳ thành công!", "Thông báo",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             LoadData();
-            ClearForm();
+            ResetValues();
+
         }
 
-        // ════════════════════════════════════════════════════════
-        //  btnBoqua → FillForm/ClearForm + SetTrangThaiForm(false)
-        // ════════════════════════════════════════════════════════
+        
         private void btnBoqua_Click(object sender, EventArgs e)
         {
-            if (dgvQuanlyhocky.CurrentRow != null)
-                FillForm(dgvQuanlyhocky.CurrentRow);
-            else
-                ClearForm();
-
-            SetTrangThaiForm(false);
+            btnThem.Enabled = true;
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
+            btnMohocky.Enabled = true;
+            btnDonghocky.Enabled = true;
+            btnLuu.Enabled = false;
+            btnBoqua.Enabled = false;
+            ResetValues();
         }
 
-        // ════════════════════════════════════════════════════════
-        //  MỞ HỌC KỲ
-        // ════════════════════════════════════════════════════════
+       
         private void btnMoHocKy_Click(object sender, EventArgs e)
         {
-            if (dgvQuanlyhocky.CurrentRow == null)
+            if (dgvQuanlyhocky.CurrentRow == null || txtTenhocky.Text == "")
             {
                 MessageBox.Show("Vui lòng chọn học kỳ!", "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             int maHocKy = Convert.ToInt32(dgvQuanlyhocky.CurrentRow.Cells["MaHocKy"].Value);
-
             string loi = HocKyBLL.MoHocKy(maHocKy);
             if (loi != "")
             {
@@ -350,45 +308,78 @@ namespace qldsv.Forms.Admin
                 return;
             }
 
-            MessageBox.Show("Mở học kỳ thành công!");
+            MessageBox.Show("Mở học kỳ thành công!", "Thông báo",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadData();
         }
 
-        // ════════════════════════════════════════════════════════
-        //  ĐÓNG HỌC KỲ
-        // ════════════════════════════════════════════════════════
+        
         private void btnDongHocKy_Click(object sender, EventArgs e)
         {
-            if (dgvQuanlyhocky.CurrentRow == null)
+            if (dgvQuanlyhocky.CurrentRow == null || txtTenhocky.Text == "")
             {
                 MessageBox.Show("Vui lòng chọn học kỳ!", "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             int maHocKy = Convert.ToInt32(dgvQuanlyhocky.CurrentRow.Cells["MaHocKy"].Value);
 
-            DialogResult rs = MessageBox.Show(
-                "Bạn có chắc muốn đóng học kỳ này?\n⚠ Sau khi đóng sẽ không thể mở lại.",
-                "Xác nhận",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning);
-            if (rs != DialogResult.Yes) return;
-
-            string loi = HocKyBLL.DongHocKy(maHocKy);
-            if (loi != "")
+            // ── Bước 1: Kiểm tra đơn phúc khảo chưa xử lý ───────
+            string loiPhucKhao = CanhBaoService.KiemTraPhucKhaoChuaXuLy(maHocKy);
+            if (loiPhucKhao != "")
             {
-                MessageBox.Show(loi, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(loiPhucKhao, "Không thể đóng học kỳ",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            MessageBox.Show("Đóng học kỳ thành công!");
+            // ── Bước 2: Xác nhận ─────────────────────────────────
+            DialogResult rs = MessageBox.Show(
+                "Bạn có chắc muốn đóng học kỳ này?\n\n"
+              + "⚠ Hệ thống sẽ tự động tính cảnh báo học vụ cho toàn bộ sinh viên.\n"
+              + "⚠ Sau khi đóng sẽ không thể mở lại.",
+                "Xác nhận đóng học kỳ",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (rs != DialogResult.Yes) return;
+
+            // ── Bước 3: Đóng học kỳ trong DB ─────────────────────
+            string loiDong = HocKyBLL.DongHocKy(maHocKy);
+            if (loiDong != "")
+            {
+                MessageBox.Show(loiDong, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // ── Bước 4: Tính cảnh báo học vụ ─────────────────────
+            try
+            {
+                string loiCanhBao = CanhBaoService.XuLyCanhBaoSauDongHK(maHocKy);
+                if (loiCanhBao != "")
+                {
+                    MessageBox.Show(
+                        "Học kỳ đã đóng nhưng cảnh báo học vụ chưa được tính:\n" + loiCanhBao,
+                        "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "Đóng học kỳ thành công!\n Đã tính cảnh báo học vụ cho toàn bộ sinh viên.",
+                        "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Học kỳ đã đóng nhưng xảy ra lỗi khi tính cảnh báo học vụ:\n" + ex.Message
+                  + "\n\nVui lòng liên hệ quản trị viên.",
+                    "Lỗi tính cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             LoadData();
         }
 
-        // ════════════════════════════════════════════════════════
-        //  FlashWarning — hiện cảnh báo qua lblSectionInfo
-        // ════════════════════════════════════════════════════════
+
         private Timer _flashTimer;
 
         private void FlashWarning(string msg)
@@ -407,6 +398,38 @@ namespace qldsv.Forms.Admin
                 _flashTimer.Dispose();
             };
             _flashTimer.Start();
+        }
+
+        private void FrmHocKy_Load_1(object sender, EventArgs e)
+        {
+            btnLuu.Enabled = false;
+            btnBoqua.Enabled = false;
+
+            LoadData();
+        }
+
+        private void dgvQuanlyhocky_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (btnThem.Enabled == false)
+            {
+                MessageBox.Show("Đang ở chế độ thêm mới!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtTenhocky.Focus();
+                return;
+            }
+
+            if (e.RowIndex < 0) return;
+            if (dgvQuanlyhocky.Rows.Count == 0) return;
+
+            var row = dgvQuanlyhocky.Rows[e.RowIndex];
+            txtTenhocky.Text = row.Cells["TenHocKy"]?.Value?.ToString() ?? "";
+            txtNamhoc.Text = row.Cells["NamHoc"]?.Value?.ToString() ?? "";
+
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
+            btnMohocky.Enabled = true;
+            btnDonghocky.Enabled = true;
+            btnBoqua.Enabled = true;
         }
     }
 }

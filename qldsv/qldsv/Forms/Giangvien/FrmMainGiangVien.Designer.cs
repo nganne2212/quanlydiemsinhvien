@@ -79,13 +79,14 @@
             this.btnDangxuat.HoverState.FillColor = System.Drawing.Color.CornflowerBlue;
             this.btnDangxuat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDangxuat.ImageSize = new System.Drawing.Size(18, 18);
-            this.btnDangxuat.Location = new System.Drawing.Point(0, 430);
+            this.btnDangxuat.Location = new System.Drawing.Point(0, 470);
             this.btnDangxuat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDangxuat.Name = "btnDangxuat";
             this.btnDangxuat.Size = new System.Drawing.Size(230, 56);
             this.btnDangxuat.TabIndex = 19;
             this.btnDangxuat.Text = "🚪 Đăng xuất";
             this.btnDangxuat.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDangxuat.Click += new System.EventHandler(this.btnDangxuat_Click);
             // 
             // btnDoimatkhau
             // 
@@ -103,13 +104,14 @@
             this.btnDoimatkhau.HoverState.FillColor = System.Drawing.Color.CornflowerBlue;
             this.btnDoimatkhau.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDoimatkhau.ImageSize = new System.Drawing.Size(18, 18);
-            this.btnDoimatkhau.Location = new System.Drawing.Point(0, 370);
+            this.btnDoimatkhau.Location = new System.Drawing.Point(0, 400);
             this.btnDoimatkhau.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDoimatkhau.Name = "btnDoimatkhau";
             this.btnDoimatkhau.Size = new System.Drawing.Size(230, 56);
             this.btnDoimatkhau.TabIndex = 18;
             this.btnDoimatkhau.Text = "🔑 Đổi mật khẩu";
             this.btnDoimatkhau.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDoimatkhau.Click += new System.EventHandler(this.btnDoimatkhau_Click);
             // 
             // btnCanhbaohocvu
             // 
@@ -117,7 +119,7 @@
             this.btnCanhbaohocvu.BackColor = System.Drawing.Color.MidnightBlue;
             this.btnCanhbaohocvu.BorderRadius = 8;
             this.btnCanhbaohocvu.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnCanhbaohocvu.CheckedState.FillColor = System.Drawing.Color.ForestGreen;
+            this.btnCanhbaohocvu.CheckedState.FillColor = System.Drawing.Color.RoyalBlue;
             this.btnCanhbaohocvu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnCanhbaohocvu.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnCanhbaohocvu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -128,13 +130,14 @@
             this.btnCanhbaohocvu.HoverState.FillColor = System.Drawing.Color.CornflowerBlue;
             this.btnCanhbaohocvu.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnCanhbaohocvu.ImageSize = new System.Drawing.Size(18, 18);
-            this.btnCanhbaohocvu.Location = new System.Drawing.Point(0, 310);
+            this.btnCanhbaohocvu.Location = new System.Drawing.Point(0, 330);
             this.btnCanhbaohocvu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCanhbaohocvu.Name = "btnCanhbaohocvu";
             this.btnCanhbaohocvu.Size = new System.Drawing.Size(230, 56);
             this.btnCanhbaohocvu.TabIndex = 17;
             this.btnCanhbaohocvu.Text = "⚠️ Cảnh báo học vụ ";
             this.btnCanhbaohocvu.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnCanhbaohocvu.Click += new System.EventHandler(this.btnCanhbaohocvu_Click);
             // 
             // btnNhapdiem
             // 
@@ -152,13 +155,14 @@
             this.btnNhapdiem.HoverState.FillColor = System.Drawing.Color.CornflowerBlue;
             this.btnNhapdiem.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnNhapdiem.ImageSize = new System.Drawing.Size(18, 18);
-            this.btnNhapdiem.Location = new System.Drawing.Point(0, 250);
+            this.btnNhapdiem.Location = new System.Drawing.Point(0, 260);
             this.btnNhapdiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNhapdiem.Name = "btnNhapdiem";
             this.btnNhapdiem.Size = new System.Drawing.Size(230, 56);
             this.btnNhapdiem.TabIndex = 16;
             this.btnNhapdiem.Text = "📝 Nhập điểm";
             this.btnNhapdiem.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnNhapdiem.Click += new System.EventHandler(this.btnNhapdiem_Click);
             // 
             // btnLophocphan
             // 
@@ -183,7 +187,7 @@
             this.btnLophocphan.TabIndex = 15;
             this.btnLophocphan.Text = "📚 Lớp học phần";
             this.btnLophocphan.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-//            this.btnLophocphan.Click += new System.EventHandler(this.btnLophocphan_Click);
+            this.btnLophocphan.Click += new System.EventHandler(this.btnLophocphan_Click);
             // 
             // picAvatar
             // 
@@ -260,6 +264,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hệ thống quản lý điểm - Giảng viên";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmMainGiangVien_Load);
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAvatar)).EndInit();

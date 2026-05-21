@@ -28,14 +28,14 @@
             this.btnXoa = new Guna.UI2.WinForms.Guna2Button();
             this.cboTrangThai = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lblTrangThai = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.txtSDT = new Guna.UI2.WinForms.Guna2TextBox();
+            this.mskSDT = new System.Windows.Forms.MaskedTextBox();
             this.lblSDT = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblEmail = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.cboLop = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lblLop = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.chkNu = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.chkNam = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.rdoNu = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.rdoNam = new Guna.UI2.WinForms.Guna2RadioButton();
             this.lblGioiTinh = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.dtpNgaySinh = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.lblNgaySinh = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -56,7 +56,6 @@
             this.colTrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlSearch = new System.Windows.Forms.Panel();
             this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
-            this.cboLocLop = new Guna.UI2.WinForms.Guna2ComboBox();
             this.pnlHeader.SuspendLayout();
             this.pnlLeft.SuspendLayout();
             this.pnlButtons.SuspendLayout();
@@ -93,14 +92,14 @@
             this.pnlLeft.Controls.Add(this.pnlButtons);
             this.pnlLeft.Controls.Add(this.cboTrangThai);
             this.pnlLeft.Controls.Add(this.lblTrangThai);
-            this.pnlLeft.Controls.Add(this.txtSDT);
+            this.pnlLeft.Controls.Add(this.mskSDT);
             this.pnlLeft.Controls.Add(this.lblSDT);
             this.pnlLeft.Controls.Add(this.txtEmail);
             this.pnlLeft.Controls.Add(this.lblEmail);
             this.pnlLeft.Controls.Add(this.cboLop);
             this.pnlLeft.Controls.Add(this.lblLop);
-            this.pnlLeft.Controls.Add(this.chkNu);
-            this.pnlLeft.Controls.Add(this.chkNam);
+            this.pnlLeft.Controls.Add(this.rdoNu);
+            this.pnlLeft.Controls.Add(this.rdoNam);
             this.pnlLeft.Controls.Add(this.lblGioiTinh);
             this.pnlLeft.Controls.Add(this.dtpNgaySinh);
             this.pnlLeft.Controls.Add(this.lblNgaySinh);
@@ -123,7 +122,7 @@
             this.pnlButtons.Controls.Add(this.btnLuu);
             this.pnlButtons.Controls.Add(this.btnBoQua);
             this.pnlButtons.Controls.Add(this.btnXoa);
-            this.pnlButtons.Location = new System.Drawing.Point(20, 642);
+            this.pnlButtons.Location = new System.Drawing.Point(20, 643);
             this.pnlButtons.Name = "pnlButtons";
             this.pnlButtons.Size = new System.Drawing.Size(290, 160);
             this.pnlButtons.TabIndex = 0;
@@ -138,6 +137,7 @@
             this.btnThem.Size = new System.Drawing.Size(130, 40);
             this.btnThem.TabIndex = 0;
             this.btnThem.Text = "+ Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnSua
             // 
@@ -150,6 +150,7 @@
             this.btnSua.Size = new System.Drawing.Size(130, 40);
             this.btnSua.TabIndex = 1;
             this.btnSua.Text = "✏ Sửa";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnLuu
             // 
@@ -162,6 +163,7 @@
             this.btnLuu.Size = new System.Drawing.Size(130, 40);
             this.btnLuu.TabIndex = 2;
             this.btnLuu.Text = "💾 Lưu";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnBoQua
             // 
@@ -174,6 +176,7 @@
             this.btnBoQua.Size = new System.Drawing.Size(130, 40);
             this.btnBoQua.TabIndex = 3;
             this.btnBoQua.Text = "✖ Bỏ qua";
+            this.btnBoQua.Click += new System.EventHandler(this.btnBoQua_Click);
             // 
             // btnXoa
             // 
@@ -186,6 +189,7 @@
             this.btnXoa.Size = new System.Drawing.Size(280, 40);
             this.btnXoa.TabIndex = 4;
             this.btnXoa.Text = "🗑 Xóa sinh viên";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // cboTrangThai
             // 
@@ -211,19 +215,15 @@
             this.lblTrangThai.TabIndex = 2;
             this.lblTrangThai.Text = "Trạng thái";
             // 
-            // txtSDT
+            // mskSDT
             // 
-            this.txtSDT.BorderRadius = 8;
-            this.txtSDT.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSDT.DefaultText = "";
-            this.txtSDT.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtSDT.Location = new System.Drawing.Point(20, 515);
-            this.txtSDT.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtSDT.Name = "txtSDT";
-            this.txtSDT.PlaceholderText = "Nhập số điện thoại";
-            this.txtSDT.SelectedText = "";
-            this.txtSDT.Size = new System.Drawing.Size(280, 40);
-            this.txtSDT.TabIndex = 3;
+            this.mskSDT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mskSDT.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.mskSDT.Location = new System.Drawing.Point(20, 515);
+            this.mskSDT.Mask = "(999) 000-0000";
+            this.mskSDT.Name = "mskSDT";
+            this.mskSDT.Size = new System.Drawing.Size(280, 34);
+            this.mskSDT.TabIndex = 3;
             // 
             // lblSDT
             // 
@@ -281,37 +281,37 @@
             this.lblLop.TabIndex = 8;
             this.lblLop.Text = "Lớp";
             // 
-            // chkNu
+            // rdoNu
             // 
-            this.chkNu.AutoSize = true;
-            this.chkNu.CheckedState.BorderRadius = 0;
-            this.chkNu.CheckedState.BorderThickness = 0;
-            this.chkNu.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.chkNu.Location = new System.Drawing.Point(120, 310);
-            this.chkNu.Name = "chkNu";
-            this.chkNu.Size = new System.Drawing.Size(62, 29);
-            this.chkNu.TabIndex = 9;
-            this.chkNu.Text = "Nữ";
-            this.chkNu.UncheckedState.BorderRadius = 0;
-            this.chkNu.UncheckedState.BorderThickness = 0;
+            this.rdoNu.AutoSize = true;
+            this.rdoNu.CheckedState.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.rdoNu.CheckedState.BorderThickness = 0;
+            this.rdoNu.CheckedState.FillColor = System.Drawing.Color.MidnightBlue;
+            this.rdoNu.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rdoNu.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.rdoNu.Location = new System.Drawing.Point(120, 310);
+            this.rdoNu.Name = "rdoNu";
+            this.rdoNu.Size = new System.Drawing.Size(61, 29);
+            this.rdoNu.TabIndex = 10;
+            this.rdoNu.Text = "Nữ";
+            this.rdoNu.UncheckedState.BorderThickness = 0;
             // 
-            // chkNam
+            // rdoNam
             // 
-            this.chkNam.AutoSize = true;
-            this.chkNam.Checked = true;
-            this.chkNam.CheckedState.BorderColor = System.Drawing.Color.MidnightBlue;
-            this.chkNam.CheckedState.BorderRadius = 0;
-            this.chkNam.CheckedState.BorderThickness = 0;
-            this.chkNam.CheckedState.FillColor = System.Drawing.Color.MidnightBlue;
-            this.chkNam.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkNam.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.chkNam.Location = new System.Drawing.Point(25, 310);
-            this.chkNam.Name = "chkNam";
-            this.chkNam.Size = new System.Drawing.Size(76, 29);
-            this.chkNam.TabIndex = 10;
-            this.chkNam.Text = "Nam";
-            this.chkNam.UncheckedState.BorderRadius = 0;
-            this.chkNam.UncheckedState.BorderThickness = 0;
+            this.rdoNam.AutoSize = true;
+            this.rdoNam.Checked = true;
+            this.rdoNam.CheckedState.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.rdoNam.CheckedState.BorderThickness = 0;
+            this.rdoNam.CheckedState.FillColor = System.Drawing.Color.MidnightBlue;
+            this.rdoNam.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rdoNam.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.rdoNam.Location = new System.Drawing.Point(25, 310);
+            this.rdoNam.Name = "rdoNam";
+            this.rdoNam.Size = new System.Drawing.Size(75, 29);
+            this.rdoNam.TabIndex = 9;
+            this.rdoNam.TabStop = true;
+            this.rdoNam.Text = "Nam";
+            this.rdoNam.UncheckedState.BorderThickness = 0;
             // 
             // lblGioiTinh
             // 
@@ -442,6 +442,7 @@
             this.dgvSinhVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSinhVien.Size = new System.Drawing.Size(1020, 765);
             this.dgvSinhVien.TabIndex = 0;
+            this.dgvSinhVien.Click += new System.EventHandler(this.dgvSinhVien_Click);
             // 
             // colMSV
             // 
@@ -494,7 +495,6 @@
             // pnlSearch
             // 
             this.pnlSearch.Controls.Add(this.txtTimKiem);
-            this.pnlSearch.Controls.Add(this.cboLocLop);
             this.pnlSearch.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSearch.Location = new System.Drawing.Point(20, 0);
             this.pnlSearch.Name = "pnlSearch";
@@ -515,22 +515,8 @@
             this.txtTimKiem.SelectedText = "";
             this.txtTimKiem.Size = new System.Drawing.Size(400, 42);
             this.txtTimKiem.TabIndex = 0;
-            // 
-            // cboLocLop
-            // 
-            this.cboLocLop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboLocLop.BackColor = System.Drawing.Color.Transparent;
-            this.cboLocLop.BorderRadius = 8;
-            this.cboLocLop.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboLocLop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboLocLop.FocusedColor = System.Drawing.Color.Empty;
-            this.cboLocLop.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cboLocLop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cboLocLop.ItemHeight = 30;
-            this.cboLocLop.Location = new System.Drawing.Point(1520, 14);
-            this.cboLocLop.Name = "cboLocLop";
-            this.cboLocLop.Size = new System.Drawing.Size(220, 36);
-            this.cboLocLop.TabIndex = 1;
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
+            this.txtTimKiem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTimKiem_KeyDown);
             // 
             // FrmQLSV
             // 
@@ -544,6 +530,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý sinh viên";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmQLSV_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlLeft.ResumeLayout(false);
@@ -575,8 +562,8 @@
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpNgaySinh;
 
         private Guna.UI2.WinForms.Guna2HtmlLabel lblGioiTinh;
-        private Guna.UI2.WinForms.Guna2CheckBox chkNam;
-        private Guna.UI2.WinForms.Guna2CheckBox chkNu;
+        private Guna.UI2.WinForms.Guna2RadioButton rdoNam;
+        private Guna.UI2.WinForms.Guna2RadioButton rdoNu;
 
         private Guna.UI2.WinForms.Guna2HtmlLabel lblLop;
         private Guna.UI2.WinForms.Guna2ComboBox cboLop;
@@ -585,7 +572,7 @@
         private Guna.UI2.WinForms.Guna2TextBox txtEmail;
 
         private Guna.UI2.WinForms.Guna2HtmlLabel lblSDT;
-        private Guna.UI2.WinForms.Guna2TextBox txtSDT;
+        private System.Windows.Forms.MaskedTextBox mskSDT;
 
         private Guna.UI2.WinForms.Guna2HtmlLabel lblTrangThai;
         private Guna.UI2.WinForms.Guna2ComboBox cboTrangThai;
@@ -603,7 +590,6 @@
         private System.Windows.Forms.Panel pnlSearch;
 
         private Guna.UI2.WinForms.Guna2TextBox txtTimKiem;
-        private Guna.UI2.WinForms.Guna2ComboBox cboLocLop;
 
         private System.Windows.Forms.DataGridView dgvSinhVien;
 
