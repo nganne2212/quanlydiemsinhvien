@@ -17,19 +17,21 @@ namespace qldsv.DAL
         public static DataTable GetByGiangVien(string maGV)
         {
             return Functions.GetDataToTable(@"
-                SELECT
-                    lhp.MaLHP,
-                    mh.TenMonHoc,
-                    mh.SoTinChi,
-                    lhp.ThuHoc,
-                    lhp.PhongHoc,
-                    (SELECT COUNT(*) FROM DangKyHocPhan dk WHERE dk.MaLHP = lhp.MaLHP) AS SiSo,
-                    lhp.MaHocKy
-                FROM LopHocPhan lhp
-                INNER JOIN MonHoc mh ON mh.MaMonHoc = lhp.MaMonHoc
-                WHERE lhp.MaGiangVien = @maGV
-                ORDER BY lhp.MaHocKy DESC, lhp.ThuHoc",
-                new { maGV });
+        SELECT
+            lhp.MaLHP,
+            mh.TenMon        AS TenMonHoc,
+            mh.SoTinChi,
+            lh.Thu           AS ThuHoc,
+            ph.TenPhong      AS PhongHoc,
+            (SELECT COUNT(*) FROM DangKyHP dk WHERE dk.MaLHP = lhp.MaLHP) AS SiSo,
+            lhp.MaHocKy
+        FROM LopHocPhan lhp
+        INNER JOIN MonHoc mh   ON mh.MaMonHoc  = lhp.MaMonHoc
+        LEFT  JOIN LichHoc lh  ON lh.MaLHP     = lhp.MaLHP
+        LEFT  JOIN PhongHoc ph ON ph.MaPhong   = lh.MaPhong
+        WHERE lhp.MaGiangVien = @maGV
+        ORDER BY lhp.MaHocKy DESC, lh.Thu",
+        new { maGV });
         }
 
         /// <summary>

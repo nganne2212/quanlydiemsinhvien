@@ -20,6 +20,12 @@ namespace qldsv.Forms.Giangvien
         }
         private void FrmDanhSachLHP_Load(object sender, EventArgs e)
         {
+            // Cột STT tự đếm
+            dgvLopHocPhan.CellFormatting += (s, ev) => {
+                if (ev.ColumnIndex == colSTT.Index && ev.RowIndex >= 0)
+                    ev.Value = ev.RowIndex + 1;
+            };
+
             LoadHocKy();
             LoadThuHoc();
             LoadDanhSach();
@@ -36,7 +42,7 @@ namespace qldsv.Forms.Giangvien
 
            
             DataRow rowAll = dt.NewRow();
-            rowAll["MaHocKy"] = "";
+            rowAll["MaHocKy"] = -1;
             rowAll["TenHocKy"] = "-- Tất cả học kỳ --";
             dt.Rows.InsertAt(rowAll, 0);
 
@@ -101,21 +107,25 @@ namespace qldsv.Forms.Giangvien
             lblThongKe.Text = $"Tổng lớp học phần: {(coData ? dt.Rows.Count : 0)}";
         }
 
-       
+
         private void LocDanhSach()
         {
             if (_tblGoc == null) return;
 
-            string maHocKy = cboHocKy.SelectedValue?.ToString() ?? "";
+            // ✅ Kiểm tra -1 thay vì DBNull hay ""
+            object selectedVal = cboHocKy.SelectedValue;
+            string maHocKy = (selectedVal != null && selectedVal.ToString() != "-1")
+                             ? selectedVal.ToString() : "";
+
             string thuChon = cboThuHoc.SelectedIndex > 0
-                                  ? (cboThuHoc.SelectedIndex + 1).ToString()   
+                                  ? (cboThuHoc.SelectedIndex + 1).ToString()
                                   : "";
             string keyword = txtSearch.Text.Trim().Replace("'", "''");
 
             string filter = "";
 
             if (!string.IsNullOrEmpty(maHocKy))
-                filter = AppendFilter(filter, $"MaHocKy = '{maHocKy}'");
+                filter = AppendFilter(filter, $"MaHocKy = {maHocKy}"); // không cần nháy đơn vì Int
 
             if (!string.IsNullOrEmpty(thuChon))
                 filter = AppendFilter(filter, $"ThuHoc = {thuChon}");
@@ -130,7 +140,7 @@ namespace qldsv.Forms.Giangvien
             HienThiDuLieu(dv.ToTable());
         }
 
-        
+
         private static string AppendFilter(string current, string condition)
             => string.IsNullOrEmpty(current) ? condition : $"({current}) AND ({condition})";
     }
