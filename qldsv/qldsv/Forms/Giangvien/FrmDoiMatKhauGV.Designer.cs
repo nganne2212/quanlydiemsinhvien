@@ -90,7 +90,7 @@
             // 
             this.lblMatKhauCu.AutoSize = true;
             this.lblMatKhauCu.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.lblMatKhauCu.Location = new System.Drawing.Point(50, 110);
+            this.lblMatKhauCu.Location = new System.Drawing.Point(50, 88);
             this.lblMatKhauCu.Name = "lblMatKhauCu";
             this.lblMatKhauCu.Size = new System.Drawing.Size(131, 30);
             this.lblMatKhauCu.TabIndex = 1;
@@ -102,7 +102,7 @@
             this.txtMatKhauCu.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMatKhauCu.DefaultText = "";
             this.txtMatKhauCu.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtMatKhauCu.Location = new System.Drawing.Point(55, 150);
+            this.txtMatKhauCu.Location = new System.Drawing.Point(55, 128);
             this.txtMatKhauCu.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtMatKhauCu.Name = "txtMatKhauCu";
             this.txtMatKhauCu.PasswordChar = '●';
@@ -115,7 +115,7 @@
             // 
             this.lblMatKhauMoi.AutoSize = true;
             this.lblMatKhauMoi.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.lblMatKhauMoi.Location = new System.Drawing.Point(50, 235);
+            this.lblMatKhauMoi.Location = new System.Drawing.Point(50, 213);
             this.lblMatKhauMoi.Name = "lblMatKhauMoi";
             this.lblMatKhauMoi.Size = new System.Drawing.Size(146, 30);
             this.lblMatKhauMoi.TabIndex = 2;
@@ -127,7 +127,7 @@
             this.txtMatKhauMoi.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMatKhauMoi.DefaultText = "";
             this.txtMatKhauMoi.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtMatKhauMoi.Location = new System.Drawing.Point(55, 275);
+            this.txtMatKhauMoi.Location = new System.Drawing.Point(55, 253);
             this.txtMatKhauMoi.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtMatKhauMoi.Name = "txtMatKhauMoi";
             this.txtMatKhauMoi.PasswordChar = '●';
@@ -140,7 +140,7 @@
             // 
             this.lblNhapLai.AutoSize = true;
             this.lblNhapLai.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.lblNhapLai.Location = new System.Drawing.Point(50, 360);
+            this.lblNhapLai.Location = new System.Drawing.Point(50, 338);
             this.lblNhapLai.Name = "lblNhapLai";
             this.lblNhapLai.Size = new System.Drawing.Size(187, 30);
             this.lblNhapLai.TabIndex = 3;
@@ -152,7 +152,7 @@
             this.txtNhapLai.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNhapLai.DefaultText = "";
             this.txtNhapLai.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtNhapLai.Location = new System.Drawing.Point(55, 400);
+            this.txtNhapLai.Location = new System.Drawing.Point(55, 378);
             this.txtNhapLai.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtNhapLai.Name = "txtNhapLai";
             this.txtNhapLai.PasswordChar = '●';
@@ -167,7 +167,7 @@
             this.chkHienThi.CheckedState.BorderRadius = 0;
             this.chkHienThi.CheckedState.BorderThickness = 0;
             this.chkHienThi.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.chkHienThi.Location = new System.Drawing.Point(55, 470);
+            this.chkHienThi.Location = new System.Drawing.Point(55, 448);
             this.chkHienThi.Name = "chkHienThi";
             this.chkHienThi.Size = new System.Drawing.Size(164, 32);
             this.chkHienThi.TabIndex = 4;
@@ -179,7 +179,7 @@
             // 
             this.pnlButton.Controls.Add(this.btnDoiMatKhau);
             this.pnlButton.Controls.Add(this.btnHuy);
-            this.pnlButton.Location = new System.Drawing.Point(55, 540);
+            this.pnlButton.Location = new System.Drawing.Point(55, 517);
             this.pnlButton.Name = "pnlButton";
             this.pnlButton.Size = new System.Drawing.Size(520, 60);
             this.pnlButton.TabIndex = 5;
