@@ -20,8 +20,8 @@ namespace qldsv.Forms.Admin
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
@@ -146,9 +146,9 @@ namespace qldsv.Forms.Admin
             this.dgvSinhVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSinhVien.BackgroundColor = System.Drawing.Color.White;
             this.dgvSinhVien.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.dgvSinhVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.dgvSinhVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvSinhVien.ColumnHeadersHeight = 34;
             this.dgvSinhVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colMSSV,
@@ -274,7 +274,7 @@ namespace qldsv.Forms.Admin
             this.txtSearchSV.Name = "txtSearchSV";
             this.txtSearchSV.PlaceholderText = "Tìm MSSV / ho ten sinh vien";
             this.txtSearchSV.SelectedText = "";
-            this.txtSearchSV.Size = new System.Drawing.Size(320, 38);
+            this.txtSearchSV.Size = new System.Drawing.Size(880, 38);
             this.txtSearchSV.TabIndex = 0;
             this.txtSearchSV.TextChanged += new System.EventHandler(this.txtSearchSV_TextChanged);
             this.txtSearchSV.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearchSV_KeyDown);
@@ -305,9 +305,9 @@ namespace qldsv.Forms.Admin
             this.dgvLopHocPhan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLopHocPhan.BackgroundColor = System.Drawing.Color.White;
             this.dgvLopHocPhan.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.dgvLopHocPhan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.dgvLopHocPhan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvLopHocPhan.ColumnHeadersHeight = 34;
             this.dgvLopHocPhan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colMaLHP,

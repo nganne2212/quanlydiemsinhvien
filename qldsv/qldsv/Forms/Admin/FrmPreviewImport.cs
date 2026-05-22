@@ -31,7 +31,7 @@ namespace qldsv.Forms.Admin
         {
             this.Text = "Xem trước import - LHP: " + _maLHP;
             HienThiKetQua();
-            btnXacNhan.Click += new EventHandler(btnXacNhan_Click);
+            
             btnHuy.Click += (s, ev) => { this.DialogResult = DialogResult.Cancel; this.Close(); };
         }
         private void HienThiKetQua()

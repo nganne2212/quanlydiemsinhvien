@@ -24,5 +24,9 @@ namespace qldsv.BLL
         {
             return CanhBaoHocVuDAL.GetHocKyByGiangVien(maGiangVien);
         }
+        public static void ExportExcel(DataTable dt, string filePath)
+        {
+            CanhBaoHocVuDAL.ExportExcel(dt, filePath);
+        }
     }
 }

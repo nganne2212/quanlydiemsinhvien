@@ -202,5 +202,35 @@ namespace qldsv.Forms.Giangvien
                 e.SuppressKeyPress = true;
             }
         }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            if (dgvCanhBao.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để xuất!",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                return;
+            }
+
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "Excel|*.xlsx";
+                sfd.FileName = "CanhBaoHocVu.xlsx";
+
+                if (sfd.ShowDialog() != DialogResult.OK)
+                    return;
+
+                DataTable dt = (DataTable)dgvCanhBao.DataSource;
+
+                CanhBaoHocVuBLL.ExportExcel(dt, sfd.FileName);
+
+                MessageBox.Show("Xuất Excel thành công!",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+        }
     }
 }
