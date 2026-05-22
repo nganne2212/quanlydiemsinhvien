@@ -51,12 +51,13 @@ namespace qldsv.Forms.Giangvien
             DataTable dt = CanhBaoHocVuBLL.GetLopByGiangVien(maGiangVien);
 
             DataRow row = dt.NewRow();
-            row["MaLop"] = "";
-            row["TenLop"] = "-- Tất cả lớp --";
+            row["MaLop"] = "Tất cả lớp";
+            row["TenLop"] = "Tất cả lớp";
+
             dt.Rows.InsertAt(row, 0);
 
             cboLop.DataSource = dt;
-            cboLop.DisplayMember = "TenLop";
+            cboLop.DisplayMember = "MaLop";
             cboLop.ValueMember = "MaLop";
             cboLop.SelectedIndex = 0;
         }
@@ -65,9 +66,9 @@ namespace qldsv.Forms.Giangvien
         {
             cboMuc.Items.Clear();
             cboMuc.Items.Add("-- Tất cả mức --");
-            cboMuc.Items.Add("CanhBao1");
-            cboMuc.Items.Add("CanhBao2");
-            cboMuc.Items.Add("BuocThoiHoc");
+            cboMuc.Items.Add("Cảnh Báo 1");
+            cboMuc.Items.Add("Cảnh Báo 2");
+            cboMuc.Items.Add("Buộc Thôi Học");
             cboMuc.SelectedIndex = 0;
         }
 
@@ -111,16 +112,19 @@ namespace qldsv.Forms.Giangvien
                 {
                     row.DefaultCellStyle.BackColor = Color.FromArgb(255, 220, 220);
                     row.DefaultCellStyle.ForeColor = Color.DarkRed;
+                    row.Cells["colMucCB"].Value = "Buộc Thôi Học";
                 }
                 else if (muc == "CanhBao2")
                 {
                     row.DefaultCellStyle.BackColor = Color.FromArgb(255, 243, 205);
                     row.DefaultCellStyle.ForeColor = Color.DarkOrange;
+                    row.Cells["colMucCB"].Value = "Cảnh Báo 2";
                 }
                 else
                 {
                     row.DefaultCellStyle.BackColor = Color.White;
                     row.DefaultCellStyle.ForeColor = Color.Black;
+                    row.Cells["colMucCB"].Value = "Cảnh Báo 1";
                 }
             }
 
