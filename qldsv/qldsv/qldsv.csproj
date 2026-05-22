@@ -115,6 +115,7 @@
   <!-- Source files -->
   <!-- ======================== -->
   <ItemGroup>
+    <Compile Include="BLL\DoiMatKhauSVBLL.cs" />
     <Compile Include="BLL\DSLHocPhanBLL.cs" />
     <Compile Include="BLL\CanhBaoHocVuBLL.cs" />
     <Compile Include="BLL\DiemBLL.cs" />
@@ -131,6 +132,7 @@
     <Compile Include="BLL\TaiKhoanBLL.cs" />
     <Compile Include="Class\CurentUser.cs" />
     <Compile Include="Class\Functions.cs" />
+    <Compile Include="DAL\DoiMatKhauSVDAL.cs" />
     <Compile Include="DAL\DSLHocPhanDAL.cs" />
     <Compile Include="DAL\CanhBaoHocVuDAL.cs" />
     <Compile Include="DAL\DiemDAL.cs" />
