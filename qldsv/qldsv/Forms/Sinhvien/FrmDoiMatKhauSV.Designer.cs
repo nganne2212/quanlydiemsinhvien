@@ -42,17 +42,17 @@
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1400, 55);
+            this.pnlHeader.Size = new System.Drawing.Size(1400, 50);
             this.pnlHeader.TabIndex = 0;
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(20, 10);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(243, 38);
+            this.lblTitle.Size = new System.Drawing.Size(208, 32);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "🔑 Đổi mật khẩu";
             // 
@@ -69,10 +69,10 @@
             this.pnlMain.Controls.Add(this.chkHienThi);
             this.pnlMain.Controls.Add(this.pnlButton);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMain.Location = new System.Drawing.Point(0, 55);
+            this.pnlMain.Location = new System.Drawing.Point(0, 50);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Padding = new System.Windows.Forms.Padding(40);
-            this.pnlMain.Size = new System.Drawing.Size(1400, 745);
+            this.pnlMain.Size = new System.Drawing.Size(1400, 750);
             this.pnlMain.TabIndex = 1;
             // 
             // lblSection
