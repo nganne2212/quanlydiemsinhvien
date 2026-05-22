@@ -14,32 +14,36 @@ namespace qldsv.DAL
         /// <summary>Lấy danh sách đơn phúc khảo, lọc theo HK và trạng thái.</summary>
         public static DataTable GetAll(int maHocKy = 0, string trangThai = "")
         {
-            string whereHK = maHocKy > 0 ? "AND lhp.MaHocKy = @MaHocKy" : "";
-            string whereTT = !string.IsNullOrEmpty(trangThai) ? "AND pk.TrangThai = @TrangThai" : "";
-
-            return Functions.GetDataToTable(
-                $@"SELECT pk.MaPhucKhao,
+            string sql = @"SELECT pk.MaPhucKhao,
                           dk.MaDangKy,
-                          sv.MaSinhVien + ' - ' + sv.HoTen   AS TenSinhVien,
+                          dk.MaDangKy AS MaDangKyRef,
+                          sv.MaSinhVien + ' - ' + sv.HoTen AS TenSinhVien,
                           mh.TenMon,
                           pk.NgayGui,
                           pk.TrangThai,
                           pk.LyDo,
-                          d.CuoiKy                           AS DiemCu,
-                          dk.MaDangKy                        AS MaDangKyRef
+                          d.CuoiKy AS DiemCu,
                           lhp.MaGiangVien,
-                          gv.HoTen AS TenGiangVien,
+                          gv.HoTen AS TenGiangVien
                    FROM PhucKhao pk
                    JOIN DangKyHP   dk  ON pk.MaDangKy  = dk.MaDangKy
                    JOIN SinhVien   sv  ON dk.MaSinhVien = sv.MaSinhVien
                    JOIN LopHocPhan lhp ON dk.MaLHP      = lhp.MaLHP
                    JOIN MonHoc     mh  ON lhp.MaMonHoc  = mh.MaMonHoc
-                   JOIN GiangVien gv ON lhp.MaGiangVien = gv.MaGiangVien
+                   JOIN GiangVien  gv  ON lhp.MaGiangVien = gv.MaGiangVien
                    LEFT JOIN Diem  d   ON dk.MaDangKy   = d.MaDangKy
                                       AND d.TrangThai   = N'DaXacNhan'
-                   WHERE 1=1 {whereHK} {whereTT}
-                   ORDER BY pk.NgayGui DESC",
-                new { MaHocKy = maHocKy, TrangThai = trangThai });
+                   WHERE 1=1";
+
+            if (maHocKy > 0)
+                sql += " AND lhp.MaHocKy = " + maHocKy;
+
+            if (!string.IsNullOrEmpty(trangThai))
+                sql += $" AND pk.TrangThai = N'{trangThai}'";
+
+            sql += " ORDER BY pk.NgayGui DESC";
+
+            return Functions.GetDataToTable(sql);
         }
 
         /// <summary>Lấy danh sách HK có đơn phúc khảo để fill ComboBox.</summary>
