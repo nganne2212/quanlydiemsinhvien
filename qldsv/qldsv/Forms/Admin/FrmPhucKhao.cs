@@ -16,5 +16,10 @@ namespace qldsv.Forms.Admin
         {
             InitializeComponent();
         }
+
+        private void FrmPhucKhao_Load(object sender, EventArgs e)
+        {
+            splitMain.SplitterDistance = 480;
+        }
     }
 }
