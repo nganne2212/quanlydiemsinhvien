@@ -30,14 +30,7 @@ namespace qldsv.Utils
             return "";
         }
 
-        // ════════════════════════════════════════════════════════
-        //  KIỂM TRA PHÚC KHẢO — Form có thể gọi độc lập
-        // ════════════════════════════════════════════════════════
 
-        /// <summary>
-        /// Trả về "" nếu không còn đơn phúc khảo chưa xử lý,
-        /// trả về string lỗi nếu còn.
-        /// </summary>
         public static string KiemTraPhucKhaoChuaXuLy(int maHocKy)
         {
             int so = Functions.QuerySingle<int>(
@@ -54,9 +47,7 @@ namespace qldsv.Utils
                 : "";
         }
 
-        // ════════════════════════════════════════════════════════
-        //  XÉT TỪNG SINH VIÊN
-        // ════════════════════════════════════════════════════════
+
 
         private static void KiemTraVaCanhBao(string maSV, int maHocKy)
         {
@@ -83,32 +74,40 @@ namespace qldsv.Utils
                     AND d.TongKet    < 4.0",
                 new { MaSV = maSV, MaHocKy = maHocKy });
 
-            // ── 3. TC tích lũy đạt (TongKet >= 4.0, lần học đầu) 
+            // ── 3. TC tích lũy đạt (TongKet >= 4.0) 
             //       Đây là TCTL thực sự: tổng TC đã qua, dùng để báo cáo
             int tctl = Functions.QuerySingle<int>(
-                @"SELECT ISNULL(SUM(mh.SoTinChi), 0)
+                        @"SELECT ISNULL(SUM(SoTinChi), 0)
+              FROM (
+                  SELECT lhp.MaMonHoc, mh.SoTinChi,
+                         MAX(d.TongKet) AS DiemTot
                   FROM DangKyHP dk
                   JOIN LopHocPhan lhp ON dk.MaLHP     = lhp.MaLHP
                   JOIN MonHoc     mh  ON lhp.MaMonHoc = mh.MaMonHoc
                   JOIN Diem       d   ON dk.MaDangKy  = d.MaDangKy
                   WHERE dk.MaSinhVien = @MaSV
                     AND d.TrangThai   = N'DaXacNhan'
-                    AND d.Loaihoc     = N'LanDau'
-                    AND d.TongKet    >= 4.0",
+                  GROUP BY lhp.MaMonHoc, mh.SoTinChi
+                  HAVING MAX(d.TongKet) >= 4.0
+      ) t",
                 new { MaSV = maSV });
 
             // ── 4. Nợ tích lũy (TC lần đầu chưa đạt toàn lịch sử)
-            int noTichLuy = Functions.QuerySingle<int>(
-                @"SELECT ISNULL(SUM(mh.SoTinChi), 0)
+                    int noTichLuy = Functions.QuerySingle<int>(
+            @"SELECT ISNULL(SUM(SoTinChi), 0)
+              FROM (
+                  SELECT lhp.MaMonHoc, mh.SoTinChi,
+                         MAX(d.TongKet) AS DiemTot
                   FROM DangKyHP dk
                   JOIN LopHocPhan lhp ON dk.MaLHP     = lhp.MaLHP
                   JOIN MonHoc     mh  ON lhp.MaMonHoc = mh.MaMonHoc
                   JOIN Diem       d   ON dk.MaDangKy  = d.MaDangKy
                   WHERE dk.MaSinhVien = @MaSV
                     AND d.TrangThai   = N'DaXacNhan'
-                    AND d.Loaihoc     = N'LanDau'
-                    AND d.TongKet     < 4.0",
-                new { MaSV = maSV });
+                  GROUP BY lhp.MaMonHoc, mh.SoTinChi
+                  HAVING MAX(d.TongKet) < 4.0
+              ) t",
+            new { MaSV = maSV });
 
             // ── 5. ĐTBHK — trung bình có trọng số trong kỳ này ──
             double dtbhk = Functions.QuerySingle<double>(
@@ -126,17 +125,21 @@ namespace qldsv.Utils
 
             // ── 6. ĐTBTL — trung bình tích lũy lần học đầu ──────
             double dtbtl = Functions.QuerySingle<double>(
-                @"SELECT ISNULL(
-                    SUM(d.TongKet * mh.SoTinChi) / NULLIF(SUM(mh.SoTinChi), 0)
-                  , 0)
+                        @"SELECT ISNULL(
+                SUM(DiemTot * SoTinChi) / NULLIF(SUM(SoTinChi), 0)
+              , 0)
+              FROM (
+                  SELECT lhp.MaMonHoc, mh.SoTinChi,
+                         MAX(d.TongKet) AS DiemTot
                   FROM DangKyHP dk
                   JOIN LopHocPhan lhp ON dk.MaLHP     = lhp.MaLHP
                   JOIN MonHoc     mh  ON lhp.MaMonHoc = mh.MaMonHoc
                   JOIN Diem       d   ON dk.MaDangKy  = d.MaDangKy
                   WHERE dk.MaSinhVien = @MaSV
                     AND d.TrangThai   = N'DaXacNhan'
-                    AND d.Loaihoc     = N'LanDau'",
-                new { MaSV = maSV });
+                  GROUP BY lhp.MaMonHoc, mh.SoTinChi
+              ) t",
+                        new { MaSV = maSV });
 
             // ── 7. Xác định năm học của SV (đếm số kỳ đã học) ───
             int soKyDaHoc = Functions.QuerySingle<int>(

@@ -104,7 +104,6 @@
             this.dgvTaikhoan.RowTemplate.Height = 28;
             this.dgvTaikhoan.Size = new System.Drawing.Size(982, 509);
             this.dgvTaikhoan.TabIndex = 6;
-            //this.dgvTaikhoan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaikhoan_CellContentClick);
             this.dgvTaikhoan.SelectionChanged += new System.EventHandler(this.dgvTaikhoan_SelectionChanged);
             // 
             // pnlFilter
@@ -201,11 +200,11 @@
             this.btnDoimatkhau.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnDoimatkhau.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnDoimatkhau.ForeColor = System.Drawing.Color.White;
-            this.btnDoimatkhau.Location = new System.Drawing.Point(34, 420);
+            this.btnDoimatkhau.Location = new System.Drawing.Point(34, 483);
             this.btnDoimatkhau.Name = "btnDoimatkhau";
-            this.btnDoimatkhau.Size = new System.Drawing.Size(145, 32);
+            this.btnDoimatkhau.Size = new System.Drawing.Size(145, 57);
             this.btnDoimatkhau.TabIndex = 3;
-            this.btnDoimatkhau.Text = "Đổi mật khẩu";
+            this.btnDoimatkhau.Text = "Reset password";
             this.btnDoimatkhau.Click += new System.EventHandler(this.btnDoimatkhau_Click);
             // 
             // btnMoKhoa
@@ -218,9 +217,9 @@
             this.btnMoKhoa.FillColor = System.Drawing.Color.SeaGreen;
             this.btnMoKhoa.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnMoKhoa.ForeColor = System.Drawing.Color.White;
-            this.btnMoKhoa.Location = new System.Drawing.Point(34, 345);
+            this.btnMoKhoa.Location = new System.Drawing.Point(34, 379);
             this.btnMoKhoa.Name = "btnMoKhoa";
-            this.btnMoKhoa.Size = new System.Drawing.Size(145, 32);
+            this.btnMoKhoa.Size = new System.Drawing.Size(145, 60);
             this.btnMoKhoa.TabIndex = 2;
             this.btnMoKhoa.Text = "Mở Khóa";
             this.btnMoKhoa.Click += new System.EventHandler(this.btnMoKhoa_Click);
@@ -238,7 +237,7 @@
             this.btnKhoa.ForeColor = System.Drawing.Color.White;
             this.btnKhoa.Location = new System.Drawing.Point(34, 268);
             this.btnKhoa.Name = "btnKhoa";
-            this.btnKhoa.Size = new System.Drawing.Size(145, 32);
+            this.btnKhoa.Size = new System.Drawing.Size(145, 56);
             this.btnKhoa.TabIndex = 1;
             this.btnKhoa.Text = "Khóa";
             this.btnKhoa.Click += new System.EventHandler(this.btnKhoa_Click);

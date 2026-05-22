@@ -42,13 +42,40 @@ namespace qldsv.Forms.Admin
             cboLop.ValueMember = "MaLop";
             cboLop.SelectedIndex = -1;
 
+            // combobox lọc
+            DataTable dtLoc = dt.Copy();
 
+            DataRow row = dtLoc.NewRow();
+            row["MaLop"] = "Tất cả lớp";
+            row["TenLop"] = "Tất cả lớp";
+
+            dtLoc.Rows.InsertAt(row, 0);
+
+            cboLocLop.DataSource = dtLoc;
+            cboLocLop.DisplayMember = "MaLop";
+            cboLocLop.ValueMember = "MaLop";
+            cboLocLop.SelectedIndex = 0;
         }
 
         private void LoadTrangThai()
         {
-            cboTrangThai.Items.AddRange(new string[] { "Đang Học", "Thôi Học", "Tốt Nghiệp" });
+            cboTrangThai.Items.AddRange(
+                new string[]
+                {
+            "Đang Học",
+            "Thôi Học",
+            "Tốt Nghiệp"
+                });
+
             cboTrangThai.SelectedIndex = -1;
+
+            // combobox lọc
+            cboLocTrangThai.Items.Add("Tất cả trạng thái");
+            cboLocTrangThai.Items.Add("Đang Học");
+            cboLocTrangThai.Items.Add("Thôi Học");
+            cboLocTrangThai.Items.Add("Tốt Nghiệp");
+
+            cboLocTrangThai.SelectedIndex = 0;
         }
 
         private void Load_DataGridView()
@@ -60,7 +87,7 @@ namespace qldsv.Forms.Admin
             colHoTen.DataPropertyName = "HoTen";
             colNgaySinh.DataPropertyName = "NgaySinh";
             colGioiTinh.DataPropertyName = "GioiTinh";
-            colLop.DataPropertyName = "TenLop";
+            colLop.DataPropertyName = "MaLop";
             colEmail.DataPropertyName = "Email";
             colSDT.DataPropertyName = "SoDienThoai";
             colTrangThai.DataPropertyName = "TrangThai";
@@ -220,32 +247,54 @@ namespace qldsv.Forms.Admin
             btnXoa.Enabled = false;
         }
 
-        private void txtTimKiem_TextChanged(object sender, EventArgs e)
-        {
-            LocDanhSach();
-        }
         private void LocDanhSach()
         {
             if (tblSV == null) return;
 
-            string keyword = txtTimKiem.Text.Trim().ToLower();
+            string keyword =
+                txtTimKiem.Text.Trim().Replace("'", "''");
+
+            string lop =
+                cboLocLop.SelectedValue?.ToString() ?? "";
+
+            string trangThai =
+                cboLocTrangThai.Text;
+
+            List<string> filters = new List<string>();
+
+            // tìm kiếm
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                filters.Add(
+                    $"(MaSinhVien LIKE '%{keyword}%' " +
+                    $"OR HoTen LIKE '%{keyword}%')");
+            }
+
+            // lọc lớp
+            if (lop != "Tất cả lớp")
+            {
+                filters.Add($"MaLop = '{lop}'");
+            }
+
+            // lọc trạng thái
+            if (trangThai != "Tất cả trạng thái")
+            {
+                filters.Add($"TrangThai = '{trangThai}'");
+            }
+
+            string filter = string.Join(" AND ", filters);
 
             DataView dv = tblSV.DefaultView;
+            dv.RowFilter = filter;
 
-            if (string.IsNullOrEmpty(keyword))
-                dv.RowFilter = "";
-            else
-                dv.RowFilter = $"MaSinhVien LIKE '%{keyword}%' " +
-                               $"OR HoTen LIKE '%{keyword}%' " +
-                               $"OR TenLop LIKE '%{keyword}%'";
-
-            dgvSinhVien.DataSource = dv.ToTable();
+            dgvSinhVien.DataSource = dv;
+            
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
             string maLop = cboLop.SelectedValue?.ToString() ?? "";
-            string gioiTinh = rdoNam.Checked ? "Nam" : "Nu";
+            string gioiTinh = rdoNam.Checked ? "Nam" : "Nữ";
             string trangThai = cboTrangThai.SelectedItem?.ToString() ?? "";
             string loi = "";
 
@@ -277,7 +326,18 @@ namespace qldsv.Forms.Admin
             txtMSV.Enabled = false;
         }
 
-        private void txtTimKiem_KeyDown(object sender, KeyEventArgs e)
+        
+        private void cboLocLop_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LocDanhSach();
+        }
+
+        private void cboLocTrangThai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LocDanhSach();
+        }
+
+        private void txtTimKiem_KeyDown_1(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -285,6 +345,11 @@ namespace qldsv.Forms.Admin
                     MessageBox.Show("Không tìm thấy sinh viên nào!", "Thông báo",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void txtTimKiem_TextChanged_1(object sender, EventArgs e)
+        {
+            LocDanhSach();
         }
     }
 }

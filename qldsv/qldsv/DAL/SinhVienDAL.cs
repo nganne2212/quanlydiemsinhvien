@@ -17,7 +17,7 @@ namespace qldsv.DAL
             {
                 return Functions.GetDataToTable(@"
                 SELECT sv.MaSinhVien, sv.HoTen, sv.NgaySinh, sv.GioiTinh,
-                       sv.Email, sv.SoDienThoai, sv.TrangThai, l.TenLop, l.MaLop
+                       sv.Email, sv.SoDienThoai, sv.Trangthai, l.TenLop, l.MaLop
                 FROM SinhVien sv
                 JOIN Lop l ON sv.MaLop = l.MaLop");
             }
@@ -57,7 +57,7 @@ namespace qldsv.DAL
 
                         Functions.Conn.Execute(@"
                         INSERT INTO SinhVien
-                            (MaSinhVien, HoTen, NgaySinh, GioiTinh, Email, SoDienThoai, TrangThai, MaLop, MaNguoiDung)
+                            (MaSinhVien, HoTen, NgaySinh, GioiTinh, Email, SoDienThoai, Trangthai, MaLop, MaNguoiDung)
                         VALUES
                             (@ma, @ten, @ns, @gt, @email, @sdt, @tt, @lop, @mand)",
                             new
@@ -90,7 +90,7 @@ namespace qldsv.DAL
                 Functions.Execute(@"
                 UPDATE SinhVien
                 SET HoTen=@ten, NgaySinh=@ns, GioiTinh=@gt,
-                    Email=@email, SoDienThoai=@sdt, TrangThai=@tt, MaLop=@lop
+                    Email=@email, SoDienThoai=@sdt, Trangthai=@tt, MaLop=@lop
                 WHERE MaSinhVien=@ma",
                     new
                     {

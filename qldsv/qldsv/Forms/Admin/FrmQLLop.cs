@@ -148,7 +148,7 @@ namespace qldsv.Forms.Admin
                 e.Handled = true;
                 MessageBox.Show(
                     $"Ký tự '{e.KeyChar}' không hợp lệ!\n\n" +
-"Mã lớp chỉ chấp nhận chữ cái và chữ số,\n" +
+                    "Mã lớp chỉ chấp nhận chữ cái và chữ số,\n" +
                     "không có khoảng trắng hoặc ký tự đặc biệt.",
                     "Ký tự không hợp lệ",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -290,6 +290,33 @@ namespace qldsv.Forms.Admin
             btnBoQua.Enabled = true;
             txtTenLop.Enabled = true;
             txtTenLop.Focus();
+            if (txtTenLop.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập tên lớp!",
+                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTenLop.Focus();
+                return;
+            }
+
+            string maKhoa = cboKhoa.SelectedValue?.ToString();
+            string maGV = cboCVHT.SelectedValue?.ToString();
+
+            string err = LopBLL.Update(txtMaLop.Text, txtTenLop.Text, maKhoa, maGV);
+            if (!string.IsNullOrEmpty(err))
+            {
+                MessageBox.Show(err, "Dữ liệu không hợp lệ",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            MessageBox.Show("Cập nhật lớp thành công!",
+                "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            Load_DataGridView();
+            ResetValues();
+            txtMaLop.Enabled = false;
+            txtTenLop.Enabled = false;
+            btnBoQua.Enabled = false;
         }
 
         // ── Nút Lưu: INSERT nếu đang Thêm, UPDATE nếu đang Sửa ──────────
