@@ -65,9 +65,9 @@ namespace qldsv.Forms.Admin
                 maHK = Convert.ToInt32(cboHocKy.SelectedValue);
             }
 
-            string trangThai = cboTrangThai.SelectedIndex > 0
-                ? cboTrangThai.SelectedItem.ToString()
-                : "";
+            string trangThai = cboTrangThai.SelectedIndex == 1 ? "ChuaXuLy"
+                             : cboTrangThai.SelectedIndex == 2 ? "DaXuLy"
+                             : "";
 
             tblPhucKhao = PhucKhaoBLL.GetAll(maHK, trangThai);
 
@@ -221,7 +221,7 @@ namespace qldsv.Forms.Admin
 
             txtDiemMoi.Enabled = false;
 
-            btnCapNhat.Enabled = trangThai == "Chưa Xử Lý";
+            btnCapNhat.Enabled = trangThai == "ChuaXuLy";
         }
 
         private void cboKetLuan_SelectedIndexChanged(object sender, EventArgs e)
