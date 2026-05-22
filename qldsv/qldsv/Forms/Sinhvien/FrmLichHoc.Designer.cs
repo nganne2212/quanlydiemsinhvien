@@ -49,17 +49,17 @@
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1400, 55);
+            this.pnlHeader.Size = new System.Drawing.Size(1400, 50);
             this.pnlHeader.TabIndex = 0;
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(20, 10);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(171, 38);
+            this.lblTitle.Size = new System.Drawing.Size(148, 32);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "📖 Lịch học";
             // 
@@ -70,7 +70,7 @@
             this.pnlTop.Controls.Add(this.cboHocKy);
             this.pnlTop.Controls.Add(this.btnXem);
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTop.Location = new System.Drawing.Point(0, 55);
+            this.pnlTop.Location = new System.Drawing.Point(0, 50);
             this.pnlTop.Name = "pnlTop";
             this.pnlTop.Size = new System.Drawing.Size(1400, 75);
             this.pnlTop.TabIndex = 1;
@@ -121,7 +121,7 @@
             this.pnlInfo.Controls.Add(this.lblHoTen);
             this.pnlInfo.Controls.Add(this.lblLop);
             this.pnlInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlInfo.Location = new System.Drawing.Point(0, 130);
+            this.pnlInfo.Location = new System.Drawing.Point(0, 125);
             this.pnlInfo.Name = "pnlInfo";
             this.pnlInfo.Size = new System.Drawing.Size(1400, 80);
             this.pnlInfo.TabIndex = 2;
@@ -184,13 +184,13 @@
             this.dgvLichHoc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLichHoc.EnableHeadersVisualStyles = false;
             this.dgvLichHoc.GridColor = System.Drawing.Color.Gainsboro;
-            this.dgvLichHoc.Location = new System.Drawing.Point(0, 210);
+            this.dgvLichHoc.Location = new System.Drawing.Point(0, 205);
             this.dgvLichHoc.Name = "dgvLichHoc";
             this.dgvLichHoc.RowHeadersVisible = false;
             this.dgvLichHoc.RowHeadersWidth = 62;
             this.dgvLichHoc.RowTemplate.Height = 36;
             this.dgvLichHoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLichHoc.Size = new System.Drawing.Size(1400, 590);
+            this.dgvLichHoc.Size = new System.Drawing.Size(1400, 595);
             this.dgvLichHoc.TabIndex = 3;
             // 
             // colThu

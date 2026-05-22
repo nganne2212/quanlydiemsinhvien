@@ -49,17 +49,17 @@
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1400, 60);
+            this.pnlHeader.Size = new System.Drawing.Size(1400, 50);
             this.pnlHeader.TabIndex = 0;
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(20, 12);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(201, 38);
+            this.lblTitle.Size = new System.Drawing.Size(173, 32);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "📋 Phúc khảo";
             // 
@@ -69,7 +69,7 @@
             this.pnlTop.Controls.Add(this.lblHocKy);
             this.pnlTop.Controls.Add(this.cboHocKy);
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTop.Location = new System.Drawing.Point(0, 60);
+            this.pnlTop.Location = new System.Drawing.Point(0, 50);
             this.pnlTop.Name = "pnlTop";
             this.pnlTop.Size = new System.Drawing.Size(1400, 74);
             this.pnlTop.TabIndex = 1;
@@ -113,7 +113,7 @@
             this.pnlMain.Controls.Add(this.btnGui);
             this.pnlMain.Controls.Add(this.btnLamMoi);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlMain.Location = new System.Drawing.Point(0, 134);
+            this.pnlMain.Location = new System.Drawing.Point(0, 124);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(1400, 270);
             this.pnlMain.TabIndex = 2;
@@ -241,13 +241,13 @@
             this.colTrangThai});
             this.dgvPhucKhao.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPhucKhao.EnableHeadersVisualStyles = false;
-            this.dgvPhucKhao.Location = new System.Drawing.Point(0, 404);
+            this.dgvPhucKhao.Location = new System.Drawing.Point(0, 394);
             this.dgvPhucKhao.Name = "dgvPhucKhao";
             this.dgvPhucKhao.RowHeadersVisible = false;
             this.dgvPhucKhao.RowHeadersWidth = 62;
             this.dgvPhucKhao.RowTemplate.Height = 35;
             this.dgvPhucKhao.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPhucKhao.Size = new System.Drawing.Size(1400, 396);
+            this.dgvPhucKhao.Size = new System.Drawing.Size(1400, 406);
             this.dgvPhucKhao.TabIndex = 3;
             // 
             // colMonHoc

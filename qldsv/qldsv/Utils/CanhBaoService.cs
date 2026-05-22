@@ -6,13 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace qldsv.Utils
 {
     internal class CanhBaoService
     {
         public static string XuLyCanhBaoSauDongHK(int maHocKy)
         {
-            // Lấy danh sách SV có đăng ký trong kỳ
             DataTable dsSV = Functions.GetDataToTable(
                 @"SELECT DISTINCT dk.MaSinhVien
                   FROM DangKyHP dk
@@ -20,7 +20,6 @@ namespace qldsv.Utils
                   WHERE lhp.MaHocKy = @MaHocKy",
                 new { MaHocKy = maHocKy });
 
-            // Bước 3: Xét từng SV
             foreach (DataRow row in dsSV.Rows)
             {
                 string maSV = row["MaSinhVien"].ToString();
@@ -29,7 +28,6 @@ namespace qldsv.Utils
 
             return "";
         }
-
 
         public static string KiemTraPhucKhaoChuaXuLy(int maHocKy)
         {
@@ -43,15 +41,13 @@ namespace qldsv.Utils
                 new { MaHocKy = maHocKy });
 
             return so > 0
-                ? $"Còn {so} đơn phúc khảo chưa xử lý. Vui lòng xử lý hết trước khi đóng học kỳ!"
+                ? $"Con {so} don phuc khao chua xu ly. Vui long xu ly het truoc khi dong hoc ky!"
                 : "";
         }
 
-
-
         private static void KiemTraVaCanhBao(string maSV, int maHocKy)
         {
-            // ── 1. TC đăng ký trong kỳ ──────────────────────────
+            // 1. TC dang ky trong ky
             int tcDangKy = Functions.QuerySingle<int>(
                 @"SELECT ISNULL(SUM(mh.SoTinChi), 0)
                   FROM DangKyHP dk
@@ -61,7 +57,7 @@ namespace qldsv.Utils
                     AND lhp.MaHocKy  = @MaHocKy",
                 new { MaSV = maSV, MaHocKy = maHocKy });
 
-            // ── 2. TC không đạt trong kỳ (TongKet < 4.0) ────────
+            // 2. TC khong dat trong ky
             int tcKhongDatTrongKy = Functions.QuerySingle<int>(
                 @"SELECT ISNULL(SUM(mh.SoTinChi), 0)
                   FROM DangKyHP dk
@@ -74,46 +70,41 @@ namespace qldsv.Utils
                     AND d.TongKet    < 4.0",
                 new { MaSV = maSV, MaHocKy = maHocKy });
 
-            // ── 3. TC tích lũy đạt (TongKet >= 4.0) 
-            //       Đây là TCTL thực sự: tổng TC đã qua, dùng để báo cáo
+            // 3. TC tich luy dat
             int tctl = Functions.QuerySingle<int>(
-                        @"SELECT ISNULL(SUM(SoTinChi), 0)
-              FROM (
-                  SELECT lhp.MaMonHoc, mh.SoTinChi,
-                         MAX(d.TongKet) AS DiemTot
-                  FROM DangKyHP dk
-                  JOIN LopHocPhan lhp ON dk.MaLHP     = lhp.MaLHP
-                  JOIN MonHoc     mh  ON lhp.MaMonHoc = mh.MaMonHoc
-                  JOIN Diem       d   ON dk.MaDangKy  = d.MaDangKy
-                  WHERE dk.MaSinhVien = @MaSV
-                    AND d.TrangThai   = N'DaXacNhan'
-                  GROUP BY lhp.MaMonHoc, mh.SoTinChi
-                  HAVING MAX(d.TongKet) >= 4.0
-      ) t",
+                @"SELECT ISNULL(SUM(SoTinChi), 0)
+                  FROM (
+                      SELECT lhp.MaMonHoc, mh.SoTinChi, MAX(d.TongKet) AS DiemTot
+                      FROM DangKyHP dk
+                      JOIN LopHocPhan lhp ON dk.MaLHP     = lhp.MaLHP
+                      JOIN MonHoc     mh  ON lhp.MaMonHoc = mh.MaMonHoc
+                      JOIN Diem       d   ON dk.MaDangKy  = d.MaDangKy
+                      WHERE dk.MaSinhVien = @MaSV
+                        AND d.TrangThai   = N'DaXacNhan'
+                      GROUP BY lhp.MaMonHoc, mh.SoTinChi
+                      HAVING MAX(d.TongKet) >= 4.0
+                  ) t",
                 new { MaSV = maSV });
 
-            // ── 4. Nợ tích lũy (TC lần đầu chưa đạt toàn lịch sử)
-                    int noTichLuy = Functions.QuerySingle<int>(
-            @"SELECT ISNULL(SUM(SoTinChi), 0)
-              FROM (
-                  SELECT lhp.MaMonHoc, mh.SoTinChi,
-                         MAX(d.TongKet) AS DiemTot
-                  FROM DangKyHP dk
-                  JOIN LopHocPhan lhp ON dk.MaLHP     = lhp.MaLHP
-                  JOIN MonHoc     mh  ON lhp.MaMonHoc = mh.MaMonHoc
-                  JOIN Diem       d   ON dk.MaDangKy  = d.MaDangKy
-                  WHERE dk.MaSinhVien = @MaSV
-                    AND d.TrangThai   = N'DaXacNhan'
-                  GROUP BY lhp.MaMonHoc, mh.SoTinChi
-                  HAVING MAX(d.TongKet) < 4.0
-              ) t",
-            new { MaSV = maSV });
+            // 4. No tich luy
+            int noTichLuy = Functions.QuerySingle<int>(
+                @"SELECT ISNULL(SUM(SoTinChi), 0)
+                  FROM (
+                      SELECT lhp.MaMonHoc, mh.SoTinChi, MAX(d.TongKet) AS DiemTot
+                      FROM DangKyHP dk
+                      JOIN LopHocPhan lhp ON dk.MaLHP     = lhp.MaLHP
+                      JOIN MonHoc     mh  ON lhp.MaMonHoc = mh.MaMonHoc
+                      JOIN Diem       d   ON dk.MaDangKy  = d.MaDangKy
+                      WHERE dk.MaSinhVien = @MaSV
+                        AND d.TrangThai   = N'DaXacNhan'
+                      GROUP BY lhp.MaMonHoc, mh.SoTinChi
+                      HAVING MAX(d.TongKet) < 4.0
+                  ) t",
+                new { MaSV = maSV });
 
-            // ── 5. ĐTBHK — trung bình có trọng số trong kỳ này ──
-            double dtbhk = Functions.QuerySingle<double>(
-                @"SELECT ISNULL(
-                    SUM(d.TongKet * mh.SoTinChi) / NULLIF(SUM(mh.SoTinChi), 0)
-                  , 0)
+            // 5. DTBHK he 4 — lay diem tung mon ve C# roi quy doi
+            DataTable dsDiemHK = Functions.GetDataToTable(
+                @"SELECT d.TongKet, mh.SoTinChi
                   FROM DangKyHP dk
                   JOIN LopHocPhan lhp ON dk.MaLHP     = lhp.MaLHP
                   JOIN MonHoc     mh  ON lhp.MaMonHoc = mh.MaMonHoc
@@ -123,25 +114,39 @@ namespace qldsv.Utils
                     AND d.TrangThai  = N'DaXacNhan'",
                 new { MaSV = maSV, MaHocKy = maHocKy });
 
-            // ── 6. ĐTBTL — trung bình tích lũy lần học đầu ──────
-            double dtbtl = Functions.QuerySingle<double>(
-                        @"SELECT ISNULL(
-                SUM(DiemTot * SoTinChi) / NULLIF(SUM(SoTinChi), 0)
-              , 0)
-              FROM (
-                  SELECT lhp.MaMonHoc, mh.SoTinChi,
-                         MAX(d.TongKet) AS DiemTot
+            double tongHK = 0, tongTCHK = 0;
+            foreach (DataRow r in dsDiemHK.Rows)
+            {
+                double diem4 = QuyDoiHe4(Convert.ToDouble(r["TongKet"]));
+                int tc = Convert.ToInt32(r["SoTinChi"]);
+                tongHK += diem4 * tc;
+                tongTCHK += tc;
+            }
+            double dtbhk = tongTCHK > 0 ? Math.Round(tongHK / tongTCHK, 1) : 0;
+
+            // 6. DTBTL he 4 — lay diem cao nhat moi mon roi quy doi
+            DataTable dsDiemTL = Functions.GetDataToTable(
+                @"SELECT mh.SoTinChi, MAX(d.TongKet) AS DiemTot
                   FROM DangKyHP dk
                   JOIN LopHocPhan lhp ON dk.MaLHP     = lhp.MaLHP
                   JOIN MonHoc     mh  ON lhp.MaMonHoc = mh.MaMonHoc
                   JOIN Diem       d   ON dk.MaDangKy  = d.MaDangKy
                   WHERE dk.MaSinhVien = @MaSV
                     AND d.TrangThai   = N'DaXacNhan'
-                  GROUP BY lhp.MaMonHoc, mh.SoTinChi
-              ) t",
-                        new { MaSV = maSV });
+                  GROUP BY lhp.MaMonHoc, mh.SoTinChi",
+                new { MaSV = maSV });
 
-            // ── 7. Xác định năm học của SV (đếm số kỳ đã học) ───
+            double tongTL = 0, tongTCTL = 0;
+            foreach (DataRow r in dsDiemTL.Rows)
+            {
+                double diem4 = QuyDoiHe4(Convert.ToDouble(r["DiemTot"]));
+                int tc = Convert.ToInt32(r["SoTinChi"]);
+                tongTL += diem4 * tc;
+                tongTCTL += tc;
+            }
+            double dtbtl = tongTCTL > 0 ? Math.Round(tongTL / tongTCTL, 1) : 0;
+
+            // 7. Xac dinh nam hoc cua SV
             int soKyDaHoc = Functions.QuerySingle<int>(
                 @"SELECT COUNT(DISTINCT lhp.MaHocKy)
                   FROM DangKyHP dk
@@ -149,19 +154,17 @@ namespace qldsv.Utils
                   WHERE dk.MaSinhVien = @MaSV",
                 new { MaSV = maSV });
 
-            // Kỳ hiện tại đang đóng tính là kỳ cuối của năm học đó
             int namHoc = soKyDaHoc <= 2 ? 1
                        : soKyDaHoc <= 4 ? 2
                        : soKyDaHoc <= 6 ? 3 : 4;
 
-            // ── 8. Ngưỡng theo năm học ───────────────────────────
+            // 8. Nguong theo nam hoc
             double nguongDTBHK = namHoc == 1 ? 0.8 : 1.0;
             double nguongDTBTL = namHoc == 1 ? 1.2
                                : namHoc == 2 ? 1.4
                                : namHoc == 3 ? 1.6 : 1.8;
 
-            // ── 9. Kiểm tra điều kiện cảnh báo ───────────────────
-            //       Ưu tiên theo mức độ nghiêm trọng giảm dần
+            // 9. Kiem tra dieu kien canh bao
             string lyDo = "";
             bool biBao = false;
 
@@ -177,42 +180,39 @@ namespace qldsv.Utils
             }
             else if (tcDangKy > 0 && tcKhongDatTrongKy > tcDangKy * 0.5)
             {
-                lyDo = $"TC không đạt trong kỳ ({tcKhongDatTrongKy}/{tcDangKy} TC) "
-                       + "vượt quá 50% TC đăng ký";
+                lyDo = $"TC không đạt trong kỳ ({tcKhongDatTrongKy}/{tcDangKy} TC) vượt quá 50% TC đăng ký";
                 biBao = true;
             }
             else if (dtbhk < nguongDTBHK)
             {
-                lyDo = $"ĐTBHK ({dtbhk:F2}) thấp hơn ngưỡng {nguongDTBHK:F1} "
-                       + $"(Năm {namHoc})";
+                lyDo = $"ĐTBHK ({dtbhk:F1}) thấp hơn ngưỡng {nguongDTBHK:F1} (Năm {namHoc})";
                 biBao = true;
             }
             else if (dtbtl < nguongDTBTL)
             {
-                lyDo = $"ĐTBTL ({dtbtl:F2}) thấp hơn ngưỡng {nguongDTBTL:F1} "
-                       + $"(Năm {namHoc})";
+                lyDo = $"ĐTBTL ({dtbtl:F1}) thấp hơn ngưỡng {nguongDTBTL:F1} (Năm {namHoc})";
                 biBao = true;
             }
 
             if (!biBao) return;
 
-            // ── 10. Đếm số lần đã bị cảnh báo trước đó ──────────
+            // 10. Dem so lan da bi canh bao truoc do
             int soLanCuBao = Functions.QuerySingle<int>(
                 @"SELECT COUNT(*)
                   FROM CanhBaoHocVu
                   WHERE MaSinhVien = @MaSV",
                 new { MaSV = maSV });
 
-            int soKyDaBiCB = soLanCuBao + 1; // kỳ này là lần thứ mấy
+            int soKyDaBiCB = soLanCuBao + 1;
             string mucCanhBao = soLanCuBao == 0 ? "CanhBao1"
                               : soLanCuBao == 1 ? "CanhBao2"
                               : "BuocThoiHoc";
 
-            // ── 11. INSERT CanhBaoHocVu ───────────────────────────
+            // 11. INSERT CanhBaoHocVu
             Functions.Execute(
                 @"INSERT INTO CanhBaoHocVu
-                    (MaSinhVien, MaHocKy, SoKyDaBiCB, DiemHK, TBTL,  TCTL,
-                     LyDo,      MucCanhBao, TrangThai)
+                    (MaSinhVien, MaHocKy, SoKyDaBiCB, DiemHK, TBTL, TCTL,
+                     LyDo, MucCanhBao, TrangThai)
                   VALUES
                     (@MaSV, @MaHocKy, @SoKyDaBiCB, @DiemHK, @TBTL, @TCTL,
                      @LyDo, @MucCanhBao, N'ChuaXuLy')",
@@ -221,14 +221,14 @@ namespace qldsv.Utils
                     MaSV = maSV,
                     MaHocKy = maHocKy,
                     SoKyDaBiCB = soKyDaBiCB,
-                    DiemHK = Math.Round(dtbhk, 2),
-                    TBTL = Math.Round(dtbtl, 2),
+                    DiemHK = dtbhk,
+                    TBTL = dtbtl,
                     TCTL = tctl,
                     LyDo = lyDo,
                     MucCanhBao = mucCanhBao
                 });
 
-            // ── 12. Buộc thôi học ở lần cảnh báo thứ 3 ──────────
+            // 12. Buoc thoi hoc o lan canh bao thu 3
             if (mucCanhBao == "BuocThoiHoc")
             {
                 Functions.Execute(
@@ -237,6 +237,19 @@ namespace qldsv.Utils
                       WHERE MaSinhVien = @MaSV",
                     new { MaSV = maSV });
             }
+        }
+
+        // Quy doi he 10 sang he 4 (thang chuan Bo GD&DT)
+        private static double QuyDoiHe4(double diem10)
+        {
+            if (diem10 >= 8.5) return 4.0;
+            if (diem10 >= 8.0) return 3.5;
+            if (diem10 >= 7.0) return 3.0;
+            if (diem10 >= 6.5) return 2.5;
+            if (diem10 >= 5.5) return 2.0;
+            if (diem10 >= 5.0) return 1.5;
+            if (diem10 >= 4.0) return 1.0;
+            return 0.0;
         }
     }
 }
