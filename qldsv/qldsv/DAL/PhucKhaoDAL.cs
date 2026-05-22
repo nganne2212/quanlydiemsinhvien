@@ -25,7 +25,7 @@ namespace qldsv.DAL
                           pk.NgayGui,
                           pk.TrangThai,
                           pk.LyDo,
-                          d.TongKet                           AS DiemCu,
+                          d.CuoiKy                           AS DiemCu,
                           dk.MaDangKy                        AS MaDangKyRef
                           lhp.MaGiangVien,
                           gv.HoTen AS TenGiangVien,
@@ -83,11 +83,25 @@ namespace qldsv.DAL
                 new { MaPhucKhao = maPhucKhao });
 
             // Nếu kết luận Thay Đổi → cập nhật TongKet trong Diem
+            // Nếu kết luận Thay Đổi → cập nhật CuoiKy rồi tính lại TongKet
             if (ketLuan == "Thay Đổi")
             {
+                // Lấy hệ số của môn
                 Functions.Execute(
-                    @"UPDATE Diem SET TongKet = @DiemMoi
-                      WHERE MaDangKy = @MaDangKy AND TrangThai = N'DaXacNhan'",
+                    @"UPDATE d
+          SET d.CuoiKy  = @DiemMoi,
+              d.TongKet = ROUND(
+                  d.ChuyenCan * mh.HeSoChuyenCan +
+                  d.Kiemtra1  * mh.HeSoKT1 +
+                  d.Kiemtra2  * mh.HeSoKT2 +
+                  @DiemMoi    * mh.HeSoCuoiKy
+              , 2)
+          FROM Diem d
+          JOIN DangKyHP   dk  ON d.MaDangKy  = dk.MaDangKy
+          JOIN LopHocPhan lhp ON dk.MaLHP    = lhp.MaLHP
+          JOIN MonHoc     mh  ON lhp.MaMonHoc = mh.MaMonHoc
+          WHERE d.MaDangKy = @MaDangKy
+            AND d.TrangThai = N'DaXacNhan'",
                     new { DiemMoi = diemMoi, MaDangKy = maDangKy });
             }
         }

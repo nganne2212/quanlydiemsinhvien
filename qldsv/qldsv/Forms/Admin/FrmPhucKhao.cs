@@ -57,7 +57,13 @@ namespace qldsv.Forms.Admin
         DataTable tblPhucKhao;
         private void LoadData()
         {
-            int maHK = Convert.ToInt32(cboHocKy.SelectedValue ?? 0);
+            int maHK = 0;
+
+            if (cboHocKy.SelectedValue != null
+                && !(cboHocKy.SelectedValue is DataRowView))
+            {
+                maHK = Convert.ToInt32(cboHocKy.SelectedValue);
+            }
 
             string trangThai = cboTrangThai.SelectedIndex > 0
                 ? cboTrangThai.SelectedItem.ToString()
@@ -136,12 +142,21 @@ namespace qldsv.Forms.Admin
 
         private void cboHocKy_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cboHocKy.SelectedValue == null)
+                return;
+
+            if (cboHocKy.SelectedValue is DataRowView)
+                return;
+
             LoadData();
             ResetThongTin();
         }
 
         private void cboTrangThai_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cboTrangThai.SelectedIndex < 0)
+                return;
+
             LoadData();
             ResetThongTin();
         }
