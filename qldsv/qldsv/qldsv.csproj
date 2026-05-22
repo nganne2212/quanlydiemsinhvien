@@ -121,6 +121,7 @@
     <Compile Include="BLL\DoiMatKhauGVBLL.cs" />
     <Compile Include="BLL\LopHocPhanBLL.cs" />
     <Compile Include="BLL\PhongHocBLL.cs" />
+    <Compile Include="BLL\PhucKhaoBLL.cs" />
     <Compile Include="BLL\PhucKhaoSvBLL.cs" />
     <Compile Include="BLL\QLGiangvienBLL.cs" />
     <Compile Include="BLL\SinhVienBLL.cs" />
@@ -135,6 +136,7 @@
     <Compile Include="DAL\DoiMatKhauGVDAL.cs" />
     <Compile Include="DAL\LopHocPhanDAL.cs" />
     <Compile Include="DAL\PhongHocDAL.cs" />
+    <Compile Include="DAL\PhucKhaoDAL.cs" />
     <Compile Include="DAL\PhucKhaoSvDAL.cs" />
     <Compile Include="DAL\QLGiangvienDAL.cs" />
     <Compile Include="DAL\SinhVienDAL.cs" />

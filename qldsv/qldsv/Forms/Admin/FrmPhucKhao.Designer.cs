@@ -15,7 +15,7 @@
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
@@ -156,6 +156,7 @@
             this.btnCapNhat.Size = new System.Drawing.Size(1099, 42);
             this.btnCapNhat.TabIndex = 0;
             this.btnCapNhat.Text = "✔ Cập nhật kết quả";
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // txtNhanXet
             // 
@@ -287,6 +288,7 @@
             this.cboKetLuan.Name = "cboKetLuan";
             this.cboKetLuan.Size = new System.Drawing.Size(543, 36);
             this.cboKetLuan.TabIndex = 6;
+            this.cboKetLuan.SelectedIndexChanged += new System.EventHandler(this.cboKetLuan_SelectedIndexChanged);
             // 
             // lblNgayXuLy
             // 
@@ -418,10 +420,10 @@
             this.dgvPhucKhao.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvPhucKhao.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvPhucKhao.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.dgvPhucKhao.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.dgvPhucKhao.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvPhucKhao.ColumnHeadersHeight = 42;
             this.dgvPhucKhao.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colMaPhucKhaoHidden,
@@ -443,6 +445,7 @@
             this.dgvPhucKhao.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPhucKhao.Size = new System.Drawing.Size(272, 604);
             this.dgvPhucKhao.TabIndex = 1;
+            this.dgvPhucKhao.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhucKhao_CellClick);
             // 
             // colMaPhucKhaoHidden
             // 
@@ -536,6 +539,7 @@
             this.cboHocKy.Name = "cboHocKy";
             this.cboHocKy.Size = new System.Drawing.Size(200, 34);
             this.cboHocKy.TabIndex = 1;
+            this.cboHocKy.SelectedIndexChanged += new System.EventHandler(this.cboHocKy_SelectedIndexChanged);
             // 
             // lblTrangThai
             // 
@@ -562,6 +566,7 @@
             this.cboTrangThai.Name = "cboTrangThai";
             this.cboTrangThai.Size = new System.Drawing.Size(180, 34);
             this.cboTrangThai.TabIndex = 3;
+            this.cboTrangThai.SelectedIndexChanged += new System.EventHandler(this.cboTrangThai_SelectedIndexChanged);
             // 
             // txtSearch
             // 
@@ -576,6 +581,7 @@
             this.txtSearch.SelectedText = "";
             this.txtSearch.Size = new System.Drawing.Size(260, 32);
             this.txtSearch.TabIndex = 4;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // FrmPhucKhao
             // 
