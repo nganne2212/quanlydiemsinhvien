@@ -127,7 +127,8 @@
     <Compile Include="BLL\QLGiangvienBLL.cs" />
     <Compile Include="BLL\QLLichHocBLL.cs" />
     <Compile Include="BLL\SinhVienBLL.cs" />
-    
+    <Compile Include="BLL\LichHocBLL.cs" />
+ <Compile Include="DAL\LichHocDAL.cs" />
     <Compile Include="BLL\QLLopBBL.cs" />
     <Compile Include="BLL\TaiKhoanBLL.cs" />
     <Compile Include="Class\CurentUser.cs" />
