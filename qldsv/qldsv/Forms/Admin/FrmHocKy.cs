@@ -20,6 +20,9 @@ namespace qldsv.Forms.Admin
         public FrmHocKy()
         {
             InitializeComponent();
+            // Đảm bảo trạng thái ban đầu đúng dù Load có được wire hay không
+            btnLuu.Enabled = false;
+            btnBoqua.Enabled = false;
         }
         DataTable tblHocKy;
         bool dangSua = false;
