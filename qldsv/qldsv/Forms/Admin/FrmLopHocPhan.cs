@@ -395,6 +395,13 @@ namespace qldsv.Forms.Admin
         {
             string maLHP = GetMaLHPDangChon();
             if (string.IsNullOrEmpty(maLHP)) return;
+            if(dgvSinhVien.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có sinh viên nào trong lớp học phần này", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
 
             if (dgvSinhVien.CurrentRow == null)
             {
