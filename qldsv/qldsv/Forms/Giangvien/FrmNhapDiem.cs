@@ -120,11 +120,23 @@ namespace qldsv.Forms.Giangvien
             dgvNhapDiem.AllowUserToAddRows = false;
 
             // Kiểm tra đã xác nhận chưa để lock/unlock
+            // MỚI
             bool daXacNhan = DiemBLL.DaXacNhan(maLHPDangChon);
-            SetNutTheoTrangThai(true);
-            SetEditMode(!daXacNhan);
 
-            if (daXacNhan)
+            string trangThaiHK = Functions.GetFieldValues(@"
+    SELECT hk.Trangthai 
+    FROM LopHocPhan lhp
+    JOIN HocKy hk ON lhp.MaHocKy = hk.MaHocKy
+    WHERE lhp.MaLHP = @ma",
+                new { ma = maLHPDangChon });
+
+            bool hkDangMo = trangThaiHK == "DangDienRa";
+            bool coTheNhap = !daXacNhan && hkDangMo;
+
+            SetNutTheoTrangThai(true);
+            SetEditMode(coTheNhap);
+
+            if (!coTheNhap)
                 ToCauDong();
 
             CapNhatThongKe();
@@ -362,7 +374,64 @@ namespace qldsv.Forms.Giangvien
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                // Build bảng preview
+                DataTable tblPreview = new DataTable();
+                tblPreview.Columns.Add("STT", typeof(int));
+                tblPreview.Columns.Add("MSSV", typeof(string));
+                tblPreview.Columns.Add("HoTen", typeof(string));
+                tblPreview.Columns.Add("CC", typeof(string));
+                tblPreview.Columns.Add("KT1", typeof(string));
+                tblPreview.Columns.Add("KT2", typeof(string));
+                tblPreview.Columns.Add("CK", typeof(string));
+                tblPreview.Columns.Add("TrangThai", typeof(string));
+                tblPreview.Columns.Add("LyDo", typeof(string));
+                tblPreview.Columns.Add("HopLe", typeof(bool));
 
+                int stt = 1;
+                bool coLoi = false;
+                string[] tenCot = { "CC", "KT1", "KT2", "CK" };
+
+                foreach (DataRow row in tblDiem.Rows)
+                {
+                    string maSV = row["MaSinhVien"].ToString();
+                    string hoTen = row["HoTen"].ToString();
+                    bool hopLe = true;
+                    string lyDo = "";
+                    string[] giaTriDiem = { "", "", "", "" };
+
+                    if (!ketQua.ContainsKey(maSV))
+                    {
+                        hopLe = false;
+                        lyDo = "Không có trong file";
+                    }
+                    else
+                    {
+                        double?[] diem = ketQua[maSV];
+                        for (int i = 0; i < 4; i++)
+                        {
+                            giaTriDiem[i] = diem[i].HasValue ? diem[i].Value.ToString() : "";
+                            if (!diem[i].HasValue)
+                            { hopLe = false; lyDo += $"Thiếu {tenCot[i]}. "; }
+                            else if (diem[i] < 0 || diem[i] > 10)
+                            { hopLe = false; lyDo += $"{tenCot[i]}={diem[i]} không hợp lệ. "; }
+                        }
+                    }
+
+                    if (!hopLe) coLoi = true;
+
+                    tblPreview.Rows.Add(stt++, maSV, hoTen,
+                        giaTriDiem[0], giaTriDiem[1], giaTriDiem[2], giaTriDiem[3],
+                        hopLe ? "✔ Hợp lệ" : "✘ Lỗi",
+                        lyDo.Trim(),
+                        hopLe);
+                }
+
+                // Nếu có lỗi → mở form preview, không import
+                if (coLoi)
+                {
+                    new FrmPreviewImportDiem(tblPreview).ShowDialog();
+                    return;
+                }
                 // Điền vào DataTable + dgv
                 int soDienDuoc = 0;
                 foreach (DataRow row in tblDiem.Rows)

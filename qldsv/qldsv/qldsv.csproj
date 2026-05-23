@@ -129,7 +129,7 @@
     <Compile Include="BLL\QLLichHocBLL.cs" />
     <Compile Include="BLL\SinhVienBLL.cs" />
     <Compile Include="BLL\LichHocBLL.cs" />
- <Compile Include="DAL\LichHocDAL.cs" />
+    <Compile Include="DAL\LichHocDAL.cs" />
     <Compile Include="BLL\QLLopBBL.cs" />
     <Compile Include="BLL\TaiKhoanBLL.cs" />
     <Compile Include="Class\CurentUser.cs" />
@@ -152,8 +152,6 @@
     <Compile Include="DAL\QLLopDAL.cs" />
     <Compile Include="BLL\HocKyBLL.cs" />
     <Compile Include="DAL\HocKyDAL.cs.cs" />
-    
-    
     <Compile Include="DAL\TaiKhoanDAL.cs" />
     <Compile Include="Forms\Admin\FrmChonSinhVien.cs">
       <SubType>Form</SubType>
@@ -238,6 +236,12 @@
     </Compile>
     <Compile Include="Forms\Giangvien\FrmNhapDiem.Designer.cs">
       <DependentUpon>FrmNhapDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Giangvien\FrmPreviewImportDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Giangvien\FrmPreviewImportDiem.Designer.cs">
+      <DependentUpon>FrmPreviewImportDiem.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Sinhvien\FrmDoiMatKhauSV.cs">
       <SubType>Form</SubType>
@@ -389,6 +393,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Giangvien\FrmNhapDiem.resx">
       <DependentUpon>FrmNhapDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Giangvien\FrmPreviewImportDiem.resx">
+      <DependentUpon>FrmPreviewImportDiem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Sinhvien\FrmDoiMatKhauSV.resx">
       <DependentUpon>FrmDoiMatKhauSV.cs</DependentUpon>
