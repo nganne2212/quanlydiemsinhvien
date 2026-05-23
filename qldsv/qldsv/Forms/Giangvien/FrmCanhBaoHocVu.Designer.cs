@@ -16,10 +16,11 @@
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlFilter = new System.Windows.Forms.Panel();
+            this.btnExport = new Guna.UI2.WinForms.Guna2Button();
             this.lblHocKy = new System.Windows.Forms.Label();
             this.cboHocKy = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lblLop = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@
             this.colLyDo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlBottom = new System.Windows.Forms.Panel();
             this.lblTong = new System.Windows.Forms.Label();
-            this.btnExport = new Guna.UI2.WinForms.Guna2Button();
             this.pnlHeader.SuspendLayout();
             this.pnlFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCanhBao)).BeginInit();
@@ -61,11 +61,11 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(20, 12);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(262, 36);
+            this.lblTitle.Size = new System.Drawing.Size(245, 32);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "⚠ Cảnh báo học vụ";
             // 
@@ -86,6 +86,21 @@
             this.pnlFilter.Name = "pnlFilter";
             this.pnlFilter.Size = new System.Drawing.Size(1280, 100);
             this.pnlFilter.TabIndex = 2;
+            // 
+            // btnExport
+            // 
+            this.btnExport.BorderColor = System.Drawing.Color.Silver;
+            this.btnExport.BorderRadius = 8;
+            this.btnExport.BorderThickness = 1;
+            this.btnExport.FillColor = System.Drawing.Color.SeaGreen;
+            this.btnExport.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnExport.ForeColor = System.Drawing.Color.Black;
+            this.btnExport.Location = new System.Drawing.Point(1034, 35);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(179, 49);
+            this.btnExport.TabIndex = 9;
+            this.btnExport.Text = "📤 Export Excel";
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // lblHocKy
             // 
@@ -179,7 +194,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PlaceholderText = "Tìm MSSV hoặc họ tên...";
             this.txtSearch.SelectedText = "";
-            this.txtSearch.Size = new System.Drawing.Size(260, 36);
+            this.txtSearch.Size = new System.Drawing.Size(260, 56);
             this.txtSearch.TabIndex = 6;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
@@ -191,10 +206,10 @@
             this.dgvCanhBao.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCanhBao.BackgroundColor = System.Drawing.Color.White;
             this.dgvCanhBao.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.dgvCanhBao.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.dgvCanhBao.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvCanhBao.ColumnHeadersHeight = 38;
             this.dgvCanhBao.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSTT,
@@ -310,21 +325,6 @@
             this.lblTong.Size = new System.Drawing.Size(240, 25);
             this.lblTong.TabIndex = 0;
             this.lblTong.Text = "Tổng sinh viên cảnh báo: 0";
-            // 
-            // btnExport
-            // 
-            this.btnExport.BorderColor = System.Drawing.Color.Silver;
-            this.btnExport.BorderRadius = 8;
-            this.btnExport.BorderThickness = 1;
-            this.btnExport.FillColor = System.Drawing.Color.White;
-            this.btnExport.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnExport.ForeColor = System.Drawing.Color.Black;
-            this.btnExport.Location = new System.Drawing.Point(1034, 35);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(150, 38);
-            this.btnExport.TabIndex = 9;
-            this.btnExport.Text = "📤 Export Excel";
-            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // FrmCanhBaoHocVu
             // 
