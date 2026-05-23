@@ -74,7 +74,7 @@
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(20, 10);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(271, 38);
+            this.lblTitle.Size = new System.Drawing.Size(178, 25);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "📊 Kết quả học tập";
             // 
@@ -98,7 +98,7 @@
             this.lblNamHoc.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblNamHoc.Location = new System.Drawing.Point(30, 28);
             this.lblNamHoc.Name = "lblNamHoc";
-            this.lblNamHoc.Size = new System.Drawing.Size(97, 28);
+            this.lblNamHoc.Size = new System.Drawing.Size(69, 19);
             this.lblNamHoc.TabIndex = 0;
             this.lblNamHoc.Text = "Năm học";
             // 
@@ -123,7 +123,7 @@
             this.lblHocKy.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblHocKy.Location = new System.Drawing.Point(390, 28);
             this.lblHocKy.Name = "lblHocKy";
-            this.lblHocKy.Size = new System.Drawing.Size(77, 28);
+            this.lblHocKy.Size = new System.Drawing.Size(56, 19);
             this.lblHocKy.TabIndex = 2;
             this.lblHocKy.Text = "Học kỳ";
             // 
@@ -153,6 +153,7 @@
             this.btnXem.Size = new System.Drawing.Size(170, 40);
             this.btnXem.TabIndex = 4;
             this.btnXem.Text = "📄 Xem kết quả";
+            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
             // 
             // pnlInfo
             // 
@@ -175,7 +176,7 @@
             this.lblMSSV.ForeColor = System.Drawing.Color.MidnightBlue;
             this.lblMSSV.Location = new System.Drawing.Point(30, 18);
             this.lblMSSV.Name = "lblMSSV";
-            this.lblMSSV.Size = new System.Drawing.Size(71, 30);
+            this.lblMSSV.Size = new System.Drawing.Size(47, 19);
             this.lblMSSV.TabIndex = 0;
             this.lblMSSV.Text = "MSSV";
             // 
@@ -186,7 +187,7 @@
             this.lblHoTen.ForeColor = System.Drawing.Color.MidnightBlue;
             this.lblHoTen.Location = new System.Drawing.Point(30, 50);
             this.lblHoTen.Name = "lblHoTen";
-            this.lblHoTen.Size = new System.Drawing.Size(108, 30);
+            this.lblHoTen.Size = new System.Drawing.Size(74, 19);
             this.lblHoTen.TabIndex = 1;
             this.lblHoTen.Text = "Họ và tên";
             // 
@@ -197,7 +198,7 @@
             this.lblLop.ForeColor = System.Drawing.Color.MidnightBlue;
             this.lblLop.Location = new System.Drawing.Point(450, 18);
             this.lblLop.Name = "lblLop";
-            this.lblLop.Size = new System.Drawing.Size(50, 30);
+            this.lblLop.Size = new System.Drawing.Size(34, 19);
             this.lblLop.TabIndex = 2;
             this.lblLop.Text = "Lớp";
             // 
@@ -208,7 +209,7 @@
             this.lblKhoa.ForeColor = System.Drawing.Color.MidnightBlue;
             this.lblKhoa.Location = new System.Drawing.Point(450, 50);
             this.lblKhoa.Name = "lblKhoa";
-            this.lblKhoa.Size = new System.Drawing.Size(64, 30);
+            this.lblKhoa.Size = new System.Drawing.Size(43, 19);
             this.lblKhoa.TabIndex = 3;
             this.lblKhoa.Text = "Khoa";
             // 
@@ -335,7 +336,7 @@
             this.lblTB10.ForeColor = System.Drawing.Color.MidnightBlue;
             this.lblTB10.Location = new System.Drawing.Point(30, 18);
             this.lblTB10.Name = "lblTB10";
-            this.lblTB10.Size = new System.Drawing.Size(152, 28);
+            this.lblTB10.Size = new System.Drawing.Size(105, 19);
             this.lblTB10.TabIndex = 0;
             this.lblTB10.Text = "Điểm TB hệ 10";
             // 
@@ -346,7 +347,7 @@
             this.lblTB4.ForeColor = System.Drawing.Color.MidnightBlue;
             this.lblTB4.Location = new System.Drawing.Point(30, 60);
             this.lblTB4.Name = "lblTB4";
-            this.lblTB4.Size = new System.Drawing.Size(140, 28);
+            this.lblTB4.Size = new System.Drawing.Size(97, 19);
             this.lblTB4.TabIndex = 1;
             this.lblTB4.Text = "Điểm TB hệ 4";
             // 
@@ -357,7 +358,7 @@
             this.lblTinChi.ForeColor = System.Drawing.Color.SeaGreen;
             this.lblTinChi.Location = new System.Drawing.Point(283, 18);
             this.lblTinChi.Name = "lblTinChi";
-            this.lblTinChi.Size = new System.Drawing.Size(164, 28);
+            this.lblTinChi.Size = new System.Drawing.Size(113, 19);
             this.lblTinChi.TabIndex = 2;
             this.lblTinChi.Text = "Tổng tín chỉ đạt";
             // 
@@ -368,7 +369,7 @@
             this.lblTinChiTL.ForeColor = System.Drawing.Color.SeaGreen;
             this.lblTinChiTL.Location = new System.Drawing.Point(283, 60);
             this.lblTinChiTL.Name = "lblTinChiTL";
-            this.lblTinChiTL.Size = new System.Drawing.Size(153, 28);
+            this.lblTinChiTL.Size = new System.Drawing.Size(104, 19);
             this.lblTinChiTL.TabIndex = 3;
             this.lblTinChiTL.Text = "Tín chỉ tích lũy";
             // 
@@ -379,7 +380,7 @@
             this.lblTBTL10.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.lblTBTL10.Location = new System.Drawing.Point(617, 18);
             this.lblTBTL10.Name = "lblTBTL10";
-            this.lblTBTL10.Size = new System.Drawing.Size(174, 28);
+            this.lblTBTL10.Size = new System.Drawing.Size(120, 19);
             this.lblTBTL10.TabIndex = 4;
             this.lblTBTL10.Text = "Điểm TBTL hệ 10";
             // 
@@ -390,7 +391,7 @@
             this.lblTBTL4.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.lblTBTL4.Location = new System.Drawing.Point(617, 60);
             this.lblTBTL4.Name = "lblTBTL4";
-            this.lblTBTL4.Size = new System.Drawing.Size(162, 28);
+            this.lblTBTL4.Size = new System.Drawing.Size(112, 19);
             this.lblTBTL4.TabIndex = 5;
             this.lblTBTL4.Text = "Điểm TBTL hệ 4";
             // 
@@ -401,7 +402,7 @@
             this.lblXepLoai.ForeColor = System.Drawing.Color.DarkRed;
             this.lblXepLoai.Location = new System.Drawing.Point(930, 39);
             this.lblXepLoai.Name = "lblXepLoai";
-            this.lblXepLoai.Size = new System.Drawing.Size(96, 30);
+            this.lblXepLoai.Size = new System.Drawing.Size(65, 20);
             this.lblXepLoai.TabIndex = 6;
             this.lblXepLoai.Text = "Xếp loại";
             // 
