@@ -8,6 +8,7 @@ namespace qldsv.Forms.Admin
     public partial class FrmQLLop : Form
     {
         private DataTable tblLop;
+        private bool dangSua = false;
 
         public FrmQLLop()
         {
@@ -26,9 +27,12 @@ namespace qldsv.Forms.Admin
             btnLuu.Click += btnLuu_Click;
             btnXoa.Click += btnXoa_Click;
             btnBoQua.Click += btnBoQua_Click;
+
             dgvLop.CellClick += dgvLop_CellClick;
+
             cboKhoa.SelectedIndexChanged += cboKhoa_SelectedIndexChanged;
             cboLocKhoa.SelectedIndexChanged += cboLocKhoa_SelectedIndexChanged;
+
             txtTimKiem.TextChanged += txtTimKiem_TextChanged;
             txtTimKiem.KeyPress += txtTimKiem_KeyPress;
             txtMaLop.KeyPress += txtMaLop_KeyPress;
@@ -39,26 +43,64 @@ namespace qldsv.Forms.Admin
             FrmQLLop_Load();
         }
 
-        // ── Load form ───────────────────────────────────────────────────
+        // ════════════════════════════════════════════════════════════════
+        //  KHỞI TẠO
+        // ════════════════════════════════════════════════════════════════
+
         private void FrmQLLop_Load()
         {
-            txtMaLop.Enabled = false;
-            txtTenLop.Enabled = false;
-            btnLuu.Enabled = false;
-            btnBoQua.Enabled = false;
-
+            SetIdleMode();
             Load_ComboKhoa();
             Load_DataGridView();
         }
 
-        // ── Load DataGridView ────────────────────────────────────────────
+        // ════════════════════════════════════════════════════════════════
+        //  QUẢN LÝ TRẠNG THÁI NÚT  (tập trung tại đây, không set rải rác)
+        // ════════════════════════════════════════════════════════════════
+
+        /// <summary>
+        /// Trạng thái mặc định: chỉ Thêm / Sửa / Xóa được bật.
+        /// Lưu và Bỏ qua bị tắt.
+        /// </summary>
+        private void SetIdleMode()
+        {
+            dangSua = false;
+
+            btnThem.Enabled = true;
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
+            btnLuu.Enabled = false;
+            btnBoQua.Enabled = false;
+
+            txtMaLop.Enabled = false;
+            txtTenLop.Enabled = false;
+
+            ResetValues();
+        }
+
+        /// <summary>
+        /// Chế độ nhập liệu (Thêm hoặc Sửa):
+        /// Tắt Thêm / Sửa / Xóa, bật Lưu và Bỏ qua.
+        /// </summary>
+        private void SetEditMode()
+        {
+            btnThem.Enabled = false;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
+            btnLuu.Enabled = true;
+            btnBoQua.Enabled = true;
+        }
+
+        // ════════════════════════════════════════════════════════════════
+        //  TẢI DỮ LIỆU
+        // ════════════════════════════════════════════════════════════════
+
         private void Load_DataGridView()
         {
             tblLop = LopBLL.GetAll();
             dgvLop.DataSource = tblLop;
         }
 
-        // ── Load ComboBox Khoa (dùng cho form nhập và lọc) ───────────────
         private void Load_ComboKhoa()
         {
             DataTable dtKhoa = LopBLL.GetAllKhoa();
@@ -69,7 +111,7 @@ namespace qldsv.Forms.Admin
             cboKhoa.ValueMember = "MaKhoa";
             cboKhoa.SelectedIndex = -1;
 
-            // ComboBox lọc danh sách — thêm dòng "Tất cả"
+            // ComboBox lọc — thêm dòng "Tất cả"
             DataTable dtLoc = dtKhoa.Copy();
             DataRow r = dtLoc.NewRow();
             r["MaKhoa"] = "";
@@ -82,27 +124,10 @@ namespace qldsv.Forms.Admin
             cboLocKhoa.SelectedIndex = 0;
         }
 
-        // ── Khi chọn Khoa → load CVHT theo Khoa ─────────────────────────
-        private void cboKhoa_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cboKhoa.SelectedValue == null) return;
-            string maKhoa = cboKhoa.SelectedValue.ToString();
-            if (string.IsNullOrEmpty(maKhoa)) return;
+        // ════════════════════════════════════════════════════════════════
+        //  TÌM KIẾM & LỌC
+        // ════════════════════════════════════════════════════════════════
 
-            DataTable dtGV = LopBLL.GetGiangVienByKhoa(maKhoa);
-            cboCVHT.DataSource = dtGV;
-            cboCVHT.DisplayMember = "HoTen";          // hiện tên GV
-            cboCVHT.ValueMember = "MaGiangVien";    // lưu mã GV
-            cboCVHT.SelectedIndex = -1;
-        }
-
-        // ── Lọc grid theo Khoa ───────────────────────────────────────────
-        private void cboLocKhoa_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            TimKiem();
-        }
-
-        // ── Tìm kiếm + lọc kết hợp ──────────────────────────────────────
         private void TimKiem()
         {
             string keyword = txtTimKiem.Text.Trim();
@@ -121,12 +146,28 @@ namespace qldsv.Forms.Admin
             }
         }
 
-        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        private void txtTimKiem_TextChanged(object sender, EventArgs e) => TimKiem();
+
+        private void cboLocKhoa_SelectedIndexChanged(object sender, EventArgs e) => TimKiem();
+
+        // Khi chọn Khoa → load danh sách CVHT theo Khoa
+        private void cboKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TimKiem();
+            if (cboKhoa.SelectedValue == null) return;
+            string maKhoa = cboKhoa.SelectedValue.ToString();
+            if (string.IsNullOrEmpty(maKhoa)) return;
+
+            DataTable dtGV = LopBLL.GetGiangVienByKhoa(maKhoa);
+            cboCVHT.DataSource = dtGV;
+            cboCVHT.DisplayMember = "HoTen";
+            cboCVHT.ValueMember = "MaGiangVien";
+            cboCVHT.SelectedIndex = -1;
         }
 
-        // ── Validate ký tự ô tìm kiếm ───────────────────────────────────
+        // ════════════════════════════════════════════════════════════════
+        //  VALIDATE KÝ TỰ
+        // ════════════════════════════════════════════════════════════════
+
         private void txtTimKiem_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Back) return;
@@ -139,7 +180,6 @@ namespace qldsv.Forms.Admin
             }
         }
 
-        // ── Validate ký tự Mã lớp ───────────────────────────────────────
         private void txtMaLop_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Back) return;
@@ -155,7 +195,6 @@ namespace qldsv.Forms.Admin
             }
         }
 
-        // ── Validate ký tự Tên lớp ──────────────────────────────────────
         private void txtTenLop_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Back) return;
@@ -163,7 +202,7 @@ namespace qldsv.Forms.Admin
                       || e.KeyChar == ' '
                       || e.KeyChar == '-'
                       || e.KeyChar == '.'
-                      || (int)e.KeyChar > 127;
+                      || (int)e.KeyChar > 127;   // cho phép tiếng Việt
             if (!hopLe)
             {
                 e.Handled = true;
@@ -171,20 +210,23 @@ namespace qldsv.Forms.Admin
                     $"Ký tự '{e.KeyChar}' không được phép nhập!\n\n" +
                     "Tên lớp chỉ chấp nhận:\n" +
                     "   • Chữ cái (kể cả tiếng Việt)\n" +
-                    "   • Chữ số (0 - 9)\n" +
+                    "   • Chữ số (0 – 9)\n" +
                     "   • Khoảng trắng, dấu chấm ( . ), dấu gạch ngang ( - )",
                     "Ký tự không hợp lệ",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-        // ── Enter thay Tab ───────────────────────────────────────────────
+        // Enter hoạt động như Tab
         private void txt_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter) SendKeys.Send("{TAB}");
         }
 
-        // ── Reset các ô nhập ────────────────────────────────────────────
+        // ════════════════════════════════════════════════════════════════
+        //  HELPER
+        // ════════════════════════════════════════════════════════════════
+
         private void ResetValues()
         {
             txtMaLop.Text = "";
@@ -193,46 +235,7 @@ namespace qldsv.Forms.Admin
             cboCVHT.DataSource = null;
         }
 
-        private void dgvLop_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (btnThem.Enabled == false)
-            {
-                MessageBox.Show(
-                    "Đang ở chế độ thêm mới!\nVui lòng nhập dữ liệu hoặc bấm Bỏ qua.",
-                    "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtMaLop.Focus();
-                return;
-            }
-
-            if (tblLop == null || tblLop.Rows.Count == 0)
-            {
-                MessageBox.Show("Không có dữ liệu!",
-                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            if (e.RowIndex < 0) return;
-            var row = dgvLop.Rows[e.RowIndex].DataBoundItem as DataRowView;
-            if (row == null) return;
-
-            // Điền thông tin lên form
-            txtMaLop.Text = row["MaLop"].ToString();
-            txtTenLop.Text = row["TenLop"].ToString();
-            txtTenLop.Enabled = true;
-
-            SelectCombo(cboKhoa, "TenKhoa", row["TenKhoa"].ToString());
-            SelectCombo(cboCVHT, "HoTen", row["CoVanHocTap"].ToString());
-
-            // Bật Lưu/Bỏ qua, tắt Sửa/Xóa luôn khi chọn dòng
-            btnThem.Enabled = false;
-            btnSua.Enabled = false;
-            btnXoa.Enabled = false;
-            btnLuu.Enabled = true;
-            btnBoQua.Enabled = true;
-        }
-
-       
+        /// <summary>Chọn đúng item trong ComboBox theo giá trị hiển thị.</summary>
         private void SelectCombo(Guna.UI2.WinForms.Guna2ComboBox cbo,
                                   string displayMember, string displayValue)
         {
@@ -249,108 +252,110 @@ namespace qldsv.Forms.Admin
             }
         }
 
-        // ── Nút Thêm ────────────────────────────────────────────────────
+        // ════════════════════════════════════════════════════════════════
+        //  SỰ KIỆN GRID
+        // ════════════════════════════════════════════════════════════════
+
+        private void dgvLop_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Đang nhập liệu → không cho chọn dòng khác
+            if (!btnThem.Enabled)
+            {
+                MessageBox.Show(
+                    "Đang ở chế độ nhập liệu!\nVui lòng Lưu hoặc Bỏ qua trước.",
+                    "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (tblLop == null || tblLop.Rows.Count == 0 || e.RowIndex < 0) return;
+
+            var row = dgvLop.Rows[e.RowIndex].DataBoundItem as DataRowView;
+            if (row == null) return;
+
+            // Chỉ điền dữ liệu lên form — KHÔNG thay đổi trạng thái nút
+            txtMaLop.Text = row["MaLop"].ToString();
+            txtTenLop.Text = row["TenLop"].ToString();
+
+            SelectCombo(cboKhoa, "TenKhoa", row["TenKhoa"].ToString());
+            SelectCombo(cboCVHT, "HoTen", row["CoVanHocTap"].ToString());
+        }
+
+        // ════════════════════════════════════════════════════════════════
+        //  CÁC NÚT CHỨC NĂNG
+        // ════════════════════════════════════════════════════════════════
+
+        // ── Thêm ────────────────────────────────────────────────────────
         private void btnThem_Click(object sender, EventArgs e)
         {
-            btnSua.Enabled = false;
-            btnXoa.Enabled = false;
-            btnLuu.Enabled = true;
-            btnBoQua.Enabled = true;
-            btnThem.Enabled = false;
-
+            dangSua = false;        // đánh dấu đang Thêm mới
+            SetEditMode();
             ResetValues();
             txtMaLop.Enabled = true;
             txtTenLop.Enabled = true;
-            txtMaLop.Focus();
             dgvLop.ClearSelection();
+            txtMaLop.Focus();
         }
 
-        // ── Nút Sửa: chỉ mở chế độ chỉnh sửa, CHƯA lưu ─────────────────
+        // ── Sửa: CHỈ mở chế độ nhập, KHÔNG lưu ─────────────────────────
         private void btnSua_Click(object sender, EventArgs e)
         {
             if (tblLop == null || tblLop.Rows.Count == 0)
             {
-                MessageBox.Show("Không còn dữ liệu!",
-                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Không còn dữ liệu!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
             if (string.IsNullOrWhiteSpace(txtMaLop.Text))
             {
-                MessageBox.Show("Bạn chưa chọn bản ghi nào!",
-                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Bạn chưa chọn bản ghi nào!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            // Mở chế độ sửa — giữ nguyên dữ liệu đang chọn
-            btnThem.Enabled = false;
-            btnSua.Enabled = false;
-            btnXoa.Enabled = false;
-            btnLuu.Enabled = true;
-            btnBoQua.Enabled = true;
+            dangSua = true;         // đánh dấu đang Sửa
+            SetEditMode();
+            txtMaLop.Enabled = false;  // không cho đổi mã
             txtTenLop.Enabled = true;
             txtTenLop.Focus();
-            if (txtTenLop.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn phải nhập tên lớp!",
-                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtTenLop.Focus();
-                return;
-            }
-
-            string maKhoa = cboKhoa.SelectedValue?.ToString();
-            string maGV = cboCVHT.SelectedValue?.ToString();
-
-            string err = LopBLL.Update(txtMaLop.Text, txtTenLop.Text, maKhoa, maGV);
-            if (!string.IsNullOrEmpty(err))
-            {
-                MessageBox.Show(err, "Dữ liệu không hợp lệ",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            MessageBox.Show("Cập nhật lớp thành công!",
-                "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            Load_DataGridView();
-            ResetValues();
-            txtMaLop.Enabled = false;
-            txtTenLop.Enabled = false;
-            btnBoQua.Enabled = false;
         }
 
-        // ── Nút Lưu: INSERT nếu đang Thêm, UPDATE nếu đang Sửa ──────────
+        // ── Lưu: INSERT nếu dangSua=false, UPDATE nếu dangSua=true ──────
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if (txtTenLop.Text.Trim().Length == 0)
+            // --- Validate chung ---
+            if (string.IsNullOrWhiteSpace(txtTenLop.Text))
             {
-                MessageBox.Show("Bạn phải nhập tên lớp!",
-                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Bạn phải nhập tên lớp!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtTenLop.Focus();
                 return;
             }
 
             string maKhoa = cboKhoa.SelectedValue?.ToString();
             string maGV = cboCVHT.SelectedValue?.ToString();
-            string err;
-            string thongBao;
+            string err, thongBao;
 
-            // txtMaLop rỗng → đang Thêm mới (INSERT)
-            // txtMaLop có giá trị → đang Sửa (UPDATE)
-            if (string.IsNullOrWhiteSpace(txtMaLop.Text))
+            if (!dangSua)   // ── THÊM MỚI ──
             {
-                // Validate thêm cho INSERT
+                if (string.IsNullOrWhiteSpace(txtMaLop.Text))
+                {
+                    MessageBox.Show("Bạn phải nhập mã lớp!", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtMaLop.Focus();
+                    return;
+                }
                 if (cboKhoa.SelectedIndex < 0)
                 {
-                    MessageBox.Show("Bạn phải chọn Khoa!",
-                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Bạn phải chọn Khoa!", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     cboKhoa.Focus();
                     return;
                 }
                 if (cboCVHT.SelectedIndex < 0)
                 {
-                    MessageBox.Show("Bạn phải chọn Cố vấn học tập!",
-                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Bạn phải chọn Cố vấn học tập!", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     cboCVHT.Focus();
                     return;
                 }
@@ -358,7 +363,7 @@ namespace qldsv.Forms.Admin
                 err = LopBLL.Add(txtMaLop.Text, txtTenLop.Text, maKhoa, maGV);
                 thongBao = "Thêm lớp thành công!";
             }
-            else
+            else            // ── CẬP NHẬT ──
             {
                 err = LopBLL.Update(txtMaLop.Text, txtTenLop.Text, maKhoa, maGV);
                 thongBao = "Cập nhật lớp thành công!";
@@ -375,31 +380,22 @@ namespace qldsv.Forms.Admin
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             Load_DataGridView();
-            ResetValues();
-
-            btnThem.Enabled = true;
-            btnSua.Enabled = true;
-            btnXoa.Enabled = true;
-            btnLuu.Enabled = false;
-            btnBoQua.Enabled = false;
-            txtMaLop.Enabled = false;
-            txtTenLop.Enabled = false;
+            SetIdleMode();
         }
 
-        // ── Nút Xóa ─────────────────────────────────────────────────────
+        // ── Xóa ─────────────────────────────────────────────────────────
         private void btnXoa_Click(object sender, EventArgs e)
         {
             if (tblLop == null || tblLop.Rows.Count == 0)
             {
-                MessageBox.Show("Không còn dữ liệu!",
-                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Không còn dữ liệu!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
             if (string.IsNullOrWhiteSpace(txtMaLop.Text))
             {
-                MessageBox.Show("Bạn chưa chọn bản ghi nào!",
-                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Bạn chưa chọn bản ghi nào!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -417,27 +413,14 @@ namespace qldsv.Forms.Admin
                 return;
             }
 
-            MessageBox.Show("Xóa lớp thành công!",
-                "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Xóa lớp thành công!", "Thành công",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             Load_DataGridView();
-            ResetValues();
-            txtMaLop.Enabled = false;
-            txtTenLop.Enabled = false;
-            btnBoQua.Enabled = false;
+            SetIdleMode();
         }
 
-        // ── Nút Bỏ qua ──────────────────────────────────────────────────
-        private void btnBoQua_Click(object sender, EventArgs e)
-        {
-            ResetValues();
-            btnBoQua.Enabled = false;
-            btnThem.Enabled = true;
-            btnSua.Enabled = true;
-            btnXoa.Enabled = true;
-            btnLuu.Enabled = false;
-            txtMaLop.Enabled = false;
-            txtTenLop.Enabled = false;
-        }
+        // ── Bỏ qua ──────────────────────────────────────────────────────
+        private void btnBoQua_Click(object sender, EventArgs e) => SetIdleMode();
     }
 }

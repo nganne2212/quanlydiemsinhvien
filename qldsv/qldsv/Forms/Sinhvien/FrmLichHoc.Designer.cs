@@ -8,7 +8,6 @@
         {
             if (disposing && (components != null))
                 components.Dispose();
-
             base.Dispose(disposing);
         }
 
@@ -55,11 +54,11 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(20, 10);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(148, 32);
+            this.lblTitle.Size = new System.Drawing.Size(196, 45);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "📖 Lịch học";
             // 
@@ -82,7 +81,7 @@
             this.lblHocKy.ForeColor = System.Drawing.Color.MidnightBlue;
             this.lblHocKy.Location = new System.Drawing.Point(30, 22);
             this.lblHocKy.Name = "lblHocKy";
-            this.lblHocKy.Size = new System.Drawing.Size(81, 30);
+            this.lblHocKy.Size = new System.Drawing.Size(107, 38);
             this.lblHocKy.TabIndex = 0;
             this.lblHocKy.Text = "Học kỳ";
             // 
@@ -100,6 +99,7 @@
             this.cboHocKy.Name = "cboHocKy";
             this.cboHocKy.Size = new System.Drawing.Size(250, 36);
             this.cboHocKy.TabIndex = 1;
+            this.cboHocKy.Click += new System.EventHandler(this.cboHocKy_SelectedIndexChanged);
             // 
             // btnXem
             // 
@@ -112,6 +112,7 @@
             this.btnXem.Size = new System.Drawing.Size(170, 40);
             this.btnXem.TabIndex = 2;
             this.btnXem.Text = "📄 Xem lịch";
+            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
             // 
             // pnlInfo
             // 
@@ -123,39 +124,39 @@
             this.pnlInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlInfo.Location = new System.Drawing.Point(0, 125);
             this.pnlInfo.Name = "pnlInfo";
-            this.pnlInfo.Size = new System.Drawing.Size(1400, 80);
+            this.pnlInfo.Size = new System.Drawing.Size(1400, 45);
             this.pnlInfo.TabIndex = 2;
             // 
             // lblMSSV
             // 
             this.lblMSSV.AutoSize = true;
-            this.lblMSSV.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold);
+            this.lblMSSV.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblMSSV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(55)))), ((int)(((byte)(72)))));
-            this.lblMSSV.Location = new System.Drawing.Point(30, 18);
+            this.lblMSSV.Location = new System.Drawing.Point(20, 12);
             this.lblMSSV.Name = "lblMSSV";
-            this.lblMSSV.Size = new System.Drawing.Size(77, 30);
+            this.lblMSSV.Size = new System.Drawing.Size(97, 37);
             this.lblMSSV.TabIndex = 0;
             this.lblMSSV.Text = "MSSV:";
             // 
             // lblHoTen
             // 
             this.lblHoTen.AutoSize = true;
-            this.lblHoTen.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold);
+            this.lblHoTen.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblHoTen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(55)))), ((int)(((byte)(72)))));
-            this.lblHoTen.Location = new System.Drawing.Point(250, 18);
+            this.lblHoTen.Location = new System.Drawing.Point(280, 12);
             this.lblHoTen.Name = "lblHoTen";
-            this.lblHoTen.Size = new System.Drawing.Size(114, 30);
+            this.lblHoTen.Size = new System.Drawing.Size(148, 37);
             this.lblHoTen.TabIndex = 1;
             this.lblHoTen.Text = "Họ và tên:";
             // 
             // lblLop
             // 
             this.lblLop.AutoSize = true;
-            this.lblLop.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold);
+            this.lblLop.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblLop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(55)))), ((int)(((byte)(72)))));
-            this.lblLop.Location = new System.Drawing.Point(700, 18);
+            this.lblLop.Location = new System.Drawing.Point(700, 12);
             this.lblLop.Name = "lblLop";
-            this.lblLop.Size = new System.Drawing.Size(56, 30);
+            this.lblLop.Size = new System.Drawing.Size(72, 37);
             this.lblLop.TabIndex = 2;
             this.lblLop.Text = "Lớp:";
             // 
@@ -184,14 +185,15 @@
             this.dgvLichHoc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLichHoc.EnableHeadersVisualStyles = false;
             this.dgvLichHoc.GridColor = System.Drawing.Color.Gainsboro;
-            this.dgvLichHoc.Location = new System.Drawing.Point(0, 205);
+            this.dgvLichHoc.Location = new System.Drawing.Point(0, 170);
             this.dgvLichHoc.Name = "dgvLichHoc";
             this.dgvLichHoc.RowHeadersVisible = false;
-            this.dgvLichHoc.RowHeadersWidth = 62;
+            this.dgvLichHoc.RowHeadersWidth = 82;
             this.dgvLichHoc.RowTemplate.Height = 36;
             this.dgvLichHoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLichHoc.Size = new System.Drawing.Size(1400, 595);
+            this.dgvLichHoc.Size = new System.Drawing.Size(1400, 630);
             this.dgvLichHoc.TabIndex = 3;
+            this.dgvLichHoc.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvLichHoc_CellFormatting);
             // 
             // colThu
             // 
@@ -252,8 +254,8 @@
             this.Controls.Add(this.pnlHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmLichHoc";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lịch học";
+            this.Load += new System.EventHandler(this.FrmLichHoc_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlTop.ResumeLayout(false);
@@ -269,19 +271,15 @@
 
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.Label lblTitle;
-
         private System.Windows.Forms.Panel pnlTop;
         private System.Windows.Forms.Label lblHocKy;
         private Guna.UI2.WinForms.Guna2ComboBox cboHocKy;
         private Guna.UI2.WinForms.Guna2Button btnXem;
-
         private System.Windows.Forms.Panel pnlInfo;
         private System.Windows.Forms.Label lblMSSV;
         private System.Windows.Forms.Label lblHoTen;
         private System.Windows.Forms.Label lblLop;
-
         private System.Windows.Forms.DataGridView dgvLichHoc;
-
         private System.Windows.Forms.DataGridViewTextBoxColumn colThu;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCaHoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMaHP;
