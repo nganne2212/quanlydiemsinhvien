@@ -144,18 +144,7 @@
             this.cboHocKy.Size = new System.Drawing.Size(180, 36);
             this.cboHocKy.TabIndex = 3;
             // 
-            // btnXem
-            // 
-            this.btnXem.BorderRadius = 8;
-            this.btnXem.FillColor = System.Drawing.Color.RoyalBlue;
-            this.btnXem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnXem.ForeColor = System.Drawing.Color.White;
-            this.btnXem.Location = new System.Drawing.Point(710, 18);
-            this.btnXem.Name = "btnXem";
-            this.btnXem.Size = new System.Drawing.Size(170, 40);
-            this.btnXem.TabIndex = 4;
-            this.btnXem.Text = "📄 Xem kết quả";
-            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
+
             // 
             // pnlInfo
             // 

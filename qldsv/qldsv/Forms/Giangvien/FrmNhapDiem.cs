@@ -190,7 +190,7 @@ namespace qldsv.Forms.Giangvien
             var row = dgvNhapDiem.Rows[e.RowIndex];
 
             // Validate giá trị vừa nhập
-            string tenCot = dgvNhapDiem.Columns[e.ColumnIndex].Name;
+            string tenCot = dgvNhapDiem.Columns[e.ColumnIndex].HeaderText;
             string giaTriMoi = row.Cells[e.ColumnIndex].Value?.ToString() ?? "";
             string loi = DiemBLL.ValidateDiem(giaTriMoi, tenCot);
             if (loi != "")
@@ -305,7 +305,13 @@ namespace qldsv.Forms.Giangvien
             if (confirm != DialogResult.Yes) return;
 
             // Lưu tạm trước rồi mới xác nhận
-            DiemBLL.LuuTam(tblDiem, maLHPDangChon, heSo);
+            string loiLuu = DiemBLL.LuuTam(tblDiem, maLHPDangChon, heSo);
+            if (loiLuu != "")
+            {
+                MessageBox.Show("Lưu thất bại, không thể xác nhận!\n" + loiLuu,
+                    "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             DiemBLL.XacNhanForce(maLHPDangChon);
 
             MessageBox.Show("Xác nhận điểm thành công!", "Thông báo",

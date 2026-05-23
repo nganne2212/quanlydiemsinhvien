@@ -80,7 +80,7 @@ namespace qldsv.DAL
                 new { sv = maSV, lhp = maLHP });
 
             if (diemCao < 0) return "LanDau";
-            if (diemCao < 5.0) return "HocLai";
+            if (diemCao < 4.0) return "HocLai";
             return "CaiThien";
         }
 
@@ -96,9 +96,9 @@ namespace qldsv.DAL
                 new { sv = maSV, lhp = maLHP });
         }
 
-        // ════════════════════════════════════════════════════════
+
         //  LƯU TẠM — INSERT hoặc UPDATE từng hàng
-        // ════════════════════════════════════════════════════════
+    
 
         public static void LuuTam(int maDangKy, string maSV, string maLHP,
             double? cc, double? kt1, double? kt2, double? ck,
@@ -137,9 +137,9 @@ namespace qldsv.DAL
             }
         }
 
-        // ════════════════════════════════════════════════════════
+      
         //  XÁC NHẬN — lock toàn bộ LHP
-        // ════════════════════════════════════════════════════════
+     
 
         public static void XacNhan(string maLHP)
         {
@@ -153,9 +153,8 @@ namespace qldsv.DAL
                 new { maLHP });
         }
 
-        // ════════════════════════════════════════════════════════
         //  EXPORT / TẢI MẪU EXCEL
-        // ════════════════════════════════════════════════════════
+  
 
         public static void ExportExcel(string maLHP, string filePath)
         {
@@ -236,9 +235,9 @@ namespace qldsv.DAL
             }
         }
 
-        // ════════════════════════════════════════════════════════
+
         //  IMPORT EXCEL → trả về list để điền vào dgv
-        // ════════════════════════════════════════════════════════
+  
 
         public static Dictionary<string, double?[]> ImportExcel(string filePath)
         {
@@ -269,7 +268,10 @@ namespace qldsv.DAL
 
         private static double? TryParseDouble(string s)
         {
-            if (double.TryParse(s, out double d)) return d;
+            s = s.Replace(",", ".");
+            if (double.TryParse(s, System.Globalization.NumberStyles.Any,
+                System.Globalization.CultureInfo.InvariantCulture, out double d))
+                return d;
             return null;
         }
     }
