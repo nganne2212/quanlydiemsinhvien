@@ -1,4 +1,5 @@
-﻿using System;
+﻿using qldsv.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,52 +14,37 @@ namespace qldsv.Forms.Giangvien
     public partial class FrmPreviewImportDiem : Form
     {
 
-        private DataTable _tblPreview;
+        private List<ImportResult> _ketQua;
 
-        public FrmPreviewImportDiem(DataTable tblPreview)
+        public FrmPreviewImportDiem(List<ImportResult> ketQua)
         {
             InitializeComponent();
-            _tblPreview = tblPreview;
+            _ketQua = ketQua;
         }
 
         private void FrmPreviewImportDiem_Load(object sender, EventArgs e)
         {
-            HienThiDuLieu();
+            HienThiKetQua();
         }
-        private void HienThiDuLieu()
+        private void HienThiKetQua()
         {
             int hopLe = 0, loi = 0;
-            foreach (DataRow row in _tblPreview.Rows)
+            foreach (var r in _ketQua)
+                if (r.HopLe) hopLe++; else loi++;
+
+            lblThongKe.Text = $"Tổng: {_ketQua.Count}  |  Hợp lệ: {hopLe}  |  Lỗi: {loi}";
+
+            dgvPreview.Rows.Clear();
+
+            foreach (var r in _ketQua)
             {
-                if (row["HopLe"].ToString() == "True") hopLe++;
-                else loi++;
-            }
+                int idx = dgvPreview.Rows.Add(
+                    r.STT, r.MaSV, r.HoTen,
+                    r.CC, r.KT1, r.KT2, r.CK,
+                    r.HopLe ? "✔ Hợp lệ" : "✘ Lỗi",
+                    r.LyDoLoi);
 
-            lblThongKe.Text = $"Tổng: {_tblPreview.Rows.Count}  |  Hợp lệ: {hopLe}  |  Lỗi: {loi}";
-
-            dgvPreview.AutoGenerateColumns = false;
-            colSTT.DataPropertyName = "STT";
-            colMSSV.DataPropertyName = "MSSV";
-            colHoTen.DataPropertyName = "HoTen";
-            colCC.DataPropertyName = "CC";
-            colKT1.DataPropertyName = "KT1";
-            colKT2.DataPropertyName = "KT2";
-            colCK.DataPropertyName = "CK";
-            colTrangThai.DataPropertyName = "TrangThai";
-            colLyDo.DataPropertyName = "LyDo";
-
-            dgvPreview.DataSource = _tblPreview;
-            dgvPreview.AllowUserToAddRows = false;
-            dgvPreview.EditMode = DataGridViewEditMode.EditProgrammatically;
-
-            foreach (DataGridViewColumn col in dgvPreview.Columns)
-                col.SortMode = DataGridViewColumnSortMode.NotSortable;
-
-            // Tô màu
-            foreach (DataGridViewRow row in dgvPreview.Rows)
-            {
-                bool hl = _tblPreview.Rows[row.Index]["HopLe"].ToString() == "True";
-                row.DefaultCellStyle.BackColor = hl
+                dgvPreview.Rows[idx].DefaultCellStyle.BackColor = r.HopLe
                     ? Color.FromArgb(220, 255, 220)
                     : Color.FromArgb(255, 235, 238);
             }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using qldsv.BLL;
 using qldsv.Class;
-
+using qldsv.Utils;
 namespace qldsv.Forms.Giangvien
 {
     public partial class FrmNhapDiem : Form
@@ -374,19 +374,8 @@ namespace qldsv.Forms.Giangvien
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                // Build bảng preview
-                DataTable tblPreview = new DataTable();
-                tblPreview.Columns.Add("STT", typeof(int));
-                tblPreview.Columns.Add("MSSV", typeof(string));
-                tblPreview.Columns.Add("HoTen", typeof(string));
-                tblPreview.Columns.Add("CC", typeof(string));
-                tblPreview.Columns.Add("KT1", typeof(string));
-                tblPreview.Columns.Add("KT2", typeof(string));
-                tblPreview.Columns.Add("CK", typeof(string));
-                tblPreview.Columns.Add("TrangThai", typeof(string));
-                tblPreview.Columns.Add("LyDo", typeof(string));
-                tblPreview.Columns.Add("HopLe", typeof(bool));
-
+                // Thay đoạn build tblPreview bằng:
+                var preview = new List<Utils.ImportResult>();
                 int stt = 1;
                 bool coLoi = false;
                 string[] tenCot = { "CC", "KT1", "KT2", "CK" };
@@ -419,17 +408,23 @@ namespace qldsv.Forms.Giangvien
 
                     if (!hopLe) coLoi = true;
 
-                    tblPreview.Rows.Add(stt++, maSV, hoTen,
-                        giaTriDiem[0], giaTriDiem[1], giaTriDiem[2], giaTriDiem[3],
-                        hopLe ? "✔ Hợp lệ" : "✘ Lỗi",
-                        lyDo.Trim(),
-                        hopLe);
+                    preview.Add(new Utils.ImportResult
+                    {
+                        STT = stt++,
+                        MaSV = maSV,
+                        HoTen = hoTen,
+                        CC = giaTriDiem[0],
+                        KT1 = giaTriDiem[1],
+                        KT2 = giaTriDiem[2],
+                        CK = giaTriDiem[3],
+                        HopLe = hopLe,
+                        LyDoLoi = lyDo.Trim()
+                    });
                 }
 
-                // Nếu có lỗi → mở form preview, không import
                 if (coLoi)
                 {
-                    new FrmPreviewImportDiem(tblPreview).ShowDialog();
+                    new FrmPreviewImportDiem(preview).ShowDialog();
                     return;
                 }
                 // Điền vào DataTable + dgv

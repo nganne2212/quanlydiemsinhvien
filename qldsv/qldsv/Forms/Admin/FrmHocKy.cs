@@ -322,8 +322,16 @@ namespace qldsv.Forms.Admin
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
             int maHocKy = Convert.ToInt32(dgvQuanlyhocky.CurrentRow.Cells["MaHocKy"].Value);
+            string loiDiem = CanhBaoService.KiemTraDiemChuaXacNhan(maHocKy);
+            if (loiDiem != "")
+            {
+                MessageBox.Show(loiDiem, "Không thể đóng học kỳ",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            
 
             // ── Bước 1: Kiểm tra đơn phúc khảo chưa xử lý ───────
             string loiPhucKhao = CanhBaoService.KiemTraPhucKhaoChuaXuLy(maHocKy);
