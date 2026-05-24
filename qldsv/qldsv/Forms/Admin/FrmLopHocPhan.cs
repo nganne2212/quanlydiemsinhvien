@@ -76,11 +76,14 @@ namespace qldsv.Forms.Admin
         private void LoadHocKy()
         {
             DataTable dt = Functions.GetDataToTable(
-                "SELECT MaHocKy, TenHocKy + ' - ' + NamHoc AS TenHK FROM HocKy ORDER BY MaHocKy DESC");
+                "SELECT MaHocKy, TenHocKy + ' - ' + NamHoc AS TenHK FROM HocKy WHERE Trangthai = N'DangDienRa'  ORDER BY MaHocKy DESC");
             cboHocKy.DataSource = dt;
             cboHocKy.DisplayMember = "TenHK";
             cboHocKy.ValueMember = "MaHocKy";
             cboHocKy.SelectedIndex = -1;
+            if (dt.Rows.Count == 0)
+                MessageBox.Show("Hiện chưa có học kỳ nào đang mở!\nVui lòng mở học kỳ trước khi thêm lớp học phần.",
+                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void Load_DgvLHP()
