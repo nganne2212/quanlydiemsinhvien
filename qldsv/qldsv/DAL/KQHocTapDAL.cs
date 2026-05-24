@@ -51,6 +51,10 @@ namespace qldsv.DAL
                     lhp.MaLHP,
                     mh.TenMon,
                     mh.SoTinChi,
+                    mh.HeSoChuyenCan,
+                    mh.HeSoKT1,
+                    mh.HeSoKT2,
+                    mh.HeSoCuoiKy,
                     ISNULL(d.ChuyenCan, 0) AS ChuyenCan,
                     ISNULL(d.Kiemtra1, 0) AS Kiemtra1,
                     ISNULL(d.Kiemtra2, 0) AS Kiemtra2,
@@ -59,7 +63,7 @@ namespace qldsv.DAL
                 FROM DangKyHP dk
                 INNER JOIN LopHocPhan lhp ON dk.MaLHP = lhp.MaLHP
                 INNER JOIN MonHoc mh ON lhp.MaMonHoc = mh.MaMonHoc
-                LEFT JOIN Diem d ON dk.MaDangKy = d.MaDangKy
+                LEFT JOIN Diem d ON dk.MaDangKy = d.MaDangKy AND d.TrangThai = N'DaXacNhan'
                 WHERE dk.MaSinhVien = @maSV
                 AND lhp.MaHocKy = @maHocKy
                 ORDER BY mh.TenMon",
@@ -92,8 +96,7 @@ namespace qldsv.DAL
                 @"SELECT 
                     CASE WHEN SUM(mh.SoTinChi) = 0 THEN 0
                     ELSE ROUND(SUM(CASE 
-                        WHEN d.TongKet >= 9.5 THEN 4.0 * mh.SoTinChi
-                        WHEN d.TongKet >= 8.5 THEN 3.7 * mh.SoTinChi
+                        WHEN d.TongKet >= 8.5 THEN 4.0 * mh.SoTinChi
                         WHEN d.TongKet >= 8.0 THEN 3.5 * mh.SoTinChi
                         WHEN d.TongKet >= 7.0 THEN 3.0 * mh.SoTinChi
                         WHEN d.TongKet >= 6.5 THEN 2.5 * mh.SoTinChi
@@ -138,8 +141,7 @@ namespace qldsv.DAL
                 @"SELECT 
                     CASE WHEN SUM(mh.SoTinChi) = 0 THEN 0
                     ELSE ROUND(SUM(CASE 
-                        WHEN d.TongKet >= 9.5 THEN 4.0 * mh.SoTinChi
-                        WHEN d.TongKet >= 8.5 THEN 3.7 * mh.SoTinChi
+                        WHEN d.TongKet >= 8.5 THEN 4.0 * mh.SoTinChi
                         WHEN d.TongKet >= 8.0 THEN 3.5 * mh.SoTinChi
                         WHEN d.TongKet >= 7.0 THEN 3.0 * mh.SoTinChi
                         WHEN d.TongKet >= 6.5 THEN 2.5 * mh.SoTinChi

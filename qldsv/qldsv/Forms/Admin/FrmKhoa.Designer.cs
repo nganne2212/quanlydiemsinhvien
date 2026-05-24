@@ -306,6 +306,10 @@
             this.pnlRight.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhoa)).EndInit();
             this.pnlSearch.ResumeLayout(false);
+
+            // ─── Đăng ký sự kiện Click cho DataGridView ───
+            this.dgvKhoa.Click += new System.EventHandler(this.dgvKhoa_Click);
+
             this.ResumeLayout(false);
 
         }

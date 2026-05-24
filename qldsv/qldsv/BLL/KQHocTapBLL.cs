@@ -37,42 +37,42 @@ namespace qldsv.BLL
                 { "MaLHP", "TenMon", "SoTinChi", "ChuyenCan", "Kiemtra1", "Kiemtra2", "CuoiKy", "TongKet" }
                 .Contains(c.ColumnName)))
             {
-                dt.Columns.Add("He4", typeof(double));
+                dt.Columns.Add("He4", typeof(string));
                 dt.Columns.Add("DiemChu", typeof(string));
             }
 
             // Tính từng hàng
             foreach (DataRow row in dt.Rows)
             {
-                double? tongKet = row["TongKet"] == DBNull.Value ? null : (double?)Convert.ToDouble(row["TongKet"]);
+                double tongKet = row["TongKet"] == DBNull.Value ? 0 : Convert.ToDouble(row["TongKet"]);
 
-                // Tính hệ 4.0
-                double he4 = ConvertTo4Scale(tongKet);
+                // Tính hệ chữ
+                string he4 = XepDiemChu(tongKet);
                 row["He4"] = he4;
 
-                // Tính xếp loại
-                string diemChu = DiemBLL.XepDiemChu(tongKet);
+                // Tính xếp loại (giống He4)
+                double? tongKetNullable = tongKet > 0 ? (double?)tongKet : null;
+                string diemChu = DiemBLL.XepDiemChu(tongKetNullable);
                 row["DiemChu"] = diemChu;
             }
 
             return dt;
         }
 
-
-        private static double ConvertTo4Scale(double? diem10)
+        // Xếp loại điểm hệ chữ
+        public static string XepDiemChu(double? tongKet)
         {
-            if (diem10 == null) return 0;
-            double d = diem10.Value;
-
-            if (d >= 9.5) return 4.0;
-            if (d >= 8.5) return 3.7;
-            if (d >= 8.0) return 3.5;
-            if (d >= 7.0) return 3.0;
-            if (d >= 6.5) return 2.5;
-            if (d >= 5.5) return 2.0;
-            if (d >= 5.0) return 1.5;
-            if (d >= 4.0) return 1.0;
-            return 0;
+            if (tongKet == null) return "";
+            double d = tongKet.Value;
+            if (d >= 9.5) return "A+";
+            if (d >= 8.5) return "A";
+            if (d >= 8.0) return "B+";
+            if (d >= 7.0) return "B";
+            if (d >= 6.5) return "C+";
+            if (d >= 5.5) return "C";
+            if (d >= 5.0) return "D+";
+            if (d >= 4.0) return "D";
+            return "F";
         }
 
 
