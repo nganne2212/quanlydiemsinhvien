@@ -52,6 +52,10 @@ namespace qldsv.BLL
             // Kiểm tra trùng mã
             if (DAL.QLGiangvienDAL.KiemTraTrung(maGV.Trim()))
                 return "Mã giảng viên đã tồn tại";
+            // Email trùng
+            if (DAL.QLGiangvienDAL.EmailTrung(email.Trim()))
+                return "Email này đã được sử dụng bởi giảng viên khác";
+
 
             DAL.QLGiangvienDAL.Them(
                 maGV.Trim(),
@@ -88,6 +92,11 @@ namespace qldsv.BLL
             // Kiểm tra email
             if (!Regex.IsMatch(email.Trim(), @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
                 return "Email không đúng định dạng";
+            // Email trùng (exclude chính GV đó)
+            if (DAL.QLGiangvienDAL.EmailTrung(email.Trim(), maGV.Trim()))
+                return "Email này đã được sử dụng bởi giảng viên khác";
+
+           
 
             DAL.QLGiangvienDAL.Sua(
                 maGV.Trim(),
@@ -116,5 +125,6 @@ namespace qldsv.BLL
 
             return "";
         }
+
     }
 }

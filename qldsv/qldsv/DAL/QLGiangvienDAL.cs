@@ -95,7 +95,17 @@ namespace qldsv.DAL
                 WHERE MaGiangVien=@ma",
                 new { ma = maGV, ten = hoTen, email, khoa = maKhoa });
         }
-
+        public static bool EmailTrung(string email, string excludeMaGV = null)
+        {
+            if (string.IsNullOrWhiteSpace(email)) return false;
+            if (!string.IsNullOrEmpty(excludeMaGV))
+                return Functions.QuerySingle<int>(
+                    "SELECT COUNT(*) FROM GiangVien WHERE Email = @email AND MaGiangVien <> @ma",
+                    new { email, ma = excludeMaGV }) > 0;
+            return Functions.QuerySingle<int>(
+                "SELECT COUNT(*) FROM GiangVien WHERE Email = @email",
+                new { email }) > 0;
+        }
         public static void Xoa(string maGV)
         {
             using (var tran = Functions.Conn.BeginTransaction())

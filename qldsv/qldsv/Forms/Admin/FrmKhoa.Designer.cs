@@ -16,7 +16,7 @@
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlLeft = new System.Windows.Forms.Panel();
@@ -62,7 +62,7 @@
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(20, 14);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(138, 21);
+            this.lblTitle.Size = new System.Drawing.Size(205, 32);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "🏢 Quản lý khoa";
             // 
@@ -177,7 +177,7 @@
             this.lblTenKhoa.BackColor = System.Drawing.Color.Transparent;
             this.lblTenKhoa.Location = new System.Drawing.Point(20, 155);
             this.lblTenKhoa.Name = "lblTenKhoa";
-            this.lblTenKhoa.Size = new System.Drawing.Size(49, 15);
+            this.lblTenKhoa.Size = new System.Drawing.Size(69, 22);
             this.lblTenKhoa.TabIndex = 2;
             this.lblTenKhoa.Text = "Tên khoa";
             // 
@@ -200,7 +200,7 @@
             this.lblMaKhoa.BackColor = System.Drawing.Color.Transparent;
             this.lblMaKhoa.Location = new System.Drawing.Point(20, 70);
             this.lblMaKhoa.Name = "lblMaKhoa";
-            this.lblMaKhoa.Size = new System.Drawing.Size(45, 15);
+            this.lblMaKhoa.Size = new System.Drawing.Size(64, 22);
             this.lblMaKhoa.TabIndex = 4;
             this.lblMaKhoa.Text = "Mã khoa";
             // 
@@ -211,7 +211,7 @@
             this.lblSection.ForeColor = System.Drawing.Color.SlateBlue;
             this.lblSection.Location = new System.Drawing.Point(20, 20);
             this.lblSection.Name = "lblSection";
-            this.lblSection.Size = new System.Drawing.Size(117, 19);
+            this.lblSection.Size = new System.Drawing.Size(178, 30);
             this.lblSection.TabIndex = 5;
             this.lblSection.Text = "THÔNG TIN KHOA";
             // 
@@ -232,9 +232,9 @@
             this.dgvKhoa.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvKhoa.BackgroundColor = System.Drawing.Color.White;
             this.dgvKhoa.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.dgvKhoa.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.dgvKhoa.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvKhoa.ColumnHeadersHeight = 34;
             this.dgvKhoa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colMaKhoa,
@@ -249,6 +249,7 @@
             this.dgvKhoa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKhoa.Size = new System.Drawing.Size(820, 665);
             this.dgvKhoa.TabIndex = 0;
+            this.dgvKhoa.Click += new System.EventHandler(this.dgvKhoa_Click);
             // 
             // colMaKhoa
             // 
@@ -285,6 +286,7 @@
             this.txtTimKiem.SelectedText = "";
             this.txtTimKiem.Size = new System.Drawing.Size(400, 42);
             this.txtTimKiem.TabIndex = 0;
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged_1);
             // 
             // FrmKhoa
             // 
@@ -298,6 +300,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý khoa";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmKhoa_Load_1);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlLeft.ResumeLayout(false);
@@ -306,10 +309,6 @@
             this.pnlRight.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhoa)).EndInit();
             this.pnlSearch.ResumeLayout(false);
-
-            // ─── Đăng ký sự kiện Click cho DataGridView ───
-            this.dgvKhoa.Click += new System.EventHandler(this.dgvKhoa_Click);
-
             this.ResumeLayout(false);
 
         }

@@ -104,8 +104,31 @@ namespace qldsv.DAL
                         lop = maLop
                     });
             }
+        public static bool EmailTrung(string email, string excludeMaSV = null)
+        {
+            if (string.IsNullOrWhiteSpace(email)) return false;
+            if (!string.IsNullOrEmpty(excludeMaSV))
+                return Functions.QuerySingle<int>(
+                    "SELECT COUNT(*) FROM SinhVien WHERE Email = @email AND MaSinhVien <> @ma",
+                    new { email, ma = excludeMaSV }) > 0;
+            return Functions.QuerySingle<int>(
+                "SELECT COUNT(*) FROM SinhVien WHERE Email = @email",
+                new { email }) > 0;
+        }
 
-            public static void Xoa(string maSV)
+        public static bool SDTTrung(string sdt, string excludeMaSV = null)
+        {
+            if (string.IsNullOrWhiteSpace(sdt)) return false;
+            if (!string.IsNullOrEmpty(excludeMaSV))
+                return Functions.QuerySingle<int>(
+                    "SELECT COUNT(*) FROM SinhVien WHERE SoDienThoai = @sdt AND MaSinhVien <> @ma",
+                    new { sdt, ma = excludeMaSV }) > 0;
+            return Functions.QuerySingle<int>(
+                "SELECT COUNT(*) FROM SinhVien WHERE SoDienThoai = @sdt",
+                new { sdt }) > 0;
+        }
+
+        public static void Xoa(string maSV)
             {
                 using (var tran = Functions.Conn.BeginTransaction())
                 {

@@ -21,14 +21,7 @@ namespace qldsv.Forms.Admin
 
         DataTable tblKhoa;
 
-        private void FrmKhoa_Load(object sender, EventArgs e)
-        {
-            btnLuu.Enabled = false;
-            btnBoQua.Enabled = false;
-            txtMaKhoa.Enabled = false;
 
-            Load_DataGridView();
-        }
 
         private void Load_DataGridView()
         {
@@ -178,7 +171,7 @@ namespace qldsv.Forms.Admin
 
             string loi = "";
 
-            if (btnThem.Enabled == false) // Đang ở chế độ thêm mới
+            if (txtMaKhoa.Enabled) // Đang ở chế độ thêm mới
             {
                 loi = KhoaBLL.Them(maKhoa, tenKhoa);
             }
@@ -206,11 +199,23 @@ namespace qldsv.Forms.Admin
             txtMaKhoa.Enabled = false;
         }
 
-        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+
+
+        private void txtTimKiem_TextChanged_1(object sender, EventArgs e)
         {
             string keyword = txtTimKiem.Text.Trim();
             tblKhoa = KhoaBLL.Search(keyword);
             dgvKhoa.DataSource = tblKhoa;
         }
+
+        private void FrmKhoa_Load_1(object sender, EventArgs e)
+        {
+            btnLuu.Enabled = false;
+            btnBoQua.Enabled = false;
+            txtMaKhoa.Enabled = false;
+
+            Load_DataGridView();
+        }
     }
-}
+    }
+

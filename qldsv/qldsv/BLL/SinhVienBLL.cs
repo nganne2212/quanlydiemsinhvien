@@ -159,6 +159,21 @@ namespace qldsv.BLL
                 if (Regex.IsMatch(sdtClean, @"^(\d)\1{9}$"))
                     return "Số điện thoại không hợp lệ";
             }
+            string maSVExclude = isAdd ? null : maSV.Trim();
+
+            // Email trùng
+            if (!string.IsNullOrWhiteSpace(email))
+            {
+                if (DAL.SinhVienDAL.EmailTrung(email.Trim(), maSVExclude))
+                    return "Email này đã được sử dụng bởi sinh viên khác";
+            }
+
+            // SĐT trùng
+            if (!string.IsNullOrEmpty(sdtClean))
+            {
+                if (DAL.SinhVienDAL.SDTTrung(sdtClean, maSVExclude))
+                    return "Số điện thoại này đã được sử dụng bởi sinh viên khác";
+            }
 
             return "";
         }

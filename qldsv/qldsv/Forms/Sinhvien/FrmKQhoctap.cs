@@ -44,7 +44,7 @@ namespace qldsv.Forms.Sinhvien
 
         private void LoadNamHoc()
         {
-            cboNamHoc.SelectedIndexChanged -= cboNamHoc_SelectedIndexChanged;
+            cboNamHoc.SelectedIndexChanged -= cboNamHoc_SelectedIndexChanged_1;
 
             DataTable dt = KQHocTapBLL.GetNamHoc();
             cboNamHoc.DataSource = dt;
@@ -52,17 +52,17 @@ namespace qldsv.Forms.Sinhvien
             cboNamHoc.ValueMember = "NamHoc";
             cboNamHoc.SelectedIndex = -1;
 
-            cboNamHoc.SelectedIndexChanged += cboNamHoc_SelectedIndexChanged;
+            cboNamHoc.SelectedIndexChanged += cboNamHoc_SelectedIndexChanged_1;
         }
 
         private void LoadHocKy(string namHoc)
         {
-            cboHocKy.SelectedIndexChanged -= cboHocKy_SelectedIndexChanged;
+            cboHocKy.SelectedIndexChanged -= cboHocKy_SelectedIndexChanged_1;
 
             if (string.IsNullOrEmpty(namHoc))
             {
                 cboHocKy.DataSource = null;
-                cboHocKy.SelectedIndexChanged += cboHocKy_SelectedIndexChanged;
+                cboHocKy.SelectedIndexChanged += cboHocKy_SelectedIndexChanged_1;
                 return;
             }
 
@@ -72,7 +72,7 @@ namespace qldsv.Forms.Sinhvien
             cboHocKy.ValueMember = "MaHocKy";
             cboHocKy.SelectedIndex = -1;
 
-            cboHocKy.SelectedIndexChanged += cboHocKy_SelectedIndexChanged;
+            cboHocKy.SelectedIndexChanged += cboHocKy_SelectedIndexChanged_1;
         }
 
         private void LoadDgvStructure()
@@ -84,6 +84,10 @@ namespace qldsv.Forms.Sinhvien
             colSTT.DataPropertyName = "STT";
             colMaHP.DataPropertyName = "MaLHP";
             colTenHP.DataPropertyName = "TenMon";
+            colHeSoCC.DataPropertyName = "HeSoChuyenCan";
+            colHeSoKT1.DataPropertyName = "HeSoKT1";
+            colHeSoKT2.DataPropertyName = "HeSoKT2";
+            colHeSoCK.DataPropertyName = "HeSoCuoiKy";
             colTC.DataPropertyName = "SoTinChi";
             colCC.DataPropertyName = "ChuyenCan";
             colKT1.DataPropertyName = "Kiemtra1";
@@ -98,45 +102,10 @@ namespace qldsv.Forms.Sinhvien
         }
 
 
-        private void cboNamHoc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cboHocKy.SelectedIndex = -1;
-            dgvKQ.DataSource = null;
-            ResetSummary();
-
-            if (cboNamHoc.SelectedIndex < 0 || cboNamHoc.SelectedValue == null)
-                return;
-
-            string namHoc = cboNamHoc.SelectedValue.ToString();
-            LoadHocKy(namHoc);
-        }
-
-        private void cboHocKy_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            dgvKQ.DataSource = null;
-            ResetSummary();
-        }
+        
 
 
-        private void btnXem_Click(object sender, EventArgs e)
-        {
-            if (cboNamHoc.SelectedIndex < 0)
-            {
-                MessageBox.Show("Vui lòng chọn năm học!", "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (cboHocKy.SelectedIndex < 0 || cboHocKy.SelectedValue == null)
-            {
-                MessageBox.Show("Vui lòng chọn học kỳ!", "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            int maHocKy = int.Parse(cboHocKy.SelectedValue.ToString());
-            LoadKetQuaHocTap(maHocKy);
-        }
+       
 
         private void LoadKetQuaHocTap(int maHocKy)
         {
@@ -218,8 +187,18 @@ namespace qldsv.Forms.Sinhvien
             lblTBTL10.Text = "TB TL (10): " + tgtl["TB10"].ToString();
             lblTBTL4.Text = "TB TL (4.0): " + tgtl["TB4"].ToString();
             lblTinChiTL.Text = "TC TL: " + tgtl["TongTC"].ToString();
+            double tb4 = Convert.ToDouble(tgtl["TB4"]);
+            lblXepLoai.Text = "Xếp loại: " + XepLoai(tb4);
         }
-
+        private string XepLoai(double tb4)
+        {
+            if (tb4 >= 3.6) return "Xuất sắc";
+            if (tb4 >= 3.2) return "Giỏi";
+            if (tb4 >= 2.5) return "Khá";
+            if (tb4 >= 2.0) return "Trung bình";
+            if (tb4 >= 1.0) return "Yếu";
+            return "Kém";
+        }
         private void ResetSummary()
         {
             lblTB10.Text = "TB (10): 0.00";
@@ -229,6 +208,28 @@ namespace qldsv.Forms.Sinhvien
             lblTBTL4.Text = "TB TL (4.0): 0.00";
             lblTinChiTL.Text = "TC TL: 0";
             lblXepLoai.Text = "Xếp loại: ";
+        }
+
+        private void cboHocKy_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            dgvKQ.DataSource = null;
+            ResetSummary();
+            if (cboHocKy.SelectedIndex < 0 || cboHocKy.SelectedValue == null) return;
+            int maHocKy = int.Parse(cboHocKy.SelectedValue.ToString());
+            LoadKetQuaHocTap(maHocKy);
+        }
+
+        private void cboNamHoc_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            cboHocKy.SelectedIndex = -1;
+            dgvKQ.DataSource = null;
+            ResetSummary();
+
+            if (cboNamHoc.SelectedIndex < 0 || cboNamHoc.SelectedValue == null)
+                return;
+
+            string namHoc = cboNamHoc.SelectedValue.ToString();
+            LoadHocKy(namHoc);
         }
     }
 }

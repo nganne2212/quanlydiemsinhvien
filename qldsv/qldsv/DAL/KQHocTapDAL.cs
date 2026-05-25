@@ -178,10 +178,13 @@ namespace qldsv.DAL
         {
             return Functions.QuerySingle<int>(
                 @"SELECT ISNULL(SUM(mh.SoTinChi), 0)
-                FROM DangKyHP dk
-                INNER JOIN LopHocPhan lhp ON dk.MaLHP = lhp.MaLHP
-                INNER JOIN MonHoc mh ON lhp.MaMonHoc = mh.MaMonHoc
-                WHERE dk.MaSinhVien = @maSV",
+          FROM DangKyHP dk
+          INNER JOIN LopHocPhan lhp ON dk.MaLHP = lhp.MaLHP
+          INNER JOIN MonHoc mh ON lhp.MaMonHoc = mh.MaMonHoc
+          LEFT JOIN Diem d ON dk.MaDangKy = d.MaDangKy
+          WHERE dk.MaSinhVien = @maSV
+            AND d.TongKet >= 4.0
+            AND d.TrangThai = N'DaXacNhan'",
                 new { maSV });
         }
     }
