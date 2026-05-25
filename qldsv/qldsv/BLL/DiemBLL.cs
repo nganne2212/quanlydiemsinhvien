@@ -37,7 +37,7 @@ namespace qldsv.BLL
             double tong = (cc ?? 0) * h1 + (kt1 ?? 0) * h2
                         + (kt2 ?? 0) * h3 + (ck ?? 0) * h4;
 
-            return Math.Round(tong, 2);
+            return Math.Round(tong, 1);
         }
 
         // ════════════════════════════════════════════════════════

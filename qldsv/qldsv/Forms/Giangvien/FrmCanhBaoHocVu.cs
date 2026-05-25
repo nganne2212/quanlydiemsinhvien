@@ -49,6 +49,11 @@ namespace qldsv.Forms.Giangvien
         private void LoadLop()
         {
             DataTable dt = CanhBaoHocVuBLL.GetLopByGiangVien(maGiangVien);
+            if (dt.Rows.Count == 0)
+            {
+                MessageBox.Show("Bạn không phụ trách làm cố vấn học tập cho lớp nào", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
             DataRow row = dt.NewRow();
             row["MaLop"] = "Tất cả lớp";

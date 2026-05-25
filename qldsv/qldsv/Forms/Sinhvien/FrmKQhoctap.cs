@@ -21,14 +21,8 @@ namespace qldsv.Forms.Sinhvien
             InitializeComponent();
         }
 
-        // ─── Load form ───────────────────────────────────────────────
-
-        private void FrmKQhoctap_Load(object sender, EventArgs e)
-        {
-            LoadThongTinSinhVien();
-            LoadNamHoc();
-            LoadDgvStructure();
-        }
+       
+        
 
         private void LoadThongTinSinhVien()
         {
@@ -99,11 +93,12 @@ namespace qldsv.Forms.Sinhvien
 
             foreach (DataGridViewColumn col in dgvKQ.Columns)
                 col.SortMode = DataGridViewColumnSortMode.NotSortable;
+            if(dgvKQ.Rows.Count ==0)
+            {
+                MessageBox.Show("Học kì này hiện chưa có điểm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
         }
-
-
-        
-
 
        
 
@@ -129,30 +124,19 @@ namespace qldsv.Forms.Sinhvien
 
         private void FormatGrid()
         {
+            // Định dạng số thập phân bằng Format, không ghi vào cell
+            string[] decimalCols = { "colCC", "colKT1", "colKT2", "colCK", "colHe10", "colHe4" };
+            foreach (string colName in decimalCols)
+            {
+                if (dgvKQ.Columns[colName] != null)
+                    dgvKQ.Columns[colName].DefaultCellStyle.Format = "0.##";
+            }
+
+            // Tô màu theo điểm chữ
             foreach (DataGridViewRow row in dgvKQ.Rows)
             {
-                // Định dạng số thập phân
-                FormatCell(row, "ChuyenCan");
-                FormatCell(row, "Kiemtra1");
-                FormatCell(row, "Kiemtra2");
-                FormatCell(row, "CuoiKy");
-                FormatCell(row, "TongKet");
-                FormatCell(row, "He4");
-
-                // Tô màu theo xếp loại
                 string diemChu = row.Cells["colChu"].Value?.ToString() ?? "";
-                Color bgColor = GetColorByGrade(diemChu);
-                row.Cells["colChu"].Style.BackColor = bgColor;
-            }
-        }
-
-        private void FormatCell(DataGridViewRow row, string columnName)
-        {
-            DataGridViewCell cell = row.Cells[columnName];
-            if (cell.Value != DBNull.Value && cell.Value != null)
-            {
-                if (double.TryParse(cell.Value.ToString(), out double val))
-                    cell.Value = Math.Round(val, 2);
+                row.Cells["colChu"].Style.BackColor = GetColorByGrade(diemChu);
             }
         }
 
@@ -230,6 +214,13 @@ namespace qldsv.Forms.Sinhvien
 
             string namHoc = cboNamHoc.SelectedValue.ToString();
             LoadHocKy(namHoc);
+        }
+
+        private void FrmKQhoctap_Load_1(object sender, EventArgs e)
+        {
+            LoadThongTinSinhVien();
+            LoadNamHoc();
+            LoadDgvStructure();
         }
     }
 }

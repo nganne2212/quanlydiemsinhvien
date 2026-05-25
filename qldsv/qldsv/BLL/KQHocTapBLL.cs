@@ -83,7 +83,7 @@ namespace qldsv.BLL
 
             return new Dictionary<string, object>
             {
-                { "TB10", Math.Round(tb10, 2) },
+                { "TB10", Math.Round(tb10, 1) },
                 { "TB4", Math.Round(tb4, 2) },
                 { "TongTC", tongTC }
             };
@@ -97,7 +97,7 @@ namespace qldsv.BLL
 
             return new Dictionary<string, object>
             {
-                { "TB10", Math.Round(tb10, 2) },
+                { "TB10", Math.Round(tb10, 1) },
                 { "TB4", Math.Round(tb4, 2) },
                 { "TongTC", tongTC }
             };
