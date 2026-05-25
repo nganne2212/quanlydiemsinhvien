@@ -120,7 +120,7 @@
             this.dgvNhapDiem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNhapDiem.Size = new System.Drawing.Size(1364, 514);
             this.dgvNhapDiem.TabIndex = 1;
-            this.dgvNhapDiem.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhapDiem_CellEndEdit);
+//            this.dgvNhapDiem.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhapDiem_CellEndEdit);
             // 
             // colMaDangKy
             // 
