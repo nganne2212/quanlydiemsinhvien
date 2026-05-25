@@ -156,6 +156,24 @@ namespace qldsv.DAL
                 VALUES (@sv, @lhp, @ngay)",
                 new { sv = maSV, lhp = maLHP, ngay = DateTime.Today });
         }
+        public static bool KiemTraTrangThaiSV(string maSV)
+        {
+            return Functions.QuerySingle<int>(
+                "SELECT COUNT(*) FROM SinhVien WHERE MaSinhVien = @ma AND TrangThai = N'Đang Học'",
+                new { ma = maSV }) > 0;
+        }
+
+        public static bool DaDangKyCungMon(string maSV, string maLHP)
+        {
+            return Functions.QuerySingle<int>(@"
+        SELECT COUNT(*) FROM DangKyHP dk
+        JOIN LopHocPhan lhp ON dk.MaLHP = lhp.MaLHP
+        WHERE dk.MaSinhVien = @sv
+          AND lhp.MaMonHoc = (SELECT MaMonHoc FROM LopHocPhan WHERE MaLHP = @lhp)
+          AND lhp.MaHocKy  = (SELECT MaHocKy  FROM LopHocPhan WHERE MaLHP = @lhp)
+          AND dk.MaLHP != @lhp",
+                new { sv = maSV, lhp = maLHP }) > 0;
+        }
 
         public static bool DangCoDiem(string maSV, string maLHP)
         {
@@ -236,6 +254,19 @@ namespace qldsv.DAL
                         item.HopLe = false;
                         item.LyDoLoi = "MSSV không tồn tại trong hệ thống";
                     }
+                    // THÊM 1
+                    else if (!KiemTraTrangThaiSV(maSV))
+                    {
+                        item.HopLe = false;
+                        item.LyDoLoi = "Sinh viên không ở trạng thái Đang Học";
+                    }
+                    // THÊM 2
+                    else if (DaDangKyCungMon(maSV, maLHP))
+                    {
+                        item.HopLe = false;
+                        item.LyDoLoi = "Sinh viên đã đăng ký môn này trong học kỳ";
+                    }
+
                     else if (DaSVTrongLHP(maSV, maLHP))
                     {
                         item.HopLe = false;

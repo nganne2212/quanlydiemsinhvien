@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using qldsv.BLL;
 using qldsv.Class;
-
+using qldsv.Utils;
 namespace qldsv.Forms.Giangvien
 {
     public partial class FrmNhapDiem : Form
@@ -143,23 +143,15 @@ namespace qldsv.Forms.Giangvien
         }
         private void SetEditMode(bool coTheNhap)
         {
-            colCC.ReadOnly = !coTheNhap;
-            colKT1.ReadOnly = !coTheNhap;
-            colKT2.ReadOnly = !coTheNhap;
-            colCK.ReadOnly = !coTheNhap;
-            colTongKet.ReadOnly = true;
-            colDiemChu.ReadOnly = true;
-            colSTT.ReadOnly = true;
-            colMSSV.ReadOnly = true;
-            colHoTen.ReadOnly = true;
-            colMaDangKy.ReadOnly = true;
+            // Tất cả cột đều readonly, không cho nhập trực tiếp
+            foreach (DataGridViewColumn col in dgvNhapDiem.Columns)
+                col.ReadOnly = true;
+
+            dgvNhapDiem.EditMode = DataGridViewEditMode.EditProgrammatically;
 
             btnLuuTam.Enabled = coTheNhap;
             btnXacNhan.Enabled = coTheNhap;
             btnImport.Enabled = coTheNhap;
-            dgvNhapDiem.EditMode = coTheNhap
-                ? DataGridViewEditMode.EditOnKeystrokeOrF2
-                : DataGridViewEditMode.EditProgrammatically;
         }
         private void SetNutTheoTrangThai(bool daChonLHP)
         {
@@ -195,60 +187,8 @@ namespace qldsv.Forms.Giangvien
             lblThongKe.Text = $"Tổng SV: {tong}  |  Đã nhập: {daNhap}  |  Còn thiếu: {conThieu}";
         }
 
-        private void dgvNhapDiem_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            if (heSo == null) return;
-
-            var row = dgvNhapDiem.Rows[e.RowIndex];
-
-            // Validate giá trị vừa nhập
-            string tenCot = dgvNhapDiem.Columns[e.ColumnIndex].HeaderText;
-            string giaTriMoi = row.Cells[e.ColumnIndex].Value?.ToString() ?? "";
-            string loi = DiemBLL.ValidateDiem(giaTriMoi, tenCot);
-            if (loi != "")
-            {
-                MessageBox.Show(loi, "Lỗi nhập liệu",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                row.Cells[e.ColumnIndex].Value = null;
-                return;
-            }
-
-            // Lấy 4 giá trị điểm
-            double? cc = ParseCell(row.Cells["colCC"].Value);
-            double? kt1 = ParseCell(row.Cells["colKT1"].Value);
-            double? kt2 = ParseCell(row.Cells["colKT2"].Value);
-            double? ck = ParseCell(row.Cells["colCK"].Value);
-
-            // Tính TongKet + DiemChu
-            double? tongKet = DiemBLL.TinhTongKet(cc, kt1, kt2, ck, heSo);
-            row.Cells["colTongKet"].Value = tongKet.HasValue ? (object)Math.Round(tongKet.Value, 2) : DBNull.Value;
-            row.Cells["colDiemChu"].Value = DiemBLL.XepDiemChu(tongKet);
-
-            // Cập nhật DataTable gốc
-            int maDangKy = Convert.ToInt32(row.Cells["colMaDangKy"].Value);
-            foreach (DataRow dr in tblDiem.Rows)
-            {
-                if (Convert.ToInt32(dr["MaDangKy"]) == maDangKy)
-                {
-                    dr["ChuyenCan"] = cc.HasValue ? (object)cc.Value : DBNull.Value;
-                    dr["Kiemtra1"] = kt1.HasValue ? (object)kt1.Value : DBNull.Value;
-                    dr["Kiemtra2"] = kt2.HasValue ? (object)kt2.Value : DBNull.Value;
-                    dr["CuoiKy"] = ck.HasValue ? (object)ck.Value : DBNull.Value;
-                    dr["TongKet"] = tongKet.HasValue ? (object)tongKet.Value : DBNull.Value;
-                    dr["DiemChu"] = DiemBLL.XepDiemChu(tongKet);
-                    dr["NguonGoc"] = "GiangVien";
-                    break;
-                }
-            }
-
-            CapNhatThongKe();
-        }
-        private double? ParseCell(object val)
-        {
-            if (val == null || val == DBNull.Value) return null;
-            if (double.TryParse(val.ToString(), out double d)) return d;
-            return null;
-        }
+        
+        
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
@@ -380,19 +320,8 @@ namespace qldsv.Forms.Giangvien
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                // Build bảng preview
-                DataTable tblPreview = new DataTable();
-                tblPreview.Columns.Add("STT", typeof(int));
-                tblPreview.Columns.Add("MSSV", typeof(string));
-                tblPreview.Columns.Add("HoTen", typeof(string));
-                tblPreview.Columns.Add("CC", typeof(string));
-                tblPreview.Columns.Add("KT1", typeof(string));
-                tblPreview.Columns.Add("KT2", typeof(string));
-                tblPreview.Columns.Add("CK", typeof(string));
-                tblPreview.Columns.Add("TrangThai", typeof(string));
-                tblPreview.Columns.Add("LyDo", typeof(string));
-                tblPreview.Columns.Add("HopLe", typeof(bool));
-
+                // Thay đoạn build tblPreview bằng:
+                var preview = new List<Utils.ImportResult>();
                 int stt = 1;
                 bool coLoi = false;
                 string[] tenCot = { "CC", "KT1", "KT2", "CK" };
@@ -425,17 +354,23 @@ namespace qldsv.Forms.Giangvien
 
                     if (!hopLe) coLoi = true;
 
-                    tblPreview.Rows.Add(stt++, maSV, hoTen,
-                        giaTriDiem[0], giaTriDiem[1], giaTriDiem[2], giaTriDiem[3],
-                        hopLe ? "✔ Hợp lệ" : "✘ Lỗi",
-                        lyDo.Trim(),
-                        hopLe);
+                    preview.Add(new Utils.ImportResult
+                    {
+                        STT = stt++,
+                        MaSV = maSV,
+                        HoTen = hoTen,
+                        CC = giaTriDiem[0],
+                        KT1 = giaTriDiem[1],
+                        KT2 = giaTriDiem[2],
+                        CK = giaTriDiem[3],
+                        HopLe = hopLe,
+                        LyDoLoi = lyDo.Trim()
+                    });
                 }
 
-                // Nếu có lỗi → mở form preview, không import
                 if (coLoi)
                 {
-                    new FrmPreviewImportDiem(tblPreview).ShowDialog();
+                    new FrmPreviewImportDiem(preview).ShowDialog();
                     return;
                 }
                 // Điền vào DataTable + dgv

@@ -28,6 +28,21 @@ namespace qldsv.Utils
 
             return "";
         }
+        public static string KiemTraDiemChuaXacNhan(int maHocKy)
+        {
+            int so = Functions.QuerySingle<int>(
+                @"SELECT COUNT(DISTINCT dk.MaLHP)
+          FROM DangKyHP dk
+          JOIN LopHocPhan lhp ON dk.MaLHP = lhp.MaLHP
+          LEFT JOIN Diem d ON dk.MaDangKy = d.MaDangKy
+          WHERE lhp.MaHocKy = @MaHocKy
+            AND (d.MaDiem IS NULL OR d.TrangThai = N'ChuaXacNhan')",
+                new { MaHocKy = maHocKy });
+
+            return so > 0
+                ? $"Còn {so} lớp học phần chưa xác nhận điểm. Vui lòng xác nhận hết trước khi đóng học kỳ!"
+                : "";
+        }
 
         public static string KiemTraPhucKhaoChuaXuLy(int maHocKy)
         {
