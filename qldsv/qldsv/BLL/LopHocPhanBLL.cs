@@ -61,6 +61,8 @@ namespace qldsv.BLL
                 return "Sinh viên đã có trong lớp học phần này";
             if (DAL.LopHocPhanDAL.DaDangKyCungMon(maSV, maLHP))
                 return "Sinh viên đã đăng ký môn này trong học kỳ";
+            if (DAL.LopHocPhanDAL.TrungLichHoc(maSV, maLHP))
+                return "Sinh viên bị trùng lịch học với lớp học phần khác";
 
             // Kiểm tra điểm cao nhất môn này
             double diemCao = DAL.LopHocPhanDAL.GetDiemCaoNhatMonHoc(maSV, maLHP);

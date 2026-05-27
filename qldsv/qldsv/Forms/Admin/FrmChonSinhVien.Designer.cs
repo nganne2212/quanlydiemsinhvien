@@ -62,6 +62,7 @@ namespace qldsv.Forms.Admin
             this.dgvSinhVien.RowHeadersWidth = 62;
             this.dgvSinhVien.Size = new System.Drawing.Size(576, 380);
             this.dgvSinhVien.TabIndex = 1;
+            this.dgvSinhVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSinhVien_CellClick);
             // 
             // colMSSV
             // 

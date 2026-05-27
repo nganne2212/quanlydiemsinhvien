@@ -93,11 +93,7 @@ namespace qldsv.Forms.Sinhvien
 
             foreach (DataGridViewColumn col in dgvKQ.Columns)
                 col.SortMode = DataGridViewColumnSortMode.NotSortable;
-            if(dgvKQ.Rows.Count ==0)
-            {
-                MessageBox.Show("Học kì này hiện chưa có điểm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
+            
         }
 
        

@@ -15,7 +15,7 @@
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
@@ -222,6 +222,7 @@
             this.txtDiemCu.BorderRadius = 8;
             this.txtDiemCu.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtDiemCu.DefaultText = "";
+            this.txtDiemCu.Enabled = false;
             this.txtDiemCu.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtDiemCu.Location = new System.Drawing.Point(0, 28);
             this.txtDiemCu.Margin = new System.Windows.Forms.Padding(0, 2, 6, 2);
@@ -420,10 +421,10 @@
             this.dgvPhucKhao.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvPhucKhao.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvPhucKhao.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.dgvPhucKhao.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.dgvPhucKhao.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPhucKhao.ColumnHeadersHeight = 42;
             this.dgvPhucKhao.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colMaPhucKhaoHidden,
