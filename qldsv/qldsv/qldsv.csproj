@@ -164,6 +164,12 @@
     <Compile Include="Forms\Admin\FrmChonSinhVien.Designer.cs">
       <DependentUpon>FrmChonSinhVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Admin\FrmDashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\FrmDashBoard.Designer.cs">
+      <DependentUpon>FrmDashBoard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Admin\FrmLopHocPhan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -341,6 +347,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Forms\Admin\FrmChonSinhVien.resx">
       <DependentUpon>FrmChonSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\FrmDashBoard.resx">
+      <DependentUpon>FrmDashBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\FrmHocKy.resx">
       <DependentUpon>FrmHocKy.cs</DependentUpon>
