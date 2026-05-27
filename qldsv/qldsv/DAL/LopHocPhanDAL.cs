@@ -16,22 +16,23 @@ namespace qldsv.DAL
         public static DataTable GetAll()
         {
             return Functions.GetDataToTable(@"
-                SELECT lhp.MaLHP,
-                       mh.TenMon,
-                       gv.HoTen,
-                       hk.TenHocKy + ' - ' + hk.NamHoc AS TenHK,
-                       lhp.NgayBatDau,
-                       lhp.NgayKetThuc,
-                       COUNT(dk.MaDangKy) AS SiSo
-                FROM LopHocPhan lhp
-                JOIN MonHoc mh ON lhp.MaMonHoc = mh.MaMonHoc
-                JOIN GiangVien gv ON lhp.MaGiangVien = gv.MaGiangVien
-                JOIN HocKy hk ON lhp.MaHocKy = hk.MaHocKy
-                LEFT JOIN DangKyHP dk ON lhp.MaLHP = dk.MaLHP
-                GROUP BY lhp.MaLHP, mh.TenMon, gv.HoTen,
-                         hk.TenHocKy, hk.NamHoc,
-                         lhp.NgayBatDau, lhp.NgayKetThuc
-                ORDER BY lhp.MaLHP");
+               SELECT lhp.MaLHP,
+               mh.TenMon,
+               gv.HoTen,
+               hk.TenHocKy + ' - ' + hk.NamHoc AS TenHK,
+               lhp.NgayBatDau,
+               lhp.NgayKetThuc,
+               COUNT(dk.MaDangKy) AS SiSo
+        FROM LopHocPhan lhp
+        JOIN MonHoc mh ON lhp.MaMonHoc = mh.MaMonHoc
+        JOIN GiangVien gv ON lhp.MaGiangVien = gv.MaGiangVien
+        JOIN HocKy hk ON lhp.MaHocKy = hk.MaHocKy
+        LEFT JOIN DangKyHP dk ON lhp.MaLHP = dk.MaLHP
+        WHERE hk.TrangThai = N'DangDienRa'
+        GROUP BY lhp.MaLHP, mh.TenMon, gv.HoTen,
+                 hk.TenHocKy, hk.NamHoc,
+                 lhp.NgayBatDau, lhp.NgayKetThuc
+        ORDER BY lhp.MaLHP");
         }
 
         public static bool KiemTraTrung(string maLHP)

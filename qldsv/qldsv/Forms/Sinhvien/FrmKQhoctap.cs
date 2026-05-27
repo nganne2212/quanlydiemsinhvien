@@ -101,6 +101,20 @@ namespace qldsv.Forms.Sinhvien
         private void LoadKetQuaHocTap(int maHocKy)
         {
             DataTable dt = KQHocTapBLL.GetKetQuaHocTap(CurrentUser.MaDoiTuong, maHocKy);
+            if (dt.Rows.Count == 0)
+            {
+                dgvKQ.DataSource = null;
+                ResetSummary();
+
+                MessageBox.Show(
+                    "Chưa có dữ liệu điểm cho học kỳ này!",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+
+                return;
+            }
 
             // Thêm cột STT
             if (!dt.Columns.Contains("STT"))

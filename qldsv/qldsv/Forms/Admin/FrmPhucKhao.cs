@@ -108,6 +108,7 @@ namespace qldsv.Forms.Admin
 
                     dgvPhucKhao.Rows[i].DefaultCellStyle.ForeColor =
                         Color.Gray;
+                    dgvPhucKhao.Rows[i].Cells["colTrangThai"].Value = "Đã xử lý";
                 }
                 else
                 {
@@ -116,6 +117,7 @@ namespace qldsv.Forms.Admin
 
                     dgvPhucKhao.Rows[i].DefaultCellStyle.ForeColor =
                         Color.Black;
+                    dgvPhucKhao.Rows[i].Cells["colTrangThai"].Value = "Chưa xử lý";
                 }
             }
         }
@@ -176,11 +178,10 @@ namespace qldsv.Forms.Admin
             int maPhucKhao = Convert.ToInt32(
                 row.Cells["colMaPhucKhaoHidden"].Value);
 
-            string trangThai =
-                row.Cells["colTrangThai"].Value?.ToString();
-
-            DataRow[] rows =
-                tblPhucKhao.Select($"MaPhucKhao = {maPhucKhao}");
+            DataRow[] rows = tblPhucKhao.Select($"MaPhucKhao = {maPhucKhao}");
+            string trangThai = rows.Length > 0
+                ? rows[0]["TrangThai"]?.ToString() ?? ""
+                : "";
 
             string lyDo = rows.Length > 0
                 ? rows[0]["LyDo"]?.ToString() ?? ""

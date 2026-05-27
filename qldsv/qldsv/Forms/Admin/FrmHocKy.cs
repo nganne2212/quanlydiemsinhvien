@@ -41,6 +41,25 @@ namespace qldsv.Forms.Admin
             dgvQuanlyhocky.DataSource = null;
             dgvQuanlyhocky.Columns.Clear();
             dgvQuanlyhocky.DataSource = tblHocKy;
+            foreach (DataGridViewRow row in dgvQuanlyhocky.Rows)
+            {
+                string tt = row.Cells["TrangThai"].Value?.ToString();
+
+                switch (tt)
+                {
+                    case "DangDienRa":
+                        row.Cells["TrangThai"].Value = "Đang diễn ra";
+                        break;
+
+                    case "DaKetThuc":
+                        row.Cells["TrangThai"].Value = "Đã kết thúc";
+                        break;
+
+                    default:
+                        row.Cells["TrangThai"].Value = "Chưa mở";
+                        break;
+                }
+            }
 
             dgvQuanlyhocky.Columns["MaHocKy"].Visible = false;
             dgvQuanlyhocky.Columns["STT"].DisplayIndex = 0;
@@ -66,11 +85,11 @@ namespace qldsv.Forms.Admin
                 string tt = row.Cells["TrangThai"]?.Value?.ToString();
                 switch (tt)
                 {
-                    case "DangDienRa":
+                    case "Đang diễn ra":
                         row.DefaultCellStyle.BackColor = Color.FromArgb(220, 255, 220);
                         row.DefaultCellStyle.ForeColor = Color.DarkGreen;
                         break;
-                    case "DaKetThuc":
+                    case "Đã kết thúc":
                         row.DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
                         row.DefaultCellStyle.ForeColor = Color.Gray;
                         break;
