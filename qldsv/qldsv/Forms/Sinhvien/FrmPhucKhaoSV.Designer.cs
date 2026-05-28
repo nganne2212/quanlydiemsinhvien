@@ -16,7 +16,7 @@
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlTop = new System.Windows.Forms.Panel();
@@ -159,7 +159,6 @@
             // txtDiemHienTai
             // 
             this.txtDiemHienTai.BorderRadius = 8;
-            this.txtDiemHienTai.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtDiemHienTai.DefaultText = "";
             this.txtDiemHienTai.Enabled = false;
             this.txtDiemHienTai.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -185,7 +184,6 @@
             // txtLyDo
             // 
             this.txtLyDo.BorderRadius = 8;
-            this.txtLyDo.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtLyDo.DefaultText = "";
             this.txtLyDo.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtLyDo.Location = new System.Drawing.Point(40, 167);
@@ -229,10 +227,10 @@
             this.dgvPhucKhao.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPhucKhao.BackgroundColor = System.Drawing.Color.White;
             this.dgvPhucKhao.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.dgvPhucKhao.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.dgvPhucKhao.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPhucKhao.ColumnHeadersHeight = 40;
             this.dgvPhucKhao.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colMonHoc,
@@ -249,6 +247,7 @@
             this.dgvPhucKhao.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPhucKhao.Size = new System.Drawing.Size(1400, 406);
             this.dgvPhucKhao.TabIndex = 3;
+            this.dgvPhucKhao.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvPhucKhao_CellFormatting);
             // 
             // colMonHoc
             // 

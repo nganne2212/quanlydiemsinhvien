@@ -233,6 +233,7 @@
             this.txtDiemCu.BorderRadius = 8;
             this.txtDiemCu.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtDiemCu.DefaultText = "";
+            this.txtDiemCu.Enabled = false;
             this.txtDiemCu.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtDiemCu.Location = new System.Drawing.Point(0, 24);
             this.txtDiemCu.Margin = new System.Windows.Forms.Padding(0, 2, 5, 2);

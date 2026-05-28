@@ -143,25 +143,42 @@ namespace qldsv.Forms.Sinhvien
             ResetValues();
         }
 
-        // ─── Tô màu grid ─────────────────────────────────────────────
-
         private void dgvPhucKhao_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
             string tt = dgvPhucKhao.Rows[e.RowIndex]
-                                   .Cells["colTrangThai"].Value?.ToString() ?? "";
+                                    .Cells["colTrangThai"].Value?.ToString() ?? "";
             Color mau;
-            if (tt == "ChuaXuLy")
-                mau = Color.FromArgb(255, 255, 180); // vàng
-            else if (tt == "DaXuLy")
-                mau = Color.FromArgb(180, 240, 200); // xanh
-            else
-                mau = Color.White;
+            string hienThi;
+
+            switch (tt)
+            {
+                case "ChuaXuLy":
+                    mau = Color.FromArgb(255, 255, 180); // vàng
+                    hienThi = "Chưa xử lý";
+                    break;
+                case "DaXuLy":
+                    mau = Color.FromArgb(180, 240, 200); // xanh
+                    hienThi = "Đã xử lý";
+                    break;
+                default:
+                    mau = Color.White;
+                    hienThi = tt;
+                    break;
+            }
 
             dgvPhucKhao.Rows[e.RowIndex].DefaultCellStyle.BackColor = mau;
+
+            // Chỉ đổi hiển thị cột TrangThai
+            if (dgvPhucKhao.Columns[e.ColumnIndex].Name == "colTrangThai")
+                e.Value = hienThi;
         }
 
-        
+  
+
+
+
+
     }
 }

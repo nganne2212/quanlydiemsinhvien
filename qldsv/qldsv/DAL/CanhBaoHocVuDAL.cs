@@ -19,23 +19,24 @@ namespace qldsv.DAL
         {
             return Functions.GetDataToTable(
                 @"SELECT cb.MaCanhBao,
-                         sv.MaSinhVien,
-                         sv.HoTen,
-                         l.MaLop,
-                         l.TenLop,
-                         hk.TenHocKy + ' (' + hk.NamHoc + ')' AS TenHocKy,
-                         cb.DiemHK,
-                         cb.TBTL,
-                         cb.TCTL,
-                         cb.SoKyDaBiCB,
-                         cb.MucCanhBao,
-                         cb.LyDo
-                  FROM CanhBaoHocVu cb
-                  JOIN SinhVien sv ON cb.MaSinhVien = sv.MaSinhVien
-                  JOIN Lop      l  ON sv.MaLop      = l.MaLop
-                  JOIN HocKy    hk ON cb.MaHocKy    = hk.MaHocKy
-                  WHERE l.MaGiangVien = @MaGiangVien
-                  ORDER BY cb.MaHocKy DESC, sv.MaSinhVien",
+                 cb.MaHocKy,          -- THÊM DÒNG NÀY
+                 sv.MaSinhVien,
+                 sv.HoTen,
+                 l.MaLop,
+                 l.TenLop,
+                 hk.TenHocKy + ' (' + hk.NamHoc + ')' AS TenHocKy,
+                 cb.DiemHK,
+                 cb.TBTL,
+                 cb.TCTL,
+                 cb.SoKyDaBiCB,
+                 cb.MucCanhBao,
+                 cb.LyDo
+          FROM CanhBaoHocVu cb
+          JOIN SinhVien sv ON cb.MaSinhVien = sv.MaSinhVien
+          JOIN Lop      l  ON sv.MaLop      = l.MaLop
+          JOIN HocKy    hk ON cb.MaHocKy    = hk.MaHocKy
+          WHERE l.MaGiangVien = @MaGiangVien
+          ORDER BY cb.MaHocKy DESC, sv.MaSinhVien",
                 new { MaGiangVien = maGiangVien });
         }
 

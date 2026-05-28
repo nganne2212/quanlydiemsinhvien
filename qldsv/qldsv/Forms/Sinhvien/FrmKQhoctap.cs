@@ -93,11 +93,7 @@ namespace qldsv.Forms.Sinhvien
 
             foreach (DataGridViewColumn col in dgvKQ.Columns)
                 col.SortMode = DataGridViewColumnSortMode.NotSortable;
-            if(dgvKQ.Rows.Count ==0)
-            {
-                MessageBox.Show("Học kì này hiện chưa có điểm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
+            
         }
 
        
@@ -105,6 +101,20 @@ namespace qldsv.Forms.Sinhvien
         private void LoadKetQuaHocTap(int maHocKy)
         {
             DataTable dt = KQHocTapBLL.GetKetQuaHocTap(CurrentUser.MaDoiTuong, maHocKy);
+            if (dt.Rows.Count == 0)
+            {
+                dgvKQ.DataSource = null;
+                ResetSummary();
+
+                MessageBox.Show(
+                    "Chưa có dữ liệu điểm cho học kỳ này!",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+
+                return;
+            }
 
             // Thêm cột STT
             if (!dt.Columns.Contains("STT"))

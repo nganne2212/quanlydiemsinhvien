@@ -56,7 +56,7 @@ namespace qldsv.Utils
                 new { MaHocKy = maHocKy });
 
             return so > 0
-                ? $"Con {so} don phuc khao chua xu ly. Vui long xu ly het truoc khi dong hoc ky!"
+                ? $"Còn {so} đơn phúc khảo chưa xử lý. Vui lòng xử lý hết trước khi đóng học kỳ!"
                 : "";
         }
 

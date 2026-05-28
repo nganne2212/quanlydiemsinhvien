@@ -16,22 +16,23 @@ namespace qldsv.DAL
         public static DataTable GetAll()
         {
             return Functions.GetDataToTable(@"
-                SELECT lhp.MaLHP,
-                       mh.TenMon,
-                       gv.HoTen,
-                       hk.TenHocKy + ' - ' + hk.NamHoc AS TenHK,
-                       lhp.NgayBatDau,
-                       lhp.NgayKetThuc,
-                       COUNT(dk.MaDangKy) AS SiSo
-                FROM LopHocPhan lhp
-                JOIN MonHoc mh ON lhp.MaMonHoc = mh.MaMonHoc
-                JOIN GiangVien gv ON lhp.MaGiangVien = gv.MaGiangVien
-                JOIN HocKy hk ON lhp.MaHocKy = hk.MaHocKy
-                LEFT JOIN DangKyHP dk ON lhp.MaLHP = dk.MaLHP
-                GROUP BY lhp.MaLHP, mh.TenMon, gv.HoTen,
-                         hk.TenHocKy, hk.NamHoc,
-                         lhp.NgayBatDau, lhp.NgayKetThuc
-                ORDER BY lhp.MaLHP");
+               SELECT lhp.MaLHP,
+               mh.TenMon,
+               gv.HoTen,
+               hk.TenHocKy + ' - ' + hk.NamHoc AS TenHK,
+               lhp.NgayBatDau,
+               lhp.NgayKetThuc,
+               COUNT(dk.MaDangKy) AS SiSo
+        FROM LopHocPhan lhp
+        JOIN MonHoc mh ON lhp.MaMonHoc = mh.MaMonHoc
+        JOIN GiangVien gv ON lhp.MaGiangVien = gv.MaGiangVien
+        JOIN HocKy hk ON lhp.MaHocKy = hk.MaHocKy
+        LEFT JOIN DangKyHP dk ON lhp.MaLHP = dk.MaLHP
+        WHERE hk.TrangThai = N'DangDienRa'
+        GROUP BY lhp.MaLHP, mh.TenMon, gv.HoTen,
+                 hk.TenHocKy, hk.NamHoc,
+                 lhp.NgayBatDau, lhp.NgayKetThuc
+        ORDER BY lhp.MaLHP");
         }
 
         public static bool KiemTraTrung(string maLHP)
@@ -211,7 +212,38 @@ namespace qldsv.DAL
                 }
             }
         }
+        public static bool TrungLichHoc(string maSV, string maLHP)
+        {
+            return Functions.QuerySingle<int>(@"
+        SELECT COUNT(*)
+        FROM DangKyHP dk
+        JOIN LichHoc lhCu ON dk.MaLHP = lhCu.MaLHP
 
+        JOIN LichHoc lhMoi ON lhMoi.MaLHP = @lhp
+
+        JOIN LopHocPhan lhpCu ON dk.MaLHP = lhpCu.MaLHP
+        JOIN LopHocPhan lhpMoi ON lhpMoi.MaLHP = @lhp
+
+        WHERE dk.MaSinhVien = @sv
+
+          -- cùng học kỳ
+          AND lhpCu.MaHocKy = lhpMoi.MaHocKy
+
+          -- khác lớp
+          AND dk.MaLHP <> @lhp
+
+          -- trùng thứ
+          AND lhCu.Thu = lhMoi.Thu
+
+          -- trùng ca
+          AND lhCu.CaHoc = lhMoi.CaHoc
+    ",
+            new
+            {
+                sv = maSV,
+                lhp = maLHP
+            }) > 0;
+        }
         // ─────────────────────────────────────────────
         // IMPORT EXCEL
         // ─────────────────────────────────────────────
@@ -265,6 +297,11 @@ namespace qldsv.DAL
                     {
                         item.HopLe = false;
                         item.LyDoLoi = "Sinh viên đã đăng ký môn này trong học kỳ";
+                    }
+                    else if (TrungLichHoc(maSV, maLHP))
+                    {
+                        item.HopLe = false;
+                        item.LyDoLoi = "Sinh viên đã đăng ký trùng lịch học với học phần khác";
                     }
 
                     else if (DaSVTrongLHP(maSV, maLHP))
