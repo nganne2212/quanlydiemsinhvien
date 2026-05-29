@@ -22,6 +22,7 @@ namespace qldsv.Forms
         private void FrmMainAdmin_Load(object sender, EventArgs e)
         {
             lblTen.Text = CurrentUser.TenDangNhap;
+            LoadForm(new Forms.Admin.FrmDashBoard());
         }
         private void LoadForm(Form form)
         {

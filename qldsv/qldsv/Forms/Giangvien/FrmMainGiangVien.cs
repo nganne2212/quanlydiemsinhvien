@@ -21,6 +21,7 @@ namespace qldsv.Forms.Giangvien
         private void FrmMainGiangVien_Load(object sender, EventArgs e)
         {
             lblTenGV.Text = CurrentUser.TenDangNhap;
+            LoadForm(new Forms.Giangvien.FrmDanhSachLHP());
         }
         private void LoadForm(Form form)
         {

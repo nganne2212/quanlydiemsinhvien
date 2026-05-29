@@ -21,6 +21,7 @@ namespace qldsv.Forms.Sinhvien
         private void FrmMainSinhVien_Load(object sender, EventArgs e)
         {
             lblSvien.Text = CurrentUser.TenDangNhap;
+            LoadForm(new Forms.Sinhvien.FrmLichHoc());
         }
         private void LoadForm(Form form)
         {
