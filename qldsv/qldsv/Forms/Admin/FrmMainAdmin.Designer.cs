@@ -68,7 +68,7 @@
             this.lblTen.ForeColor = System.Drawing.Color.White;
             this.lblTen.Location = new System.Drawing.Point(85, 18);
             this.lblTen.Name = "lblTen";
-            this.lblTen.Size = new System.Drawing.Size(112, 41);
+            this.lblTen.Size = new System.Drawing.Size(81, 30);
             this.lblTen.TabIndex = 1;
             this.lblTen.Text = "Admin";
             // 
@@ -79,7 +79,7 @@
             this.lblRole.ForeColor = System.Drawing.Color.Gainsboro;
             this.lblRole.Location = new System.Drawing.Point(85, 42);
             this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(184, 30);
+            this.lblRole.Size = new System.Drawing.Size(133, 21);
             this.lblRole.TabIndex = 2;
             this.lblRole.Text = "Quản trị hệ thống";
             // 
@@ -419,6 +419,7 @@
             this.btnDashboard.TabIndex = 4;
             this.btnDashboard.Text = "📊 Dashboard";
             this.btnDashboard.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // lblOnline
             // 
@@ -427,7 +428,7 @@
             this.lblOnline.ForeColor = System.Drawing.Color.Lime;
             this.lblOnline.Location = new System.Drawing.Point(85, 62);
             this.lblOnline.Name = "lblOnline";
-            this.lblOnline.Size = new System.Drawing.Size(99, 30);
+            this.lblOnline.Size = new System.Drawing.Size(75, 21);
             this.lblOnline.TabIndex = 3;
             this.lblOnline.Text = "● Online";
             // 
@@ -447,7 +448,7 @@
             // 
             // FrmMainAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1234, 705);

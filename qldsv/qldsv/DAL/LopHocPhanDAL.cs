@@ -157,6 +157,15 @@ namespace qldsv.DAL
                 VALUES (@sv, @lhp, @ngay)",
                 new { sv = maSV, lhp = maLHP, ngay = DateTime.Today });
         }
+        public static bool DaXacNhanDiem(string maLHP)
+        {
+            return Functions.QuerySingle<int>(@"
+        SELECT COUNT(*) FROM Diem d
+        JOIN DangKyHP dk ON d.MaDangKy = dk.MaDangKy
+        WHERE dk.MaLHP = @ma
+          AND d.TrangThai = N'DaXacNhan'",
+                new { ma = maLHP }) > 0;
+        }
         public static bool KiemTraTrangThaiSV(string maSV)
         {
             return Functions.QuerySingle<int>(
@@ -297,6 +306,11 @@ namespace qldsv.DAL
                     {
                         item.HopLe = false;
                         item.LyDoLoi = "Sinh viên đã đăng ký môn này trong học kỳ";
+                    }
+                    else if (DaXacNhanDiem(maLHP))
+                    {
+                        item.HopLe = false;
+                        item.LyDoLoi = "Lớp học phần đã xác nhận điểm, không thể thêm sinh viên";
                     }
                     else if (TrungLichHoc(maSV, maLHP))
                     {

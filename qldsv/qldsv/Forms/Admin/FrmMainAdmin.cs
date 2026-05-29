@@ -100,5 +100,10 @@ namespace qldsv.Forms
         {
             LoadForm(new Forms.Admin.FrmQLLop());
         }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Forms.Admin.FrmDashBoard());
+        }
     }
 }
