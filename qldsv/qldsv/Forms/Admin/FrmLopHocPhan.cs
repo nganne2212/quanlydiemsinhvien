@@ -133,9 +133,15 @@ namespace qldsv.Forms.Admin
         private void ResetValues()
         {
             txtMaLHP.Text = "";
-            cboMonHoc.SelectedIndex = -1;
-            cboGiangVien.SelectedIndex = -1;
-            cboHocKy.SelectedIndex = -1;
+
+            cboMonHoc.DataSource = null;
+            cboGiangVien.DataSource = null;
+            cboHocKy.DataSource = null;
+
+            LoadMonHoc();
+            LoadGiangVien();
+            LoadHocKy();
+
             dtpNgayBatDau.Value = DateTime.Now;
             dtpNgayKetThuc.Value = DateTime.Now.AddMonths(4);
         }
