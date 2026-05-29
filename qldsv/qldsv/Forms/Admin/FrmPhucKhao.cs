@@ -90,7 +90,7 @@ namespace qldsv.Forms.Admin
             colNgayGui.DataPropertyName = "NgayGui";
             colTrangThai.DataPropertyName = "TrangThai";
 
-            dgvPhucKhao.DataSource = dv.ToTable();
+            dgvPhucKhao.DataSource = dv;
 
             dgvPhucKhao.AllowUserToAddRows = false;
 
@@ -139,6 +139,9 @@ namespace qldsv.Forms.Admin
             dtpNgayXuLy.Value = DateTime.Now;
 
             txtDiemMoi.Enabled = false;
+            txtNhanXet.Enabled = false;
+            cboKetLuan.Enabled = false;
+            dtpNgayXuLy.Enabled = false;
             btnCapNhat.Enabled = false;
         }
 
@@ -179,6 +182,7 @@ namespace qldsv.Forms.Admin
                 row.Cells["colMaPhucKhaoHidden"].Value);
 
             DataRow[] rows = tblPhucKhao.Select($"MaPhucKhao = {maPhucKhao}");
+
             string trangThai = rows.Length > 0
                 ? rows[0]["TrangThai"]?.ToString() ?? ""
                 : "";
@@ -194,7 +198,11 @@ namespace qldsv.Forms.Admin
             string tenGV = rows.Length > 0
                 ? rows[0]["TenGiangVien"]?.ToString() ?? ""
                 : "";
-
+            string ngayXuLy = rows.Length > 0 ? rows[0]["NgayXuLy"]?.ToString() ?? "" : "";
+            string diemMoi = rows.Length > 0 ? rows[0]["DiemMoi"]?.ToString() ?? "" : "";
+            string nhanXet = rows.Length > 0 ? rows[0]["NhanXet"]?.ToString() ?? "" : "";
+            string ketLuan = rows.Length > 0 ? rows[0]["KetLuan"]?.ToString() ?? "" : "";
+          
             lblMaDon.Text =
                 $"Mã đơn: {row.Cells["colMaPhucKhao"].Value}";
 
@@ -212,17 +220,36 @@ namespace qldsv.Forms.Admin
 
             txtLyDo.Text = lyDo;
             txtDiemCu.Text = diemCu;
+            txtNhanXet.Text = nhanXet;
 
-            txtDiemMoi.Text = "";
-            txtNhanXet.Text = "";
+            cboKetLuan.SelectedIndexChanged -= cboKetLuan_SelectedIndexChanged;
 
             cboKetLuan.SelectedIndex = -1;
+            for (int i = 0; i < cboKetLuan.Items.Count; i++)
+            {
+                if (cboKetLuan.Items[i].ToString().Trim() == ketLuan.Trim())
+                {
+                    cboKetLuan.SelectedIndex = i;
+                    break;
+                }
+            }
 
-            dtpNgayXuLy.Value = DateTime.Now;
+            cboKetLuan.SelectedIndexChanged += cboKetLuan_SelectedIndexChanged;
+
+            txtDiemMoi.Text = diemMoi;
+
+            if (!string.IsNullOrEmpty(ngayXuLy) && DateTime.TryParse(ngayXuLy, out DateTime ngay))
+                dtpNgayXuLy.Value = ngay;
+            else
+                dtpNgayXuLy.Value = DateTime.Now;
+
+            bool chuaXuLy = trangThai == "ChuaXuLy";
 
             txtDiemMoi.Enabled = false;
-
-            btnCapNhat.Enabled = trangThai == "ChuaXuLy";
+            txtNhanXet.Enabled = chuaXuLy;
+            cboKetLuan.Enabled = chuaXuLy;
+            dtpNgayXuLy.Enabled = chuaXuLy;
+            btnCapNhat.Enabled = chuaXuLy;
         }
 
         private void cboKetLuan_SelectedIndexChanged(object sender, EventArgs e)

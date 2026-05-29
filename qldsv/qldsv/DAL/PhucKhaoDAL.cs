@@ -15,25 +15,30 @@ namespace qldsv.DAL
         public static DataTable GetAll(int maHocKy = 0, string trangThai = "")
         {
             string sql = @"SELECT pk.MaPhucKhao,
-                          dk.MaDangKy,
-                          dk.MaDangKy AS MaDangKyRef,
-                          sv.MaSinhVien + ' - ' + sv.HoTen AS TenSinhVien,
-                          mh.TenMon,
-                          pk.NgayGui,
-                          pk.TrangThai,
-                          pk.LyDo,
-                          d.CuoiKy AS DiemCu,
-                          lhp.MaGiangVien,
-                          gv.HoTen AS TenGiangVien
-                   FROM PhucKhao pk
-                   JOIN DangKyHP   dk  ON pk.MaDangKy  = dk.MaDangKy
-                   JOIN SinhVien   sv  ON dk.MaSinhVien = sv.MaSinhVien
-                   JOIN LopHocPhan lhp ON dk.MaLHP      = lhp.MaLHP
-                   JOIN MonHoc     mh  ON lhp.MaMonHoc  = mh.MaMonHoc
-                   JOIN GiangVien  gv  ON lhp.MaGiangVien = gv.MaGiangVien
-                   LEFT JOIN Diem  d   ON dk.MaDangKy   = d.MaDangKy
-                                      AND d.TrangThai   = N'DaXacNhan'
-                   WHERE 1=1";
+                      dk.MaDangKy,
+                      dk.MaDangKy AS MaDangKyRef,
+                      sv.MaSinhVien + ' - ' + sv.HoTen AS TenSinhVien,
+                      mh.TenMon,
+                      pk.NgayGui,
+                      pk.TrangThai,
+                      pk.LyDo,
+                      ISNULL(kq.DiemCu, d.CuoiKy) AS DiemCu,
+                      lhp.MaGiangVien,
+                      gv.HoTen AS TenGiangVien,
+                      kq.DiemMoi,
+                      kq.NhanXet,
+                      kq.KetLuan,
+                      kq.NgayXuLy
+               FROM PhucKhao pk
+               JOIN DangKyHP   dk  ON pk.MaDangKy    = dk.MaDangKy
+               JOIN SinhVien   sv  ON dk.MaSinhVien  = sv.MaSinhVien
+               JOIN LopHocPhan lhp ON dk.MaLHP       = lhp.MaLHP
+               JOIN MonHoc     mh  ON lhp.MaMonHoc   = mh.MaMonHoc
+               JOIN GiangVien  gv  ON lhp.MaGiangVien = gv.MaGiangVien
+               LEFT JOIN Diem  d   ON dk.MaDangKy    = d.MaDangKy
+                                   AND d.TrangThai   = N'DaXacNhan'
+               LEFT JOIN KetQuaPhucKhao kq ON pk.MaPhucKhao = kq.MaPhucKhao
+               WHERE 1=1";
 
             if (maHocKy > 0)
                 sql += " AND lhp.MaHocKy = " + maHocKy;
