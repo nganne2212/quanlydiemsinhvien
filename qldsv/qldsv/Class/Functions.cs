@@ -97,7 +97,7 @@ namespace qldsv.Class
             }
             catch (System.Exception ex)
             {
-                MessageBox.Show("Du lieu dang dc dung, ko the xoa", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Dữ liệu đang được dùng không thể xóa ", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             cmd.Dispose();
             cmd = null;
