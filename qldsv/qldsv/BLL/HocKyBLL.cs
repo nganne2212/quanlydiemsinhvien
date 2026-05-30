@@ -11,8 +11,7 @@ namespace qldsv.BLL
 {
     public class HocKyBLL
     {
-        // ── Validate riêng lẻ — Form dùng khi rời ô ────────────
-        // Trả về "" nếu hợp lệ, string lỗi nếu sai
+        
         public static string ValidateTenHocKy(string tenHocKy)
         {
             if (string.IsNullOrWhiteSpace(tenHocKy))

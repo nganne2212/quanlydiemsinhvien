@@ -352,7 +352,6 @@ namespace qldsv.Forms.Admin
 
             
 
-            // ── Bước 1: Kiểm tra đơn phúc khảo chưa xử lý ───────
             string loiPhucKhao = CanhBaoService.KiemTraPhucKhaoChuaXuLy(maHocKy);
             if (loiPhucKhao != "")
             {
@@ -361,7 +360,6 @@ namespace qldsv.Forms.Admin
                 return;
             }
 
-            // ── Bước 2: Xác nhận ─────────────────────────────────
             DialogResult rs = MessageBox.Show(
                 "Bạn có chắc muốn đóng học kỳ này?\n\n"
               + "⚠ Hệ thống sẽ tự động tính cảnh báo học vụ cho toàn bộ sinh viên.\n"
@@ -370,7 +368,7 @@ namespace qldsv.Forms.Admin
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (rs != DialogResult.Yes) return;
 
-            // ── Bước 3: Đóng học kỳ trong DB ─────────────────────
+
             string loiDong = HocKyBLL.DongHocKy(maHocKy);
             if (loiDong != "")
             {
@@ -378,7 +376,7 @@ namespace qldsv.Forms.Admin
                 return;
             }
 
-            // ── Bước 4: Tính cảnh báo học vụ ─────────────────────
+
             try
             {
                 string loiCanhBao = CanhBaoService.XuLyCanhBaoSauDongHK(maHocKy);

@@ -10,7 +10,7 @@ namespace qldsv.BLL
 {
     public class DoiMatKhauSVBLL
     {
-        // Trả về "" nếu thành công, string lỗi nếu sai
+        
         public static string DoiMatKhau(string tenDangNhap, string matKhauCu, string matKhauMoi)
         {
             // 1. Lấy mật khẩu hiện tại từ DB

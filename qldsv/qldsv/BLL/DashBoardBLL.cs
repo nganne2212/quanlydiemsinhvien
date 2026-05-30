@@ -6,7 +6,7 @@ namespace qldsv.BLL
 {
     class DashBoardBLL
     {
-        // ── ComboBoxes ──────────────────────────────────────────────────────
+
         public static DataTable GetAllHocKy()
         {
             return DashBoardDAL.GetAllHocKy();

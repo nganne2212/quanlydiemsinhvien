@@ -20,9 +20,9 @@ namespace qldsv.BLL
         public static DataRow GetHeSo(string maLHP) =>
             DAL.DiemDAL.GetHeSo(maLHP);
 
-        // ════════════════════════════════════════════════════════
+       
         //  TÍNH TỔNG KẾT
-        // ════════════════════════════════════════════════════════
+
 
         public static double? TinhTongKet(double? cc, double? kt1, double? kt2, double? ck, DataRow heSo)
         {
@@ -40,9 +40,8 @@ namespace qldsv.BLL
             return Math.Round(tong, 1);
         }
 
-        // ════════════════════════════════════════════════════════
+        
         //  XẾP ĐIỂM CHỮ
-        // ════════════════════════════════════════════════════════
 
         public static string XepDiemChu(double? tongKet)
         {
@@ -76,9 +75,8 @@ namespace qldsv.BLL
             return "";
         }
 
-        // ════════════════════════════════════════════════════════
+       
         //  LƯU TẠM
-        // ════════════════════════════════════════════════════════
 
         public static string LuuTam(DataTable tblDiem, string maLHP, DataRow heSo)
         {
