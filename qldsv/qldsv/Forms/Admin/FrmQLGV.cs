@@ -34,11 +34,16 @@ namespace qldsv.Forms.Admin
             DataTable dt = Functions.GetDataToTable(
                 "SELECT MaKhoa, TenKhoa FROM Khoa ORDER BY TenKhoa");
 
+            // thêm row trống vào đầu
+            DataRow rowTrong = dt.NewRow();
+            rowTrong["MaKhoa"] = "";
+            rowTrong["TenKhoa"] = "";
+            dt.Rows.InsertAt(rowTrong, 0);
+
             cboKhoa.DataSource = dt.Copy();
             cboKhoa.DisplayMember = "TenKhoa";
             cboKhoa.ValueMember = "MaKhoa";
-            cboKhoa.SelectedIndex = -1;
-
+            cboKhoa.SelectedIndex = 0;
         }
 
         private void Load_DataGridView()
@@ -63,7 +68,7 @@ namespace qldsv.Forms.Admin
             txtMaGV.Text = "";
             txtHoTen.Text = "";
             txtEmail.Text = "";
-            cboKhoa.SelectedIndex = -1;
+            cboKhoa.SelectedIndex = 0;
         }
 
         private void dgvGiangVien_Click(object sender, EventArgs e)
@@ -222,8 +227,7 @@ namespace qldsv.Forms.Admin
             DataView dv = tblGV.DefaultView;
             dv.RowFilter = $"(MaGiangVien LIKE '%{keyword}%' OR HoTen LIKE '%{keyword}%' OR MaKhoa LIKE '%{keyword}%')";
 
-            DataTable dtFilter = dv.ToTable();
-
+            dgvGiangVien.DataSource = dv;
         }
 
         private void txtTimKiem_KeyDown(object sender, KeyEventArgs e)

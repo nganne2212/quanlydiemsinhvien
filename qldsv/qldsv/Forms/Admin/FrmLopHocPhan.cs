@@ -57,35 +57,53 @@ namespace qldsv.Forms.Admin
         {
             DataTable dt = Functions.GetDataToTable(
                 "SELECT MaMonHoc, TenMon FROM MonHoc ORDER BY TenMon");
+
+            DataRow row = dt.NewRow();
+            row["MaMonHoc"] = "";
+            row["TenMon"] = "";
+            dt.Rows.InsertAt(row, 0);
+
             cboMonHoc.DataSource = dt;
             cboMonHoc.DisplayMember = "TenMon";
             cboMonHoc.ValueMember = "MaMonHoc";
-            cboMonHoc.SelectedIndex = -1;
+            cboMonHoc.SelectedIndex = 0;
         }
 
         private void LoadGiangVien()
         {
             DataTable dt = Functions.GetDataToTable(
                 "SELECT MaGiangVien, HoTen FROM GiangVien ORDER BY HoTen");
+
+            DataRow row = dt.NewRow();
+            row["MaGiangVien"] = "";
+            row["HoTen"] = "";
+            dt.Rows.InsertAt(row, 0);
+
             cboGiangVien.DataSource = dt;
             cboGiangVien.DisplayMember = "HoTen";
             cboGiangVien.ValueMember = "MaGiangVien";
-            cboGiangVien.SelectedIndex = -1;
+            cboGiangVien.SelectedIndex = 0;
         }
 
         private void LoadHocKy()
         {
             DataTable dt = Functions.GetDataToTable(
-                "SELECT MaHocKy, TenHocKy + ' - ' + NamHoc AS TenHK FROM HocKy WHERE Trangthai = N'DangDienRa'  ORDER BY MaHocKy DESC");
+                "SELECT MaHocKy, TenHocKy + ' - ' + NamHoc AS TenHK FROM HocKy WHERE Trangthai = N'DangDienRa' ORDER BY MaHocKy DESC");
+
+            DataRow row = dt.NewRow();
+            row["MaHocKy"] = 0;
+            row["TenHK"] = "";
+            dt.Rows.InsertAt(row, 0);
+
             cboHocKy.DataSource = dt;
             cboHocKy.DisplayMember = "TenHK";
             cboHocKy.ValueMember = "MaHocKy";
-            cboHocKy.SelectedIndex = -1;
-            if (dt.Rows.Count == 0)
+            cboHocKy.SelectedIndex = 0;
+
+            if (dt.Rows.Count == 1)
                 MessageBox.Show("Hiện chưa có học kỳ nào đang mở!\nVui lòng mở học kỳ trước khi thêm lớp học phần.",
                     "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
-
         private void Load_DgvLHP()
         {
             tblLHP = LopHocPhanBLL.GetAll();
@@ -133,10 +151,6 @@ namespace qldsv.Forms.Admin
         private void ResetValues()
         {
             txtMaLHP.Text = "";
-
-            cboMonHoc.DataSource = null;
-            cboGiangVien.DataSource = null;
-            cboHocKy.DataSource = null;
 
             LoadMonHoc();
             LoadGiangVien();

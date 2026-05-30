@@ -54,8 +54,18 @@ namespace qldsv.Forms.Admin
         private void dgvTaikhoan_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvTaikhoan.CurrentRow == null) return;
-            lblTendangnhap.Text = dgvTaikhoan.CurrentRow.Cells["TenDangNhap"].Value.ToString();
-            lblVaitro.Text = dgvTaikhoan.CurrentRow.Cells["VaiTro"].Value.ToString();
+
+            string ten = dgvTaikhoan.CurrentRow.Cells["TenDangNhap"].Value.ToString();
+            string vaiTro = dgvTaikhoan.CurrentRow.Cells["VaiTro"].Value.ToString();
+            string trangThai = dgvTaikhoan.CurrentRow.Cells["TrangThai"].Value.ToString();
+
+            lblTendangnhap.Text = ten;
+            lblVaitro.Text = vaiTro;
+
+            // Cập nhật trạng thái nút theo tài khoản đang chọn
+            bool biKhoa = trangThai == "BiKhoa";
+            btnKhoa.Enabled = !biKhoa;
+            btnMoKhoa.Enabled = biKhoa;
         }
 
         private void btnKhoa_Click(object sender, EventArgs e)

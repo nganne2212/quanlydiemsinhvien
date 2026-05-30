@@ -37,19 +37,24 @@ namespace qldsv.Forms.Admin
             DataTable dt = Functions.GetDataToTable(
                 "SELECT MaLop, TenLop FROM Lop ORDER BY TenLop");
 
+            // Thêm dòng trống cho cboLop
+            DataRow rowTrong = dt.NewRow();
+            rowTrong["MaLop"] = "";
+            rowTrong["TenLop"] = "-- Chọn lớp --";
+            dt.Rows.InsertAt(rowTrong, 0);
+
             cboLop.DataSource = dt.Copy();
             cboLop.DisplayMember = "TenLop";
             cboLop.ValueMember = "MaLop";
-            cboLop.SelectedIndex = -1;
+            cboLop.SelectedIndex = 0; // về dòng trống
 
-            // combobox lọc
-            DataTable dtLoc = dt.Copy();
-
-            DataRow row = dtLoc.NewRow();
-            row["MaLop"] = "Tất cả lớp";
-            row["TenLop"] = "Tất cả lớp";
-
-            dtLoc.Rows.InsertAt(row, 0);
+            // combobox lọc — bỏ dòng trống này, dùng "Tất cả lớp"
+            DataTable dtLoc = Functions.GetDataToTable(
+                "SELECT MaLop, TenLop FROM Lop ORDER BY TenLop");
+            DataRow rowAll = dtLoc.NewRow();
+            rowAll["MaLop"] = "Tất cả lớp";
+            rowAll["TenLop"] = "Tất cả lớp";
+            dtLoc.Rows.InsertAt(rowAll, 0);
 
             cboLocLop.DataSource = dtLoc;
             cboLocLop.DisplayMember = "MaLop";
@@ -106,7 +111,7 @@ namespace qldsv.Forms.Admin
             txtHoten.Text = "";
             dtpNgaySinh.Value = DateTime.Now;
             rdoNam.Checked = true;
-            cboLop.SelectedIndex = -1;
+            cboLop.SelectedIndex = 0;
             txtEmail.Text = "";
             mskSDT.Text = "";
             cboTrangThai.SelectedIndex = 0;

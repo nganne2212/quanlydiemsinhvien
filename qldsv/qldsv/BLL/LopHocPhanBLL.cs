@@ -121,10 +121,12 @@ namespace qldsv.BLL
                 if (string.IsNullOrWhiteSpace(maGV))
                     return "Vui lòng chọn giảng viên";
 
-                if (string.IsNullOrWhiteSpace(maHocKyStr) || !int.TryParse(maHocKyStr, out _))
-                    return "Vui lòng chọn học kỳ";
+            if (string.IsNullOrWhiteSpace(maHocKyStr) ||
+                !int.TryParse(maHocKyStr, out int maHK) ||
+                maHK == 0)
+                return "Vui lòng chọn học kỳ";
 
-                if (ngayKT <= ngayBD)
+            if (ngayKT <= ngayBD)
                     return "Ngày kết thúc phải sau ngày bắt đầu";
 
                 return "";
