@@ -501,9 +501,15 @@ namespace qldsv.Forms.Admin
 
             using (SaveFileDialog sfd = new SaveFileDialog())
             {
-                sfd.Filter = "Excel Files|*.xlsx";
-                sfd.FileName = tenBaoCao + "_" +
-                               DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                sfd.Filter = "Excel Files|*.xlsx";      
+                sfd.DefaultExt = "xlsx";                
+                sfd.AddExtension = true;
+                sfd.FileName = tenBaoCao
+                    .Replace("/", "-")
+                    .Replace("(", "")
+                    .Replace(")", "")
+                    .Replace(":", "")
+                    + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss");
 
                 if (sfd.ShowDialog() != DialogResult.OK) return;
 
@@ -542,8 +548,8 @@ namespace qldsv.Forms.Admin
 
                 ws.Cell(2, 1).Value =
                     "Học kỳ: " + cboHocKy.Text +
-                    "   |   Khoa: " + cboKhoa.Text;
-                ws.Cell(2, 1).Style.Font.Italic = true;
+                    "   |   Khoa: " + cboKhoa.Text +
+                    (cboLop.SelectedIndex > 0 ? "   |   Lớp: " + cboLop.Text : "");  // ← thêm dòng này
 
                 ws.Cell(3, 1).Value =
                     "Ngày xuất: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm");
@@ -610,9 +616,9 @@ namespace qldsv.Forms.Admin
                     dtTQ.Columns.Add("Chỉ số");
                     dtTQ.Columns.Add("Giá trị");
                     dtTQ.Rows.Add("Tổng sinh viên", dr["TongSinhVien"]);
-                    dtTQ.Rows.Add("SV cảnh báo", dr["SoCanhBao"]);  
-                    dtTQ.Rows.Add("Tỷ lệ đậu (%)", dr["TyLeDau"]);
-                    dtTQ.Rows.Add("Tỷ lệ rớt (%)", dr["TyLeRot"]);
+                    dtTQ.Rows.Add("SV cảnh báo", dr["SoCanhBao"]);
+                    dtTQ.Rows.Add("Tỷ lệ đậu (%)", Convert.ToDouble(dr["TyLeDau"]).ToString("0.0"));  // ← thêm
+                    dtTQ.Rows.Add("Tỷ lệ rớt (%)", Convert.ToDouble(dr["TyLeRot"]).ToString("0.0"));  // ← thêm
                     return dtTQ;
 
                 case 1:
