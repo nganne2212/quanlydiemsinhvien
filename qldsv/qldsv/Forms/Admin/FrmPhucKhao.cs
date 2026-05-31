@@ -17,7 +17,7 @@ namespace qldsv.Forms.Admin
         {
             InitializeComponent();
         }
-
+        DataTable tblPhucKhaoGoc;
         private void FrmPhucKhao_Load(object sender, EventArgs e)
         {
             splitMain.SplitterDistance = 480;
@@ -70,6 +70,7 @@ namespace qldsv.Forms.Admin
                              : "";
 
             tblPhucKhao = PhucKhaoBLL.GetAll(maHK, trangThai);
+            tblPhucKhaoGoc = tblPhucKhao.Copy();
 
             string kw = txtSearch.Text.Trim().Replace("'", "''");
 
@@ -181,7 +182,7 @@ namespace qldsv.Forms.Admin
             int maPhucKhao = Convert.ToInt32(
                 row.Cells["colMaPhucKhaoHidden"].Value);
 
-            DataRow[] rows = tblPhucKhao.Select($"MaPhucKhao = {maPhucKhao}");
+            DataRow[] rows = tblPhucKhaoGoc.Select($"MaPhucKhao = {maPhucKhao}");
 
             string trangThai = rows.Length > 0
                 ? rows[0]["TrangThai"]?.ToString() ?? ""
@@ -284,9 +285,7 @@ namespace qldsv.Forms.Admin
             int maDangKy = Convert.ToInt32(
                 row.Cells["colMaDangKy"].Value);
 
-            DataRow[] rows =
-                tblPhucKhao.Select($"MaPhucKhao = {maPhucKhao}");
-
+            DataRow[] rows = tblPhucKhaoGoc.Select($"MaPhucKhao = {maPhucKhao}");
             string maGV = rows.Length > 0
                 ? rows[0]["MaGiangVien"]?.ToString() ?? ""
                 : "";
