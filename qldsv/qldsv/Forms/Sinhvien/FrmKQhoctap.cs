@@ -170,17 +170,16 @@ namespace qldsv.Forms.Sinhvien
         private void CalculateSummary(int maHocKy)
         {
             var tgtk = KQHocTapBLL.GetThongKeTongKetHocKy(CurrentUser.MaDoiTuong, maHocKy);
-            var tgtl = KQHocTapBLL.GetThongKeTongKetTichLuy(CurrentUser.MaDoiTuong);
+            var tgtl = KQHocTapBLL.GetThongKeTongKetTichLuy(CurrentUser.MaDoiTuong, maHocKy); // ← thêm maHocKy
 
-            // Học kỳ
             lblTB10.Text = "TB (10): " + tgtk["TB10"].ToString();
             lblTB4.Text = "TB (4.0): " + tgtk["TB4"].ToString();
             lblTinChi.Text = "Tín chỉ: " + tgtk["TongTC"].ToString();
 
-            // Tích lũy
             lblTBTL10.Text = "TB TL (10): " + tgtl["TB10"].ToString();
             lblTBTL4.Text = "TB TL (4.0): " + tgtl["TB4"].ToString();
             lblTinChiTL.Text = "TC TL: " + tgtl["TongTC"].ToString();
+
             double tb4 = Convert.ToDouble(tgtl["TB4"]);
             lblXepLoai.Text = "Xếp loại: " + XepLoai(tb4);
         }

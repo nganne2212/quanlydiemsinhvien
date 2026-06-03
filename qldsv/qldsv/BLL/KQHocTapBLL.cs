@@ -89,18 +89,17 @@ namespace qldsv.BLL
             };
         }
 
-        public static Dictionary<string, object> GetThongKeTongKetTichLuy(string maSV)
+        public static Dictionary<string, object> GetThongKeTongKetTichLuy(string maSV, int maHocKy)
         {
-            double tb10 = DAL.KQHocTapDAL.TinhTrungBinhTichLuy(maSV);
-            double tb4 = DAL.KQHocTapDAL.TinhGPA4TichLuy(maSV);
-            int tongTC = DAL.KQHocTapDAL.TinhTongTinChiTichLuy(maSV);
-
+            double tb10 = DAL.KQHocTapDAL.TinhTrungBinhTichLuy(maSV, maHocKy);
+            double tb4 = DAL.KQHocTapDAL.TinhGPA4TichLuy(maSV, maHocKy);
+            int tongTC = DAL.KQHocTapDAL.TinhTongTinChiTichLuy(maSV, maHocKy);
             return new Dictionary<string, object>
-            {
-                { "TB10", Math.Round(tb10, 1) },
-                { "TB4", Math.Round(tb4, 2) },
-                { "TongTC", tongTC }
-            };
+    {
+        { "TB10", Math.Round(tb10, 1) },
+        { "TB4",  Math.Round(tb4, 2) },
+        { "TongTC", tongTC }
+    };
         }
     }
 }

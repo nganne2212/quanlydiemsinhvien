@@ -117,47 +117,65 @@ namespace qldsv.DAL
         }
 
 
-        public static double TinhTrungBinhTichLuy(string maSV)
+        public static double TinhTrungBinhTichLuy(string maSV, int maHocKy)
         {
             double? result = Functions.QuerySingle<double?>(
                 @"SELECT 
-                    CASE WHEN SUM(mh.SoTinChi) = 0 THEN 0
-                    ELSE ROUND(SUM(d.TongKet * mh.SoTinChi) / SUM(mh.SoTinChi), 2)
-                    END
-                FROM DangKyHP dk
-                INNER JOIN LopHocPhan lhp ON dk.MaLHP = lhp.MaLHP
-                INNER JOIN MonHoc mh ON lhp.MaMonHoc = mh.MaMonHoc
-                LEFT JOIN Diem d ON dk.MaDangKy = d.MaDangKy
-                WHERE dk.MaSinhVien = @maSV
-                AND d.TongKet IS NOT NULL",
-                new { maSV });
+            CASE WHEN SUM(mh.SoTinChi) = 0 THEN 0
+            ELSE ROUND(SUM(d.TongKet * mh.SoTinChi) / SUM(mh.SoTinChi), 2)
+            END
+        FROM DangKyHP dk
+        INNER JOIN LopHocPhan lhp ON dk.MaLHP = lhp.MaLHP
+        INNER JOIN MonHoc mh ON lhp.MaMonHoc = mh.MaMonHoc
+        LEFT JOIN Diem d ON dk.MaDangKy = d.MaDangKy
+        WHERE dk.MaSinhVien = @maSV
+          AND lhp.MaHocKy <= @maHocKy
+          AND d.TongKet IS NOT NULL
+          AND d.TrangThai = N'DaXacNhan'",
+                new { maSV, maHocKy });
             return result ?? 0;
         }
 
-
-        public static double TinhGPA4TichLuy(string maSV)
+        public static double TinhGPA4TichLuy(string maSV, int maHocKy)
         {
             double? result = Functions.QuerySingle<double?>(
                 @"SELECT 
-                    CASE WHEN SUM(mh.SoTinChi) = 0 THEN 0
-                    ELSE ROUND(SUM(CASE 
-                        WHEN d.TongKet >= 8.5 THEN 4.0 * mh.SoTinChi
-                        WHEN d.TongKet >= 8.0 THEN 3.5 * mh.SoTinChi
-                        WHEN d.TongKet >= 7.0 THEN 3.0 * mh.SoTinChi
-                        WHEN d.TongKet >= 6.5 THEN 2.5 * mh.SoTinChi
-                        WHEN d.TongKet >= 5.5 THEN 2.0 * mh.SoTinChi
-                        WHEN d.TongKet >= 5.0 THEN 1.5 * mh.SoTinChi
-                        WHEN d.TongKet >= 4.0 THEN 1.0 * mh.SoTinChi
-                        ELSE 0 END) / SUM(mh.SoTinChi), 2)
-                    END
-                FROM DangKyHP dk
-                INNER JOIN LopHocPhan lhp ON dk.MaLHP = lhp.MaLHP
-                INNER JOIN MonHoc mh ON lhp.MaMonHoc = mh.MaMonHoc
-                LEFT JOIN Diem d ON dk.MaDangKy = d.MaDangKy
-                WHERE dk.MaSinhVien = @maSV
-                AND d.TongKet IS NOT NULL",
-                new { maSV });
+            CASE WHEN SUM(mh.SoTinChi) = 0 THEN 0
+            ELSE ROUND(SUM(CASE 
+                WHEN d.TongKet >= 8.5 THEN 4.0 * mh.SoTinChi
+                WHEN d.TongKet >= 8.0 THEN 3.5 * mh.SoTinChi
+                WHEN d.TongKet >= 7.0 THEN 3.0 * mh.SoTinChi
+                WHEN d.TongKet >= 6.5 THEN 2.5 * mh.SoTinChi
+                WHEN d.TongKet >= 5.5 THEN 2.0 * mh.SoTinChi
+                WHEN d.TongKet >= 5.0 THEN 1.5 * mh.SoTinChi
+                WHEN d.TongKet >= 4.0 THEN 1.0 * mh.SoTinChi
+                ELSE 0 END) / SUM(mh.SoTinChi), 2)
+            END
+        FROM DangKyHP dk
+        INNER JOIN LopHocPhan lhp ON dk.MaLHP = lhp.MaLHP
+        INNER JOIN MonHoc mh ON lhp.MaMonHoc = mh.MaMonHoc
+        LEFT JOIN Diem d ON dk.MaDangKy = d.MaDangKy
+        WHERE dk.MaSinhVien = @maSV
+          AND lhp.MaHocKy <= @maHocKy
+          AND d.TongKet IS NOT NULL
+          AND d.TrangThai = N'DaXacNhan'",
+                new { maSV, maHocKy });
             return result ?? 0;
+        }
+
+        public static int TinhTongTinChiTichLuy(string maSV, int maHocKy)
+        {
+            return Functions.QuerySingle<int>(
+                @"SELECT ISNULL(SUM(mh.SoTinChi), 0)
+          FROM DangKyHP dk
+          INNER JOIN LopHocPhan lhp ON dk.MaLHP = lhp.MaLHP
+          INNER JOIN MonHoc mh ON lhp.MaMonHoc = mh.MaMonHoc
+          LEFT JOIN Diem d ON dk.MaDangKy = d.MaDangKy
+          WHERE dk.MaSinhVien = @maSV
+            AND lhp.MaHocKy <= @maHocKy
+            AND d.TongKet >= 4.0
+            AND d.TrangThai = N'DaXacNhan'",
+                new { maSV, maHocKy });
         }
 
 
@@ -174,18 +192,6 @@ namespace qldsv.DAL
         }
 
 
-        public static int TinhTongTinChiTichLuy(string maSV)
-        {
-            return Functions.QuerySingle<int>(
-                @"SELECT ISNULL(SUM(mh.SoTinChi), 0)
-          FROM DangKyHP dk
-          INNER JOIN LopHocPhan lhp ON dk.MaLHP = lhp.MaLHP
-          INNER JOIN MonHoc mh ON lhp.MaMonHoc = mh.MaMonHoc
-          LEFT JOIN Diem d ON dk.MaDangKy = d.MaDangKy
-          WHERE dk.MaSinhVien = @maSV
-            AND d.TongKet >= 4.0
-            AND d.TrangThai = N'DaXacNhan'",
-                new { maSV });
-        }
+       
     }
 }
