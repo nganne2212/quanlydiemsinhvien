@@ -180,19 +180,18 @@ namespace qldsv.Forms.Sinhvien
             lblTBTL4.Text = "TB TL (4.0): " + tgtl["TB4"].ToString();
             lblTinChiTL.Text = "TC TL: " + tgtl["TongTC"].ToString();
 
-            double tb10 = Convert.ToDouble(tgtk["TB10"]);
-            lblXepLoai.Text = "Xếp loại: " + XepLoai(tb10);
+            double tb4 = Convert.ToDouble(tgtl["TB4"]);
+            lblXepLoai.Text = "Xếp loại: " + XepLoai(tb4);
         }
-        private string XepLoai(double tb10)
+        private string XepLoai(double tb4)
         {
-            if (tb10 >= 9.0) return "Xuất sắc";
-            if (tb10 >= 8.0) return "Giỏi";
-            if (tb10 >= 7.0) return "Khá";
-            if (tb10 >= 5.0) return "Trung bình";
-            if (tb10 >= 4.0) return "Yếu";
+            if (tb4 >= 3.6) return "Xuất sắc";
+            if (tb4 >= 3.2) return "Giỏi";
+            if (tb4 >= 2.5) return "Khá";
+            if (tb4 >= 2.0) return "Trung bình";
+            if (tb4 >= 1.0) return "Yếu";
             return "Kém";
         }
-
         private void ResetSummary()
         {
             lblTB10.Text = "TB (10): 0.00";
